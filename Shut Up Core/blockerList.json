@@ -1,0 +1,2546 @@
+[
+    {
+        "action": {
+            "selector": "#watch-comment-panel",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": "#cm"
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": "#watch-comments-core"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": "#watch-discussion"
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "selector": "#comments-test-iframe",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": ".comments:not(code)"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": ".Comments:not(code)"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": "#comments:not(code)"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": "#Comments:not(code)"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "selector": "#comments_container",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": "#disqus_thread"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": "#dsq-content"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "action": {
+            "selector": ".block-talkback_story",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "action": {
+            "selector": "#prodReviews",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "selector": ".revcontent",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": ".commentlist"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "action": {
+            "selector": "#commentlisting",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": "#socialcomments"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": "#commentwrapper"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": ".commentwrapper"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "selector": ".commentarea",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": "#story-comments"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "selector": ".comment",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "action": {
+            "selector": "#commentform",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": ".commentText"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "selector": "div#pluckcomments",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "action": {
+            "selector": "div#page div#content h2#shoutbox",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "selector": "div#page div#content div#shoutboxContainer",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "selector": "#latest-comments",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": ".commentHolder"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": ".comments-list"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": "#blogComments"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": "#comments_pane"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "action": {
+            "selector": "#commentcontainer",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "action": {
+            "selector": "#commentsDiv",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "action": {
+            "selector": ".comment-container",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": "#comment-container"
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": "#comment_container"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": "#commentblob"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": "#cnnComments"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "selector": "#BrowseComments",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": ".mwpphu-comments"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "selector": ".ugccmt-comments",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": ".comments-body"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": ".articleComments"
+        }
+    },
+    {
+        "action": {
+            "selector": ".pluck-comm",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "selector": ".page-comments",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": "#gmi-CCommentMaster"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": ".comments-container"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": "#media_comments"
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": "#idc-container-parent"
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": "#livefyre_comment_stream"
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "selector": "#livefyre-body",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "selector": "#livefyre",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": ".fyre"
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "selector": "#articleComments",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": ".js-CommentsArea"
+        }
+    },
+    {
+        "action": {
+            "selector": "#readerComments",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "selector": ".readerComments",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "selector": "#commentsContainer",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": ".commentsContainer"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": ".commentsModule"
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": "span.postMetaHeaderCommentCount.commentCount"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": "button.comments-button"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": "a.commentCountLink"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "action": {
+            "selector": "p.theme-comments",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "action": {
+            "selector": ".dna-comment",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": ".view-6"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": ".space-_5"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": ".all_comments"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": "#display_comments"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "selector": ".article-comments",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": "#commentscontainer"
+        }
+    },
+    {
+        "action": {
+            "selector": ".echo-stream-container",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "action": {
+            "selector": "#feedback",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "selector": "#lf_comments",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": "#lf_twitter_comments"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": "#lf_facebook_comments"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": "#lf_comment_stream"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": "#commentList"
+        }
+    },
+    {
+        "action": {
+            "selector": "#inferno-comments",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "action": {
+            "selector": ".cb_block",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "action": {
+            "selector": ".CMT_CommentList",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "selector": "#comments_section",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "selector": ".fb-comments",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": ".UFIComment"
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": "fb\\:comments"
+        }
+    },
+    {
+        "action": {
+            "selector": "#responses",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": "#facebook_responses"
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": "#facebook_conversations"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": "#fb_comments_wrapper"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": "#fb_comments_control"
+        }
+    },
+    {
+        "action": {
+            "selector": ".fb-comments-area",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "action": {
+            "selector": "#respond",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "selector": "#badge_voting",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "action": {
+            "selector": ".spCommentsBoxBody",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": ".kommentare_uebersicht"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "selector": "#body_dlt",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "selector": "#comment_box_article",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "action": {
+            "selector": "#ugc-container",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": "#gs-social-comments"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": ".gig-comments-container"
+        }
+    },
+    {
+        "action": {
+            "selector": ".ArtikelKommentieren",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "action": {
+            "selector": ".comment-avatar-wrap",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "selector": ".fbFeedbackContent",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": ".pluck-wrap"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": "#media-comments"
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": "#d2-root"
+        }
+    },
+    {
+        "action": {
+            "selector": ".thyme-comment-list",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "selector": ".commentsList__item .commentItem",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": ".commentPopover"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": "#vanilla-comments"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": ".replies-wrapper > .replies"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": ".view-comment-list"
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": ".js_replies"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": "#tsnYourCallStory"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": "#kommentit"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": ".NB-feed-story-comments"
+        }
+    },
+    {
+        "action": {
+            "selector": ".b-comments_page",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "selector": ".hdn-comments",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "action": {
+            "selector": "#cmComments",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "action": {
+            "selector": ".rtb-apps-comments-container",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "action": {
+            "selector": ".communityCanvas",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "action": {
+            "selector": "#commentbox",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "action": {
+            "selector": "#newcommentform",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": "#QuickRegCon"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": ".modCon.modConComments"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": ".full.community.page.last.even"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": ".clearfix.article-comments-box.module-box"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "action": {
+            "selector": ".hcf-article.hcf-content.hcf-article-type2",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "selector": "#commentsRoot",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "selector": ".Comment",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "selector": "#conversations-huffpost-web-main",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "action": {
+            "selector": "#hcf-comment-wrapper.hcf-comments",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "action": {
+            "selector": "#commentInput.hcf-comments-input",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": ".hcf-comments"
+        }
+    },
+    {
+        "action": {
+            "selector": ".hcf-detail.hcf-comments-container",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": "aside.comments-hotness"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": "a.comment-count"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "action": {
+            "selector": "div.comments-bar",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": ".summary-comments"
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "selector": ".post-content .annotation-footnote-wrapper",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "selector": ".post-content .annotateButton",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": "#comments-container"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "action": {
+            "selector": ".post-comments-module",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": "#comments-count"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": ".comments-body-container"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "selector": ".m-hero__comment-count",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "action": {
+            "selector": ".comment_count",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": ".m-comment-count__bubble"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "selector": ".m-stream__node-list__comments",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "action": {
+            "selector": "[data-ui=comment]",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "action": {
+            "selector": ".liste_reactions",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": "#reagir"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": "#commentaires"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "selector": ".commentaires",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "action": {
+            "selector": "#conversations-huffpost-web",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": "#civil-comments"
+        }
+    },
+    {
+        "action": {
+            "selector": ".post-comment",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "selector": ".confab",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": "#dynamiccomments"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "action": {
+            "selector": ".comments-block",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": ".comment_area"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": "#cbox_module"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": ".cmt_news"
+        }
+    },
+    {
+        "action": {
+            "selector": ".viafoura",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "action": {
+            "selector": ".responsesWrapper",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "action": {
+            "selector": ".responsesStreamWrapper",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "action": {
+            "selector": "#boxComentarios",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": "#comentarios"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": "#article-comments"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": ".abril-comentarios-widget"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": ".replies_wrap > div:first-child"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": "#pv_comments.wall_module"
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": "#mv_comments.wall_module"
+        }
+    },
+    {
+        "action": {
+            "selector": ".pl_video_comment_post_and_comments",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "selector": ".reacties",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": "#reacties"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": ".comments_article"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": "#comments-frame"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "selector": "#commenting",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": ".is-comments-widget"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": ".xcContainer"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "selector": ".teaser .teaser_footer > a",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": "a.button.annotation-count"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": "#right-column .chat-room"
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": ".right-column .chat-room__container"
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": ".channel-page__right-column .chat__container"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": ".chat-pane .chat-pane__chat-list"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": "#watch-sidebar-live-chat"
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": "ytd-live-chat-frame"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": ".js-comments-thread-container"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": "[data-test-tag=\"comment-row\"]"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "action": {
+            "selector": "span#react-root main article section + div > ul",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "selector": "html.client-root [role=\"dialog\"] article section + div > ul",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": "#js-mount-point-comment-module"
+        }
+    },
+    {
+        "action": {
+            "selector": ".comment-list",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": "#YDC-MainCanvas .canvas-share-buttons > div:last-child"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "selector": ".sppre_conversation-view",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "selector": ".commentthread_area",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "selector": ".contentCol .forum",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "action": {
+            "selector": "#commentlist",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": ".comments_area"
+        }
+    },
+    {
+        "action": {
+            "selector": ".discussionContainer",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "action": {
+            "selector": ".commentBoxStyle",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        },
+        "action": {
+            "selector": ".pagecomment",
+            "type": "css-display-none"
+        }
+    },
+    {
+        "action": {
+            "selector": ".pagecommentheader",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": ".com_text"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "type": "css-display-none",
+            "selector": ".commenttxt"
+        }
+    },
+    {
+        "action": {
+            "selector": ".post-comments",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        }
+    },
+    {
+        "action": {
+            "selector": ".post-comment-list",
+            "type": "css-display-none"
+        },
+        "trigger": {
+            "url-filter": ".*",
+            "unless-domain": [
+                "*rickyromero.com"
+            ]
+        }
+    },
+    {
+        "trigger": {
+            "unless-domain": [
+                "*rickyromero.com"
+            ],
+            "url-filter": ".*"
+        },
+        "action": {
+            "selector": "#cmtWrapper",
+            "type": "css-display-none"
+        }
+    }
+]
