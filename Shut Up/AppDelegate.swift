@@ -48,10 +48,6 @@ extension AppDelegate: ErrorRecoveryDelegate {
                 case .reset:
                     break;
             }
-            if option == .tryAgain {
-//                try something()
-                throw FileError.checkingFreeSpace
-            }
         } catch {
             NSApp.presentError(error)
         }
