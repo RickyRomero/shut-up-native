@@ -170,6 +170,6 @@ class MessagingError: NSError {
             }
         }
 
-        return genAlertContents(MessageContents(title: title, info: info, options: options))
+        return genAlertContents(MessageContents(title: title, info: info, options: options?.reversed()))
     }
 }

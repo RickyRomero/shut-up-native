@@ -54,22 +54,25 @@ final class Setup {
     // Safari extensions initialize and run in a way that's very unpredictable,
     // so we need some guarantee that this code runs once and only once per process.
     // https://forums.developer.apple.com/thread/113010#420523
-    private var bootstrapRun = false
+    private var bootstrapStarted = false
+    private var bootstrapAttempted = false
     func bootstrap() {
-        guard !bootstrapRun else { return }
+        guard !bootstrapStarted else { return }
 
-        bootstrapRun = true
+        bootstrapStarted = true
 
         Preferences.main.setup()
 
-//        var defaultKeychain: SecKeychain? = nil
-//        let status = SecKeychainCopyDefault(&defaultKeychain)
-//        print(status)
-//        SecKeychainLock(defaultKeychain)
+        var defaultKeychain: SecKeychain? = nil
+        let status = SecKeychainCopyDefault(&defaultKeychain)
+        print(status)
+        SecKeychainLock(defaultKeychain)
 
         ClaQueue([
             CryptoSetupCla()
         ]).run { (error: Error?) in
+            self.bootstrapAttempted = true
+
             guard error == nil else {
                 if Info.isApp {
                     NSApp.presentError(MessagingError(error!))
@@ -98,5 +101,15 @@ final class Setup {
             try? "".write(to: destUrl, atomically: true, encoding: .utf8)
             NSLog("bootstrap Shut Up Core \(Info.bundleId)")
         }
+    }
+
+    func reset() {
+        // Prevent a case where multiple things could try to reset at once,
+        // kicking off multiple bootstrap sessions
+        guard bootstrapAttempted else { return }
+
+        bootstrapStarted = false
+        bootstrapAttempted = false
+        bootstrap()
     }
 }

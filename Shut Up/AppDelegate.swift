@@ -39,7 +39,7 @@ extension AppDelegate: ErrorRecoveryDelegate {
         do {
             switch option {
                 case .tryAgain:
-                    throw MessagingError(FileError.checkingFreeSpace)
+                    Setup.main.reset()
                 case .ok:
                     break
                 case .quit:
