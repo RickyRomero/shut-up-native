@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		110C5A94247C41DD00004DFA /* EnableExtensionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110C5A93247C41DD00004DFA /* EnableExtensionsViewController.swift */; };
 		110F510D247B7C9000D58266 /* DelegatingRecoverableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110F510C247B7C9000D58266 /* DelegatingRecoverableError.swift */; };
 		110FEE0E2476D07100AA0B83 /* MessagingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110FEE0D2476D07100AA0B83 /* MessagingError.swift */; };
 		110FEE0F2476D07100AA0B83 /* MessagingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110FEE0D2476D07100AA0B83 /* MessagingError.swift */; };
@@ -23,6 +24,7 @@
 		111C4DE0234A47180034054C /* domain-whitelist.json in Resources */ = {isa = PBXBuildFile; fileRef = 111C4DDF234A47180034054C /* domain-whitelist.json */; };
 		111C4DE1234A47180034054C /* domain-whitelist.json in Resources */ = {isa = PBXBuildFile; fileRef = 111C4DDF234A47180034054C /* domain-whitelist.json */; };
 		111C4DE2234A47180034054C /* domain-whitelist.json in Resources */ = {isa = PBXBuildFile; fileRef = 111C4DDF234A47180034054C /* domain-whitelist.json */; };
+		112C6B82247C669A00278E1A /* WelcomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112C6B81247C669A00278E1A /* WelcomePageController.swift */; };
 		11358189236FCB0F00BF7617 /* Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11358188236FCB0F00BF7617 /* Links.swift */; };
 		113CAF73247B08AD00311C57 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113CAF72247B08AD00311C57 /* WelcomeViewController.swift */; };
 		117578622355876000827387 /* SetupModalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117578612355876000827387 /* SetupModalController.swift */; };
@@ -95,12 +97,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		110C5A93247C41DD00004DFA /* EnableExtensionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableExtensionsViewController.swift; sourceTree = "<group>"; };
 		110F510C247B7C9000D58266 /* DelegatingRecoverableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DelegatingRecoverableError.swift; path = "Shut Up/DelegatingRecoverableError.swift"; sourceTree = SOURCE_ROOT; };
 		110FEE0D2476D07100AA0B83 /* MessagingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingError.swift; sourceTree = "<group>"; };
 		111C4DD2234A2ADD0034054C /* Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setup.swift; sourceTree = "<group>"; };
 		111C4DD6234A2D040034054C /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		111C4DDB234A46C10034054C /* shutup.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = shutup.css; sourceTree = "<group>"; };
 		111C4DDF234A47180034054C /* domain-whitelist.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "domain-whitelist.json"; sourceTree = "<group>"; };
+		112C6B81247C669A00278E1A /* WelcomePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageController.swift; sourceTree = "<group>"; };
 		11358188236FCB0F00BF7617 /* Links.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Links.swift; sourceTree = "<group>"; };
 		113CAF72247B08AD00311C57 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		117578612355876000827387 /* SetupModalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupModalController.swift; sourceTree = "<group>"; };
@@ -190,7 +194,9 @@
 			isa = PBXGroup;
 			children = (
 				117578612355876000827387 /* SetupModalController.swift */,
+				112C6B81247C669A00278E1A /* WelcomePageController.swift */,
 				113CAF72247B08AD00311C57 /* WelcomeViewController.swift */,
+				110C5A93247C41DD00004DFA /* EnableExtensionsViewController.swift */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";
@@ -455,6 +461,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11358189236FCB0F00BF7617 /* Links.swift in Sources */,
+				110C5A94247C41DD00004DFA /* EnableExtensionsViewController.swift in Sources */,
 				11F903D9247312580012051C /* ConditionalLockAction.swift in Sources */,
 				11EF35712479F12000D5EFD2 /* Preferences.swift in Sources */,
 				11E581D8231DB6FC00910010 /* MainViewController.swift in Sources */,
@@ -471,6 +478,7 @@
 				11E4B0B3246D0EF3007340A4 /* EncryptedFile.swift in Sources */,
 				11E581D3231DB6FC00910010 /* AppDelegate.swift in Sources */,
 				113CAF73247B08AD00311C57 /* WelcomeViewController.swift in Sources */,
+				112C6B82247C669A00278E1A /* WelcomePageController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

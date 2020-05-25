@@ -66,7 +66,7 @@
     <string>© 2010 - 2020 Ricky Romero
 shutup.css © 2010 - 2020 Steven Frank and contributors</string>
 	<key>NSHumanReadableDescription</key>
-	<string>Enables Shut Up’s toolbar button, context menu item, and stylesheet updater. Recommended, but not required.</string>
+	<string>Enables Shut Up’s toolbar button, context menu item, and stylesheet updater. Recommended for full functionality.</string>
 	<key>TeamIdentifierPrefix</key>
 	<string>$(TeamIdentifierPrefix)</string>
 	<key>CFBundleIconFile</key>

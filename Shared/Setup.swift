@@ -63,10 +63,10 @@ final class Setup {
 
         Preferences.main.setup()
 
-        var defaultKeychain: SecKeychain? = nil
-        let status = SecKeychainCopyDefault(&defaultKeychain)
-        print(status)
-        SecKeychainLock(defaultKeychain)
+//        var defaultKeychain: SecKeychain? = nil
+//        let status = SecKeychainCopyDefault(&defaultKeychain)
+//        print(status)
+//        SecKeychainLock(defaultKeychain)
 
         ClaQueue([
             CryptoSetupCla()
@@ -103,7 +103,7 @@ final class Setup {
         }
     }
 
-    func reset() {
+    func restart() {
         // Prevent a case where multiple things could try to reset at once,
         // kicking off multiple bootstrap sessions
         guard bootstrapAttempted else { return }
@@ -112,4 +112,6 @@ final class Setup {
         bootstrapAttempted = false
         bootstrap()
     }
+
+    func reset() {}
 }

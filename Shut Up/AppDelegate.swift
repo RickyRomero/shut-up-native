@@ -36,20 +36,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 extension AppDelegate: ErrorRecoveryDelegate {
     func attemptRecovery(from error: Error, with option: RecoveryOption) -> Bool {
-        do {
-            switch option {
-                case .tryAgain:
-                    Setup.main.reset()
-                case .ok:
-                    break
-                case .quit:
-                    _ = NSApp.mainWindow?.sheets.map { $0.close() }
-                    NSApp.terminate(nil)
-                case .reset:
-                    break;
-            }
-        } catch {
-            NSApp.presentError(error)
+        switch option {
+            case .ok:
+                break
+            case .quit:
+                _ = NSApp.mainWindow?.sheets.map { $0.close() }
+                NSApp.terminate(nil)
+            case .tryAgain:
+                Setup.main.restart()
+            case .reset:
+                Setup.main.reset()
         }
         
         return true

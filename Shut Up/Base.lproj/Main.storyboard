@@ -260,7 +260,7 @@
                                     <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="H71-13-rCQ">
                                         <rect key="frame" x="0.0" y="38" width="600" height="5"/>
                                     </box>
-                                    <box boxType="custom" borderType="none" cornerRadius="4" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="G9K-4s-YMo">
+                                    <box boxType="custom" borderType="none" borderWidth="0.0" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="G9K-4s-YMo">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="40"/>
                                         <view key="contentView" id="PHw-FZ-KpZ">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="40"/>
@@ -319,23 +319,125 @@ DQ
                             <constraint firstItem="dw9-Z6-olN" firstAttribute="top" secondItem="SQt-vf-rnE" secondAttribute="top" id="r8C-1p-2eU"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="welcomePcOutlet" destination="3Tc-vo-WlP" id="H7c-xA-Hvl"/>
+                    </connections>
                 </viewController>
                 <customObject id="RyG-d9-13i" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="1cQ-PI-dI5" customClass="WelcomePageController" customModule="Shut_Up" customModuleProvider="target">
+                    <connections>
+                        <outlet property="view" destination="3Tc-vo-WlP" id="kZx-7z-7Bz"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="916" y="250"/>
         </scene>
-        <!--Page Controller-->
-        <scene sceneID="1Zm-ug-528">
+        <!--Welcome View Controller-->
+        <scene sceneID="5bp-gk-dvH">
             <objects>
-                <pagecontroller id="j99-YV-XUN" sceneMemberID="viewController">
-                    <view key="view" id="MWL-2n-D2j">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </view>
-                </pagecontroller>
-                <customObject id="rtC-Dm-nsv" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="FdA-N9-UK9" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="WelcomeVC" id="yf3-Zp-AfU" customClass="WelcomeViewController" customModule="Shut_Up" customModuleProvider="target" sceneMemberID="viewController">
+                    <customView key="view" id="2gI-mc-Tpr">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="359"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yIs-0l-x7k">
+                                <rect key="frame" x="256" y="172" width="89" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="spore_die.wav" id="gIZ-Vd-oNG">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </customView>
+                </viewController>
             </objects>
-            <point key="canvasLocation" x="916" y="728"/>
+            <point key="canvasLocation" x="916" y="713.5"/>
+        </scene>
+        <!--Welcome Page Controller-->
+        <scene sceneID="PNE-Jo-La9">
+            <objects>
+                <pagecontroller id="bYO-BO-vlb" customClass="WelcomePageController" customModule="Shut_Up" customModuleProvider="target" sceneMemberID="viewController"/>
+                <customObject id="wDz-mF-hlJ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1479" y="300"/>
+        </scene>
+        <!--Enable Extensions View Controller-->
+        <scene sceneID="Y2B-dQ-fwH">
+            <objects>
+                <viewController storyboardIdentifier="EnableExtensionsVC" id="BRk-Bm-QBs" customClass="EnableExtensionsViewController" customModule="Shut_Up" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Jo8-nC-VSQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="359"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YpP-fY-YwK">
+                                <rect key="frame" x="52" y="93" width="496" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" selectable="YES" title="Lets you show and hide comments with the click of a button, among other things. Recommended for full functionality." id="mkw-hH-bhF">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HJX-9n-nlh">
+                                <rect key="frame" x="52" y="144" width="101" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Shut Up Helper" id="teG-qw-aUj">
+                                    <font key="font" metaFont="systemSemibold" size="13"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V5i-0F-zAh">
+                                <rect key="frame" x="460" y="134" width="92" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Enable…" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="pfk-Im-BNr">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="nVo-DR-JRQ">
+                                <rect key="frame" x="54" y="131" width="492" height="5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </box>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zkd-T1-Gxk">
+                                <rect key="frame" x="460" y="221" width="92" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Enable…" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rai-gP-CDR">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GgI-mz-EF8">
+                                <rect key="frame" x="52" y="231" width="89" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Shut Up Core" id="ea7-dt-MHi">
+                                    <font key="font" metaFont="systemSemibold" size="13"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aL5-9A-XWe">
+                                <rect key="frame" x="52" y="198" width="496" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" selectable="YES" title="Blocks comment sections on webpages. Shut Up doesn't work without this." id="gdk-PN-UXq">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="UoL-la-tbh">
+                                <rect key="frame" x="54" y="220" width="492" height="5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </box>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="1Gc-bF-ICb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1554" y="713.5"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="hIz-AP-VOD">

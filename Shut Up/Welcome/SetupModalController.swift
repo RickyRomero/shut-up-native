@@ -9,6 +9,13 @@
 import Cocoa
 
 class SetupModalController: NSViewController {
+    var pageController: WelcomePageController!
+    @IBOutlet var welcomePcOutlet: NSView!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
     @IBAction func performClose(_ sender: Any) {
         view.window?.close()
         NSApp.terminate(sender)
