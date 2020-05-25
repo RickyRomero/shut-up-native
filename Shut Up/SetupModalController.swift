@@ -9,17 +9,13 @@
 import Cocoa
 
 class SetupModalController: NSViewController {
-
-    override func viewWillAppear() {
-        print("henlo wourld")
+    @IBAction func performClose(_ sender: Any) {
+        view.window?.close()
+        NSApp.terminate(sender)
     }
 
-    override func performKeyEquivalent(with event: NSEvent) -> Bool {
-        super.performKeyEquivalent(with: event)
-        print("hi")
-        dump(event)
-        return true
+    @IBAction func terminate(_ sender: Any) {
+        view.window?.close()
+        NSApp.terminate(sender)
     }
 }
-
-

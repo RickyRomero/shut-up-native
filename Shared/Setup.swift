@@ -62,10 +62,10 @@ final class Setup {
 
         Preferences.main.setup()
 
-        var defaultKeychain: SecKeychain? = nil
-        let status = SecKeychainCopyDefault(&defaultKeychain)
-        print(status)
-        SecKeychainLock(defaultKeychain)
+//        var defaultKeychain: SecKeychain? = nil
+//        let status = SecKeychainCopyDefault(&defaultKeychain)
+//        print(status)
+//        SecKeychainLock(defaultKeychain)
 
         ClaQueue([
             CryptoSetupCla()

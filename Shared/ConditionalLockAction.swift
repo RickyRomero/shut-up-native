@@ -20,7 +20,7 @@ final class ClaQueue {
     }
 
     func next() {
-        if step < ops.count - 1 {
+        if step < ops.count - 1 && currentOp?.error == nil {
             step += 1
             run(nil)
         } else {
