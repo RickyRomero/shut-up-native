@@ -186,6 +186,15 @@
 			path = "Base Files";
 			sourceTree = "<group>";
 		};
+		116BEFFC247C34620099EE0F /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				117578612355876000827387 /* SetupModalController.swift */,
+				113CAF72247B08AD00311C57 /* WelcomeViewController.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
 		11E581C4231DB6FC00910010 = {
 			isa = PBXGroup;
 			children = (
@@ -211,14 +220,13 @@
 		11E581CF231DB6FC00910010 /* Shut Up */ = {
 			isa = PBXGroup;
 			children = (
-				113CAF72247B08AD00311C57 /* WelcomeViewController.swift */,
+				116BEFFC247C34620099EE0F /* Welcome */,
 				11E581D0231DB6FC00910010 /* Shut Up.entitlements */,
 				11E581D4231DB6FC00910010 /* Main.storyboard */,
 				11E581D2231DB6FC00910010 /* AppDelegate.swift */,
 				11FD0C25235D10FE00FC0587 /* LargeBubbleImageView.swift */,
 				11F288EF235CE20B00DEBCE5 /* MainWindowController.swift */,
 				11E581D7231DB6FC00910010 /* MainViewController.swift */,
-				117578612355876000827387 /* SetupModalController.swift */,
 				11358188236FCB0F00BF7617 /* Links.swift */,
 				110F510C247B7C9000D58266 /* DelegatingRecoverableError.swift */,
 				11E581DB231DB6FD00910010 /* Info.plist */,

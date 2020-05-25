@@ -43,6 +43,7 @@ extension AppDelegate: ErrorRecoveryDelegate {
                 case .ok:
                     break
                 case .quit:
+                    _ = NSApp.mainWindow?.sheets.map { $0.close() }
                     NSApp.terminate(nil)
                 case .reset:
                     break;
