@@ -9,11 +9,18 @@
 import Cocoa
 
 class WelcomePageController: NSPageController {
+    @IBOutlet weak var continueButton: NSButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         delegate = self
         arrangedObjects = ["WelcomeVC", "EnableExtensionsVC"]
+        transitionStyle = .horizontalStrip
+    }
+
+    @IBAction func continueButtonClicked(_ sender: NSButton) {
+        navigateForward(sender)
     }
 }
 

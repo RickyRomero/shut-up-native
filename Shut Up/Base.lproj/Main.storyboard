@@ -278,6 +278,9 @@
 DQ
 </string>
                                                     </buttonCell>
+                                                    <connections>
+                                                        <action selector="continueButtonClicked:" target="1cQ-PI-dI5" id="MWF-FE-UHl"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -326,6 +329,7 @@ DQ
                 <customObject id="RyG-d9-13i" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <customObject id="1cQ-PI-dI5" customClass="WelcomePageController" customModule="Shut_Up" customModuleProvider="target">
                     <connections>
+                        <outlet property="continueButton" destination="c2K-98-iuS" id="YMg-8d-n4A"/>
                         <outlet property="view" destination="3Tc-vo-WlP" id="kZx-7z-7Bz"/>
                     </connections>
                 </customObject>
@@ -342,14 +346,27 @@ DQ
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yIs-0l-x7k">
-                                <rect key="frame" x="256" y="172" width="89" height="16"/>
+                                <rect key="frame" x="18" y="296" width="564" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="spore_die.wav" id="gIZ-Vd-oNG">
-                                    <font key="font" usesAppearanceFont="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Shut Up" id="gIZ-Vd-oNG">
+                                    <font key="font" metaFont="systemHeavy" size="36"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IDC-MB-px0">
+                                <rect key="frame" x="30" y="251" width="552" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Sublime comment blocking for Safari." id="UVk-fU-cOY">
+                                    <font key="font" metaFont="system" size="16"/>
+                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="FLk-fb-hHb">
+                                <rect key="frame" x="204" y="280" width="192" height="5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </box>
                         </subviews>
                     </customView>
                 </viewController>
@@ -373,7 +390,7 @@ DQ
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YpP-fY-YwK">
-                                <rect key="frame" x="52" y="93" width="496" height="32"/>
+                                <rect key="frame" x="52" y="64" width="496" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" selectable="YES" title="Lets you show and hide comments with the click of a button, among other things. Recommended for full functionality." id="mkw-hH-bhF">
                                     <font key="font" metaFont="system"/>
@@ -382,7 +399,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HJX-9n-nlh">
-                                <rect key="frame" x="52" y="144" width="101" height="16"/>
+                                <rect key="frame" x="52" y="115" width="101" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Shut Up Helper" id="teG-qw-aUj">
                                     <font key="font" metaFont="systemSemibold" size="13"/>
@@ -391,7 +408,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V5i-0F-zAh">
-                                <rect key="frame" x="460" y="134" width="92" height="32"/>
+                                <rect key="frame" x="460" y="105" width="92" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Enable…" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="pfk-Im-BNr">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -399,11 +416,11 @@ DQ
                                 </buttonCell>
                             </button>
                             <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="nVo-DR-JRQ">
-                                <rect key="frame" x="54" y="131" width="492" height="5"/>
+                                <rect key="frame" x="54" y="102" width="492" height="5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </box>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zkd-T1-Gxk">
-                                <rect key="frame" x="460" y="221" width="92" height="32"/>
+                                <rect key="frame" x="460" y="192" width="92" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Enable…" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rai-gP-CDR">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -411,7 +428,7 @@ DQ
                                 </buttonCell>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GgI-mz-EF8">
-                                <rect key="frame" x="52" y="231" width="89" height="16"/>
+                                <rect key="frame" x="52" y="202" width="89" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Shut Up Core" id="ea7-dt-MHi">
                                     <font key="font" metaFont="systemSemibold" size="13"/>
@@ -420,7 +437,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aL5-9A-XWe">
-                                <rect key="frame" x="52" y="198" width="496" height="16"/>
+                                <rect key="frame" x="52" y="169" width="496" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" selectable="YES" title="Blocks comment sections on webpages. Shut Up doesn't work without this." id="gdk-PN-UXq">
                                     <font key="font" metaFont="system"/>
@@ -429,9 +446,31 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="UoL-la-tbh">
-                                <rect key="frame" x="54" y="220" width="492" height="5"/>
+                                <rect key="frame" x="54" y="191" width="492" height="5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </box>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tyw-bW-Bx5">
+                                <rect key="frame" x="18" y="296" width="564" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Get Started" id="EyR-6m-lmv">
+                                    <font key="font" metaFont="systemHeavy" size="36"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="VhJ-5z-dY6">
+                                <rect key="frame" x="204" y="280" width="192" height="5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </box>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jgZ-vD-VkR">
+                                <rect key="frame" x="30" y="255" width="552" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Enable Shut Up's extensions to block comment sections in Safari." id="x3C-Xa-7gX">
+                                    <font key="font" metaFont="system" size="16"/>
+                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                 </viewController>
