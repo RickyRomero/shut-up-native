@@ -34,6 +34,8 @@
 		11A34D562354E9D70008F0CA /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A34D552354E9D70008F0CA /* Crypto.swift */; };
 		11A34D572354E9D70008F0CA /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A34D552354E9D70008F0CA /* Crypto.swift */; };
 		11A34D582354E9D70008F0CA /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A34D552354E9D70008F0CA /* Crypto.swift */; };
+		11B920FE247D51760002C430 /* BrowserBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B920FD247D51760002C430 /* BrowserBridge.swift */; };
+		11B92100247D6F520002C430 /* DefaultBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B920FF247D6F520002C430 /* DefaultBrowserViewController.swift */; };
 		11E4B0B3246D0EF3007340A4 /* EncryptedFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E4B0B2246D0EF3007340A4 /* EncryptedFile.swift */; };
 		11E4B0B4246D0EF3007340A4 /* EncryptedFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E4B0B2246D0EF3007340A4 /* EncryptedFile.swift */; };
 		11E4B0B5246D0EF3007340A4 /* EncryptedFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E4B0B2246D0EF3007340A4 /* EncryptedFile.swift */; };
@@ -110,6 +112,8 @@
 		117578612355876000827387 /* SetupModalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupModalController.swift; sourceTree = "<group>"; };
 		119742CE2478DC94000AFA2D /* Stylesheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stylesheet.swift; sourceTree = "<group>"; };
 		11A34D552354E9D70008F0CA /* Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
+		11B920FD247D51760002C430 /* BrowserBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserBridge.swift; sourceTree = "<group>"; };
+		11B920FF247D6F520002C430 /* DefaultBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultBrowserViewController.swift; sourceTree = "<group>"; };
 		11E4B0B2246D0EF3007340A4 /* EncryptedFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptedFile.swift; sourceTree = "<group>"; };
 		11E581CD231DB6FC00910010 /* Shut Up.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shut Up.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		11E581D0231DB6FC00910010 /* Shut Up.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Shut Up.entitlements"; sourceTree = "<group>"; };
@@ -196,6 +200,7 @@
 				117578612355876000827387 /* SetupModalController.swift */,
 				112C6B81247C669A00278E1A /* WelcomePageController.swift */,
 				113CAF72247B08AD00311C57 /* WelcomeViewController.swift */,
+				11B920FF247D6F520002C430 /* DefaultBrowserViewController.swift */,
 				110C5A93247C41DD00004DFA /* EnableExtensionsViewController.swift */,
 			);
 			path = Welcome;
@@ -235,6 +240,7 @@
 				11E581D7231DB6FC00910010 /* MainViewController.swift */,
 				11358188236FCB0F00BF7617 /* Links.swift */,
 				110F510C247B7C9000D58266 /* DelegatingRecoverableError.swift */,
+				11B920FD247D51760002C430 /* BrowserBridge.swift */,
 				11E581DB231DB6FD00910010 /* Info.plist */,
 				11E581D9231DB6FD00910010 /* Assets.xcassets */,
 			);
@@ -461,12 +467,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				11358189236FCB0F00BF7617 /* Links.swift in Sources */,
+				11B92100247D6F520002C430 /* DefaultBrowserViewController.swift in Sources */,
 				110C5A94247C41DD00004DFA /* EnableExtensionsViewController.swift in Sources */,
 				11F903D9247312580012051C /* ConditionalLockAction.swift in Sources */,
 				11EF35712479F12000D5EFD2 /* Preferences.swift in Sources */,
 				11E581D8231DB6FC00910010 /* MainViewController.swift in Sources */,
 				11F288F0235CE20B00DEBCE5 /* MainWindowController.swift in Sources */,
 				11FD0C26235D10FE00FC0587 /* LargeBubbleImageView.swift in Sources */,
+				11B920FE247D51760002C430 /* BrowserBridge.swift in Sources */,
 				117578622355876000827387 /* SetupModalController.swift in Sources */,
 				110F510D247B7C9000D58266 /* DelegatingRecoverableError.swift in Sources */,
 				111C4DD7234A2D040034054C /* Info.swift in Sources */,

@@ -6,7 +6,7 @@
 //  Copyright © 2019 Ricky Romero. All rights reserved.
 //
 
-import Foundation
+import Cocoa
 
 struct Info {
     static let containingBundleId = "com.rickyromero.shutup" // HACK: Can't determine programmatically
@@ -34,5 +34,12 @@ struct Info {
 
     private static func readBundleKey(_ key: String) -> String {
         Bundle.main.infoDictionary![key]! as! String
+    }
+
+    static func getDefaultBrowser() {
+        let testUrl = URL(string: "https://rickyromero.com/")!
+        let defaultBrowserUrl = NSWorkspace.shared.urlForApplication(toOpen: testUrl)!
+        let browserBundle = Bundle(url: defaultBrowserUrl)
+        print(browserBundle?.bundleIdentifier)
     }
 }

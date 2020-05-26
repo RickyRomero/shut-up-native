@@ -60,6 +60,7 @@ final class Setup {
         guard !bootstrapStarted else { return }
 
         bootstrapStarted = true
+        Info.getDefaultBrowser()
 
         Preferences.main.setup()
 

@@ -15,7 +15,7 @@ class WelcomePageController: NSPageController {
         super.viewDidLoad()
 
         delegate = self
-        arrangedObjects = ["WelcomeVC", "EnableExtensionsVC"]
+        arrangedObjects = ["WelcomeVC", "DefaultBrowserVC", "EnableExtensionsVC"]
         transitionStyle = .horizontalStrip
     }
 
