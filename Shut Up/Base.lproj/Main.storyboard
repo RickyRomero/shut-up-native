@@ -425,7 +425,7 @@
                                     <subviews>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="o6G-cn-FlB">
                                             <rect key="frame" x="97" y="76" width="435" height="32"/>
-                                            <textFieldCell key="cell" selectable="YES" title="Your default browser is Chrome. Do you want to get the Chrome version of Shut Up?" id="E58-7j-YCi">
+                                            <textFieldCell key="cell" title="Your default browser is Chrome. Do you want to get the Chrome version of Shut Up?" id="E58-7j-YCi">
                                                 <font key="font" metaFont="systemBold"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -441,7 +441,7 @@
                                         </imageView>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="OJJ-Oo-mi3">
                                             <rect key="frame" x="97" y="20" width="430" height="48"/>
-                                            <textFieldCell key="cell" selectable="YES" id="5Bf-gR-vZz">
+                                            <textFieldCell key="cell" id="5Bf-gR-vZz">
                                                 <font key="font" metaFont="system"/>
                                                 <string key="title">This version of Shut Up only works in Safari. You can keep both versions of Shut Up installed, and switch between browsers as you wish. Settings in this version don’t affect any other version.</string>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -528,7 +528,7 @@
                                     <subviews>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="YpP-fY-YwK">
                                             <rect key="frame" x="23" y="25" width="504" height="32"/>
-                                            <textFieldCell key="cell" selectable="YES" title="Lets you show and hide comments with the click of a button, among other things. Recommended for full functionality." id="mkw-hH-bhF">
+                                            <textFieldCell key="cell" title="Lets you show and hide comments with the click of a button, among other things. Recommended for full functionality." id="mkw-hH-bhF">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -560,7 +560,7 @@
                                         </box>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="aL5-9A-XWe">
                                             <rect key="frame" x="23" y="132" width="460" height="16"/>
-                                            <textFieldCell key="cell" selectable="YES" title="Blocks comment sections on webpages. Shut Up doesn’t work without this." id="gdk-PN-UXq">
+                                            <textFieldCell key="cell" title="Blocks comment sections on webpages. Shut Up doesn’t work without this." id="gdk-PN-UXq">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
