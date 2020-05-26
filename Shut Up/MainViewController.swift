@@ -101,27 +101,29 @@ class MainViewController: NSViewController {
     }
 
     func checkExtensions(_: Notification) {
-        checkExtension(Info.blockerBundleId)
-        checkExtension(Info.helperBundleId)
+        SFSafariExtensionManager.getStateOfSafariExtension(withIdentifier: Info.helperBundleId) { state, error in
+            self.updateExtensionStatus(Info.helperBundleId, state?.isEnabled, error)
+        }
+        SFContentBlockerManager.getStateOfContentBlocker(withIdentifier: Info.blockerBundleId) { state, error in
+            self.updateExtensionStatus(Info.blockerBundleId, state?.isEnabled, error)
+        }
     }
 
-    func checkExtension(_ id: String) {
-        SFContentBlockerManager.getStateOfContentBlocker(withIdentifier: id) { state, error in
-            guard error == nil else {
-                DispatchQueue.main.async {
-                    self.presentError(MessagingError(BrowserError.requestingExtensionStatus))
-                }
-                return
+    func updateExtensionStatus(_ id: String, _ state: Bool?, _ error: Error?) {
+        guard error == nil else {
+            DispatchQueue.main.async {
+                self.presentError(MessagingError(BrowserError.requestingExtensionStatus))
             }
-
-            if id == Info.blockerBundleId {
-                self.blockerEnabled = state!.isEnabled
-            } else if id == Info.helperBundleId {
-                self.helperEnabled = state!.isEnabled
-            }
-
-            DispatchQueue.main.async { self.respondToExtensionStates() }
+            return
         }
+
+        if id == Info.blockerBundleId {
+            self.blockerEnabled = state!
+        } else if id == Info.helperBundleId {
+            self.helperEnabled = state!
+        }
+
+        DispatchQueue.main.async { self.respondToExtensionStates() }
     }
 
     @IBAction func openSafariExtensionPreferences(_ sender: NSButton?) {

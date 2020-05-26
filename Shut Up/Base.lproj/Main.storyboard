@@ -345,29 +345,39 @@ DQ
                         <rect key="frame" x="0.0" y="0.0" width="600" height="359"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yIs-0l-x7k">
-                                <rect key="frame" x="18" y="296" width="564" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Shut Up" id="gIZ-Vd-oNG">
-                                    <font key="font" metaFont="systemHeavy" size="36"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IDC-MB-px0">
-                                <rect key="frame" x="30" y="251" width="552" height="19"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IDC-MB-px0">
+                                <rect key="frame" x="161" y="260" width="279" height="19"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Sublime comment blocking for Safari." id="UVk-fU-cOY">
                                     <font key="font" metaFont="system" size="16"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="FLk-fb-hHb">
-                                <rect key="frame" x="204" y="280" width="192" height="5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="FLk-fb-hHb">
+                                <rect key="frame" x="100" y="285" width="400" height="5"/>
                             </box>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yIs-0l-x7k">
+                                <rect key="frame" x="227" y="296" width="147" height="43"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Shut Up" id="gIZ-Vd-oNG">
+                                    <font key="font" metaFont="systemHeavy" size="36"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="FLk-fb-hHb" firstAttribute="leading" secondItem="2gI-mc-Tpr" secondAttribute="leading" constant="100" id="05p-Oo-zqK"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="IDC-MB-px0" secondAttribute="trailing" constant="50" id="5DC-gQ-AhZ"/>
+                            <constraint firstAttribute="trailing" secondItem="FLk-fb-hHb" secondAttribute="trailing" constant="100" id="71f-lf-fa2"/>
+                            <constraint firstItem="IDC-MB-px0" firstAttribute="top" secondItem="FLk-fb-hHb" secondAttribute="bottom" constant="8" symbolic="YES" id="8D9-TA-kCx"/>
+                            <constraint firstItem="yIs-0l-x7k" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2gI-mc-Tpr" secondAttribute="leading" constant="50" id="Dcl-WR-Puo"/>
+                            <constraint firstItem="yIs-0l-x7k" firstAttribute="top" secondItem="2gI-mc-Tpr" secondAttribute="top" constant="20" symbolic="YES" id="Ehv-ms-zZH"/>
+                            <constraint firstItem="FLk-fb-hHb" firstAttribute="top" secondItem="yIs-0l-x7k" secondAttribute="bottom" constant="8" symbolic="YES" id="Lvs-L5-3aI"/>
+                            <constraint firstItem="yIs-0l-x7k" firstAttribute="centerX" secondItem="2gI-mc-Tpr" secondAttribute="centerX" id="Um2-oJ-g0S"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yIs-0l-x7k" secondAttribute="trailing" constant="50" id="XOJ-O5-fMg"/>
+                            <constraint firstItem="IDC-MB-px0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2gI-mc-Tpr" secondAttribute="leading" constant="50" id="oTq-IV-uOJ"/>
+                            <constraint firstItem="IDC-MB-px0" firstAttribute="centerX" secondItem="2gI-mc-Tpr" secondAttribute="centerX" id="yQa-Nc-KaE"/>
+                        </constraints>
                     </customView>
                 </viewController>
             </objects>
@@ -411,7 +421,7 @@ DQ
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="V5i-0F-zAh">
+                                        <button horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="V5i-0F-zAh">
                                             <rect key="frame" x="435" y="64" width="96" height="32"/>
                                             <buttonCell key="cell" type="push" title="Enable…" bezelStyle="rounded" imagePosition="leading" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="pfk-Im-BNr">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -429,14 +439,14 @@ DQ
                                         </box>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="aL5-9A-XWe">
                                             <rect key="frame" x="23" y="132" width="460" height="16"/>
-                                            <textFieldCell key="cell" selectable="YES" title="Blocks comment sections on webpages. Shut Up doesn't work without this." id="gdk-PN-UXq">
+                                            <textFieldCell key="cell" selectable="YES" title="Blocks comment sections on webpages. Shut Up doesn’t work without this." id="gdk-PN-UXq">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Zkd-T1-Gxk">
-                                            <rect key="frame" x="428" y="155" width="103" height="32"/>
+                                        <button horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="Zkd-T1-Gxk">
+                                            <rect key="frame" x="435" y="155" width="96" height="32"/>
                                             <buttonCell key="cell" type="push" title="Enable…" bezelStyle="rounded" imagePosition="leading" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rai-gP-CDR">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -465,6 +475,7 @@ DQ
                                     <constraints>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="YpP-fY-YwK" secondAttribute="trailing" constant="25" id="4kE-Jm-vgk"/>
                                         <constraint firstItem="Zkd-T1-Gxk" firstAttribute="top" secondItem="Kiu-l1-u8i" secondAttribute="top" constant="25" id="4pa-FX-orY"/>
+                                        <constraint firstItem="V5i-0F-zAh" firstAttribute="leading" relation="lessThanOrEqual" secondItem="HJX-9n-nlh" secondAttribute="trailing" constant="317" id="6qo-9e-PYN"/>
                                         <constraint firstItem="aL5-9A-XWe" firstAttribute="top" secondItem="UoL-la-tbh" secondAttribute="bottom" constant="8" symbolic="YES" id="7jM-MS-DRK"/>
                                         <constraint firstItem="tDr-U4-I7t" firstAttribute="firstBaseline" secondItem="Zkd-T1-Gxk" secondAttribute="firstBaseline" id="Hgy-jU-Oit"/>
                                         <constraint firstItem="GgI-mz-EF8" firstAttribute="leading" secondItem="Kiu-l1-u8i" secondAttribute="leading" constant="25" id="Iai-CO-quY"/>
@@ -482,18 +493,17 @@ DQ
                                         <constraint firstItem="HJX-9n-nlh" firstAttribute="leading" secondItem="Kiu-l1-u8i" secondAttribute="leading" constant="25" id="mdn-uq-ItC"/>
                                         <constraint firstItem="tDr-U4-I7t" firstAttribute="leading" secondItem="GgI-mz-EF8" secondAttribute="trailing" constant="8" id="raL-vM-1Ik"/>
                                         <constraint firstAttribute="trailing" secondItem="V5i-0F-zAh" secondAttribute="trailing" constant="25" id="teQ-l3-9yL"/>
-                                        <constraint firstItem="V5i-0F-zAh" firstAttribute="leading" relation="lessThanOrEqual" secondItem="HJX-9n-nlh" secondAttribute="trailing" constant="317" id="tye-Kn-lVB"/>
-                                        <constraint firstItem="Zkd-T1-Gxk" firstAttribute="leading" relation="lessThanOrEqual" secondItem="tDr-U4-I7t" secondAttribute="trailing" constant="271" id="uRZ-oC-GhL"/>
                                         <constraint firstItem="aL5-9A-XWe" firstAttribute="leading" secondItem="Kiu-l1-u8i" secondAttribute="leading" constant="25" id="ux4-ao-iKZ"/>
                                         <constraint firstItem="GgI-mz-EF8" firstAttribute="firstBaseline" secondItem="Zkd-T1-Gxk" secondAttribute="firstBaseline" id="vcZ-JU-tZp"/>
                                         <constraint firstAttribute="trailing" secondItem="UoL-la-tbh" secondAttribute="trailing" constant="25" id="xHx-L7-UvF"/>
+                                        <constraint firstItem="Zkd-T1-Gxk" firstAttribute="leading" relation="lessThanOrEqual" secondItem="tDr-U4-I7t" secondAttribute="trailing" constant="278" id="y5t-a9-Pdd"/>
                                         <constraint firstAttribute="trailing" secondItem="nVo-DR-JRQ" secondAttribute="trailing" constant="25" id="zYG-p9-TYz"/>
                                     </constraints>
                                 </view>
                             </box>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jgZ-vD-VkR">
                                 <rect key="frame" x="60" y="260" width="481" height="19"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Enable Shut Up's extensions to block comment sections in Safari." id="x3C-Xa-7gX">
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Enable Shut Up’s extensions to block comment sections in Safari." id="x3C-Xa-7gX">
                                     <font key="font" metaFont="system" size="16"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -849,7 +859,7 @@ DQ
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController representsSharedInstance="YES" id="DXg-cG-EJ6"/>
             </objects>
-            <point key="canvasLocation" x="76" y="1019"/>
+            <point key="canvasLocation" x="75" y="874"/>
         </scene>
     </scenes>
     <resources>
