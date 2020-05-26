@@ -363,28 +363,27 @@
             <point key="canvasLocation" x="916" y="250"/>
         </scene>
         <!--Welcome View Controller-->
-        <scene sceneID="5bp-gk-dvH">
+        <scene sceneID="m7F-A2-TPX">
             <objects>
-                <customObject id="FdA-N9-UK9" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="WelcomeVC" id="yf3-Zp-AfU" customClass="WelcomeViewController" customModule="Shut_Up" customModuleProvider="target" sceneMemberID="viewController">
-                    <customView key="view" id="2gI-mc-Tpr">
+                <viewController storyboardIdentifier="WelcomeVC" id="B3S-Q2-TQw" customClass="WelcomeViewController" customModule="Shut_Up" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="gpq-8i-HHa">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="359"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IDC-MB-px0">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UPv-RE-w1M">
                                 <rect key="frame" x="161" y="260" width="279" height="19"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Sublime comment blocking for Safari." id="UVk-fU-cOY">
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Sublime comment blocking for Safari." id="7yz-Sl-Sgd">
                                     <font key="font" metaFont="system" size="16"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="FLk-fb-hHb">
+                            <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="CLc-8P-0h5">
                                 <rect key="frame" x="100" y="285" width="400" height="5"/>
                             </box>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yIs-0l-x7k">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WGe-Ig-P5h">
                                 <rect key="frame" x="227" y="296" width="147" height="43"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Shut Up" id="gIZ-Vd-oNG">
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Shut Up" id="qcv-51-sfA">
                                     <font key="font" metaFont="systemHeavy" size="36"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -392,22 +391,23 @@
                             </textField>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="FLk-fb-hHb" firstAttribute="leading" secondItem="2gI-mc-Tpr" secondAttribute="leading" constant="100" id="05p-Oo-zqK"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="IDC-MB-px0" secondAttribute="trailing" constant="50" id="5DC-gQ-AhZ"/>
-                            <constraint firstAttribute="trailing" secondItem="FLk-fb-hHb" secondAttribute="trailing" constant="100" id="71f-lf-fa2"/>
-                            <constraint firstItem="IDC-MB-px0" firstAttribute="top" secondItem="FLk-fb-hHb" secondAttribute="bottom" constant="8" symbolic="YES" id="8D9-TA-kCx"/>
-                            <constraint firstItem="yIs-0l-x7k" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2gI-mc-Tpr" secondAttribute="leading" constant="50" id="Dcl-WR-Puo"/>
-                            <constraint firstItem="yIs-0l-x7k" firstAttribute="top" secondItem="2gI-mc-Tpr" secondAttribute="top" constant="20" symbolic="YES" id="Ehv-ms-zZH"/>
-                            <constraint firstItem="FLk-fb-hHb" firstAttribute="top" secondItem="yIs-0l-x7k" secondAttribute="bottom" constant="8" symbolic="YES" id="Lvs-L5-3aI"/>
-                            <constraint firstItem="yIs-0l-x7k" firstAttribute="centerX" secondItem="2gI-mc-Tpr" secondAttribute="centerX" id="Um2-oJ-g0S"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yIs-0l-x7k" secondAttribute="trailing" constant="50" id="XOJ-O5-fMg"/>
-                            <constraint firstItem="IDC-MB-px0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2gI-mc-Tpr" secondAttribute="leading" constant="50" id="oTq-IV-uOJ"/>
-                            <constraint firstItem="IDC-MB-px0" firstAttribute="centerX" secondItem="2gI-mc-Tpr" secondAttribute="centerX" id="yQa-Nc-KaE"/>
+                            <constraint firstItem="CLc-8P-0h5" firstAttribute="leading" secondItem="gpq-8i-HHa" secondAttribute="leading" constant="100" id="16m-WJ-A4M"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="UPv-RE-w1M" secondAttribute="trailing" constant="50" id="CYh-ys-30O"/>
+                            <constraint firstAttribute="trailing" secondItem="CLc-8P-0h5" secondAttribute="trailing" constant="100" id="LOn-ui-XX1"/>
+                            <constraint firstItem="CLc-8P-0h5" firstAttribute="top" secondItem="WGe-Ig-P5h" secondAttribute="bottom" constant="8" symbolic="YES" id="QRC-OC-DLk"/>
+                            <constraint firstItem="UPv-RE-w1M" firstAttribute="centerX" secondItem="gpq-8i-HHa" secondAttribute="centerX" id="T2y-AB-pRD"/>
+                            <constraint firstItem="UPv-RE-w1M" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gpq-8i-HHa" secondAttribute="leading" constant="50" id="TKR-Gz-3zA"/>
+                            <constraint firstItem="WGe-Ig-P5h" firstAttribute="top" secondItem="gpq-8i-HHa" secondAttribute="top" constant="20" symbolic="YES" id="WfY-zc-twU"/>
+                            <constraint firstItem="WGe-Ig-P5h" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gpq-8i-HHa" secondAttribute="leading" constant="50" id="Zfc-yQ-GjY"/>
+                            <constraint firstItem="WGe-Ig-P5h" firstAttribute="centerX" secondItem="gpq-8i-HHa" secondAttribute="centerX" id="hCh-I5-3UP"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WGe-Ig-P5h" secondAttribute="trailing" constant="50" id="o7K-nT-ID2"/>
+                            <constraint firstItem="UPv-RE-w1M" firstAttribute="top" secondItem="CLc-8P-0h5" secondAttribute="bottom" constant="8" symbolic="YES" id="r1P-zm-7ki"/>
                         </constraints>
-                    </customView>
+                    </view>
                 </viewController>
+                <customObject id="7co-of-Ij3" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="916" y="713.5"/>
+            <point key="canvasLocation" x="916" y="714"/>
         </scene>
         <!--Default Browser View Controller-->
         <scene sceneID="9uI-L9-cWA">
@@ -521,9 +521,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <box borderType="line" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="85U-97-Bxt">
-                                <rect key="frame" x="22" y="23" width="556" height="214"/>
+                                <rect key="frame" x="22" y="33" width="556" height="204"/>
                                 <view key="contentView" id="Kiu-l1-u8i">
-                                    <rect key="frame" x="3" y="3" width="550" height="208"/>
+                                    <rect key="frame" x="3" y="3" width="550" height="198"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="YpP-fY-YwK">
@@ -535,7 +535,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GgI-mz-EF8">
-                                            <rect key="frame" x="23" y="165" width="90" height="16"/>
+                                            <rect key="frame" x="23" y="155" width="90" height="16"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Shut Up Core" id="ea7-dt-MHi">
                                                 <font key="font" metaFont="systemBold"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -553,13 +553,13 @@
                                             </connections>
                                         </button>
                                         <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="UoL-la-tbh">
-                                            <rect key="frame" x="25" y="154" width="500" height="5"/>
+                                            <rect key="frame" x="25" y="144" width="500" height="5"/>
                                         </box>
                                         <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="nVo-DR-JRQ">
                                             <rect key="frame" x="25" y="63" width="500" height="5"/>
                                         </box>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="aL5-9A-XWe">
-                                            <rect key="frame" x="23" y="132" width="460" height="16"/>
+                                            <rect key="frame" x="23" y="122" width="460" height="16"/>
                                             <textFieldCell key="cell" title="Blocks comment sections on webpages. Shut Up doesn’t work without this." id="gdk-PN-UXq">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -567,7 +567,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <button horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="Zkd-T1-Gxk">
-                                            <rect key="frame" x="435" y="155" width="96" height="32"/>
+                                            <rect key="frame" x="435" y="145" width="96" height="32"/>
                                             <buttonCell key="cell" type="push" title="Enable…" bezelStyle="rounded" imagePosition="leading" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rai-gP-CDR">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -585,7 +585,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tDr-U4-I7t">
-                                            <rect key="frame" x="117" y="165" width="48" height="14"/>
+                                            <rect key="frame" x="117" y="155" width="48" height="14"/>
                                             <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" title="required" id="0Ql-qg-slX">
                                                 <font key="font" metaFont="message" size="11"/>
                                                 <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -608,7 +608,7 @@
                                         <constraint firstItem="HJX-9n-nlh" firstAttribute="firstBaseline" secondItem="V5i-0F-zAh" secondAttribute="firstBaseline" id="cPy-f5-Idp"/>
                                         <constraint firstItem="YpP-fY-YwK" firstAttribute="leading" secondItem="Kiu-l1-u8i" secondAttribute="leading" constant="25" id="cYg-Li-hOU"/>
                                         <constraint firstItem="UoL-la-tbh" firstAttribute="leading" secondItem="Kiu-l1-u8i" secondAttribute="leading" constant="25" id="eyn-cl-mF9"/>
-                                        <constraint firstItem="V5i-0F-zAh" firstAttribute="top" secondItem="aL5-9A-XWe" secondAttribute="bottom" constant="40" id="fIP-cR-58t"/>
+                                        <constraint firstItem="V5i-0F-zAh" firstAttribute="top" secondItem="aL5-9A-XWe" secondAttribute="bottom" constant="30" id="fIP-cR-58t"/>
                                         <constraint firstItem="YpP-fY-YwK" firstAttribute="top" secondItem="nVo-DR-JRQ" secondAttribute="bottom" constant="8" symbolic="YES" id="fRG-XP-hzd"/>
                                         <constraint firstItem="UoL-la-tbh" firstAttribute="top" secondItem="Zkd-T1-Gxk" secondAttribute="bottom" constant="5" id="jAt-0l-VuG"/>
                                         <constraint firstItem="HJX-9n-nlh" firstAttribute="leading" secondItem="Kiu-l1-u8i" secondAttribute="leading" constant="25" id="mdn-uq-ItC"/>
