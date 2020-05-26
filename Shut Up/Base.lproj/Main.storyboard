@@ -389,90 +389,149 @@ DQ
                         <rect key="frame" x="0.0" y="0.0" width="600" height="359"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YpP-fY-YwK">
-                                <rect key="frame" x="52" y="64" width="496" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" selectable="YES" title="Lets you show and hide comments with the click of a button, among other things. Recommended for full functionality." id="mkw-hH-bhF">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HJX-9n-nlh">
-                                <rect key="frame" x="52" y="115" width="101" height="16"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Shut Up Helper" id="teG-qw-aUj">
-                                    <font key="font" metaFont="systemSemibold" size="13"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V5i-0F-zAh">
-                                <rect key="frame" x="460" y="105" width="92" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Enable…" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="pfk-Im-BNr">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                            <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="nVo-DR-JRQ">
-                                <rect key="frame" x="54" y="102" width="492" height="5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <box borderType="line" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="85U-97-Bxt">
+                                <rect key="frame" x="22" y="23" width="556" height="214"/>
+                                <view key="contentView" id="Kiu-l1-u8i">
+                                    <rect key="frame" x="3" y="3" width="550" height="208"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="YpP-fY-YwK">
+                                            <rect key="frame" x="23" y="25" width="504" height="32"/>
+                                            <textFieldCell key="cell" selectable="YES" title="Lets you show and hide comments with the click of a button, among other things. Recommended for full functionality." id="mkw-hH-bhF">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GgI-mz-EF8">
+                                            <rect key="frame" x="23" y="165" width="90" height="16"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Shut Up Core" id="ea7-dt-MHi">
+                                                <font key="font" metaFont="systemBold"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="V5i-0F-zAh">
+                                            <rect key="frame" x="435" y="64" width="96" height="32"/>
+                                            <buttonCell key="cell" type="push" title="Enable…" bezelStyle="rounded" imagePosition="leading" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="pfk-Im-BNr">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="helperButtonClicked:" target="BRk-Bm-QBs" id="CLm-gM-Xwf"/>
+                                            </connections>
+                                        </button>
+                                        <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="UoL-la-tbh">
+                                            <rect key="frame" x="25" y="154" width="500" height="5"/>
+                                        </box>
+                                        <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="nVo-DR-JRQ">
+                                            <rect key="frame" x="25" y="63" width="500" height="5"/>
+                                        </box>
+                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="aL5-9A-XWe">
+                                            <rect key="frame" x="23" y="132" width="460" height="16"/>
+                                            <textFieldCell key="cell" selectable="YES" title="Blocks comment sections on webpages. Shut Up doesn't work without this." id="gdk-PN-UXq">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Zkd-T1-Gxk">
+                                            <rect key="frame" x="428" y="155" width="103" height="32"/>
+                                            <buttonCell key="cell" type="push" title="Enable…" bezelStyle="rounded" imagePosition="leading" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rai-gP-CDR">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="coreButtonClicked:" target="BRk-Bm-QBs" id="6F6-cz-8NU"/>
+                                            </connections>
+                                        </button>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HJX-9n-nlh">
+                                            <rect key="frame" x="23" y="74" width="103" height="16"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Shut Up Helper" id="teG-qw-aUj">
+                                                <font key="font" metaFont="systemBold"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tDr-U4-I7t">
+                                            <rect key="frame" x="117" y="165" width="48" height="14"/>
+                                            <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" title="required" id="0Ql-qg-slX">
+                                                <font key="font" metaFont="message" size="11"/>
+                                                <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="YpP-fY-YwK" secondAttribute="trailing" constant="25" id="4kE-Jm-vgk"/>
+                                        <constraint firstItem="Zkd-T1-Gxk" firstAttribute="top" secondItem="Kiu-l1-u8i" secondAttribute="top" constant="25" id="4pa-FX-orY"/>
+                                        <constraint firstItem="aL5-9A-XWe" firstAttribute="top" secondItem="UoL-la-tbh" secondAttribute="bottom" constant="8" symbolic="YES" id="7jM-MS-DRK"/>
+                                        <constraint firstItem="tDr-U4-I7t" firstAttribute="firstBaseline" secondItem="Zkd-T1-Gxk" secondAttribute="firstBaseline" id="Hgy-jU-Oit"/>
+                                        <constraint firstItem="GgI-mz-EF8" firstAttribute="leading" secondItem="Kiu-l1-u8i" secondAttribute="leading" constant="25" id="Iai-CO-quY"/>
+                                        <constraint firstItem="nVo-DR-JRQ" firstAttribute="top" secondItem="V5i-0F-zAh" secondAttribute="bottom" constant="5" id="PZw-iR-Kqm"/>
+                                        <constraint firstAttribute="trailing" secondItem="Zkd-T1-Gxk" secondAttribute="trailing" constant="25" id="T8o-1V-qW5"/>
+                                        <constraint firstAttribute="bottom" secondItem="YpP-fY-YwK" secondAttribute="bottom" constant="25" id="XRd-sn-i6k"/>
+                                        <constraint firstItem="nVo-DR-JRQ" firstAttribute="leading" secondItem="Kiu-l1-u8i" secondAttribute="leading" constant="25" id="bGF-bA-XMC"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="aL5-9A-XWe" secondAttribute="trailing" constant="25" id="c8l-X8-71V"/>
+                                        <constraint firstItem="HJX-9n-nlh" firstAttribute="firstBaseline" secondItem="V5i-0F-zAh" secondAttribute="firstBaseline" id="cPy-f5-Idp"/>
+                                        <constraint firstItem="YpP-fY-YwK" firstAttribute="leading" secondItem="Kiu-l1-u8i" secondAttribute="leading" constant="25" id="cYg-Li-hOU"/>
+                                        <constraint firstItem="UoL-la-tbh" firstAttribute="leading" secondItem="Kiu-l1-u8i" secondAttribute="leading" constant="25" id="eyn-cl-mF9"/>
+                                        <constraint firstItem="V5i-0F-zAh" firstAttribute="top" secondItem="aL5-9A-XWe" secondAttribute="bottom" constant="40" id="fIP-cR-58t"/>
+                                        <constraint firstItem="YpP-fY-YwK" firstAttribute="top" secondItem="nVo-DR-JRQ" secondAttribute="bottom" constant="8" symbolic="YES" id="fRG-XP-hzd"/>
+                                        <constraint firstItem="UoL-la-tbh" firstAttribute="top" secondItem="Zkd-T1-Gxk" secondAttribute="bottom" constant="5" id="jAt-0l-VuG"/>
+                                        <constraint firstItem="HJX-9n-nlh" firstAttribute="leading" secondItem="Kiu-l1-u8i" secondAttribute="leading" constant="25" id="mdn-uq-ItC"/>
+                                        <constraint firstItem="tDr-U4-I7t" firstAttribute="leading" secondItem="GgI-mz-EF8" secondAttribute="trailing" constant="8" id="raL-vM-1Ik"/>
+                                        <constraint firstAttribute="trailing" secondItem="V5i-0F-zAh" secondAttribute="trailing" constant="25" id="teQ-l3-9yL"/>
+                                        <constraint firstItem="V5i-0F-zAh" firstAttribute="leading" relation="lessThanOrEqual" secondItem="HJX-9n-nlh" secondAttribute="trailing" constant="317" id="tye-Kn-lVB"/>
+                                        <constraint firstItem="Zkd-T1-Gxk" firstAttribute="leading" relation="lessThanOrEqual" secondItem="tDr-U4-I7t" secondAttribute="trailing" constant="271" id="uRZ-oC-GhL"/>
+                                        <constraint firstItem="aL5-9A-XWe" firstAttribute="leading" secondItem="Kiu-l1-u8i" secondAttribute="leading" constant="25" id="ux4-ao-iKZ"/>
+                                        <constraint firstItem="GgI-mz-EF8" firstAttribute="firstBaseline" secondItem="Zkd-T1-Gxk" secondAttribute="firstBaseline" id="vcZ-JU-tZp"/>
+                                        <constraint firstAttribute="trailing" secondItem="UoL-la-tbh" secondAttribute="trailing" constant="25" id="xHx-L7-UvF"/>
+                                        <constraint firstAttribute="trailing" secondItem="nVo-DR-JRQ" secondAttribute="trailing" constant="25" id="zYG-p9-TYz"/>
+                                    </constraints>
+                                </view>
                             </box>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zkd-T1-Gxk">
-                                <rect key="frame" x="460" y="192" width="92" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Enable…" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rai-gP-CDR">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GgI-mz-EF8">
-                                <rect key="frame" x="52" y="202" width="89" height="16"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Shut Up Core" id="ea7-dt-MHi">
-                                    <font key="font" metaFont="systemSemibold" size="13"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aL5-9A-XWe">
-                                <rect key="frame" x="52" y="169" width="496" height="16"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" selectable="YES" title="Blocks comment sections on webpages. Shut Up doesn't work without this." id="gdk-PN-UXq">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="UoL-la-tbh">
-                                <rect key="frame" x="54" y="191" width="492" height="5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </box>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tyw-bW-Bx5">
-                                <rect key="frame" x="18" y="296" width="564" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Get Started" id="EyR-6m-lmv">
-                                    <font key="font" metaFont="systemHeavy" size="36"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="VhJ-5z-dY6">
-                                <rect key="frame" x="204" y="280" width="192" height="5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </box>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jgZ-vD-VkR">
-                                <rect key="frame" x="30" y="255" width="552" height="19"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jgZ-vD-VkR">
+                                <rect key="frame" x="60" y="260" width="481" height="19"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Enable Shut Up's extensions to block comment sections in Safari." id="x3C-Xa-7gX">
                                     <font key="font" metaFont="system" size="16"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="VhJ-5z-dY6">
+                                <rect key="frame" x="100" y="285" width="400" height="5"/>
+                            </box>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tyw-bW-Bx5">
+                                <rect key="frame" x="195" y="296" width="210" height="43"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Get Started" id="EyR-6m-lmv">
+                                    <font key="font" metaFont="systemHeavy" size="36"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="85U-97-Bxt" secondAttribute="trailing" constant="25" id="JMZ-yj-x8m"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="jgZ-vD-VkR" secondAttribute="trailing" constant="50" id="KhW-sy-LeF"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tyw-bW-Bx5" secondAttribute="trailing" constant="50" id="OHl-hJ-6tO"/>
+                            <constraint firstItem="jgZ-vD-VkR" firstAttribute="centerX" secondItem="Jo8-nC-VSQ" secondAttribute="centerX" id="Ohq-yH-wU1"/>
+                            <constraint firstItem="jgZ-vD-VkR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Jo8-nC-VSQ" secondAttribute="leading" constant="50" id="SHJ-dA-FGa"/>
+                            <constraint firstItem="tyw-bW-Bx5" firstAttribute="centerX" secondItem="Jo8-nC-VSQ" secondAttribute="centerX" id="Sww-8a-k7o"/>
+                            <constraint firstItem="tyw-bW-Bx5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Jo8-nC-VSQ" secondAttribute="leading" constant="50" id="Yjo-Px-A2Q"/>
+                            <constraint firstItem="tyw-bW-Bx5" firstAttribute="top" secondItem="Jo8-nC-VSQ" secondAttribute="top" constant="20" symbolic="YES" id="dTI-xv-Upd"/>
+                            <constraint firstItem="jgZ-vD-VkR" firstAttribute="top" secondItem="VhJ-5z-dY6" secondAttribute="bottom" constant="8" symbolic="YES" id="e5o-dA-oMA"/>
+                            <constraint firstItem="VhJ-5z-dY6" firstAttribute="leading" secondItem="Jo8-nC-VSQ" secondAttribute="leading" constant="100" id="eJ0-P5-lvH"/>
+                            <constraint firstItem="VhJ-5z-dY6" firstAttribute="top" secondItem="tyw-bW-Bx5" secondAttribute="bottom" constant="8" symbolic="YES" id="ixD-KC-PUm"/>
+                            <constraint firstItem="85U-97-Bxt" firstAttribute="top" secondItem="jgZ-vD-VkR" secondAttribute="bottom" constant="25" id="umO-X2-DRJ"/>
+                            <constraint firstItem="85U-97-Bxt" firstAttribute="leading" secondItem="Jo8-nC-VSQ" secondAttribute="leading" constant="25" id="xRS-R7-x8F"/>
+                            <constraint firstAttribute="trailing" secondItem="VhJ-5z-dY6" secondAttribute="trailing" constant="100" id="y5p-JV-xA7"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="coreEnableButton" destination="Zkd-T1-Gxk" id="Rk0-Nu-mVA"/>
+                        <outlet property="helperEnableButton" destination="V5i-0F-zAh" id="7fx-Kf-Hoz"/>
+                    </connections>
                 </viewController>
                 <customObject id="1Gc-bF-ICb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

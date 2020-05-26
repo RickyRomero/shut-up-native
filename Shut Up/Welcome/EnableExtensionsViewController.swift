@@ -7,5 +7,43 @@
 //
 
 import Cocoa
+import SafariServices
 
-class EnableExtensionsViewController: NSViewController {}
+class EnableExtensionsViewController: NSViewController {
+    @IBOutlet var coreEnableButton: NSButton!
+    @IBOutlet var helperEnableButton: NSButton!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+//        NotificationCenter.default.addObserver(
+//            forName: NSApplication.didBecomeActiveNotification,
+//            object: nil,
+//            queue: .main,
+//            using: checkExtensions(_:)
+//        )
+    }
+
+//    func checkExtensions(_: Notification) {
+//        SFContentBlockerManager.getStateOfContentBlocker(withIdentifier: Info.blockerBundleId) { blockerState, error in
+//            if let error = error {
+//                print(error.localizedDescription)
+//                return
+//            }
+//            self.blockerEnabled = blockerState!.isEnabled
+//
+//            SFSafariExtensionManager.getStateOfSafariExtension(withIdentifier: Info.helperBundleId) { helperState, error in
+//                self.helperEnabled = helperState!.isEnabled
+//
+//                DispatchQueue.main.async {
+//                    self.respondToExtensionStates()
+//                }
+//            }
+//        }
+//    }
+
+    @IBAction func coreButtonClicked(_ sender: NSButton) {
+    }
+    @IBAction func helperButtonClicked(_ sender: NSButton) {
+    }
+}

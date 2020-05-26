@@ -12,8 +12,8 @@ final class LockFile {
     private var url: URL
     private var claimedDate: Date?
     private var timerStartedDate: Date?
-    var expiry = 20 // seconds
-    var timeout = 30 // seconds
+    var expiry = 120 // seconds
+    var timeout = 150 // seconds
 
     init(url: URL) {
         self.url = url

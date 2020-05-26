@@ -134,7 +134,7 @@ class MessagingError: NSError {
             switch cause as! FileError {
                 case .checkingFreeSpace:
                     title = "Startup disk is too full to continue"
-                    info = "Quit Shut Up and delete any files you don't need."
+                    info = "Quit Shut Up and delete any files you don’t need."
                     options = [.quit]
                 case .readingFile:
                     title = "Example Error"
@@ -146,14 +146,14 @@ class MessagingError: NSError {
         } else if cause is BrowserError {
             switch cause as! BrowserError {
                 case .providingBlocklist:
-                    title = "Safari failed to read Shut Up's blocklist"
+                    title = "Safari failed to read Shut Up’s blocklist"
                     info = "Shut Up sent Safari a new blocklist, but it failed. Try restarting Safari. If the issue persists, try restarting your Mac."
                 case .showingSafariPreferences:
                     title = "Safari failed to open its preferences"
-                    info = "Shut Up asked Safari to open its preferences window, but it failed. Try opening Safari's preferences manually, then go to the “Extensions” section."
+                    info = "Shut Up asked Safari to open its preferences window, but it failed. Try opening Safari’s preferences manually, then go to the “Extensions” section."
                 case .requestingExtensionStatus:
                     title = "Safari failed to provide extension info"
-                    info = "Shut Up asked Safari if its extensions are enabled, but it failed. Try opening Safari's preferences manually, then go to the “Extensions” section to check the status.\n\nIf the issue persists, try restarting your Mac."
+                    info = "Shut Up asked Safari if its extensions are enabled, but it failed. Try opening Safari’s preferences manually, then go to the “Extensions” section to check the status.\n\nIf the issue persists, try restarting your Mac."
             }
         } else if cause is NetworkingError {
             switch cause as! NetworkingError {

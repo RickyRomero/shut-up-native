@@ -101,28 +101,34 @@ class MainViewController: NSViewController {
     }
 
     func checkExtensions(_: Notification) {
-        SFContentBlockerManager.getStateOfContentBlocker(withIdentifier: Info.blockerBundleId) { blockerState, error in
-            if let error = error {
-                print(error.localizedDescription)
+        checkExtension(Info.blockerBundleId)
+        checkExtension(Info.helperBundleId)
+    }
+
+    func checkExtension(_ id: String) {
+        SFContentBlockerManager.getStateOfContentBlocker(withIdentifier: id) { state, error in
+            guard error == nil else {
+                DispatchQueue.main.async {
+                    self.presentError(MessagingError(BrowserError.requestingExtensionStatus))
+                }
                 return
             }
-            self.blockerEnabled = blockerState!.isEnabled
 
-            SFSafariExtensionManager.getStateOfSafariExtension(withIdentifier: Info.helperBundleId) { helperState, error in
-                self.helperEnabled = helperState!.isEnabled
-
-                DispatchQueue.main.async {
-                    self.respondToExtensionStates()
-                }
+            if id == Info.blockerBundleId {
+                self.blockerEnabled = state!.isEnabled
+            } else if id == Info.helperBundleId {
+                self.helperEnabled = state!.isEnabled
             }
+
+            DispatchQueue.main.async { self.respondToExtensionStates() }
         }
     }
 
     @IBAction func openSafariExtensionPreferences(_ sender: NSButton?) {
         SFSafariApplication.showPreferencesForExtension(withIdentifier: Info.helperBundleId) { error in
-            if let _ = error {
-                // Insert code to inform the user that something went wrong.
-
+            guard error == nil else {
+                self.presentError(MessagingError(BrowserError.showingSafariPreferences))
+                return
             }
         }
     }
