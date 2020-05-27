@@ -35,11 +35,4 @@ struct Info {
     private static func readBundleKey(_ key: String) -> String {
         Bundle.main.infoDictionary![key]! as! String
     }
-
-    static func getDefaultBrowser() {
-        let testUrl = URL(string: "https://rickyromero.com/")!
-        let defaultBrowserUrl = NSWorkspace.shared.urlForApplication(toOpen: testUrl)!
-        let browserBundle = Bundle(url: defaultBrowserUrl)
-        print(browserBundle?.bundleIdentifier)
-    }
 }

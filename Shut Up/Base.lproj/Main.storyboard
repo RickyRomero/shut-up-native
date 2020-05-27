@@ -279,7 +279,7 @@
                                                                 <font key="font" metaFont="system"/>
                                                             </buttonCell>
                                                             <connections>
-                                                                <action selector="continueButtonClicked:" target="1cQ-PI-dI5" id="tIt-5t-Cce"/>
+                                                                <action selector="defaultBrowserClicked:" target="1cQ-PI-dI5" id="xnl-RN-gjC"/>
                                                             </connections>
                                                         </button>
                                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="c2K-98-iuS">
@@ -356,6 +356,7 @@
                 <customObject id="1cQ-PI-dI5" customClass="WelcomePageController" customModule="Shut_Up" customModuleProvider="target">
                     <connections>
                         <outlet property="continueButton" destination="c2K-98-iuS" id="YMg-8d-n4A"/>
+                        <outlet property="defaultBrowserButton" destination="tmX-US-Z7N" id="o77-Wy-5eS"/>
                         <outlet property="view" destination="3Tc-vo-WlP" id="kZx-7z-7Bz"/>
                     </connections>
                 </customObject>
@@ -499,6 +500,10 @@
                             <constraint firstItem="7g3-0b-jB1" firstAttribute="top" secondItem="vM4-E1-O8C" secondAttribute="bottom" constant="40" id="sHc-yK-hNm"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="browserIcon" destination="UqR-nG-K2e" id="602-9W-FNm"/>
+                        <outlet property="heading" destination="o6G-cn-FlB" id="Iyt-0o-9OV"/>
+                    </connections>
                 </viewController>
                 <customObject id="UmK-cx-ZCg" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -645,6 +650,11 @@
                                 <rect key="frame" x="35" y="311" width="48" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="k0S-MZ-Hsr"/>
+                            </imageView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gHG-XM-M7f">
+                                <rect key="frame" x="25" y="294" width="48" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="jdm-T0-Gf4"/>
                             </imageView>
                         </subviews>
                         <constraints>

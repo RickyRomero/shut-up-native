@@ -10,9 +10,17 @@ import Cocoa
 
 class DefaultBrowserViewController: NSViewController {
 
+    @IBOutlet var browserIcon: NSImageView!
+    @IBOutlet var heading: NSTextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
+
+        let defaultBrowser = BrowserBridge.main.defaultBrowserName
+
+        let prompt = "Your default browser is \(defaultBrowser). Do you want to get the \(defaultBrowser) version of Shut Up?"
+
+        heading.stringValue = prompt
+        browserIcon.image = NSImage(named: "Large \(defaultBrowser)")
     }
     
 }
