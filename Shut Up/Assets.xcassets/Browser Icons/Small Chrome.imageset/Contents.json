@@ -1,18 +1,18 @@
 {
   "images" : [
     {
+      "filename" : "chrome-16.png",
       "idiom" : "mac",
-      "filename" : "firefox-16.png",
       "scale" : "1x"
     },
     {
+      "filename" : "chrome-32.png",
       "idiom" : "mac",
-      "filename" : "firefox-32.png",
       "scale" : "2x"
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   }
 }
