@@ -17,9 +17,53 @@ enum WebBrowser {
     case unknown
 }
 
+struct ExtensionState {
+    let id: String
+    let state: Bool?
+    let error: Error?
+}
+
 class BrowserBridge {
     static var main = BrowserBridge()
     private init () {}
+
+    private var extensionStates: [ExtensionState] = []
+    private var stateCallbacks: [([ExtensionState]) -> Void] = []
+
+    func requestExtensionStates(completionHandler: @escaping ([ExtensionState]) -> Void) {
+        stateCallbacks.append(completionHandler)
+
+        guard extensionStates.count == 0 else { return }
+
+        SFSafariExtensionManager.getStateOfSafariExtension(withIdentifier: Info.helperBundleId) { state, error in
+            self.updateExtensionState(Info.helperBundleId, state?.isEnabled, error)
+        }
+        SFContentBlockerManager.getStateOfContentBlocker(withIdentifier: Info.blockerBundleId) { state, error in
+            self.updateExtensionState(Info.blockerBundleId, state?.isEnabled, error)
+        }
+    }
+
+    func updateExtensionState(_ id: String, _ state: Bool?, _ error: Error?) {
+        extensionStates.append(ExtensionState(id: id, state: state, error: error))
+        guard extensionStates.count == 2 else { return }
+
+        let states = self.extensionStates
+        while stateCallbacks.count > 0 {
+            let callback = stateCallbacks.removeFirst()
+            DispatchQueue.main.async {
+                callback(states)
+            }
+        }
+        extensionStates.removeAll()
+    }
+
+    func showPrefs(for id: String, completionHandler: @escaping (Error?) -> Void) {
+        SFSafariApplication.showPreferencesForExtension(withIdentifier: id) { error in
+            DispatchQueue.main.async {
+                completionHandler(error)
+            }
+        }
+    }
 
     var defaultBrowser: WebBrowser {
         let testUrl = URL(string: "https://rickyromero.com/")!

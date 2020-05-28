@@ -101,33 +101,30 @@ class MainViewController: NSViewController {
     }
 
     func checkExtensions(_: Notification) {
-        SFSafariExtensionManager.getStateOfSafariExtension(withIdentifier: Info.helperBundleId) { state, error in
-            self.updateExtensionStatus(Info.helperBundleId, state?.isEnabled, error)
-        }
-        SFContentBlockerManager.getStateOfContentBlocker(withIdentifier: Info.blockerBundleId) { state, error in
-            self.updateExtensionStatus(Info.blockerBundleId, state?.isEnabled, error)
-        }
-    }
+        BrowserBridge.main.requestExtensionStates { states in
+            var errorOccurred = false
+            states.forEach { state in
+                guard state.error == nil else {
+                    errorOccurred = true
+                    return
+                }
 
-    func updateExtensionStatus(_ id: String, _ state: Bool?, _ error: Error?) {
-        guard error == nil else {
-            DispatchQueue.main.async {
+                switch state.id {
+                    case Info.blockerBundleId: self.blockerEnabled = state.state!
+                    case Info.helperBundleId: self.helperEnabled = state.state!
+                    default: break
+                }
+            }
+
+            self.respondToExtensionStates()
+            if errorOccurred {
                 self.presentError(MessagingError(BrowserError.requestingExtensionStatus))
             }
-            return
         }
-
-        if id == Info.blockerBundleId {
-            self.blockerEnabled = state!
-        } else if id == Info.helperBundleId {
-            self.helperEnabled = state!
-        }
-
-        DispatchQueue.main.async { self.respondToExtensionStates() }
     }
 
     @IBAction func openSafariExtensionPreferences(_ sender: NSButton?) {
-        SFSafariApplication.showPreferencesForExtension(withIdentifier: Info.helperBundleId) { error in
+        BrowserBridge.main.showPrefs(for: Info.helperBundleId) { error in
             guard error == nil else {
                 self.presentError(MessagingError(BrowserError.showingSafariPreferences))
                 return
