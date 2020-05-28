@@ -74,10 +74,6 @@ class MainViewController: NSViewController {
             // Open the sheet
             presentAsSheet(sheetViewController)
             onboardingActive = true
-        } else if (blockerEnabled && onboardingActive) {
-            // Close the sheet
-            dismiss(sheetViewController)
-            onboardingActive = false
         }
 
         NSAnimationContext.runAnimationGroup({ context in
