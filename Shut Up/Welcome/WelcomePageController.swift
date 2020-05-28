@@ -11,7 +11,12 @@ import Cocoa
 class WelcomePageController: NSPageController {
     @IBOutlet weak var continueButton: NSButton!
     @IBOutlet weak var defaultBrowserButton: NSButton!
-    
+
+    // Store these for later so we don't get unexpected behavior
+    // if the user suddenly swaps their defaults on us
+    let defaultBrowser = BrowserBridge.main.defaultBrowser
+    let defaultBrowserName = BrowserBridge.main.defaultBrowserName
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,22 +24,19 @@ class WelcomePageController: NSPageController {
         arrangedObjects = ["WelcomeVC", "EnableExtensionsVC"]
         transitionStyle = .horizontalStrip
 
-        let defaultBrowserName = BrowserBridge.main.defaultBrowserName
         defaultBrowserButton.title = "Get for \(defaultBrowserName)"
     }
 
     @IBAction func continueButtonClicked(_ sender: NSButton) {
         if selectedIndex == 0 {
-            switch BrowserBridge.main.defaultBrowser {
-                case .unknown: fallthrough
-                case .safari:
-                    break
-
+            switch defaultBrowser {
                 case .chrome: fallthrough
                 case .firefox: fallthrough
                 case .edge: fallthrough
                 case .opera:
                     arrangedObjects.insert("DefaultBrowserVC", at: 1)
+                default:
+                    break
             }
         }
 
@@ -42,7 +44,7 @@ class WelcomePageController: NSPageController {
     }
 
     @IBAction func defaultBrowserClicked(_ sender: NSButton) {
-        
+        Links.openStorePageFor(defaultBrowser)
     }
 }
 

@@ -22,9 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBAction func didChooseLinkItem(_ sender: NSMenuItem) {
         let destination = Links.lookupTable[sender.title]!
-        let url = URL(string: destination)!
-
-        NSWorkspace.shared.open(url)
+        NSWorkspace.shared.open(destination)
     }
 
     @IBAction func didChooseContactMenuItem(_ sender: NSMenuItem) {

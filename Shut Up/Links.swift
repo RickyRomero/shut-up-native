@@ -10,14 +10,34 @@ import SafariServices
 
 struct Links {
     static let lookupTable = [
-        "Shut Up for Chrome": "https://chrome.google.com/webstore/detail/shut-up-comment-blocker/oklfoejikkmejobodofaimigojomlfim",
-        "Shut Up for Firefox": "https://addons.mozilla.org/en-US/firefox/addon/shut-up-comment-blocker/",
-        "Shut Up for Edge": "https://microsoftedge.microsoft.com/addons/detail/giifliakcgfijgkejmenachfdncbpalp",
-        "Shut Up for Opera": "https://github.com/panicsteve/shutup-css#installation-on-opera",
-        "Shut Up for iPhone and iPad": "https://apps.apple.com/app/id1015043880",
-        "Release Notes": "https://rickyromero.com/shutup/release-notes/",
-        "Privacy Policy": "https://rickyromero.com/shutup/privacy/"
+        "Shut Up for Chrome":
+            URL(string: "https://chrome.google.com/webstore/detail/shut-up-comment-blocker/oklfoejikkmejobodofaimigojomlfim")!,
+        "Shut Up for Firefox":
+            URL(string: "https://addons.mozilla.org/en-US/firefox/addon/shut-up-comment-blocker/")!,
+        "Shut Up for Edge":
+            URL(string: "https://microsoftedge.microsoft.com/addons/detail/giifliakcgfijgkejmenachfdncbpalp")!,
+        "Shut Up for Opera":
+            URL(string: "https://github.com/panicsteve/shutup-css#installation-on-opera")!,
+        "Shut Up for iPhone and iPad":
+            URL(string: "https://apps.apple.com/app/id1015043880")!,
+        "Release Notes":
+            URL(string: "https://rickyromero.com/shutup/release-notes/")!,
+        "Privacy Policy":
+            URL(string: "https://rickyromero.com/shutup/privacy/")!
     ]
+
+    static func openStorePageFor(_ browser: WebBrowser) {
+        var destination: URL!
+        switch browser {
+            case .chrome: destination = lookupTable["Shut Up for Chrome"]
+            case .firefox: destination = lookupTable["Shut Up for Firefox"]
+            case .edge: destination = lookupTable["Shut Up for Edge"]
+            case .opera: destination = lookupTable["Shut Up for Opera"]
+            default: return
+        }
+
+        NSWorkspace.shared.open(destination)
+    }
 
     static func composeEmail() {
         let knownSafariReleases = [
