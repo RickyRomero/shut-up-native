@@ -10,10 +10,10 @@ import Cocoa
 
 class SetupModalController: NSViewController {
     var pageController: WelcomePageController!
-    @IBOutlet var welcomePcOutlet: NSView!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        self.view.window?.styleMask.remove(.resizable)
     }
 
     @IBAction func performClose(_ sender: Any) {
