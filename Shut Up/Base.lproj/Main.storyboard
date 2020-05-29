@@ -97,6 +97,12 @@
                                                 <action selector="performClose:" target="Ady-hI-5gd" id="WBv-Vg-2kW"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="rtk-aa-dRr"/>
+                                        <menuItem title="Force Stylesheet Update" keyEquivalent="r" id="rU7-cH-BIU">
+                                            <connections>
+                                                <action selector="forceStylesheetUpdate:" target="Ady-hI-5gd" id="Fev-ws-zQD"/>
+                                            </connections>
+                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>
