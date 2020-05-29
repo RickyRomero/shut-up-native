@@ -14,6 +14,10 @@ class MainWindowController: NSWindowController {
 
     override func windowDidLoad() {
         super.windowDidLoad()
+
+        shouldCascadeWindows = false
+        windowFrameAutosaveName = "MainWindow"
+
         mainWindow.isMovableByWindowBackground = true
 
         if #available(macOS 10.13, *) {} else {
@@ -29,24 +33,5 @@ class MainWindowController: NSWindowController {
             // to be any other way to hide it here...
             mainWindow.title = ""
         }
-    }
-}
-
-// MARK: NSWindowDelegate
-
-extension MainWindowController: NSWindowDelegate {
-    // Callback for when a sheet is being presented on the main window
-    func window(_ window: NSWindow, willPositionSheet sheet: NSWindow, using rect: NSRect) -> NSRect {
-        print("Requesting sheet position")
-        print("rect:", rect)
-        print("window.frame:", window.frame)
-        // Offset input rectangle so it sits on the top of the window
-        let destRect = NSOffsetRect(rect, 0.0, window.frame.height - rect.origin.y)
-        print("destRect:", destRect)
-        return destRect
-    }
-
-    func windowWillMiniaturize(_ notification: Notification) {
-        print("hey")
     }
 }

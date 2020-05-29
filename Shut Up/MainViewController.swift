@@ -17,11 +17,12 @@ class MainViewController: NSViewController {
     @IBOutlet var showContextMenuCheckbox: NSButton!
     @IBOutlet var whitelistView: NSTableView!
     @IBOutlet var whitelistScrollView: NSScrollView!
+
+    var minWinHeight: Double!
+    var winWidth = 800.0
     var blockerEnabled = true
     var helperEnabled = true
     var onboardingActive = false
-    var winWidth = 800.0
-    var minWinHeight = 0.0
 
     lazy var sheetViewController: NSViewController = {
         self.storyboard!.instantiateController(withIdentifier: "SetupModalController") as! NSViewController
@@ -47,13 +48,16 @@ class MainViewController: NSViewController {
         super.viewWillAppear()
 
         // Get and store minimum window height for use in animation later
-        var frame = view.window!.frame
-        frame.size = NSSize(width: 0, height: 0)
-        view.window!.setFrame(frame, display: true)
+        // Only calculate this once - otherwise the sheet gets screwed up
+        guard minWinHeight == nil else { return }
+        let savedFrame = view.window!.frame
+        var checkFrame = savedFrame
+        checkFrame.size = NSSize(width: 0, height: 0)
+        view.window!.setFrame(checkFrame, display: true)
         view.window!.layoutIfNeeded()
         minWinHeight = Double(view.window!.frame.height)
 
-        view.window!.center()
+        view.window!.setFrame(savedFrame, display: true)
     }
 
     override func viewDidAppear() {
