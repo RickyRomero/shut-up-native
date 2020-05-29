@@ -354,9 +354,6 @@
                             <constraint firstItem="dw9-Z6-olN" firstAttribute="top" secondItem="SQt-vf-rnE" secondAttribute="top" id="r8C-1p-2eU"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="welcomePcOutlet" destination="3Tc-vo-WlP" id="H7c-xA-Hvl"/>
-                    </connections>
                 </viewController>
                 <customObject id="RyG-d9-13i" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <customObject id="1cQ-PI-dI5" customClass="WelcomePageController" customModule="Shut_Up" customModuleProvider="target">
