@@ -153,7 +153,7 @@ class MessagingError: NSError {
                     info = "Shut Up asked Safari to open its preferences window, but it failed. Try opening Safari’s preferences manually, then go to the “Extensions” section."
                 case .requestingExtensionStatus:
                     title = "Safari failed to provide extension info"
-                    info = "Shut Up asked Safari if its extensions are enabled, but it failed. Try opening Safari’s preferences manually, then go to the “Extensions” section to check the status.\n\nIf the issue persists, try restarting your Mac."
+                    info = "Shut Up asked Safari if its extensions are enabled, but it failed. Try quitting Shut Up and moving it to your Applications folder.\n\nIf the issue persists, try uninstalling Shut Up, restarting your Mac, and reinstalling Shut Up."
             }
         } else if cause is NetworkingError {
             switch cause as! NetworkingError {
