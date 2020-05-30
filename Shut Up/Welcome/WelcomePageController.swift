@@ -25,6 +25,7 @@ class WelcomePageController: NSPageController {
         transitionStyle = .horizontalStrip
 
         defaultBrowserButton.title = "Get for \(defaultBrowserName)"
+        defaultBrowserButton.isHidden = true
     }
 
     @IBAction func continueButtonClicked(_ sender: NSButton) {
