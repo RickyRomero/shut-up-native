@@ -61,7 +61,7 @@ final class Crypto {
             query[kSecAttrApplicationTag as String] = tag
 
             let result = SecItemDelete(query as CFDictionary)
-            guard result == errSecSuccess || result == errSecItemNotFound else {
+            guard [errSecSuccess, errSecItemNotFound].contains(result) else {
                 print("Failed to remove key.")
                 print(SecCopyErrorMessageString(result, nil)!)
                 throw CryptoError.removingInvalidKeys
@@ -75,9 +75,9 @@ final class Crypto {
         let attributes: [String: Any] = [
             kSecAttrKeyType as String:          key["type"]!,
             kSecAttrKeySizeInBits as String:    key["bits"]!,
-            kSecAttrIsPermanent as String:      true,
             kSecAttrLabel as String:            key["label"]!,
             kSecAttrAccessGroup as String:      key["accessGroup"] as! String,
+            kSecAttrIsPermanent as String:      true,
             kSecAttrSynchronizable as String:   false,
             kSecPrivateKeyAttrs as String:      [
                 kSecAttrApplicationTag as String:   (key["accessGroup"] as! String + ".private").data(using: .utf8)!
