@@ -16,9 +16,13 @@ final class Preferences {
     static let main = Preferences()
     private init () {}
 
+    var setupStarted = false
     var setupRun = false
 
     func setup() {
+        guard !setupStarted else { return }
+        setupStarted = true
+
         switch lastBuildRun {
             case 0:
                 showInMenu = true
@@ -45,6 +49,11 @@ final class Preferences {
     var lastBuildRun: Int {
         get { UserDefaults.standard.integer(forKey: "lastBuildRun") }
         set { UserDefaults.standard.set(newValue, forKey: "lastBuildRun") }
+    }
+
+    var setupAssistantCompleteForBuild: Int {
+        get { UserDefaults.standard.integer(forKey: "setupAssistantCompleteForBuild") }
+        set { UserDefaults.standard.set(newValue, forKey: "setupAssistantCompleteForBuild") }
     }
 
     var automaticWhitelisting: Bool {

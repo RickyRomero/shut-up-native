@@ -59,6 +59,6 @@ extension WelcomePageController: NSPageControllerDelegate {
     }
     
     func pageControllerDidEndLiveTransition(_ pageController: NSPageController) {
-        self.completeTransition()
+        completeTransition()
     }
 }

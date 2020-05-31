@@ -75,19 +75,15 @@ final class Crypto {
         let attributes: [String: Any] = [
             kSecAttrKeyType as String:          key["type"]!,
             kSecAttrKeySizeInBits as String:    key["bits"]!,
+            kSecAttrIsPermanent as String:      true,
+            kSecAttrLabel as String:            key["label"]!,
+            kSecAttrAccessGroup as String:      key["accessGroup"] as! String,
+            kSecAttrSynchronizable as String:   false,
             kSecPrivateKeyAttrs as String:      [
-                kSecAttrIsPermanent as String:      true,
-                kSecAttrLabel as String:            key["label"]!,
-                kSecAttrAccessGroup as String:      key["accessGroup"] as! String,
-                kSecAttrApplicationTag as String:   (key["accessGroup"] as! String + ".private").data(using: .utf8)!,
-                kSecAttrSynchronizable as String:   false
+                kSecAttrApplicationTag as String:   (key["accessGroup"] as! String + ".private").data(using: .utf8)!
             ],
             kSecPublicKeyAttrs as String:      [
-                kSecAttrIsPermanent as String:      true,
-                kSecAttrLabel as String:            key["label"]!,
-                kSecAttrAccessGroup as String:      key["accessGroup"] as! String,
-                kSecAttrApplicationTag as String:   (key["accessGroup"] as! String + ".public").data(using: .utf8)!,
-                kSecAttrSynchronizable as String:   false
+                kSecAttrApplicationTag as String:   (key["accessGroup"] as! String + ".public").data(using: .utf8)!
             ]
         ]
 
@@ -120,7 +116,14 @@ final class Crypto {
     func transform(with operation: CryptoOperation, data: Data) throws -> Data {
         let key: SecKey!
         let keyType: String!
-        let secTransformFunc: ((_: SecKey, _: SecKeyAlgorithm, _: CFData, _: UnsafeMutablePointer<Unmanaged<CFError>?>?) -> CFData?)!
+        let secTransformFunc: (
+            (
+                _: SecKey,
+                _: SecKeyAlgorithm,
+                _: CFData,
+                _: UnsafeMutablePointer<Unmanaged<CFError>?>?
+            ) -> CFData?
+        )!
         switch operation {
             case .encryption: keyType = "public"; secTransformFunc = SecKeyCreateEncryptedData
             case .decryption: keyType = "private"; secTransformFunc = SecKeyCreateDecryptedData
