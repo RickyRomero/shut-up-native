@@ -28,6 +28,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func didChooseContactMenuItem(_ sender: NSMenuItem) {
         Links.composeEmail()
     }
+    
+    @IBAction func resetEncryptionKeys(_ sender: NSMenuItem) {
+        do {
+            try Crypto.main.clear()
+        } catch {
+            NSApp.presentError(MessagingError(CryptoError.removingInvalidKeys))
+        }
+    }
 }
 
 // MARK: ErrorRecoveryDelegate

@@ -18,7 +18,9 @@ final class Crypto {
     private init() {
         queryBase[kSecAttrKeyType as String]       = key["type"]!
         queryBase[kSecAttrKeySizeInBits as String] = key["bits"]!
-        queryBase[kSecAttrAccessGroup as String]   = key["accessGroup"] as! String
+        if #available(macOS 10.15, *) {
+            queryBase[kSecUseDataProtectionKeychain as String] = true
+        }
     }
     static var main = Crypto()
 
@@ -66,17 +68,22 @@ final class Crypto {
                 print(SecCopyErrorMessageString(result, nil)!)
                 throw CryptoError.removingInvalidKeys
             }
+            if (result == errSecSuccess) {
+                print("Removed key successfully.")
+            }
+            if (result == errSecItemNotFound) {
+                print("No key found to remove.")
+            }
         }
     }
 
     func generateKeyPair() throws {
         do { try clear() } catch { throw error }
 
-        let attributes: [String: Any] = [
+        var attributes: [String: Any] = [
             kSecAttrKeyType as String:          key["type"]!,
             kSecAttrKeySizeInBits as String:    key["bits"]!,
             kSecAttrLabel as String:            key["label"]!,
-            kSecAttrAccessGroup as String:      key["accessGroup"] as! String,
             kSecAttrIsPermanent as String:      true,
             kSecAttrSynchronizable as String:   false,
             kSecPrivateKeyAttrs as String:      [
@@ -86,6 +93,9 @@ final class Crypto {
                 kSecAttrApplicationTag as String:   (key["accessGroup"] as! String + ".public").data(using: .utf8)!
             ]
         ]
+        if #available(macOS 10.15, *) {
+            attributes[kSecUseDataProtectionKeychain as String] = true
+        }
 
         var error: Unmanaged<CFError>?
         guard SecKeyCreateRandomKey(attributes as CFDictionary, &error) != nil else {
