@@ -22,6 +22,7 @@ enum CryptoError: Error {
     case generatingKeys
     case fetchingKeys
     case transformingData
+    case migratingPreCatalinaKeys
 }
 
 enum FileError: Error {
@@ -121,6 +122,10 @@ class MessagingError: NSError {
                 case .transformingData:
                     title = "Stylesheet or whitelist damaged"
                     info = "Shut Up failed to decrypt some required data. You can fix this by resetting Shut Up, but your whitelist may be lost."
+                    options = [.quit, .reset]
+                case .migratingPreCatalinaKeys:
+                    title = "Key migration failed"
+                    info = "Shut Up tried to migrate encryption keys from an older version of macOS, but it failed. You can fix this by resetting Shut Up, but your whitelist may be lost."
                     options = [.quit, .reset]
             }
         } else if cause is LockError {

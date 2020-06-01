@@ -22,10 +22,8 @@ final class CryptoSetupCla: ConditionalLockAction {
         print(#function)
         do {
             try Crypto.main.requestKeychainUnlock()
-            return [
-                try? Crypto.main.lookupKey("private"),
-                try? Crypto.main.lookupKey("public")
-            ].contains(nil)
+
+            return !Crypto.main.requiredKeysPresent || Crypto.main.preCatalinaKeysPresent
         } catch {
             self.error = error
             return false
@@ -35,7 +33,13 @@ final class CryptoSetupCla: ConditionalLockAction {
     func action() {
         print(#function)
         do {
-            try Crypto.main.generateKeyPair()
+            if !Crypto.main.requiredKeysPresent {
+                print("Required keys not present. Generating....................................")
+                try Crypto.main.generateKeyPair()
+            } else if Crypto.main.preCatalinaKeysPresent {
+                print("Pre-Catalina keys present. Migrating....................................")
+                try Crypto.main.migratePreCatalinaKeys()
+            }
         } catch {
             self.error = error
         }

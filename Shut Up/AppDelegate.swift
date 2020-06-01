@@ -31,6 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func resetEncryptionKeys(_ sender: NSMenuItem) {
         do {
+            try Crypto.main.clear(preCatalinaItems: true)
             try Crypto.main.clear()
         } catch {
             NSApp.presentError(MessagingError(CryptoError.removingInvalidKeys))
