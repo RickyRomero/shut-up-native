@@ -16,6 +16,7 @@ final class Preferences {
     static let main = Preferences()
     private init () {}
 
+    let suitePrefs = UserDefaults.init(suiteName: Info.groupId)!
     var setupStarted = false
     var setupRun = false
     let latestSetupAssistantBuild = 1
@@ -48,38 +49,38 @@ final class Preferences {
     }
 
     var lastBuildRun: Int {
-        get { UserDefaults.standard.integer(forKey: "lastBuildRun") }
-        set { UserDefaults.standard.set(newValue, forKey: "lastBuildRun") }
+        get { suitePrefs.integer(forKey: "lastBuildRun") }
+        set { suitePrefs.set(newValue, forKey: "lastBuildRun") }
     }
 
     var setupAssistantCompleteForBuild: Int {
-        get { UserDefaults.standard.integer(forKey: "setupAssistantCompleteForBuild") }
-        set { UserDefaults.standard.set(newValue, forKey: "setupAssistantCompleteForBuild") }
+        get { suitePrefs.integer(forKey: "setupAssistantCompleteForBuild") }
+        set { suitePrefs.set(newValue, forKey: "setupAssistantCompleteForBuild") }
     }
 
     var automaticWhitelisting: Bool {
-        get { UserDefaults.standard.bool(forKey: "automaticWhitelisting") }
-        set { UserDefaults.standard.set(newValue, forKey: "automaticWhitelisting") }
+        get { suitePrefs.bool(forKey: "automaticWhitelisting") }
+        set { suitePrefs.set(newValue, forKey: "automaticWhitelisting") }
     }
 
     var showInMenu: Bool {
-        get { UserDefaults.standard.bool(forKey: "showInMenu") }
-        set { UserDefaults.standard.set(newValue, forKey: "showInMenu") }
+        get { suitePrefs.bool(forKey: "showInMenu") }
+        set { suitePrefs.set(newValue, forKey: "showInMenu") }
     }
 
     var etag: String {
-        get { UserDefaults.standard.string(forKey: "etag") ?? "" }
-        set { UserDefaults.standard.set(newValue, forKey: "etag") }
+        get { suitePrefs.string(forKey: "etag") ?? "" }
+        set { suitePrefs.set(newValue, forKey: "etag") }
     }
 
     var lastStylesheetUpdate: Date {
         get {
-            let stamp = UserDefaults.standard.double(forKey: "lastStylesheetUpdate")
+            let stamp = suitePrefs.double(forKey: "lastStylesheetUpdate")
             return Date(timeIntervalSince1970: stamp)
         }
         set {
             let stamp = newValue.timeIntervalSince1970
-            UserDefaults.standard.set(stamp, forKey: "lastStylesheetUpdate")
+            suitePrefs.set(stamp, forKey: "lastStylesheetUpdate")
         }
     }
 
