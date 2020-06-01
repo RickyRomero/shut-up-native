@@ -16,8 +16,8 @@ enum CryptoOperation {
 
 final class Crypto {
     private init() {
-        queryBase[kSecAttrKeyType as String]       = constants["type"]!
-        queryBase[kSecAttrKeySizeInBits as String] = constants["bits"]!
+        queryBase[String(kSecAttrKeyType)]       = constants["type"]!
+        queryBase[String(kSecAttrKeySizeInBits)] = constants["bits"]!
     }
     static var main = Crypto()
 
@@ -28,8 +28,8 @@ final class Crypto {
         "label":        "Shut Up Encryption Key"
     ]
     var queryBase: [String: Any] = [
-        kSecClass as String:     kSecClassKey,
-        kSecReturnRef as String: true
+        String(kSecClass):     kSecClassKey,
+        String(kSecReturnRef): true
     ]
 
     func requestKeychainUnlock() throws {
@@ -75,10 +75,10 @@ final class Crypto {
         // Invalidate keys by deleting them
         for tag in keyTags {
             var query = queryBase
-            query[kSecAttrApplicationTag as String] = tag
+            query[String(kSecAttrApplicationTag)] = tag
             if #available(macOS 10.15, *) {
                 if preCatalinaItems {
-                    query[kSecUseDataProtectionKeychain as String] = false
+                    query[String(kSecUseDataProtectionKeychain)] = false
                 }
             }
 
@@ -101,20 +101,20 @@ final class Crypto {
         try clear()
 
         var attributes: [String: Any] = [
-            kSecAttrKeyType as String:          constants["type"]!,
-            kSecAttrKeySizeInBits as String:    constants["bits"]!,
-            kSecAttrLabel as String:            constants["label"]!,
-            kSecAttrIsPermanent as String:      true,
-            kSecAttrSynchronizable as String:   false,
-            kSecPrivateKeyAttrs as String:      [
-                kSecAttrApplicationTag as String:   (constants["accessGroup"] as! String + ".private").data(using: .utf8)!
+            String(kSecAttrKeyType):          constants["type"]!,
+            String(kSecAttrKeySizeInBits):    constants["bits"]!,
+            String(kSecAttrLabel):            constants["label"]!,
+            String(kSecAttrIsPermanent):      true,
+            String(kSecAttrSynchronizable):   false,
+            String(kSecPrivateKeyAttrs):      [
+                String(kSecAttrApplicationTag):   (constants["accessGroup"] as! String + ".private").data(using: .utf8)!
             ],
-            kSecPublicKeyAttrs as String:      [
-                kSecAttrApplicationTag as String:   (constants["accessGroup"] as! String + ".public").data(using: .utf8)!
+            String(kSecPublicKeyAttrs):      [
+                String(kSecAttrApplicationTag):   (constants["accessGroup"] as! String + ".public").data(using: .utf8)!
             ]
         ]
         if #available(macOS 10.15, *) {
-            attributes[kSecUseDataProtectionKeychain as String] = true
+            attributes[String(kSecUseDataProtectionKeychain)] = true
         }
 
         var error: Unmanaged<CFError>?
@@ -131,10 +131,10 @@ final class Crypto {
 
     func lookupKey(_ type: String, requiringCatalinaMigration: Bool) throws -> SecKey {
         var query = queryBase
-        query[kSecAttrApplicationTag as String] = (constants["accessGroup"] as! String + "." + type).data(using: .utf8)!
+        query[String(kSecAttrApplicationTag)] = (constants["accessGroup"] as! String + "." + type).data(using: .utf8)!
         if #available(macOS 10.15, *) {
             if requiringCatalinaMigration {
-                query[kSecUseDataProtectionKeychain as String] = false
+                query[String(kSecUseDataProtectionKeychain)] = false
             }
         }
 
@@ -192,13 +192,13 @@ extension Crypto {
         guard #available(macOS 10.15, *) else { return }
         let keyTags = ["private", "public"]
 //        let commonAttributes: [String: Any] = [
-//            kSecClass as String:                     kSecClassKey,
-//            kSecAttrKeyType as String:               constants["type"]!,
-//            kSecAttrKeySizeInBits as String:         constants["bits"]!,
-//            kSecAttrLabel as String:                 constants["label"]!,
-//            kSecAttrIsPermanent as String:           true,
-//            kSecAttrSynchronizable as String:        false,
-//            kSecUseDataProtectionKeychain as String: true
+//            String(kSecClass):                     kSecClassKey,
+//            String(kSecAttrKeyType):               constants["type"]!,
+//            String(kSecAttrKeySizeInBits):         constants["bits"]!,
+//            String(kSecAttrLabel):                 constants["label"]!,
+//            String(kSecAttrIsPermanent):           true,
+//            String(kSecAttrSynchronizable):        false,
+//            String(kSecUseDataProtectionKeychain): true
 //        ]
         let secondPause = UInt32(1)
         var exportedKeyAttributes: [[String: Any]] = []
@@ -226,20 +226,20 @@ extension Crypto {
             }
 
             var updatedAttributes = attributes! as! [String: Any]
-            updatedAttributes[kSecAttrApplicationTag as String] = (constants["accessGroup"] as! String + tag).data(using: .utf8)!
-            updatedAttributes[kSecUseDataProtectionKeychain as String] = true
+            updatedAttributes[String(kSecAttrApplicationTag)] = (constants["accessGroup"] as! String + tag).data(using: .utf8)!
+            updatedAttributes[String(kSecUseDataProtectionKeychain)] = true
 
 //            var updatedAttributes = commonAttributes
-//            updatedAttributes[kSecAttrKeyClass as String] = tag == "public" ? kSecAttrKeyClassPublic : kSecAttrKeyClassPrivate
-//            updatedAttributes[kSecAttrApplicationTag as String] = (constants["accessGroup"] as! String + tag).data(using: .utf8)!
-//            updatedAttributes[kSecValueData as String] = keyData!
+//            updatedAttributes[String(kSecAttrKeyClass)] = tag == "public" ? kSecAttrKeyClassPublic : kSecAttrKeyClassPrivate
+//            updatedAttributes[String(kSecAttrApplicationTag)] = (constants["accessGroup"] as! String + tag).data(using: .utf8)!
+//            updatedAttributes[String(kSecValueData)] = keyData!
 
             exportedKeyAttributes.append(updatedAttributes)
 
             usleep(1000 * 1000 * secondPause)
             print("Deleting previous key...")
             var query = queryBase
-            query[kSecAttrApplicationTag as String] = (constants["accessGroup"] as! String + "." + tag).data(using: .utf8)!
+            query[String(kSecAttrApplicationTag)] = (constants["accessGroup"] as! String + "." + tag).data(using: .utf8)!
 
             let deleteResult = SecItemDelete(query as CFDictionary)
             guard [errSecSuccess, errSecItemNotFound].contains(deleteResult) else {
