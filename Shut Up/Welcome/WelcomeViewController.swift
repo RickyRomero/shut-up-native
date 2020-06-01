@@ -8,10 +8,11 @@
 
 import Cocoa
 
-class WelcomeViewController: NSViewController {
+class WelcomeViewController: NSViewController, PageContentResponder {
     @IBOutlet var babyBrowser: NSImageView!
     @IBOutlet var babyBrowserAtBottom: NSLayoutConstraint!
-    
+    var delegate: WelcomePageDelegate?
+
     override func viewDidLoad() {
         NotificationCenter.default.addObserver(
             forName: NSColor.systemColorsDidChangeNotification,

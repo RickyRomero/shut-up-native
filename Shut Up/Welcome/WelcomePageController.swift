@@ -17,18 +17,52 @@ class WelcomePageController: NSPageController {
     let defaultBrowser = BrowserBridge.main.defaultBrowser
     let defaultBrowserName = BrowserBridge.main.defaultBrowserName
 
+    var currentLocation: String { arrangedObjects[selectedIndex] as! String }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         delegate = self
-        arrangedObjects = ["WelcomeVC", "EnableExtensionsVC"]
+        arrangedObjects = ["EnableExtensionsVC"]
         transitionStyle = .horizontalStrip
 
+        if Preferences.main.needsSetupAssistant {
+            arrangedObjects.insert("WelcomeVC", at: 0)
+        }
+
         defaultBrowserButton.title = "Get for \(defaultBrowserName)"
-        defaultBrowserButton.isHidden = true
+
+        updateState()
+    }
+
+    func updateState() {
+        NSAnimationContext.runAnimationGroup({ context in
+            context.duration = 0.666
+            context.allowsImplicitAnimation = true
+            view.layoutSubtreeIfNeeded()
+
+            switch currentLocation {
+                case "WelcomeVC":
+                    defaultBrowserButton.isHidden = true
+                    continueButton.title = "Get Started"
+                case "DefaultBrowserVC":
+                    defaultBrowserButton.isHidden = false
+                    continueButton.title = "Continue with Safari"
+                case "EnableExtensionsVC":
+                    defaultBrowserButton.isHidden = true
+                    continueButton.title = "Finish"
+                    continueButton.isEnabled = false
+                default: break
+            }
+        })
     }
 
     @IBAction func continueButtonClicked(_ sender: NSButton) {
+        guard currentLocation != "EnableExtensionsVC" else {
+            Preferences.main.setupAssistantCompleteForBuild = Info.buildNum
+            self.view.window?.close()
+            return
+        }
         if selectedIndex == 0 {
             switch defaultBrowser {
                 case .chrome: fallthrough
@@ -42,6 +76,7 @@ class WelcomePageController: NSPageController {
         }
 
         navigateForward(sender)
+        updateState()
     }
 
     @IBAction func defaultBrowserClicked(_ sender: NSButton) {
@@ -51,7 +86,13 @@ class WelcomePageController: NSPageController {
 
 extension WelcomePageController: NSPageControllerDelegate {
     func pageController(_ pageController: NSPageController, viewControllerForIdentifier identifier: String) -> NSViewController {
-        NSStoryboard.init(name: "Main", bundle: nil).instantiateController(withIdentifier: identifier) as! NSViewController
+        let pcr = NSStoryboard.init(
+            name: "Main", bundle: nil
+        ).instantiateController(
+            withIdentifier: identifier
+        ) as! PageContentResponder
+        pcr.delegate = self
+        return pcr as NSViewController
     }
     
     func pageController(_ pageController: NSPageController, identifierFor object: Any) -> String {
@@ -60,5 +101,19 @@ extension WelcomePageController: NSPageControllerDelegate {
     
     func pageControllerDidEndLiveTransition(_ pageController: NSPageController) {
         completeTransition()
+    }
+}
+
+protocol PageContentResponder: NSViewController {
+    var delegate: WelcomePageDelegate? { get set }
+}
+
+protocol WelcomePageDelegate {
+    func updateContinueButton(with state: Bool)
+}
+
+extension WelcomePageController: WelcomePageDelegate {
+    func updateContinueButton(with state: Bool) {
+        continueButton.isEnabled = state
     }
 }

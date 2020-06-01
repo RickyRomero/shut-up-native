@@ -9,15 +9,17 @@
 import Cocoa
 import SafariServices
 
-class EnableExtensionsViewController: NSViewController {
+class EnableExtensionsViewController: NSViewController, PageContentResponder {
     @IBOutlet var coreEnableButton: NSButton!
+    @IBOutlet var requiredLabel: NSTextField!
     @IBOutlet var helperEnableButton: NSButton!
 
     var blockerEnabled = false
     var helperEnabled = false
+    var delegate: WelcomePageDelegate?
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear() {
+        super.viewWillAppear()
 
         NotificationCenter.default.addObserver(
             forName: NSApplication.didBecomeActiveNotification,
@@ -47,6 +49,20 @@ class EnableExtensionsViewController: NSViewController {
 
             self.update(button: self.coreEnableButton, extEnabled: self.blockerEnabled)
             self.update(button: self.helperEnableButton, extEnabled: self.helperEnabled)
+
+            var requiredSwatch: NSColor
+            if #available(macOS 10.13, *) {
+                requiredSwatch = NSColor.init(named: "Required Swatch")!
+            } else {
+                requiredSwatch = NSColor.systemOrange
+            }
+            let labelColor = self.blockerEnabled ?
+                NSColor.secondaryLabelColor :
+                requiredSwatch
+            self.requiredLabel.textColor = labelColor
+
+            self.delegate?.updateContinueButton(with: self.blockerEnabled)
+
             if errorOccurred {
                 self.presentError(MessagingError(BrowserError.requestingExtensionStatus))
             }

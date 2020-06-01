@@ -22,11 +22,7 @@ class MainViewController: NSViewController {
     var winWidth = 800.0
     var blockerEnabled = true
     var helperEnabled = true
-    var onboardingActive = false
-
-    lazy var sheetViewController: NSViewController = {
-        self.storyboard!.instantiateController(withIdentifier: "SetupModalController") as! NSViewController
-    }()
+    var onboardingActive: Bool { view.window?.sheets.count ?? 0 > 0 }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +36,7 @@ class MainViewController: NSViewController {
             forName: NSApplication.didBecomeActiveNotification,
             object: nil,
             queue: .main,
-            using: checkExtensions(_:)
+            using: appReceivedFocus(_:)
         )
     }
 
@@ -66,6 +62,11 @@ class MainViewController: NSViewController {
         whitelistScrollView.becomeFirstResponder()
     }
 
+    func openSetupAssistant() {
+        let sheetViewController = storyboard!.instantiateController(withIdentifier: "SetupModalController") as! NSViewController
+        presentAsSheet(sheetViewController)
+    }
+
     func respondToExtensionStates() {
         let prefs = Preferences.main
 
@@ -75,9 +76,7 @@ class MainViewController: NSViewController {
         showContextMenuCheckbox.isEnabled = helperEnabled && prefs.setupRun
 
         if (!blockerEnabled && !onboardingActive) {
-            // Open the sheet
-            presentAsSheet(sheetViewController)
-            onboardingActive = true
+            openSetupAssistant()
         }
 
         NSAnimationContext.runAnimationGroup({ context in
@@ -100,7 +99,10 @@ class MainViewController: NSViewController {
         }
     }
 
-    func checkExtensions(_: Notification) {
+    func appReceivedFocus(_: Notification) {
+        guard Preferences.main.setupRun else { return }
+        prefsDidUpdate()
+
         BrowserBridge.main.requestExtensionStates { states in
             var errorOccurred = false
             states.forEach { state in
@@ -205,5 +207,9 @@ extension MainViewController: PrefsUpdateDelegate {
         showContextMenuCheckbox.state = prefs.showInMenu ? .on : .off
         enableWhitelistCheckbox.isEnabled = helperEnabled
         showContextMenuCheckbox.isEnabled = helperEnabled
+
+        if (!onboardingActive && prefs.needsSetupAssistant) {
+            openSetupAssistant()
+        }
     }
 }

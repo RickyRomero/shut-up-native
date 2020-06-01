@@ -18,6 +18,7 @@ final class Preferences {
 
     var setupStarted = false
     var setupRun = false
+    let latestSetupAssistantBuild = 1
 
     func setup() {
         guard !setupStarted else { return }
@@ -80,5 +81,9 @@ final class Preferences {
             let stamp = newValue.timeIntervalSince1970
             UserDefaults.standard.set(stamp, forKey: "lastStylesheetUpdate")
         }
+    }
+
+    var needsSetupAssistant: Bool {
+        setupAssistantCompleteForBuild < latestSetupAssistantBuild
     }
 }

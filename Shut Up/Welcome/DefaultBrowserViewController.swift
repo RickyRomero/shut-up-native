@@ -8,10 +8,11 @@
 
 import Cocoa
 
-class DefaultBrowserViewController: NSViewController {
-
+class DefaultBrowserViewController: NSViewController, PageContentResponder {
     @IBOutlet var browserIcon: NSImageView!
     @IBOutlet var heading: NSTextField!
+    var delegate: WelcomePageDelegate?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

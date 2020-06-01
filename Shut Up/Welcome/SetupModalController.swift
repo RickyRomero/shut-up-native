@@ -9,8 +9,6 @@
 import Cocoa
 
 class SetupModalController: NSViewController {
-    var pageController: WelcomePageController!
-
     override func viewWillAppear() {
         super.viewWillAppear()
         view.window?.styleMask.remove(.resizable)

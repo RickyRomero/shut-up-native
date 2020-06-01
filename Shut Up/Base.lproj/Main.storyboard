@@ -686,6 +686,7 @@ DQ
                     <connections>
                         <outlet property="coreEnableButton" destination="Zkd-T1-Gxk" id="Rk0-Nu-mVA"/>
                         <outlet property="helperEnableButton" destination="V5i-0F-zAh" id="7fx-Kf-Hoz"/>
+                        <outlet property="requiredLabel" destination="tDr-U4-I7t" id="F9R-6m-E5H"/>
                     </connections>
                 </viewController>
                 <customObject id="1Gc-bF-ICb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
