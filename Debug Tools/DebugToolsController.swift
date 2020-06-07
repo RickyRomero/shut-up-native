@@ -16,7 +16,7 @@ class DebugToolsController: NSViewController {
     @IBOutlet weak var automaticWhitelistCheckbox: NSButton!
     @IBOutlet weak var showInMenuCheckbox: NSButton!
     @IBOutlet weak var lastCssUpdateField: NSTextField!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

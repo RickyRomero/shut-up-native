@@ -158,6 +158,9 @@
                                 </connections>
                             </menuItem>
                             <menuItem title="Delete" id="pa3-QI-u2k">
+                                <string key="keyEquivalent" base64-UTF8="YES">
+CA
+</string>
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="delete:" target="-1" id="0Mk-Ml-PaM"/>
@@ -652,7 +655,7 @@
                     </menu>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="139" y="154"/>
+            <point key="canvasLocation" x="139" y="-62"/>
         </menu>
         <customObject id="9sa-A5-QjB" customClass="AppDelegate" customModule="Debug_Tools" customModuleProvider="target">
             <connections>
@@ -674,7 +677,7 @@
                             <rect key="frame" x="1" y="0.0" width="1598" height="999"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="sequential" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="sr2-ub-uDS" id="qIn-Dk-2aN">
+                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="sequential" columnSelection="YES" autosaveColumns="NO" headerView="sr2-ub-uDS" id="qIn-Dk-2aN">
                                     <rect key="frame" x="0.0" y="0.0" width="1667" height="974"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
@@ -1354,6 +1357,7 @@
         </viewController>
         <viewController id="Lex-c9-HhV" customClass="KeychainTableController" customModule="Debug_Tools" customModuleProvider="target">
             <connections>
+                <outlet property="deleteMenuItem" destination="pa3-QI-u2k" id="zJj-Fj-Xrn"/>
                 <outlet property="keychainDataView" destination="qIn-Dk-2aN" id="Vhi-hw-ihi"/>
                 <outlet property="view" destination="VI5-PS-E4h" id="Q5e-KV-rdG"/>
             </connections>

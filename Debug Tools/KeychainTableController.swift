@@ -10,6 +10,7 @@ import Cocoa
 
 class KeychainTableController: NSViewController {
     @IBOutlet weak var keychainDataView: NSTableView!
+    @IBOutlet weak var deleteMenuItem: NSMenuItem!
     var keychainData: [[String: Any]]?
 
     override func viewDidLoad() {
@@ -35,8 +36,7 @@ class KeychainTableController: NSViewController {
         let err = SecItemCopyMatching([
             kSecClass: kSecClassKey,
             kSecMatchLimit: kSecMatchLimitAll,
-//            kSecAttrSynchronizable: true,
-            kSecReturnAttributes: true,
+            kSecReturnAttributes: true
         ] as NSDictionary, &copyResult)
         let keysInfos: [[String:Any]]
         switch err {
@@ -52,21 +52,56 @@ class KeychainTableController: NSViewController {
         return keysInfos
     }
 
-    private func resetAction() {
-        print("will reset")
-        let err = SecItemDelete([
-            kSecClass: kSecClassKey,
-            kSecMatchLimit: kSecMatchLimitAll,
-            kSecAttrSynchronizable: true,
-        ] as NSDictionary)
+    private func deleteItem(at index: Int) {
+        guard let target = keychainData?[index] else { return }
+        guard let deletionQuery = constructDeletionQuery(using: target) else { return }
+
+        print("will delete")
+        let err = SecItemDelete(deletionQuery as NSDictionary)
         switch err {
-        case errSecSuccess, errSecItemNotFound:
+        case errSecSuccess:
             break
         default:
-            print("did not dump, err: \(err)")
+            print("did not delete, err: \(err)")
+            print(SecCopyErrorMessageString(err, nil))
             return
         }
-        print("did reset")
+
+        keychainDataView.deselectRow(index)
+        print("did delete")
+    }
+
+    private func constructDeletionQuery(using data: [String: Any]) -> [CFString: Any]? {
+//        if let targetRef = data[String(kSecValueRef)] {
+//            return [
+//                kSecClass: kSecClassKey,
+//                kSecMatchItemList: [targetRef] as CFArray
+//            ]
+//        }
+
+        if let cdat = data[String(kSecAttrCreationDate)], let mdat = data[String(kSecAttrModificationDate)] {
+            return [
+                kSecClass: kSecClassKey,
+                kSecAttrCreationDate: cdat,
+                kSecAttrModificationDate: mdat
+            ]
+        }
+
+        return nil
+    }
+}
+
+// MARK: Edit menu responders
+
+extension KeychainTableController {
+    @IBAction func delete(_ sender: AnyObject) {
+        print("Baleeted")
+        dump(keychainDataView.selectedRowIndexes)
+
+        keychainDataView.selectedRowIndexes.forEach(deleteItem(at:))
+
+        keychainData = dumpAction()
+        keychainDataView.reloadData()
     }
 }
 
@@ -88,5 +123,14 @@ extension KeychainTableController: NSTableViewDataSource {
         guard cellData != nil else { return "--" }
 
         return String(describing: cellData!)
+    }
+}
+
+extension KeychainTableController: NSMenuItemValidation {
+    func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
+        if menuItem == deleteMenuItem {
+            return keychainDataView.selectedRowIndexes.count > 0
+        }
+        return true
     }
 }
