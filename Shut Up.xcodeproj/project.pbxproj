@@ -24,6 +24,9 @@
 		111C4DE0234A47180034054C /* domain-whitelist.json in Resources */ = {isa = PBXBuildFile; fileRef = 111C4DDF234A47180034054C /* domain-whitelist.json */; };
 		111C4DE1234A47180034054C /* domain-whitelist.json in Resources */ = {isa = PBXBuildFile; fileRef = 111C4DDF234A47180034054C /* domain-whitelist.json */; };
 		111C4DE2234A47180034054C /* domain-whitelist.json in Resources */ = {isa = PBXBuildFile; fileRef = 111C4DDF234A47180034054C /* domain-whitelist.json */; };
+		112A8127248C78D20077AA4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A8126248C78D20077AA4B /* AppDelegate.swift */; };
+		112A812B248C78D30077AA4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 112A812A248C78D30077AA4B /* Assets.xcassets */; };
+		112A8135248C79DA0077AA4B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 112A8134248C79DA0077AA4B /* MainMenu.xib */; };
 		112C6B82247C669A00278E1A /* WelcomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112C6B81247C669A00278E1A /* WelcomePageController.swift */; };
 		11358189236FCB0F00BF7617 /* Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11358188236FCB0F00BF7617 /* Links.swift */; };
 		113CAF73247B08AD00311C57 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113CAF72247B08AD00311C57 /* WelcomeViewController.swift */; };
@@ -106,6 +109,12 @@
 		111C4DD6234A2D040034054C /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		111C4DDB234A46C10034054C /* shutup.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = shutup.css; sourceTree = "<group>"; };
 		111C4DDF234A47180034054C /* domain-whitelist.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "domain-whitelist.json"; sourceTree = "<group>"; };
+		112A8124248C78D20077AA4B /* Debug Tools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Debug Tools.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		112A8126248C78D20077AA4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		112A812A248C78D30077AA4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		112A812F248C78D30077AA4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		112A8130248C78D30077AA4B /* Debug_Tools.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Debug_Tools.entitlements; sourceTree = "<group>"; };
+		112A8134248C79DA0077AA4B /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		112C6B81247C669A00278E1A /* WelcomePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageController.swift; sourceTree = "<group>"; };
 		11358188236FCB0F00BF7617 /* Links.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Links.swift; sourceTree = "<group>"; };
 		113CAF72247B08AD00311C57 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +151,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		112A8121248C78D20077AA4B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		11E581CA231DB6FC00910010 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -194,6 +210,18 @@
 			path = "Base Files";
 			sourceTree = "<group>";
 		};
+		112A8125248C78D20077AA4B /* Debug Tools */ = {
+			isa = PBXGroup;
+			children = (
+				112A8126248C78D20077AA4B /* AppDelegate.swift */,
+				112A8134248C79DA0077AA4B /* MainMenu.xib */,
+				112A812A248C78D30077AA4B /* Assets.xcassets */,
+				112A812F248C78D30077AA4B /* Info.plist */,
+				112A8130248C78D30077AA4B /* Debug_Tools.entitlements */,
+			);
+			path = "Debug Tools";
+			sourceTree = "<group>";
+		};
 		116BEFFC247C34620099EE0F /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +241,7 @@
 				11E581CF231DB6FC00910010 /* Shut Up */,
 				11E581E7231DB6FD00910010 /* Shut Up Helper */,
 				11E58204231DB82E00910010 /* Shut Up Core */,
+				112A8125248C78D20077AA4B /* Debug Tools */,
 				11E581E4231DB6FD00910010 /* Frameworks */,
 				11E581CE231DB6FC00910010 /* Products */,
 			);
@@ -224,6 +253,7 @@
 				11E581CD231DB6FC00910010 /* Shut Up.app */,
 				11E581E0231DB6FD00910010 /* Shut Up Helper.appex */,
 				11E58202231DB82E00910010 /* Shut Up Core.appex */,
+				112A8124248C78D20077AA4B /* Debug Tools.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -297,6 +327,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		112A8123248C78D20077AA4B /* Debug Tools */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 112A8133248C78D30077AA4B /* Build configuration list for PBXNativeTarget "Debug Tools" */;
+			buildPhases = (
+				112A8120248C78D20077AA4B /* Sources */,
+				112A8121248C78D20077AA4B /* Frameworks */,
+				112A8122248C78D20077AA4B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Debug Tools";
+			productName = "Debug Tools";
+			productReference = 112A8124248C78D20077AA4B /* Debug Tools.app */;
+			productType = "com.apple.product-type.application";
+		};
 		11E581CC231DB6FC00910010 /* Shut Up */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 11E581FB231DB6FD00910010 /* Build configuration list for PBXNativeTarget "Shut Up" */;
@@ -357,10 +404,13 @@
 		11E581C5231DB6FC00910010 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1030;
+				LastSwiftUpdateCheck = 1150;
 				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "Ricky Romero";
 				TargetAttributes = {
+					112A8123248C78D20077AA4B = {
+						CreatedOnToolsVersion = 11.5;
+					};
 					11E581CC231DB6FC00910010 = {
 						CreatedOnToolsVersion = 10.3;
 						SystemCapabilities = {
@@ -421,11 +471,21 @@
 				11E581CC231DB6FC00910010 /* Shut Up */,
 				11E581DF231DB6FD00910010 /* Shut Up Helper */,
 				11E58201231DB82E00910010 /* Shut Up Core */,
+				112A8123248C78D20077AA4B /* Debug Tools */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		112A8122248C78D20077AA4B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				112A812B248C78D30077AA4B /* Assets.xcassets in Resources */,
+				112A8135248C79DA0077AA4B /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		11E581CB231DB6FC00910010 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -462,6 +522,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		112A8120248C78D20077AA4B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				112A8127248C78D20077AA4B /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		11E581C9231DB6FC00910010 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -551,6 +619,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		112A8131248C78D30077AA4B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Debug Tools/Debug_Tools.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = TMM5P68287;
+				ENABLE_HARDENED_RUNTIME = NO;
+				INFOPLIST_FILE = "Debug Tools/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rickyromero.shutup.debugtools;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		112A8132248C78D30077AA4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Debug Tools/Debug_Tools.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = TMM5P68287;
+				ENABLE_HARDENED_RUNTIME = NO;
+				INFOPLIST_FILE = "Debug Tools/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rickyromero.shutup.debugtools;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		11E581F5231DB6FD00910010 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -797,6 +907,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		112A8133248C78D30077AA4B /* Build configuration list for PBXNativeTarget "Debug Tools" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				112A8131248C78D30077AA4B /* Debug */,
+				112A8132248C78D30077AA4B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		11E581C8231DB6FC00910010 /* Build configuration list for PBXProject "Shut Up" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
