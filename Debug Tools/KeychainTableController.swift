@@ -63,7 +63,7 @@ class KeychainTableController: NSViewController {
             break
         default:
             print("did not delete, err: \(err)")
-            print(SecCopyErrorMessageString(err, nil))
+            print((SecCopyErrorMessageString(err, nil) as String?) ?? "No error string available")
             return
         }
 
@@ -91,22 +91,12 @@ class KeychainTableController: NSViewController {
     }
 }
 
-// MARK: Edit menu responders
-
-extension KeychainTableController {
-    @IBAction func delete(_ sender: AnyObject) {
-        print("Baleeted")
-        dump(keychainDataView.selectedRowIndexes)
-
-        keychainDataView.selectedRowIndexes.forEach(deleteItem(at:))
-
-        keychainData = dumpAction()
-        keychainDataView.reloadData()
-    }
-}
+// MARK: NSTableViewDelegate
 
 extension KeychainTableController: NSTableViewDelegate {
 }
+
+// MARK: NSTableViewDataSource
 
 extension KeychainTableController: NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
@@ -123,6 +113,20 @@ extension KeychainTableController: NSTableViewDataSource {
         guard cellData != nil else { return "--" }
 
         return String(describing: cellData!)
+    }
+}
+
+// MARK: Edit menu responders
+
+extension KeychainTableController {
+    @IBAction func delete(_ sender: AnyObject) {
+        print("Baleeted")
+        dump(keychainDataView.selectedRowIndexes)
+
+        keychainDataView.selectedRowIndexes.forEach(deleteItem(at:))
+
+        keychainData = dumpAction()
+        keychainDataView.reloadData()
     }
 }
 
