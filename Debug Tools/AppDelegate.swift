@@ -6,6 +6,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var window: NSWindow!
     @IBOutlet weak var keychainDataView: NSTableView!
 
+
     var keychainData: [[String: Any]]?
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
@@ -25,20 +26,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         keychainData = dumpAction()
         keychainDataView.reloadData()
 
-        var instances: [String: Int] = [:]
+//        var instances: [String: Int] = [:]
+//
+//        for row in keychainData! {
+//            for col in row {
+//                print(col)
+//                if instances[col.key] == nil {
+//                    instances[col.key] = 1
+//                } else {
+//                    instances[col.key]! += 1
+//                }
+//            }
+//        }
 
-        for row in keychainData! {
-            for col in row {
-                print(col)
-                if instances[col.key] == nil {
-                    instances[col.key] = 1
-                } else {
-                    instances[col.key]! += 1
-                }
-            }
-        }
-
-        dump(instances)
+//        dump(instances)
     }
 
     private func dumpAction() -> [[String: Any]]? {

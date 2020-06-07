@@ -40,6 +40,8 @@
 		11B920FE247D51760002C430 /* BrowserBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B920FD247D51760002C430 /* BrowserBridge.swift */; };
 		11B92100247D6F520002C430 /* DefaultBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B920FF247D6F520002C430 /* DefaultBrowserViewController.swift */; };
 		11C17A0D248C941700D2A164 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EF35702479F12000D5EFD2 /* Preferences.swift */; };
+		11C17A0E248C995200D2A164 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111C4DD6234A2D040034054C /* Info.swift */; };
+		11C17A13248CA1F000D2A164 /* DebugToolsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C17A11248CA1F000D2A164 /* DebugToolsController.swift */; };
 		11E4B0B3246D0EF3007340A4 /* EncryptedFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E4B0B2246D0EF3007340A4 /* EncryptedFile.swift */; };
 		11E4B0B4246D0EF3007340A4 /* EncryptedFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E4B0B2246D0EF3007340A4 /* EncryptedFile.swift */; };
 		11E4B0B5246D0EF3007340A4 /* EncryptedFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E4B0B2246D0EF3007340A4 /* EncryptedFile.swift */; };
@@ -124,6 +126,7 @@
 		11A34D552354E9D70008F0CA /* Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
 		11B920FD247D51760002C430 /* BrowserBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserBridge.swift; sourceTree = "<group>"; };
 		11B920FF247D6F520002C430 /* DefaultBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultBrowserViewController.swift; sourceTree = "<group>"; };
+		11C17A11248CA1F000D2A164 /* DebugToolsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugToolsController.swift; sourceTree = "<group>"; };
 		11E4B0B2246D0EF3007340A4 /* EncryptedFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptedFile.swift; sourceTree = "<group>"; };
 		11E581CD231DB6FC00910010 /* Shut Up.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shut Up.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		11E581D0231DB6FC00910010 /* Shut Up.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Shut Up.entitlements"; sourceTree = "<group>"; };
@@ -215,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				112A8126248C78D20077AA4B /* AppDelegate.swift */,
+				11C17A11248CA1F000D2A164 /* DebugToolsController.swift */,
 				112A8134248C79DA0077AA4B /* MainMenu.xib */,
 				112A812A248C78D30077AA4B /* Assets.xcassets */,
 				112A812F248C78D30077AA4B /* Info.plist */,
@@ -527,6 +531,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11C17A0E248C995200D2A164 /* Info.swift in Sources */,
+				11C17A13248CA1F000D2A164 /* DebugToolsController.swift in Sources */,
 				11C17A0D248C941700D2A164 /* Preferences.swift in Sources */,
 				112A8127248C78D20077AA4B /* AppDelegate.swift in Sources */,
 			);

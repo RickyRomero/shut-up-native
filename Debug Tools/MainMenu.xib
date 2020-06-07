@@ -657,7 +657,7 @@
         <customObject id="9sa-A5-QjB" customClass="AppDelegate" customModule="Debug_Tools" customModuleProvider="target">
             <connections>
                 <outlet property="keychainDataView" destination="qIn-Dk-2aN" id="qCq-Gs-d7X"/>
-                <outlet property="window" destination="gRj-Tp-sPU" id="cMP-m9-pnw"/>
+                <outlet property="window" destination="Mqu-Hs-K6Y" id="EI3-UR-NAf"/>
             </connections>
         </customObject>
         <window title="Keychain Debug" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" frameAutosaveName="" animationBehavior="default" id="gRj-Tp-sPU">
@@ -689,7 +689,7 @@
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="Eny-5m-cNS">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -701,7 +701,7 @@
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="Be7-3Z-G9P">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -713,7 +713,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="TAv-vG-92C">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -725,7 +725,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="lvn-Ge-J05">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -737,7 +737,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="y6k-ZC-9k7">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -749,7 +749,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="vzH-od-gs3">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -761,7 +761,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="eei-w3-zPq">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -773,7 +773,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="pBn-l5-pQi">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -785,7 +785,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="NJH-1u-ZBF">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -797,7 +797,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="GV0-zA-yTC">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -809,7 +809,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="W2Q-aq-hEt">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -821,7 +821,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="0WZ-hN-v8i">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -833,7 +833,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="HxV-1l-6mM">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -845,7 +845,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="IgJ-ze-ohP">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -857,7 +857,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="6rX-jp-ert">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -869,7 +869,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="0dm-aq-019">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -881,7 +881,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="TCV-J9-nOo">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -893,7 +893,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="6id-Rk-QNQ">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -905,7 +905,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="Tai-6M-cwX">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -917,7 +917,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="l6G-5p-V6D">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -929,7 +929,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="XMG-fl-B9S">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -941,7 +941,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="lF2-gV-ra7">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -953,7 +953,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="AEd-UJ-3H5">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -965,7 +965,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="Eyc-EV-kbD">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -977,7 +977,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="Edr-oi-YYG">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -989,7 +989,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="p6B-M7-pLQ">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -1001,7 +1001,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="SGe-nh-8fy">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -1013,7 +1013,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="hSc-W3-FGs">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -1025,7 +1025,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="LyQ-Zk-suq">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -1037,7 +1037,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="FBn-ag-JAf">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -1049,7 +1049,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="RM1-aB-JPH">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -1061,7 +1061,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="h6v-cC-Mma">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -1073,7 +1073,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="abq-9w-NB6">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -1085,7 +1085,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="hw1-wI-S0W">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -1097,7 +1097,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="GoS-xM-Lme">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -1109,7 +1109,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="p6r-n0-psd">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -1121,7 +1121,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="eXW-rc-Kke">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -1133,7 +1133,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="8e4-oe-SWc">
-                                                <font key="font" metaFont="menu" size="11"/>
+                                                <font key="font" metaFont="label" size="11"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -1166,7 +1166,7 @@
             </view>
             <point key="canvasLocation" x="1570" y="769"/>
         </window>
-        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" frameAutosaveName="" animationBehavior="default" id="Mqu-Hs-K6Y">
+        <window title="Debug Tools" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" frameAutosaveName="" animationBehavior="default" id="Mqu-Hs-K6Y">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="283" y="311" width="480" height="509"/>
@@ -1175,182 +1175,183 @@
                 <rect key="frame" x="0.0" y="0.0" width="480" height="509"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fho-wY-xk4">
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="s14-jx-xdP">
                         <rect key="frame" x="14" y="461" width="175" height="32"/>
-                        <buttonCell key="cell" type="push" title="Open Keychain Debug" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cOn-oO-9ko">
+                        <buttonCell key="cell" type="push" title="Open Keychain Debug" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6Oy-qd-vsP">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                     </button>
-                    <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="uU6-xG-sD6">
+                    <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="hva-1K-3K3">
                         <rect key="frame" x="12" y="445" width="456" height="5"/>
                     </box>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pxU-iU-A54">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KG6-30-ZAB">
                         <rect key="frame" x="-2" y="423" width="194" height="16"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="190" id="Hlh-bA-FOs"/>
+                            <constraint firstAttribute="width" constant="190" id="VjL-5c-YIY"/>
                         </constraints>
-                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Last Build Run:" id="0hm-gY-DY2">
+                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Last Build Run:" id="1hu-aw-udC">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ox5-sT-U7N">
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vma-ix-4JG">
                         <rect key="frame" x="198" y="420" width="140" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="140" id="2BL-gb-boN"/>
+                            <constraint firstAttribute="width" constant="140" id="XRm-Md-QZ5"/>
                         </constraints>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="LnE-6d-P6W">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="4HT-b9-JnM">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nsV-HJ-HnO">
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hzD-go-cW6">
                         <rect key="frame" x="340" y="413" width="84" height="32"/>
-                        <buttonCell key="cell" type="push" title="Default" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="HSD-nt-8TB">
+                        <buttonCell key="cell" type="push" title="Default" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="VF7-vc-OBI">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                     </button>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Rsq-gg-C3n">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="03L-i4-Feh">
                         <rect key="frame" x="-2" y="399" width="194" height="16"/>
-                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Setup Complete for Build:" id="CZ2-OJ-Lfg">
+                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Setup Complete for Build:" id="Psk-oV-r48">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Sp7-fR-fDd">
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WsH-aE-VAW">
                         <rect key="frame" x="198" y="396" width="140" height="21"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="qVn-IJ-cqy">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="wTa-Qu-7LG">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eIa-em-JCD">
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VIp-hP-LF1">
                         <rect key="frame" x="340" y="389" width="84" height="32"/>
-                        <buttonCell key="cell" type="push" title="Default" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="npe-P6-TIG">
+                        <buttonCell key="cell" type="push" title="Default" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="EWN-yi-Ba0">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                     </button>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="T69-Ch-noD">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Bm-cp-3Ae">
                         <rect key="frame" x="-2" y="375" width="194" height="16"/>
-                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="ETag:" id="bkV-ig-fA7">
+                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="ETag:" id="SaY-4v-VC2">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oJc-UF-M7c">
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Lhn-aN-IiR">
                         <rect key="frame" x="198" y="372" width="140" height="21"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="7on-xp-rvp">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="8jy-Vg-3vZ">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zd1-TS-atW">
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1nP-xP-8qX">
                         <rect key="frame" x="340" y="365" width="84" height="32"/>
-                        <buttonCell key="cell" type="push" title="Default" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kkz-Bx-K4W">
+                        <buttonCell key="cell" type="push" title="Default" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="X9Y-88-nMV">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                     </button>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0eK-Mh-XjI">
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eeS-1D-QgQ">
                         <rect key="frame" x="196" y="348" width="159" height="18"/>
-                        <buttonCell key="cell" type="check" title="Automatic Whitelisting" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="5XP-FN-SRs">
+                        <buttonCell key="cell" type="check" title="Automatic Whitelisting" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="VIS-Jj-h4Z">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                     </button>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="N6f-8W-LCf">
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2tk-JE-a2y">
                         <rect key="frame" x="196" y="328" width="107" height="18"/>
-                        <buttonCell key="cell" type="check" title="Show in Menu" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="dFz-ef-e9w">
+                        <buttonCell key="cell" type="check" title="Show in Menu" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="sRW-6d-N3L">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                     </button>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="APa-31-LTq">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9PB-kn-Bxl">
                         <rect key="frame" x="-2" y="304" width="194" height="16"/>
-                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Last CSS Update:" id="9K2-DR-CvD">
+                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Last CSS Update:" id="5yP-Fd-sOY">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2Pv-VE-5Gc">
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DnX-Mf-RS9">
                         <rect key="frame" x="198" y="301" width="140" height="21"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="PBR-Jf-sKw">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="t22-f5-BqC">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="A2R-cX-c98">
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SU1-TL-Hdr">
                         <rect key="frame" x="340" y="294" width="84" height="32"/>
-                        <buttonCell key="cell" type="push" title="Default" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6MW-rd-2q9">
+                        <buttonCell key="cell" type="push" title="Default" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="D10-2D-fiP">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="APa-31-LTq" firstAttribute="firstBaseline" secondItem="2Pv-VE-5Gc" secondAttribute="firstBaseline" id="2Cx-Be-ab0"/>
-                    <constraint firstItem="2Pv-VE-5Gc" firstAttribute="firstBaseline" secondItem="A2R-cX-c98" secondAttribute="firstBaseline" id="6Jg-7K-5ZM"/>
-                    <constraint firstItem="uU6-xG-sD6" firstAttribute="leading" secondItem="XeX-Pg-93I" secondAttribute="leading" constant="12" symbolic="YES" id="6sa-KI-EGi"/>
-                    <constraint firstItem="oJc-UF-M7c" firstAttribute="firstBaseline" secondItem="zd1-TS-atW" secondAttribute="firstBaseline" id="8Qh-LN-ZHe"/>
-                    <constraint firstItem="T69-Ch-noD" firstAttribute="top" secondItem="Rsq-gg-C3n" secondAttribute="bottom" constant="8" symbolic="YES" id="BZf-zs-lej"/>
-                    <constraint firstItem="Ox5-sT-U7N" firstAttribute="firstBaseline" secondItem="nsV-HJ-HnO" secondAttribute="firstBaseline" id="H9o-py-lzw"/>
-                    <constraint firstItem="Rsq-gg-C3n" firstAttribute="top" secondItem="pxU-iU-A54" secondAttribute="bottom" constant="8" symbolic="YES" id="KZb-a7-u0j"/>
-                    <constraint firstItem="2Pv-VE-5Gc" firstAttribute="width" secondItem="oJc-UF-M7c" secondAttribute="width" id="LAZ-Vy-Brg"/>
-                    <constraint firstItem="Rsq-gg-C3n" firstAttribute="firstBaseline" secondItem="Sp7-fR-fDd" secondAttribute="firstBaseline" id="Lbe-ft-yUj"/>
-                    <constraint firstItem="0eK-Mh-XjI" firstAttribute="leading" secondItem="oJc-UF-M7c" secondAttribute="leading" id="PLg-ZE-VIC"/>
-                    <constraint firstItem="eIa-em-JCD" firstAttribute="leading" secondItem="Sp7-fR-fDd" secondAttribute="trailing" constant="8" symbolic="YES" id="Q7i-SR-Mfg"/>
-                    <constraint firstItem="2Pv-VE-5Gc" firstAttribute="top" secondItem="N6f-8W-LCf" secondAttribute="bottom" constant="8" symbolic="YES" id="RUU-Qd-Ye2"/>
-                    <constraint firstItem="T69-Ch-noD" firstAttribute="firstBaseline" secondItem="oJc-UF-M7c" secondAttribute="firstBaseline" id="UEN-Wh-8o6"/>
-                    <constraint firstItem="Rsq-gg-C3n" firstAttribute="leading" secondItem="pxU-iU-A54" secondAttribute="leading" id="W39-FZ-jDu"/>
-                    <constraint firstItem="0eK-Mh-XjI" firstAttribute="top" secondItem="oJc-UF-M7c" secondAttribute="bottom" constant="8" symbolic="YES" id="WIX-yI-x1x"/>
-                    <constraint firstItem="Rsq-gg-C3n" firstAttribute="width" secondItem="T69-Ch-noD" secondAttribute="width" id="WUa-u3-xA6"/>
-                    <constraint firstItem="APa-31-LTq" firstAttribute="leading" secondItem="pxU-iU-A54" secondAttribute="leading" id="a6F-0o-WNy"/>
-                    <constraint firstItem="pxU-iU-A54" firstAttribute="firstBaseline" secondItem="Ox5-sT-U7N" secondAttribute="firstBaseline" id="c72-84-sfU"/>
-                    <constraint firstItem="T69-Ch-noD" firstAttribute="width" secondItem="APa-31-LTq" secondAttribute="width" id="cWq-3z-2b5"/>
-                    <constraint firstItem="pxU-iU-A54" firstAttribute="top" secondItem="uU6-xG-sD6" secondAttribute="bottom" constant="8" symbolic="YES" id="d3b-Ba-sJA"/>
-                    <constraint firstItem="uU6-xG-sD6" firstAttribute="top" secondItem="Fho-wY-xk4" secondAttribute="bottom" constant="20" symbolic="YES" id="e4s-Pl-7p1"/>
-                    <constraint firstItem="T69-Ch-noD" firstAttribute="leading" secondItem="pxU-iU-A54" secondAttribute="leading" id="fFW-js-IpR"/>
-                    <constraint firstItem="N6f-8W-LCf" firstAttribute="top" secondItem="0eK-Mh-XjI" secondAttribute="bottom" constant="6" symbolic="YES" id="gKe-Qq-w7W"/>
-                    <constraint firstItem="zd1-TS-atW" firstAttribute="leading" secondItem="oJc-UF-M7c" secondAttribute="trailing" constant="8" symbolic="YES" id="gfE-Lz-lqC"/>
-                    <constraint firstItem="Fho-wY-xk4" firstAttribute="leading" secondItem="XeX-Pg-93I" secondAttribute="leading" constant="20" symbolic="YES" id="hjS-ZZ-JMs"/>
-                    <constraint firstItem="oJc-UF-M7c" firstAttribute="width" secondItem="Sp7-fR-fDd" secondAttribute="width" id="i1P-Ke-WcD"/>
-                    <constraint firstItem="oJc-UF-M7c" firstAttribute="leading" secondItem="T69-Ch-noD" secondAttribute="trailing" constant="8" symbolic="YES" id="jwb-Oj-SQ2"/>
-                    <constraint firstItem="Fho-wY-xk4" firstAttribute="top" secondItem="XeX-Pg-93I" secondAttribute="top" constant="20" symbolic="YES" id="m84-bE-d7f"/>
-                    <constraint firstItem="A2R-cX-c98" firstAttribute="leading" secondItem="2Pv-VE-5Gc" secondAttribute="trailing" constant="8" symbolic="YES" id="mJA-I6-2UR"/>
-                    <constraint firstItem="Sp7-fR-fDd" firstAttribute="width" secondItem="Ox5-sT-U7N" secondAttribute="width" id="mMP-Bh-k7u"/>
-                    <constraint firstItem="Sp7-fR-fDd" firstAttribute="firstBaseline" secondItem="eIa-em-JCD" secondAttribute="firstBaseline" id="mkV-9g-vuS"/>
-                    <constraint firstItem="pxU-iU-A54" firstAttribute="width" secondItem="Rsq-gg-C3n" secondAttribute="width" id="nsF-zi-Jik"/>
-                    <constraint firstItem="2Pv-VE-5Gc" firstAttribute="leading" secondItem="APa-31-LTq" secondAttribute="trailing" constant="8" symbolic="YES" id="qWX-xn-8ob"/>
-                    <constraint firstAttribute="trailing" secondItem="uU6-xG-sD6" secondAttribute="trailing" constant="12" symbolic="YES" id="tJb-pa-Res"/>
-                    <constraint firstItem="Ox5-sT-U7N" firstAttribute="leading" secondItem="pxU-iU-A54" secondAttribute="trailing" constant="8" symbolic="YES" id="toy-d8-KnE"/>
-                    <constraint firstItem="N6f-8W-LCf" firstAttribute="leading" secondItem="0eK-Mh-XjI" secondAttribute="leading" id="uRE-GB-6L7"/>
-                    <constraint firstItem="pxU-iU-A54" firstAttribute="leading" secondItem="XeX-Pg-93I" secondAttribute="leading" id="vlW-eY-UoE"/>
-                    <constraint firstItem="nsV-HJ-HnO" firstAttribute="leading" secondItem="Ox5-sT-U7N" secondAttribute="trailing" constant="8" symbolic="YES" id="w3R-3b-nde"/>
-                    <constraint firstItem="Sp7-fR-fDd" firstAttribute="leading" secondItem="Rsq-gg-C3n" secondAttribute="trailing" constant="8" symbolic="YES" id="wud-SF-1MU"/>
+                    <constraint firstItem="SU1-TL-Hdr" firstAttribute="firstBaseline" secondItem="DnX-Mf-RS9" secondAttribute="firstBaseline" id="1RD-DW-Yuj"/>
+                    <constraint firstItem="eeS-1D-QgQ" firstAttribute="top" secondItem="Lhn-aN-IiR" secondAttribute="bottom" constant="8" symbolic="YES" id="3ay-oe-daa"/>
+                    <constraint firstItem="DnX-Mf-RS9" firstAttribute="leading" secondItem="9PB-kn-Bxl" secondAttribute="trailing" constant="8" symbolic="YES" id="4ou-8A-JUL"/>
+                    <constraint firstItem="vma-ix-4JG" firstAttribute="firstBaseline" secondItem="hzD-go-cW6" secondAttribute="firstBaseline" id="6MC-M8-pWG"/>
+                    <constraint firstItem="8Bm-cp-3Ae" firstAttribute="firstBaseline" secondItem="Lhn-aN-IiR" secondAttribute="firstBaseline" id="6Up-9A-caX"/>
+                    <constraint firstItem="KG6-30-ZAB" firstAttribute="top" secondItem="hva-1K-3K3" secondAttribute="bottom" constant="8" symbolic="YES" id="74S-VI-a5g"/>
+                    <constraint firstItem="WsH-aE-VAW" firstAttribute="width" secondItem="vma-ix-4JG" secondAttribute="width" id="7xx-hP-jZa"/>
+                    <constraint firstItem="Lhn-aN-IiR" firstAttribute="firstBaseline" secondItem="1nP-xP-8qX" secondAttribute="firstBaseline" id="GjR-JX-F21"/>
+                    <constraint firstItem="hzD-go-cW6" firstAttribute="leading" secondItem="vma-ix-4JG" secondAttribute="trailing" constant="8" symbolic="YES" id="HU6-tX-ZnU"/>
+                    <constraint firstItem="hva-1K-3K3" firstAttribute="top" secondItem="s14-jx-xdP" secondAttribute="bottom" constant="20" symbolic="YES" id="IIM-Sy-I0I"/>
+                    <constraint firstItem="vma-ix-4JG" firstAttribute="leading" secondItem="KG6-30-ZAB" secondAttribute="trailing" constant="8" symbolic="YES" id="KNK-qo-euh"/>
+                    <constraint firstItem="Lhn-aN-IiR" firstAttribute="leading" secondItem="8Bm-cp-3Ae" secondAttribute="trailing" constant="8" symbolic="YES" id="MdR-Hh-d55"/>
+                    <constraint firstItem="9PB-kn-Bxl" firstAttribute="leading" secondItem="XeX-Pg-93I" secondAttribute="leading" id="Ora-dq-krZ"/>
+                    <constraint firstItem="VIp-hP-LF1" firstAttribute="leading" secondItem="WsH-aE-VAW" secondAttribute="trailing" constant="8" symbolic="YES" id="Ouz-hF-YxF"/>
+                    <constraint firstItem="hva-1K-3K3" firstAttribute="leading" secondItem="XeX-Pg-93I" secondAttribute="leading" constant="12" symbolic="YES" id="RQh-qk-isY"/>
+                    <constraint firstItem="03L-i4-Feh" firstAttribute="width" secondItem="KG6-30-ZAB" secondAttribute="width" id="Smn-6T-Uve"/>
+                    <constraint firstItem="KG6-30-ZAB" firstAttribute="firstBaseline" secondItem="vma-ix-4JG" secondAttribute="firstBaseline" id="U0O-J7-bYm"/>
+                    <constraint firstItem="Lhn-aN-IiR" firstAttribute="width" secondItem="WsH-aE-VAW" secondAttribute="width" id="XOH-yi-xxR"/>
+                    <constraint firstItem="8Bm-cp-3Ae" firstAttribute="width" secondItem="KG6-30-ZAB" secondAttribute="width" id="Yst-rE-Mz6"/>
+                    <constraint firstItem="03L-i4-Feh" firstAttribute="leading" secondItem="XeX-Pg-93I" secondAttribute="leading" id="ZS2-Jl-2VB"/>
+                    <constraint firstItem="WsH-aE-VAW" firstAttribute="firstBaseline" secondItem="VIp-hP-LF1" secondAttribute="firstBaseline" id="ZzV-Uc-pVL"/>
+                    <constraint firstItem="eeS-1D-QgQ" firstAttribute="leading" secondItem="Lhn-aN-IiR" secondAttribute="leading" id="aRk-lW-1mm"/>
+                    <constraint firstItem="03L-i4-Feh" firstAttribute="firstBaseline" secondItem="WsH-aE-VAW" secondAttribute="firstBaseline" id="arP-M7-gab"/>
+                    <constraint firstItem="1nP-xP-8qX" firstAttribute="leading" secondItem="Lhn-aN-IiR" secondAttribute="trailing" constant="8" symbolic="YES" id="b5K-mT-oBF"/>
+                    <constraint firstItem="8Bm-cp-3Ae" firstAttribute="top" secondItem="03L-i4-Feh" secondAttribute="bottom" constant="8" symbolic="YES" id="cSb-ZY-Waf"/>
+                    <constraint firstItem="8Bm-cp-3Ae" firstAttribute="leading" secondItem="XeX-Pg-93I" secondAttribute="leading" id="cqF-wk-AEl"/>
+                    <constraint firstItem="s14-jx-xdP" firstAttribute="leading" secondItem="XeX-Pg-93I" secondAttribute="leading" constant="20" symbolic="YES" id="gUo-0Q-X2L"/>
+                    <constraint firstItem="DnX-Mf-RS9" firstAttribute="width" secondItem="Lhn-aN-IiR" secondAttribute="width" id="iIp-b2-c78"/>
+                    <constraint firstItem="DnX-Mf-RS9" firstAttribute="top" secondItem="2tk-JE-a2y" secondAttribute="bottom" constant="8" symbolic="YES" id="mxO-Fh-9ft"/>
+                    <constraint firstItem="KG6-30-ZAB" firstAttribute="leading" secondItem="XeX-Pg-93I" secondAttribute="leading" id="oyF-OC-4sg"/>
+                    <constraint firstItem="2tk-JE-a2y" firstAttribute="top" secondItem="eeS-1D-QgQ" secondAttribute="bottom" constant="6" symbolic="YES" id="pNr-Fk-8ss"/>
+                    <constraint firstItem="WsH-aE-VAW" firstAttribute="leading" secondItem="03L-i4-Feh" secondAttribute="trailing" constant="8" symbolic="YES" id="qfe-bJ-51p"/>
+                    <constraint firstItem="9PB-kn-Bxl" firstAttribute="firstBaseline" secondItem="DnX-Mf-RS9" secondAttribute="firstBaseline" id="rBU-cN-uSB"/>
+                    <constraint firstItem="03L-i4-Feh" firstAttribute="top" secondItem="KG6-30-ZAB" secondAttribute="bottom" constant="8" symbolic="YES" id="rkx-6W-YQ3"/>
+                    <constraint firstAttribute="trailing" secondItem="hva-1K-3K3" secondAttribute="trailing" constant="12" symbolic="YES" id="s1P-XW-K2T"/>
+                    <constraint firstItem="9PB-kn-Bxl" firstAttribute="width" secondItem="KG6-30-ZAB" secondAttribute="width" id="sAn-34-WKW"/>
+                    <constraint firstItem="SU1-TL-Hdr" firstAttribute="leading" secondItem="DnX-Mf-RS9" secondAttribute="trailing" constant="8" symbolic="YES" id="smg-my-o01"/>
+                    <constraint firstItem="s14-jx-xdP" firstAttribute="top" secondItem="XeX-Pg-93I" secondAttribute="top" constant="20" symbolic="YES" id="yC9-UA-BZM"/>
+                    <constraint firstItem="2tk-JE-a2y" firstAttribute="leading" secondItem="eeS-1D-QgQ" secondAttribute="leading" id="ygZ-iy-0Jc"/>
                 </constraints>
             </view>
             <point key="canvasLocation" x="140" y="523.5"/>
         </window>
-        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="gyF-cD-QFY">
-            <rect key="frame" x="0.0" y="0.0" width="37" height="16"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-            <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="sXv-2I-FfC">
-                <font key="font" usesAppearanceFont="YES"/>
-                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-            </textFieldCell>
-            <point key="canvasLocation" x="157" y="866"/>
-        </textField>
+        <viewController id="CZv-tE-iKT" customClass="DebugToolsController" customModule="Debug_Tools" customModuleProvider="target">
+            <connections>
+                <outlet property="automaticWhitelistCheckbox" destination="eeS-1D-QgQ" id="LGP-aS-zSm"/>
+                <outlet property="etagField" destination="Lhn-aN-IiR" id="Iny-yo-yN3"/>
+                <outlet property="lastBuildRunField" destination="vma-ix-4JG" id="v9a-8X-fgv"/>
+                <outlet property="lastCssUpdateField" destination="DnX-Mf-RS9" id="ZPK-NL-Fdm"/>
+                <outlet property="setupCompleteForBuildField" destination="WsH-aE-VAW" id="zxp-7g-V1g"/>
+                <outlet property="showInMenuCheckbox" destination="2tk-JE-a2y" id="vbm-IX-97Q"/>
+                <outlet property="view" destination="XeX-Pg-93I" id="cZq-8a-WBa"/>
+            </connections>
+        </viewController>
     </objects>
 </document>
