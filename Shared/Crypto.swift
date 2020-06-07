@@ -105,7 +105,6 @@ final class Crypto {
             kSecAttrKeySizeInBits:    constants["bits"]!,
             kSecAttrLabel:            constants["label"]!,
             kSecAttrIsPermanent:      true,
-            kSecAttrSynchronizable:   false,
             kSecPrivateKeyAttrs:      [
                 kSecAttrApplicationTag:   (constants["accessGroup"] as! String + ".private").data(using: .utf8)!
             ],
@@ -115,6 +114,8 @@ final class Crypto {
         ]
         if #available(macOS 10.15, *) {
             attributes[kSecUseDataProtectionKeychain] = true
+        } else {
+            attributes[kSecAttrSynchronizable] = true
         }
 
         var error: Unmanaged<CFError>?
@@ -131,10 +132,9 @@ final class Crypto {
 
     func lookupKey(_ type: String, requiringCatalinaMigration: Bool) throws -> SecKey {
         var query = queryBase
-        query[kSecAttrApplicationTag] = (constants["accessGroup"] as! String + "." + type).data(using: .utf8)!
         if #available(macOS 10.15, *) {
             if requiringCatalinaMigration {
-                query[kSecUseDataProtectionKeychain] = false
+                query[kSecAttrSynchronizable] = false
             }
         }
 
