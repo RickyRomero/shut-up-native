@@ -656,7 +656,6 @@
         </menu>
         <customObject id="9sa-A5-QjB" customClass="AppDelegate" customModule="Debug_Tools" customModuleProvider="target">
             <connections>
-                <outlet property="keychainDataView" destination="qIn-Dk-2aN" id="qCq-Gs-d7X"/>
                 <outlet property="window" destination="Mqu-Hs-K6Y" id="EI3-UR-NAf"/>
             </connections>
         </customObject>
@@ -1351,6 +1350,12 @@
                 <outlet property="setupCompleteForBuildField" destination="WsH-aE-VAW" id="zxp-7g-V1g"/>
                 <outlet property="showInMenuCheckbox" destination="2tk-JE-a2y" id="vbm-IX-97Q"/>
                 <outlet property="view" destination="XeX-Pg-93I" id="cZq-8a-WBa"/>
+            </connections>
+        </viewController>
+        <viewController id="Lex-c9-HhV" customClass="KeychainTableController" customModule="Debug_Tools" customModuleProvider="target">
+            <connections>
+                <outlet property="keychainDataView" destination="qIn-Dk-2aN" id="Vhi-hw-ihi"/>
+                <outlet property="view" destination="VI5-PS-E4h" id="Q5e-KV-rdG"/>
             </connections>
         </viewController>
     </objects>
