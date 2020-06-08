@@ -103,10 +103,11 @@ return
     func generateKeyPair() throws {
         try clear()
 
+        let keyId = UUID()
         var attributes = [
             kSecAttrKeyType:          constants["type"]!,
             kSecAttrKeySizeInBits:    constants["bits"]!,
-            kSecAttrLabel:            constants["label"]!,
+            kSecAttrLabel:            "\(constants["label"]!)-\(keyId   )",
             kSecAttrIsPermanent:      true,
             kSecPrivateKeyAttrs:      [
                 kSecAttrApplicationTag:   (constants["accessGroup"] as! String + ".private").data(using: .utf8)!
@@ -115,16 +116,15 @@ return
                 kSecAttrApplicationTag:   (constants["accessGroup"] as! String + ".public").data(using: .utf8)!
             ]
         ]
-        if #available(macOS 10.15, *) {
-            attributes[kSecUseDataProtectionKeychain] = true
-        } else {
+//        if #available(macOS 10.15, *) {
+//            attributes[kSecUseDataProtectionKeychain] = true
+//        } else {
             attributes[kSecAttrSynchronizable] = true
-        }
+//        }
 
         var error: Unmanaged<CFError>?
         guard SecKeyCreateRandomKey(attributes as CFDictionary, &error) != nil else {
             print("Failed to create key")
-            _ = error!.takeRetainedValue() as Error
             throw CryptoError.generatingKeys
         }
     }
@@ -143,34 +143,54 @@ return
         var query: [CFString: Any] = [
             kSecClass: kSecClassKey,
             kSecMatchLimit: kSecMatchLimitAll,
+            kSecAttrAccessGroup: Info.groupId,
+            kSecAttrKeyClass: keyClassConstant,
+            kSecAttrSynchronizable: true,
             kSecReturnAttributes: true,
-            kSecReturnRef: true
+            kSecReturnData: true,
         ]
         if #available(macOS 10.15, *) {
             if requiringCatalinaMigration {
-                query[kSecAttrSynchronizable] = false
+                query[kSecAttrSynchronizable] = true
             }
         }
 
-        print("Querying keychain........")
-        var result: CFTypeRef? = nil
-        let status = SecItemCopyMatching(query as CFDictionary, &result)
-        guard status == errSecSuccess else {
-            print("Human-readable error:", SecCopyErrorMessageString(status, nil) ?? "")
+        // Query the keychain
+        var rawCopyResult: CFTypeRef? = nil
+        let copyStatus = SecItemCopyMatching(query as CFDictionary, &rawCopyResult)
+        guard copyStatus == errSecSuccess else {
+            print("Human-readable error:", SecCopyErrorMessageString(copyStatus, nil) ?? "")
             throw CryptoError.fetchingKeys
         }
 
-        let resultList = result! as! NSArray as! [[String: Any]]
-
+        // Iterate through the results
+        let resultList = rawCopyResult! as! [[CFString: Any]]
         for info in resultList {
-            guard let accessGroup = info[String(kSecAttrAccessGroup)] else { continue }
+            guard let accessGroup = info[kSecAttrAccessGroup] else { continue }
             guard accessGroup as! String == Info.groupId else { continue }
-            guard let resultClass = (info[String(kSecAttrKeyClass)] as! CFString?) else { continue }
+            guard let resultClass = (info[kSecAttrKeyClass] as! CFString?) else { continue }
             guard String(describing: resultClass) == String(describing: keyClassConstant) else { continue }
+            guard let keyData = (info[kSecValueData] as! CFData?) else { continue }
 
-            return info[String(kSecValueRef)] as! SecKey
+            // We have a match. Turn it into a SecKey we can use.
+            // (Irritatingly, "synchronizable" keys don't give you SecKey objects...)
+            let matchedKeyAttributes: [CFString: Any] = [
+                kSecClass: kSecClassKey,
+                kSecAttrKeyClass: keyClassConstant,
+                kSecAttrKeyType: constants["type"]!,
+                kSecAttrKeySizeInBits: constants["bits"]!,
+            ]
+
+            var secKeyError: Unmanaged<CFError>? = nil
+            guard let key = SecKeyCreateWithData(keyData, matchedKeyAttributes as CFDictionary, &secKeyError) else {
+                print(secKeyError!.takeUnretainedValue() as Error)
+                throw CryptoError.fetchingKeys
+            }
+
+            return key
         }
 
+        // If we get to this point, there are no matches.
         throw CryptoError.fetchingKeys
     }
 
@@ -195,7 +215,7 @@ return
         let transformed = secTransformFunc(key, .rsaEncryptionOAEPSHA512AESGCM, data as CFData, &transformError)
 
         guard transformError == nil else {
-            print(transformError!.takeRetainedValue() as Error)
+            print(transformError!.takeUnretainedValue() as Error)
             throw CryptoError.transformingData
         }
 
@@ -237,7 +257,7 @@ extension Crypto {
 //            let keyData = SecKeyCopyExternalRepresentation(key, &exportError)
 //            guard exportError == nil && keyData != nil else {
 //                print("Failed to export key...")
-//                print(exportError!.takeRetainedValue() as Error)
+//                print(exportError!.takeUnretainedValue() as Error)
 //                throw CryptoError.migratingPreCatalinaKeys
 //            }
 
