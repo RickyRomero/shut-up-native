@@ -14,6 +14,11 @@ enum CryptoOperation {
     case decryption
 }
 
+enum KeyClass {
+    case `private`
+    case `public`
+}
+
 final class Crypto {
     private init() {
         queryBase[kSecAttrKeyType]       = constants["type"]!
@@ -50,15 +55,15 @@ final class Crypto {
 
     var requiredKeysPresent: Bool {
         ![
-            try? Crypto.main.lookupKey("private"),
-            try? Crypto.main.lookupKey("public")
+            try? Crypto.main.lookupKey(.private),
+            try? Crypto.main.lookupKey(.public)
         ].contains(nil)
     }
 
     var preCatalinaKeysPresent: Bool {
         ![
-            try? Crypto.main.lookupKey("private", requiringCatalinaMigration: true),
-            try? Crypto.main.lookupKey("public", requiringCatalinaMigration: true)
+            try? Crypto.main.lookupKey(.private, requiringCatalinaMigration: true),
+            try? Crypto.main.lookupKey(.public, requiringCatalinaMigration: true)
         ].contains(nil)
     }
 
@@ -71,30 +76,28 @@ final class Crypto {
             (constants["accessGroup"] as! String + ".public").data(using: .utf8)!,
             (constants["accessGroup"] as! String + ".private").data(using: .utf8)!
         ]
-
+return
         // Invalidate keys by deleting them
-        for tag in keyTags {
-            var query = queryBase
-            query[kSecAttrApplicationTag] = tag
-            if #available(macOS 10.15, *) {
-                if preCatalinaItems {
-                    query[kSecUseDataProtectionKeychain] = false
-                }
-            }
-
-            let result = SecItemDelete(query as CFDictionary)
-            guard [errSecSuccess, errSecItemNotFound].contains(result) else {
-                print("Failed to remove key.")
-                print(SecCopyErrorMessageString(result, nil)!)
-                throw CryptoError.removingInvalidKeys
-            }
-            if (result == errSecSuccess) {
-                print("Removed key successfully.")
-            }
-            if (result == errSecItemNotFound) {
-                print("No key found to remove.")
-            }
-        }
+//        for tag in keyTags {
+//            if #available(macOS 10.15, *) {
+//                if preCatalinaItems {
+//                    query[kSecUseDataProtectionKeychain] = false
+//                }
+//            }
+//
+//            let result = SecItemDelete(query as CFDictionary)
+//            guard [errSecSuccess, errSecItemNotFound].contains(result) else {
+//                print("Failed to remove key.")
+//                print(SecCopyErrorMessageString(result, nil)!)
+//                throw CryptoError.removingInvalidKeys
+//            }
+//            if (result == errSecSuccess) {
+//                print("Removed key successfully.")
+//            }
+//            if (result == errSecItemNotFound) {
+//                print("No key found to remove.")
+//            }
+//        }
     }
 
     func generateKeyPair() throws {
@@ -126,12 +129,23 @@ final class Crypto {
         }
     }
 
-    func lookupKey(_ type: String) throws -> SecKey {
-        return try lookupKey(type, requiringCatalinaMigration: false)
+    func lookupKey(_ keyClass: KeyClass) throws -> SecKey {
+        return try lookupKey(keyClass, requiringCatalinaMigration: false)
     }
 
-    func lookupKey(_ type: String, requiringCatalinaMigration: Bool) throws -> SecKey {
-        var query = queryBase
+    func lookupKey(_ keyClass: KeyClass, requiringCatalinaMigration: Bool) throws -> SecKey {
+        var keyClassConstant = "" as CFString
+        switch keyClass {
+            case .private: keyClassConstant = kSecAttrKeyClassPrivate
+            case .public: keyClassConstant = kSecAttrKeyClassPublic
+        }
+
+        var query: [CFString: Any] = [
+            kSecClass: kSecClassKey,
+            kSecMatchLimit: kSecMatchLimitAll,
+            kSecReturnAttributes: true,
+            kSecReturnRef: true
+        ]
         if #available(macOS 10.15, *) {
             if requiringCatalinaMigration {
                 query[kSecAttrSynchronizable] = false
@@ -141,20 +155,28 @@ final class Crypto {
         print("Querying keychain........")
         var result: CFTypeRef? = nil
         let status = SecItemCopyMatching(query as CFDictionary, &result)
-        print("Load status (NO ERROR YET): ", status)
-        print("Human-readable:", SecCopyErrorMessageString(status, nil) ?? "")
-        print("Result for \(type) is nil?", result as! SecKey? == nil)
-
-        if result as! SecKey? == nil {
+        guard status == errSecSuccess else {
+            print("Human-readable error:", SecCopyErrorMessageString(status, nil) ?? "")
             throw CryptoError.fetchingKeys
         }
 
-        return result as! SecKey
+        let resultList = result! as! NSArray as! [[String: Any]]
+
+        for info in resultList {
+            guard let accessGroup = info[String(kSecAttrAccessGroup)] else { continue }
+            guard accessGroup as! String == Info.groupId else { continue }
+            guard let resultClass = (info[String(kSecAttrKeyClass)] as! CFString?) else { continue }
+            guard String(describing: resultClass) == String(describing: keyClassConstant) else { continue }
+
+            return info[String(kSecValueRef)] as! SecKey
+        }
+
+        throw CryptoError.fetchingKeys
     }
 
     func transform(with operation: CryptoOperation, data: Data) throws -> Data {
         let key: SecKey!
-        let keyType: String!
+        let keyClass: KeyClass!
         let secTransformFunc: (
             (
                 _: SecKey,
@@ -164,10 +186,10 @@ final class Crypto {
             ) -> CFData?
         )!
         switch operation {
-            case .encryption: keyType = "public"; secTransformFunc = SecKeyCreateEncryptedData
-            case .decryption: keyType = "private"; secTransformFunc = SecKeyCreateDecryptedData
+            case .encryption: keyClass = .public; secTransformFunc = SecKeyCreateEncryptedData
+            case .decryption: keyClass = .private; secTransformFunc = SecKeyCreateDecryptedData
         }
-        key = try lookupKey(keyType)
+        key = try lookupKey(keyClass)
 
         var transformError: Unmanaged<CFError>? = nil
         let transformed = secTransformFunc(key, .rsaEncryptionOAEPSHA512AESGCM, data as CFData, &transformError)
@@ -189,8 +211,10 @@ final class Crypto {
 
 extension Crypto {
     func migratePreCatalinaKeys() throws {
+        print(#function)
+        return
         guard #available(macOS 10.15, *) else { return }
-        let keyTags = ["private", "public"]
+        let keyTags: [KeyClass] = [.private, .public]
 //        let commonAttributes = [
 //            kSecClass:                     kSecClassKey,
 //            kSecAttrKeyType:               constants["type"]!,
@@ -226,7 +250,7 @@ extension Crypto {
             }
 
             var updatedAttributes = attributes! as! [CFString: Any]
-            updatedAttributes[kSecAttrApplicationTag] = (constants["accessGroup"] as! String + tag).data(using: .utf8)!
+//            updatedAttributes[kSecAttrApplicationTag] = (constants["accessGroup"] as! String + tag).data(using: .utf8)!
             updatedAttributes[kSecUseDataProtectionKeychain] = true
 
 //            var updatedAttributes = commonAttributes
@@ -239,7 +263,7 @@ extension Crypto {
             usleep(1000 * 1000 * secondPause)
             print("Deleting previous key...")
             var query = queryBase
-            query[kSecAttrApplicationTag] = (constants["accessGroup"] as! String + "." + tag).data(using: .utf8)!
+//            query[kSecAttrApplicationTag] = (constants["accessGroup"] as! String + "." + tag).data(using: .utf8)!
 
             let deleteResult = SecItemDelete(query as CFDictionary)
             guard [errSecSuccess, errSecItemNotFound].contains(deleteResult) else {
