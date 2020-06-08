@@ -11,7 +11,7 @@ import Cocoa
 class KeychainTableController: NSViewController {
     @IBOutlet weak var keychainDataView: NSTableView!
     @IBOutlet weak var deleteMenuItem: NSMenuItem!
-    var keychainData: [[String: Any]]?
+    var keychainData: [[CFString: Any]]?
 
     override func viewDidLoad() {
         keychainDataView.delegate = self
@@ -30,18 +30,19 @@ class KeychainTableController: NSViewController {
         keychainDataView.reloadData()
     }
 
-    private func dumpAction() -> [[String: Any]]? {
+    private func dumpAction() -> [[CFString: Any]]? {
         print("will dump")
         var copyResult: CFTypeRef? = nil
         let err = SecItemCopyMatching([
             kSecClass: kSecClassKey,
             kSecMatchLimit: kSecMatchLimitAll,
+            kSecAttrSynchronizable: kSecAttrSynchronizableAny,
             kSecReturnAttributes: true
         ] as NSDictionary, &copyResult)
-        let keysInfos: [[String:Any]]
+        let keysInfos: [[CFString: Any]]?
         switch err {
         case errSecSuccess:
-            keysInfos = copyResult! as! NSArray as! [[String:Any]]
+            keysInfos = copyResult as? [[CFString: Any]]
         case errSecItemNotFound:
             keysInfos = []
         default:
@@ -71,7 +72,7 @@ class KeychainTableController: NSViewController {
         print("did delete")
     }
 
-    private func constructDeletionQuery(using data: [String: Any]) -> [CFString: Any]? {
+    private func constructDeletionQuery(using data: [CFString: Any]) -> [CFString: Any]? {
 //        if let targetRef = data[String(kSecValueRef)] {
 //            return [
 //                kSecClass: kSecClassKey,
@@ -79,9 +80,10 @@ class KeychainTableController: NSViewController {
 //            ]
 //        }
 
-        if let cdat = data[String(kSecAttrCreationDate)], let mdat = data[String(kSecAttrModificationDate)] {
+        if let cdat = data[kSecAttrCreationDate], let mdat = data[kSecAttrModificationDate] {
             return [
                 kSecClass: kSecClassKey,
+                kSecAttrSynchronizable: kSecAttrSynchronizableAny,
                 kSecAttrCreationDate: cdat,
                 kSecAttrModificationDate: mdat
             ]
@@ -106,13 +108,10 @@ extension KeychainTableController: NSTableViewDataSource {
     func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
         let rowData = keychainData?[row]
 
-        let columnId = tableColumn?.identifier.rawValue
-        guard columnId != nil else { return "--" }
+        guard let columnId = tableColumn?.identifier.rawValue else { return "--" }
+        guard let cellData = rowData?[columnId as CFString] else { return "--" }
 
-        let cellData = rowData?[String(columnId!)]
-        guard cellData != nil else { return "--" }
-
-        return String(describing: cellData!)
+        return String(describing: cellData)
     }
 }
 
