@@ -34,7 +34,6 @@ final class Preferences {
         }
 
         lastBuildRun = Info.buildNum
-        lastOsVersionRun = ProcessInfo.processInfo.operatingSystemVersion
         setupRun = true
 
         _delegate?.prefsDidUpdate()
@@ -52,20 +51,6 @@ final class Preferences {
     var lastBuildRun: Int {
         get { suitePrefs.integer(forKey: "lastBuildRun") }
         set { suitePrefs.set(newValue, forKey: "lastBuildRun") }
-    }
-
-    var lastOsVersionRun: OperatingSystemVersion {
-        get {
-            let major = UserDefaults.standard.integer(forKey: "lastOsMajorVersionRun")
-            let minor = UserDefaults.standard.integer(forKey: "lastOsMinorVersionRun")
-            let patch = UserDefaults.standard.integer(forKey: "lastOsPatchVersionRun")
-            return OperatingSystemVersion(majorVersion: major, minorVersion: minor, patchVersion: patch)
-        }
-        set {
-            UserDefaults.standard.set(newValue.majorVersion, forKey: "lastOsMajorVersionRun")
-            UserDefaults.standard.set(newValue.minorVersion, forKey: "lastOsMinorVersionRun")
-            UserDefaults.standard.set(newValue.patchVersion, forKey: "lastOsPatchVersionRun")
-        }
     }
 
     var setupAssistantCompleteForBuild: Int {

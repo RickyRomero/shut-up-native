@@ -107,22 +107,6 @@ final class Setup {
         }
     }
 
-    func migrateApp(from oldBuild: Int) -> Bool {
-        let newBuild = Info.buildNum
-        return true
-    }
-
-    func migrateOs(from oldRelease: OperatingSystemVersion) -> Bool {
-        let newRelease = ProcessInfo.processInfo.operatingSystemVersion
-
-        let catalina = OperatingSystemVersion(majorVersion: 10, minorVersion: 15, patchVersion: 0)
-        if oldRelease.isLess(than: catalina) && newRelease.isGreaterOrEqual(to: catalina) {
-            // Do the dumb keychain migration..........
-        }
-
-        return true
-    }
-
     func restart() {
         // Prevent a case where multiple things could try to reset at once,
         // kicking off multiple bootstrap sessions
@@ -134,54 +118,4 @@ final class Setup {
     }
 
     func reset() {}
-}
-
-// MARK: OperatingSystemVersion comparison operators
-
-extension OperatingSystemVersion {
-    func isLess(than target: OperatingSystemVersion) -> Bool {
-        if self.majorVersion < target.majorVersion { return true }
-        if self.majorVersion == target.majorVersion {
-            if self.minorVersion < target.minorVersion { return true }
-            if self.minorVersion == target.minorVersion {
-                if self.patchVersion < target.patchVersion { return true }
-            }
-        }
-        return false
-    }
-
-    func isGreater(than target: OperatingSystemVersion) -> Bool {
-        if self.majorVersion > target.majorVersion { return true }
-        if self.majorVersion == target.majorVersion {
-            if self.minorVersion > target.minorVersion { return true }
-            if self.minorVersion == target.minorVersion {
-                if self.patchVersion > target.patchVersion { return true }
-            }
-        }
-        return false
-    }
-
-    func equals(_ target: OperatingSystemVersion) -> Bool {
-        return (
-            self.majorVersion == target.majorVersion &&
-            self.minorVersion == target.minorVersion &&
-            self.patchVersion == target.patchVersion
-        )
-    }
-
-    func isLessOrEqual(to target: OperatingSystemVersion) -> Bool {
-        return self.equals(target) || self.isLess(than: target)
-    }
-
-    func isGreaterOrEqual(to target: OperatingSystemVersion) -> Bool {
-        return self.equals(target) || self.isGreater(than: target)
-    }
-
-    func asString() -> String {
-        return [
-            self.majorVersion,
-            self.minorVersion,
-            self.patchVersion
-        ].map{ "\($0)" }.joined(separator: ".")
-    }
 }
