@@ -150,19 +150,6 @@
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="Debug" id="ECd-eK-ene">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Debug" id="oM6-zF-iGS">
-                                    <items>
-                                        <menuItem title="Destroy Encryption Keys" id="N6N-Xd-eYe">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="resetEncryptionKeys:" target="Voe-Tx-rLC" id="pJs-dK-P57"/>
-                                            </connections>
-                                        </menuItem>
-                                    </items>
-                                </menu>
-                            </menuItem>
                             <menuItem title="Window" id="qn3-I3-P6v">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Window" systemMenu="window" id="jgu-zr-M4c">
