@@ -145,14 +145,17 @@ return
             kSecMatchLimit: kSecMatchLimitAll,
             kSecAttrAccessGroup: Info.groupId,
             kSecAttrKeyClass: keyClassConstant,
-            kSecAttrSynchronizable: true,
             kSecReturnAttributes: true,
             kSecReturnData: true,
         ]
         if #available(macOS 10.15, *) {
             if requiringCatalinaMigration {
                 query[kSecAttrSynchronizable] = true
+            } else {
+                query[kSecUseDataProtectionKeychain] = true
             }
+        } else {
+            query[kSecAttrSynchronizable] = true
         }
 
         // Query the keychain
@@ -231,87 +234,36 @@ return
 
 extension Crypto {
     func migratePreCatalinaKeys() throws {
-        print(#function)
-        return
         guard #available(macOS 10.15, *) else { return }
-        let keyTags: [KeyClass] = [.private, .public]
-//        let commonAttributes = [
-//            kSecClass:                     kSecClassKey,
-//            kSecAttrKeyType:               constants["type"]!,
-//            kSecAttrKeySizeInBits:         constants["bits"]!,
-//            kSecAttrLabel:                 constants["label"]!,
-//            kSecAttrIsPermanent:           true,
-//            kSecAttrSynchronizable:        false,
-//            kSecUseDataProtectionKeychain: true
-//        ]
-        let secondPause = UInt32(1)
-        var exportedKeyAttributes: [[CFString: Any]] = []
 
-        print("Querying keychain for old keys........")
-        for tag in keyTags {
-            let key = try lookupKey(tag, requiringCatalinaMigration: true)
+        // Migration is a two-step process: add the data protection flag,
+        // then remove the sync flag. It fails if you try to do both in one step.
+        var query: [CFString: Any] = [
+            kSecClass: kSecClassKey,
+            kSecMatchLimit: kSecMatchLimitAll,
+            kSecAttrAccessGroup: Info.groupId,
+            kSecAttrSynchronizable: true,
+        ]
+        var updates: [CFString: Any] = [
+            kSecUseDataProtectionKeychain: true,
+        ]
 
-//            usleep(1000 * 1000 * secondPause)
-//            print("Exporting previous key...")
-//            var exportError: Unmanaged<CFError>? = nil
-//            let keyData = SecKeyCopyExternalRepresentation(key, &exportError)
-//            guard exportError == nil && keyData != nil else {
-//                print("Failed to export key...")
-//                print(exportError!.takeUnretainedValue() as Error)
-//                throw CryptoError.migratingPreCatalinaKeys
-//            }
-
-            usleep(1000 * 1000 * 3)
-            print("Retrieving key attributes...")
-            let attributes = SecKeyCopyAttributes(key)
-            guard attributes != nil else {
-                print("Failed to retrieve attributes...")
-                throw CryptoError.migratingPreCatalinaKeys
-            }
-
-            var updatedAttributes = attributes! as! [CFString: Any]
-//            updatedAttributes[kSecAttrApplicationTag] = (constants["accessGroup"] as! String + tag).data(using: .utf8)!
-            updatedAttributes[kSecUseDataProtectionKeychain] = true
-
-//            var updatedAttributes = commonAttributes
-//            updatedAttributes[kSecAttrKeyClass] = tag == "public" ? kSecAttrKeyClassPublic : kSecAttrKeyClassPrivate
-//            updatedAttributes[kSecAttrApplicationTag] = (constants["accessGroup"] as! String + tag).data(using: .utf8)!
-//            updatedAttributes[kSecValueData] = keyData!
-
-            exportedKeyAttributes.append(updatedAttributes)
-
-            usleep(1000 * 1000 * secondPause)
-            print("Deleting previous key...")
-            var query = queryBase
-//            query[kSecAttrApplicationTag] = (constants["accessGroup"] as! String + "." + tag).data(using: .utf8)!
-
-            let deleteResult = SecItemDelete(query as CFDictionary)
-            guard [errSecSuccess, errSecItemNotFound].contains(deleteResult) else {
-                print("Failed to remove key.")
-                print(SecCopyErrorMessageString(deleteResult, nil)!)
-                throw CryptoError.removingInvalidKeys
-            }
-            if (deleteResult == errSecSuccess) {
-                print("Removed key successfully.")
-            }
-            if (deleteResult == errSecItemNotFound) {
-                print("No key found to remove.")
-            }
+        // Add the data protection flag to the keys.
+        let migrationResult = SecItemUpdate(query as CFDictionary, updates as CFDictionary)
+        guard migrationResult == errSecSuccess else {
+            print("Human-readable error:", SecCopyErrorMessageString(migrationResult, nil) ?? "")
+            throw CryptoError.migratingPreCatalinaKeys
         }
 
-        for updatedAttributes in exportedKeyAttributes {
-            usleep(1000 * 1000 * secondPause)
-            print("Importing migrated key...")
-            var importResult: CFTypeRef? = nil
-            let importStatus = SecItemAdd(updatedAttributes as CFDictionary, &importResult)
-            guard importStatus == errSecSuccess else {
-                print("Failed to import updated key...")
-                print(SecCopyErrorMessageString(importStatus, nil)!)
-                throw CryptoError.migratingPreCatalinaKeys
-            }
-            if importStatus == errSecSuccess {
-                print("SUCCESS")
-            }
+        query[kSecUseDataProtectionKeychain] = true
+        updates[kSecAttrSynchronizable] = false
+        updates.removeValue(forKey: kSecUseDataProtectionKeychain)
+
+        // Remove the sync flag from the keys.
+        let syncRemovalResult = SecItemUpdate(query as CFDictionary, updates as CFDictionary)
+        guard syncRemovalResult == errSecSuccess else {
+            print("Human-readable error:", SecCopyErrorMessageString(syncRemovalResult, nil) ?? "")
+            throw CryptoError.migratingPreCatalinaKeys
         }
     }
 }
