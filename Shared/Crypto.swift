@@ -72,32 +72,34 @@ final class Crypto {
     }
 
     func clear(preCatalinaItems: Bool) throws {
-        let keyTags = [
-            (constants["accessGroup"] as! String + ".public").data(using: .utf8)!,
-            (constants["accessGroup"] as! String + ".private").data(using: .utf8)!
-        ]
-return
         // Invalidate keys by deleting them
-//        for tag in keyTags {
-//            if #available(macOS 10.15, *) {
-//                if preCatalinaItems {
-//                    query[kSecUseDataProtectionKeychain] = false
-//                }
-//            }
-//
-//            let result = SecItemDelete(query as CFDictionary)
-//            guard [errSecSuccess, errSecItemNotFound].contains(result) else {
-//                print("Failed to remove key.")
-//                print(SecCopyErrorMessageString(result, nil)!)
-//                throw CryptoError.removingInvalidKeys
-//            }
-//            if (result == errSecSuccess) {
-//                print("Removed key successfully.")
-//            }
-//            if (result == errSecItemNotFound) {
-//                print("No key found to remove.")
-//            }
-//        }
+        var query: [CFString: Any] = [
+            kSecClass: kSecClassKey,
+            kSecMatchLimit: kSecMatchLimitAll,
+        ]
+
+        if #available(macOS 10.15, *) {
+            if preCatalinaItems {
+                query[kSecAttrSynchronizable] = true
+            } else {
+                query[kSecUseDataProtectionKeychain] = true
+            }
+        } else {
+            query[kSecAttrSynchronizable] = true
+        }
+
+        let result = SecItemDelete(query as CFDictionary)
+        guard [errSecSuccess, errSecItemNotFound].contains(result) else {
+            print("Failed to remove key(s).")
+            print(SecCopyErrorMessageString(result, nil)!)
+            throw CryptoError.removingInvalidKeys
+        }
+        if (result == errSecSuccess) {
+            print("Removed key(s) successfully.")
+        }
+        if (result == errSecItemNotFound) {
+            print("No key(s) found to remove.")
+        }
     }
 
     func generateKeyPair() throws {
