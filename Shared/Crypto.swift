@@ -116,11 +116,11 @@ return
                 kSecAttrApplicationTag:   (constants["accessGroup"] as! String + ".public").data(using: .utf8)!
             ]
         ]
-//        if #available(macOS 10.15, *) {
-//            attributes[kSecUseDataProtectionKeychain] = true
-//        } else {
+        if #available(macOS 10.15, *) {
+            attributes[kSecUseDataProtectionKeychain] = true
+        } else {
             attributes[kSecAttrSynchronizable] = true
-//        }
+        }
 
         var error: Unmanaged<CFError>?
         guard SecKeyCreateRandomKey(attributes as CFDictionary, &error) != nil else {
