@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "112A8123248C78D20077AA4B"
-               BuildableName = "Debug Tools.app"
-               BlueprintName = "Debug Tools"
+               BuildableName = "Shut Up Debug Tools.app"
+               BlueprintName = "Shut Up Debug Tools"
                ReferencedContainer = "container:Shut Up.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,8 +45,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "112A8123248C78D20077AA4B"
-            BuildableName = "Debug Tools.app"
-            BlueprintName = "Debug Tools"
+            BuildableName = "Shut Up Debug Tools.app"
+            BlueprintName = "Shut Up Debug Tools"
             ReferencedContainer = "container:Shut Up.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "112A8123248C78D20077AA4B"
-            BuildableName = "Debug Tools.app"
-            BlueprintName = "Debug Tools"
+            BuildableName = "Shut Up Debug Tools.app"
+            BlueprintName = "Shut Up Debug Tools"
             ReferencedContainer = "container:Shut Up.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
