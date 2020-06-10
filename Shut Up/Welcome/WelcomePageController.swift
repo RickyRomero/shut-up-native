@@ -45,13 +45,16 @@ class WelcomePageController: NSPageController {
                 case "WelcomeVC":
                     defaultBrowserButton.isHidden = true
                     continueButton.title = "Get Started"
+                    continueButton.keyEquivalent = "\r"
                 case "DefaultBrowserVC":
                     defaultBrowserButton.isHidden = false
                     continueButton.title = "Continue with Safari"
+                    continueButton.keyEquivalent = ""
                 case "EnableExtensionsVC":
                     defaultBrowserButton.isHidden = true
                     continueButton.title = "Finish"
                     continueButton.isEnabled = false
+                    continueButton.keyEquivalent = "\r"
                 default: break
             }
         })
@@ -63,7 +66,8 @@ class WelcomePageController: NSPageController {
             self.view.window?.close()
             return
         }
-        if selectedIndex == 0 {
+
+        if currentLocation == "WelcomeVC" {
             switch defaultBrowser {
                 case .chrome: fallthrough
                 case .firefox: fallthrough

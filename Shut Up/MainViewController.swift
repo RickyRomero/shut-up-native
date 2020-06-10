@@ -74,6 +74,7 @@ class MainViewController: NSViewController {
         lastCssUpdateLabel.font = NSFont(descriptor: tabularFigures, size: 0.0)
         resetCssLabelUpdateTimer()
 
+        // Listen for when the app receives focus
         NotificationCenter.default.addObserver(
             forName: NSApplication.didBecomeActiveNotification,
             object: nil,
