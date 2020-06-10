@@ -10,8 +10,8 @@ import Cocoa
 
 struct Info {
     static let containingBundleId = "com.rickyromero.shutup" // HACK: Can't determine programmatically
-    static let helperBundleId = "\(Info.containingBundleId).helper"
-    static let blockerBundleId = "\(Info.containingBundleId).blocker"
+    static let helperBundleId = "\(containingBundleId).helper"
+    static let blockerBundleId = "\(containingBundleId).blocker"
 
     static let productName = readBundleKey(kCFBundleNameKey)
     static let version = readBundleKey("CFBundleShortVersionString")
@@ -19,14 +19,14 @@ struct Info {
 
     static let bundleId = Bundle.main.bundleIdentifier!
     static let teamId = readBundleKey("TeamIdentifierPrefix")
-    static let groupId = "\(Info.teamId)\(Info.containingBundleId)"
+    static let groupId = "\(teamId)\(containingBundleId)"
 
-    static let isApp = Info.bundleId == Info.containingBundleId
+    static let isApp = bundleId == containingBundleId
 
     static let containerUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: Info.groupId)!
-    static let tempBlocklistUrl = Info.containerUrl.appendingPathComponent("blocklist.json")
-    static let whitelistUrl = Info.containerUrl.appendingPathComponent("domain-whitelist.json.enc")
-    static let localCssUrl = Info.containerUrl.appendingPathComponent("shutup.css.enc")
+    static let tempBlocklistUrl = containerUrl.appendingPathComponent("blocklist.json")
+    static let whitelistUrl = containerUrl.appendingPathComponent("domain-whitelist.json.enc")
+    static let localCssUrl = containerUrl.appendingPathComponent("shutup.css.enc")
 
     private static func readBundleKey(_ key: CFString) -> String {
         Bundle.main.infoDictionary![key as String]! as! String

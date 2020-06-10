@@ -9,6 +9,25 @@
 import Cocoa
 import SafariServices
 
+struct Extension {
+    private var _enabled: Bool?
+    var enabled: Bool {
+        get { _enabled ?? true }
+        set {
+            if newValue != _enabled {
+                lastUpdated = Date()
+            }
+            _enabled = newValue
+        }
+    }
+
+    private var _lastUpdated: Date?
+    var lastUpdated: Date {
+        get { _lastUpdated ?? Date(timeIntervalSince1970: 0) }
+        set { _lastUpdated = newValue }
+    }
+}
+
 class MainViewController: NSViewController {
 
     @IBOutlet var enableHelperGuide: NSStackView!
@@ -20,9 +39,21 @@ class MainViewController: NSViewController {
 
     var minWinHeight: Double!
     var winWidth = 800.0
-    var blockerEnabled = true
-    var helperEnabled = true
+
+    var blocker = Extension()
+    var helper = Extension()
+    var lastHelperUiUpdate = Date(timeIntervalSince1970: 0)
+
     var onboardingActive: Bool { view.window?.sheets.count ?? 0 > 0 }
+    var setupAssistantWarranted: Bool {
+        let prefs = Preferences.main
+        let prefsRequireAssistant = (prefs.setupRun && prefs.needsSetupAssistant)
+
+        let blockerIsDisabled = !blocker.enabled
+
+        print(#function, blockerIsDisabled, prefsRequireAssistant)
+        return blockerIsDisabled || prefsRequireAssistant
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,46 +94,58 @@ class MainViewController: NSViewController {
     }
 
     func openSetupAssistant() {
+        guard Preferences.main.setupRun else { return }
+        guard !onboardingActive else { return }
+
         let sheetViewController = storyboard!.instantiateController(withIdentifier: "SetupModalController") as! NSViewController
         presentAsSheet(sheetViewController)
     }
 
     func respondToExtensionStates() {
-        let prefs = Preferences.main
+        print(#function)
+        respondToHelperSettingsAllowed()
 
-        enableHelperGuide.isHidden = helperEnabled
-        whitelistInfoLabel.alphaValue = helperEnabled ? 1.0 : 0.4
-        enableWhitelistCheckbox.isEnabled = helperEnabled && prefs.setupRun
-        showContextMenuCheckbox.isEnabled = helperEnabled && prefs.setupRun
-
-        if (!blockerEnabled && !onboardingActive) {
+        if setupAssistantWarranted {
             openSetupAssistant()
         }
 
-        NSAnimationContext.runAnimationGroup({ context in
-            context.duration = 0.666
-            context.allowsImplicitAnimation = true
-            enableHelperGuide.alphaValue = helperEnabled ? 0.0 : 1.0
-            self.view.window?.layoutIfNeeded()
+        // Gate the animation behind an update timestamp.
+        // This prevents multiple calls of this function from
+        // snapping the animation to completion.
+        if lastHelperUiUpdate < helper.lastUpdated {
+            lastHelperUiUpdate = helper.lastUpdated
 
-            if helperEnabled {
-                var frame = view.window!.frame
-                let resizeDelta = view.window!.frame.height - CGFloat(minWinHeight)
-                frame.size = NSSize(width: winWidth, height: minWinHeight)
-                frame = frame.offsetBy(dx: 0.0, dy: resizeDelta)
-                view.window!.setFrame(frame, display: true)
-            }
-        }) {
-            if self.helperEnabled {
-                self.enableHelperGuide.isHidden = true
+            NSAnimationContext.runAnimationGroup({ context in
+                context.duration = 0.666
+                context.allowsImplicitAnimation = true
+                enableHelperGuide.alphaValue = helper.enabled ? 0.0 : 1.0
+                self.view.window?.layoutIfNeeded()
+
+                if helper.enabled {
+                    var frame = view.window!.frame
+                    let resizeDelta = view.window!.frame.height - CGFloat(minWinHeight)
+                    frame.size = NSSize(width: winWidth, height: minWinHeight)
+                    frame = frame.offsetBy(dx: 0.0, dy: resizeDelta)
+                    view.window!.setFrame(frame, display: true)
+                }
+            }) {
+                if self.helper.enabled {
+                    self.enableHelperGuide.isHidden = true
+                }
             }
         }
     }
 
-    func appReceivedFocus(_: Notification) {
-        guard Preferences.main.setupRun else { return }
-        prefsDidUpdate()
+    func respondToHelperSettingsAllowed() {
+        let prefs = Preferences.main
 
+        enableHelperGuide.isHidden = helper.enabled
+        whitelistInfoLabel.alphaValue = helper.enabled ? 1.0 : 0.4
+        enableWhitelistCheckbox.isEnabled = helper.enabled && prefs.setupRun
+        showContextMenuCheckbox.isEnabled = helper.enabled && prefs.setupRun
+    }
+
+    func appReceivedFocus(_: Notification) {
         BrowserBridge.main.requestExtensionStates { states in
             var errorOccurred = false
             states.forEach { state in
@@ -112,8 +155,8 @@ class MainViewController: NSViewController {
                 }
 
                 switch state.id {
-                    case Info.blockerBundleId: self.blockerEnabled = state.state!
-                    case Info.helperBundleId: self.helperEnabled = state.state!
+                case Info.blockerBundleId: self.blocker.enabled = state.state!
+                    case Info.helperBundleId: self.helper.enabled = state.state!
                     default: break
                 }
             }
@@ -202,14 +245,6 @@ extension MainViewController: NSTableViewDelegate {
 
 extension MainViewController: PrefsUpdateDelegate {
     func prefsDidUpdate() {
-        let prefs = Preferences.main
-        enableWhitelistCheckbox.state = prefs.automaticWhitelisting ? .on : .off
-        showContextMenuCheckbox.state = prefs.showInMenu ? .on : .off
-        enableWhitelistCheckbox.isEnabled = helperEnabled
-        showContextMenuCheckbox.isEnabled = helperEnabled
-
-        if (!onboardingActive && prefs.needsSetupAssistant) {
-            openSetupAssistant()
-        }
+        respondToExtensionStates()
     }
 }
