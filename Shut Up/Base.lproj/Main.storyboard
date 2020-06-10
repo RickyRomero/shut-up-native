@@ -813,7 +813,7 @@ DQ
                                                 </constraints>
                                             </customView>
                                             <stackView distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T02-vC-cYG">
-                                                <rect key="frame" x="0.0" y="0.0" width="333" height="21"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="199" height="21"/>
                                                 <subviews>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0m7-S0-7eM">
                                                         <rect key="frame" x="-6" y="-7" width="190" height="32"/>
@@ -826,8 +826,8 @@ DQ
                                                         </connections>
                                                     </button>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eQ6-c3-SwY">
-                                                        <rect key="frame" x="184" y="3" width="151" height="16"/>
-                                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Auto-updated yesterday" id="KD1-xR-0hV">
+                                                        <rect key="frame" x="184" y="3" width="17" height="16"/>
+                                                        <textFieldCell key="cell" lineBreakMode="clipping" title="--" id="KD1-xR-0hV">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -996,6 +996,7 @@ DQ
                     <connections>
                         <outlet property="enableHelperGuide" destination="Elb-XE-3uY" id="Zbi-bf-ZhZ"/>
                         <outlet property="enableWhitelistCheckbox" destination="hNL-RI-IFS" id="cyw-Y3-Hzy"/>
+                        <outlet property="lastCssUpdateLabel" destination="eQ6-c3-SwY" id="i0H-4e-tH2"/>
                         <outlet property="showContextMenuCheckbox" destination="vSq-3I-fD8" id="4YS-hF-YLo"/>
                         <outlet property="whitelistInfoLabel" destination="2nG-k5-jvw" id="3Lq-2j-8q8"/>
                         <outlet property="whitelistScrollView" destination="1sw-Rm-hiV" id="W3p-0U-0yw"/>

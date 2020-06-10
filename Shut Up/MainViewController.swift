@@ -36,13 +36,15 @@ class MainViewController: NSViewController {
     @IBOutlet var showContextMenuCheckbox: NSButton!
     @IBOutlet var whitelistView: NSTableView!
     @IBOutlet var whitelistScrollView: NSScrollView!
-
+    @IBOutlet var lastCssUpdateLabel: NSTextField!
+    
     var minWinHeight: Double!
     var winWidth = 800.0
 
     var blocker = Extension()
     var helper = Extension()
     var lastHelperUiUpdate = Date(timeIntervalSince1970: 0)
+    var cssLabelUpdateTimer: Timer?
 
     var onboardingActive: Bool { view.window?.sheets.count ?? 0 > 0 }
     var setupAssistantWarranted: Bool {
@@ -62,6 +64,16 @@ class MainViewController: NSViewController {
         whitelistView.delegate = self
         whitelistView.dataSource = self
         enableHelperGuide.isHidden = true
+
+        // Set up CSS update label
+        let tabularFigures = NSFont.systemFont(ofSize: 0.0).fontDescriptor.addingAttributes([
+            .featureSettings: [[
+                NSFontDescriptor.FeatureKey.typeIdentifier: kNumberSpacingType,
+                NSFontDescriptor.FeatureKey.selectorIdentifier: kMonospacedNumbersSelector
+            ]]
+        ])
+        lastCssUpdateLabel.font = NSFont(descriptor: tabularFigures, size: 0.0)
+        resetCssLabelUpdateTimer()
 
         NotificationCenter.default.addObserver(
             forName: NSApplication.didBecomeActiveNotification,
@@ -143,6 +155,8 @@ class MainViewController: NSViewController {
         whitelistInfoLabel.alphaValue = helper.enabled ? 1.0 : 0.4
         enableWhitelistCheckbox.isEnabled = helper.enabled && prefs.setupRun
         showContextMenuCheckbox.isEnabled = helper.enabled && prefs.setupRun
+
+        updateLastCssUpdateLabel()
     }
 
     func appReceivedFocus(_: Notification) {
@@ -168,6 +182,34 @@ class MainViewController: NSViewController {
         }
     }
 
+    func resetCssLabelUpdateTimer() {
+        cssLabelUpdateTimer?.invalidate()
+        cssLabelUpdateTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            DispatchQueue.main.async {
+                self.updateLastCssUpdateLabel()
+            }
+        }
+    }
+
+    func updateLastCssUpdateLabel() {
+        let timestamp = Preferences.main.lastStylesheetUpdate
+        updateLastCssUpdateLabel(with: timestamp)
+    }
+
+    func updateLastCssUpdateLabel(with timestamp: Date) {
+        let cutoff: Double = 60 * 60 * 24 * 7
+        let cutoffDate = Date(timeIntervalSinceNow: cutoff * -1.0)
+        let relativeTimeStr: String!
+
+        if timestamp < cutoffDate {
+            relativeTimeStr = "Updated over 1 week ago"
+        } else {
+            relativeTimeStr = "Updated \(timestamp.relativeTime)"
+        }
+
+        lastCssUpdateLabel.stringValue = relativeTimeStr
+    }
+
     @IBAction func openSafariExtensionPreferences(_ sender: NSButton?) {
         BrowserBridge.main.showPrefs(for: Info.helperBundleId) { error in
             guard error == nil else {
@@ -180,7 +222,11 @@ class MainViewController: NSViewController {
     @IBAction func forceStylesheetUpdate(_ sender: NSButton) {
         print("Should be fetching now")
         Stylesheet.main.update(force: false) { error in
-            print("done")
+            guard error == nil else { return /* and display the error */ }
+            let now = Date()
+            Preferences.main.lastStylesheetUpdate = now
+            self.updateLastCssUpdateLabel(with: now)
+            self.resetCssLabelUpdateTimer()
         }
     }
 
