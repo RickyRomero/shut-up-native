@@ -12,6 +12,7 @@ class SetupModalController: NSViewController {
     override func viewWillAppear() {
         super.viewWillAppear()
         view.window?.styleMask.remove(.resizable)
+        view.window?.preventsApplicationTerminationWhenModal = false
     }
 
     @IBAction func performClose(_ sender: Any) {
