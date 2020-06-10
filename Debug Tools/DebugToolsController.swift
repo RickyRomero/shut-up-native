@@ -42,4 +42,8 @@ class DebugToolsController: NSViewController {
         showInMenuCheckbox.state = prefs.showInMenu ? .on : .off
         lastCssUpdateField.intValue = Int32(prefs.lastStylesheetUpdate.timeIntervalSince1970)
     }
+
+    @IBAction func resetGroupPrefs(_ sender: NSButton) {
+        Preferences.main.reset()
+    }
 }

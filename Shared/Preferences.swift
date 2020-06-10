@@ -25,6 +25,16 @@ final class Preferences {
         guard !setupStarted else { return }
         setupStarted = true
 
+        print(Info.groupId)
+        suitePrefs.register(defaults: [
+            "lastBuildRun": 0,
+            "setupAssistantCompleteForBuild": 0,
+            "automaticWhitelisting": true,
+            "showInMenu": true,
+            "etag": "",
+            "lastStylesheetUpdate": 0.0,
+        ])
+
         switch lastBuildRun {
             case 0:
                 showInMenu = true
@@ -36,7 +46,12 @@ final class Preferences {
         lastBuildRun = Info.buildNum
         setupRun = true
 
-        _delegate?.prefsDidUpdate()
+        delegate?.prefsDidUpdate()
+    }
+
+    func reset() {
+        suitePrefs.removePersistentDomain(forName: Info.groupId)
+        suitePrefs.synchronize()
     }
 
     private var _delegate: PrefsUpdateDelegate?

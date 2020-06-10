@@ -53,7 +53,6 @@ class MainViewController: NSViewController {
 
         let blockerIsDisabled = !blocker.enabled
 
-        print(#function, blockerIsDisabled, prefsRequireAssistant)
         return blockerIsDisabled || prefsRequireAssistant
     }
 
@@ -113,8 +112,14 @@ class MainViewController: NSViewController {
         presentAsSheet(sheetViewController)
     }
 
-    func respondToExtensionStates() {
-        print(#function)
+    func reflectExtensionAndPreferenceStates() {
+        let prefs = Preferences.main
+        if prefs.setupRun {
+            enableWhitelistCheckbox.state = prefs.automaticWhitelisting ? .on : .off
+            showContextMenuCheckbox.state = prefs.showInMenu ? .on : .off
+            updateLastCssUpdateLabel()
+        }
+
         respondToHelperSettingsAllowed()
 
         if setupAssistantWarranted {
@@ -125,6 +130,7 @@ class MainViewController: NSViewController {
         // This prevents multiple calls of this function from
         // snapping the animation to completion.
         if lastHelperUiUpdate < helper.lastUpdated {
+            print(#function, lastHelperUiUpdate.timeIntervalSince1970)
             lastHelperUiUpdate = helper.lastUpdated
 
             NSAnimationContext.runAnimationGroup({ context in
@@ -155,8 +161,6 @@ class MainViewController: NSViewController {
         whitelistInfoLabel.alphaValue = helper.enabled ? 1.0 : 0.4
         enableWhitelistCheckbox.isEnabled = helper.enabled && prefs.setupRun
         showContextMenuCheckbox.isEnabled = helper.enabled && prefs.setupRun
-
-        updateLastCssUpdateLabel()
     }
 
     func appReceivedFocus(_: Notification) {
@@ -175,7 +179,7 @@ class MainViewController: NSViewController {
                 }
             }
 
-            self.respondToExtensionStates()
+            self.reflectExtensionAndPreferenceStates()
             if errorOccurred {
                 self.presentError(MessagingError(BrowserError.requestingExtensionStatus))
             }
@@ -291,6 +295,6 @@ extension MainViewController: NSTableViewDelegate {
 
 extension MainViewController: PrefsUpdateDelegate {
     func prefsDidUpdate() {
-        respondToExtensionStates()
+        reflectExtensionAndPreferenceStates()
     }
 }
