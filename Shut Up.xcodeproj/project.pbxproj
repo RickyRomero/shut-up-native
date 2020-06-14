@@ -35,6 +35,10 @@
 		119742CF2478DC94000AFA2D /* Stylesheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119742CE2478DC94000AFA2D /* Stylesheet.swift */; };
 		119742D02478DC94000AFA2D /* Stylesheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119742CE2478DC94000AFA2D /* Stylesheet.swift */; };
 		119742D12478DC94000AFA2D /* Stylesheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119742CE2478DC94000AFA2D /* Stylesheet.swift */; };
+		1197B4AF2496A8290072B074 /* PreferencesExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1197B4AE2496A8290072B074 /* PreferencesExtension.swift */; };
+		1197B4B12496A8A00072B074 /* StylesheetExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1197B4B02496A8A00072B074 /* StylesheetExtension.swift */; };
+		1197B4B42496A8C10072B074 /* WhitelistExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1197B4B32496A8C10072B074 /* WhitelistExtension.swift */; };
+		1197B4B62496A9080072B074 /* BrowserExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1197B4B52496A9080072B074 /* BrowserExtension.swift */; };
 		11A34D562354E9D70008F0CA /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A34D552354E9D70008F0CA /* Crypto.swift */; };
 		11A34D572354E9D70008F0CA /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A34D552354E9D70008F0CA /* Crypto.swift */; };
 		11A34D582354E9D70008F0CA /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A34D552354E9D70008F0CA /* Crypto.swift */; };
@@ -127,6 +131,10 @@
 		1160244524906B2700221428 /* RelativeTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelativeTime.swift; sourceTree = "<group>"; };
 		117578612355876000827387 /* SetupModalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupModalController.swift; sourceTree = "<group>"; };
 		119742CE2478DC94000AFA2D /* Stylesheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stylesheet.swift; sourceTree = "<group>"; };
+		1197B4AE2496A8290072B074 /* PreferencesExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesExtension.swift; sourceTree = "<group>"; };
+		1197B4B02496A8A00072B074 /* StylesheetExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylesheetExtension.swift; sourceTree = "<group>"; };
+		1197B4B32496A8C10072B074 /* WhitelistExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhitelistExtension.swift; sourceTree = "<group>"; };
+		1197B4B52496A9080072B074 /* BrowserExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserExtension.swift; sourceTree = "<group>"; };
 		11A34D552354E9D70008F0CA /* Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
 		11B920FD247D51760002C430 /* BrowserBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserBridge.swift; sourceTree = "<group>"; };
 		11B920FF247D6F520002C430 /* DefaultBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultBrowserViewController.swift; sourceTree = "<group>"; };
@@ -246,6 +254,17 @@
 			path = Welcome;
 			sourceTree = "<group>";
 		};
+		1197B4AD2496A8100072B074 /* MainViewController Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1197B4B52496A9080072B074 /* BrowserExtension.swift */,
+				1197B4AE2496A8290072B074 /* PreferencesExtension.swift */,
+				1197B4B02496A8A00072B074 /* StylesheetExtension.swift */,
+				1197B4B32496A8C10072B074 /* WhitelistExtension.swift */,
+			);
+			path = "MainViewController Extensions";
+			sourceTree = "<group>";
+		};
 		11D5E7E12495B4F8000FBE99 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +291,7 @@
 			children = (
 				11F288EF235CE20B00DEBCE5 /* MainWindowController.swift */,
 				11E581D7231DB6FC00910010 /* MainViewController.swift */,
+				1197B4AD2496A8100072B074 /* MainViewController Extensions */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -588,11 +608,15 @@
 				11FD0C26235D10FE00FC0587 /* LargeBubbleImageView.swift in Sources */,
 				11B920FE247D51760002C430 /* BrowserBridge.swift in Sources */,
 				117578622355876000827387 /* SetupModalController.swift in Sources */,
+				1197B4B12496A8A00072B074 /* StylesheetExtension.swift in Sources */,
 				110F510D247B7C9000D58266 /* DelegatingRecoverableError.swift in Sources */,
 				111C4DD7234A2D040034054C /* Info.swift in Sources */,
+				1197B4AF2496A8290072B074 /* PreferencesExtension.swift in Sources */,
 				111C4DD3234A2ADD0034054C /* Setup.swift in Sources */,
 				110FEE0E2476D07100AA0B83 /* MessagingError.swift in Sources */,
 				11F903B92470F96D0012051C /* LockFile.swift in Sources */,
+				1197B4B42496A8C10072B074 /* WhitelistExtension.swift in Sources */,
+				1197B4B62496A9080072B074 /* BrowserExtension.swift in Sources */,
 				11A34D562354E9D70008F0CA /* Crypto.swift in Sources */,
 				119742CF2478DC94000AFA2D /* Stylesheet.swift in Sources */,
 				11E4B0B3246D0EF3007340A4 /* EncryptedFile.swift in Sources */,
