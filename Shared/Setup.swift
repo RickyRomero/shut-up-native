@@ -60,10 +60,16 @@ final class Setup {
     // https://forums.developer.apple.com/thread/113010#420523
     private var bootstrapStarted = false
     private var bootstrapAttempted = false
-    func bootstrap() {
-        guard !bootstrapStarted else { return }
 
+    func bootstrap() { bootstrap(false) }
+
+    func bootstrap(_ resetKeyHeld: Bool) {
+        guard !bootstrapStarted else { return }
         bootstrapStarted = true
+
+        if resetKeyHeld {
+            confirmReset()
+        }
 
         Preferences.main.setDefaults()
 
@@ -117,5 +123,51 @@ final class Setup {
         bootstrap()
     }
 
-    func reset() {}
+    func confirmReset() {
+        let alert = NSAlert()
+        alert.alertStyle = .critical
+        alert.messageText = "Reset Shut Up?"
+        alert.informativeText = "Resetting Shut Up will delete your preferences and whitelist. This will restore its original configuration. You cannot undo this action."
+        let quitButton = alert.addButton(withTitle: "Quit")
+        quitButton.keyEquivalent = ""
+        alert.addButton(withTitle: "Reset Shut Up")
+
+        let decision = alert.runModal()
+
+        if decision == .alertFirstButtonReturn {
+            NSApp.terminate(nil)
+        } else {
+            print("Reset")
+            reset()
+        }
+    }
+
+    func reset() {
+        try? Crypto.main.clear(preCatalinaItems: true)
+        try? Crypto.main.clear()
+        Preferences.main.reset()
+
+        // Relaunch the app and stop this instance
+        let resourceUrl = Bundle.main.resourceURL
+        let appBundleUrl = resourceUrl?.deletingLastPathComponent().deletingLastPathComponent()
+
+        if #available(macOS 10.15, *) {
+            let config = NSWorkspace.OpenConfiguration()
+            config.activates = true
+            config.createsNewApplicationInstance = true
+            NSWorkspace.shared.openApplication(
+                at: appBundleUrl!,
+                configuration: config,
+                completionHandler: nil
+            )
+        } else {
+            _ = try? NSWorkspace.shared.launchApplication(
+                at: appBundleUrl!,
+                options: .newInstance,
+                configuration: [:]
+            )
+        }
+
+        NSApp.terminate(nil)
+    }
 }

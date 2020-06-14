@@ -7,11 +7,13 @@
 //
 
 import Cocoa
+import CoreGraphics
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        Setup.main.bootstrap()
+        let optionKeyState = CGEventSource.keyState(.combinedSessionState, key: 0x3A)
+        Setup.main.bootstrap(optionKeyState)
     }
 
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool { true }
@@ -43,7 +45,7 @@ extension AppDelegate: ErrorRecoveryDelegate {
             case .tryAgain:
                 Setup.main.restart()
             case .reset:
-                Setup.main.reset()
+                Setup.main.confirmReset()
         }
         
         return true
