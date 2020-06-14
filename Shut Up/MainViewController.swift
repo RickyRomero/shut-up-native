@@ -248,24 +248,15 @@ class MainViewController: NSViewController {
 
 extension MainViewController: NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return 40 // 0
+        return 40
     }
 }
 
 // MARK: NSTableViewDelegate
 
 extension MainViewController: NSTableViewDelegate {
-    // Return views for each table column (which is just one)
-    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        if let cell = whitelistView.makeView(
-            withIdentifier: NSUserInterfaceItemIdentifier(
-                rawValue: "WhitelistedDomain"
-            ), owner: nil
-        ) as? NSTableCellView {
-            cell.textField?.stringValue = "What did you say about me you little bitch? I'll have you know"
-            return cell
-        }
-        return nil
+    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
+        return "Hello table!"
     }
 
     // Swipe actions for the table view
