@@ -36,6 +36,7 @@ class MainViewController: NSViewController {
     @IBOutlet var showContextMenuCheckbox: NSButton!
     @IBOutlet var whitelistView: NSTableView!
     @IBOutlet var whitelistScrollView: NSScrollView!
+    @IBOutlet var whitelistAddField: NSTextField!
     @IBOutlet var lastCssUpdateLabel: NSTextField!
     
     var minWinHeight: Double!
@@ -62,6 +63,7 @@ class MainViewController: NSViewController {
         Preferences.main.delegate = self
         whitelistView.delegate = self
         whitelistView.dataSource = self
+        whitelistAddField.delegate = self
         enableHelperGuide.isHidden = true
 
         // Set up CSS update label
@@ -242,6 +244,11 @@ class MainViewController: NSViewController {
     @IBAction func menuSettingUpdated(_ sender: NSButton) {
         Preferences.main.showInMenu = sender.state == .on
     }
+
+    @IBAction func addAction(_ sender: NSTextField) {
+        print(#function)
+        print("action")
+    }
 }
 
 // MARK: NSTableViewDataSource
@@ -288,5 +295,16 @@ extension MainViewController: NSTableViewDelegate {
 extension MainViewController: PrefsUpdateDelegate {
     func prefsDidUpdate() {
         reflectExtensionAndPreferenceStates()
+    }
+}
+
+// MARK: NSTextFieldDelegate
+
+extension MainViewController: NSTextFieldDelegate {
+    func controlTextDidBeginEditing(_ obj: Notification) {
+        print(#function)
+    }
+    func controlTextDidEndEditing(_ obj: Notification) {
+        print(#function)
     }
 }

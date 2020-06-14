@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -916,13 +917,13 @@ DQ
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="CbD-oy-dJB">
                                         <rect key="frame" x="0.0" y="0.0" width="400" height="391"/>
                                         <subviews>
-                                            <scrollView verticalCompressionResistancePriority="749" borderType="none" autohidesScrollers="YES" horizontalLineScroll="26" horizontalPageScroll="10" verticalLineScroll="26" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1sw-Rm-hiV">
+                                            <scrollView focusRingType="none" verticalCompressionResistancePriority="749" borderType="none" autohidesScrollers="YES" horizontalLineScroll="26" horizontalPageScroll="10" verticalLineScroll="26" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1sw-Rm-hiV">
                                                 <rect key="frame" x="0.0" y="0.0" width="400" height="391"/>
                                                 <clipView key="contentView" id="OjP-zq-IGt">
                                                     <rect key="frame" x="0.0" y="0.0" width="400" height="391"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
-                                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnResizing="NO" autosaveColumns="NO" rowHeight="24" id="Z7W-xZ-9s9">
+                                                        <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnResizing="NO" autosaveColumns="NO" rowHeight="24" id="Z7W-xZ-9s9">
                                                             <rect key="frame" x="0.0" y="0.0" width="400" height="367"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <size key="intercellSpacing" width="3" height="2"/>
@@ -956,51 +957,29 @@ DQ
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
                                             </scrollView>
-                                            <box boxType="custom" borderType="none" borderWidth="0.0" cornerRadius="8" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="kyq-1A-bvk">
+                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZjL-Rx-1qN">
                                                 <rect key="frame" x="15" y="15" width="370" height="32"/>
-                                                <view key="contentView" id="mF2-wO-Cfd">
-                                                    <rect key="frame" x="0.0" y="0.0" width="370" height="32"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                    <subviews>
-                                                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5KB-dB-upZ">
-                                                            <rect key="frame" x="10" y="8" width="16" height="16"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="16" id="6Pa-hG-QKb"/>
-                                                                <constraint firstAttribute="height" constant="16" id="hoX-TY-hoM"/>
-                                                            </constraints>
-                                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSAddTemplate" id="2Lb-Du-r0f"/>
-                                                        </imageView>
-                                                        <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XHf-Ql-6mD">
-                                                            <rect key="frame" x="32" y="8" width="320" height="16"/>
-                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" placeholderString="example.com" id="MgR-2V-SOH">
-                                                                <font key="font" usesAppearanceFont="YES"/>
-                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                            </textFieldCell>
-                                                        </textField>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="XHf-Ql-6mD" firstAttribute="leading" secondItem="5KB-dB-upZ" secondAttribute="trailing" constant="8" symbolic="YES" id="3dU-cE-c4a"/>
-                                                        <constraint firstItem="5KB-dB-upZ" firstAttribute="centerY" secondItem="mF2-wO-Cfd" secondAttribute="centerY" id="735-3t-F4s"/>
-                                                        <constraint firstAttribute="trailing" secondItem="XHf-Ql-6mD" secondAttribute="trailing" constant="20" symbolic="YES" id="Jsb-pj-k6t"/>
-                                                        <constraint firstItem="XHf-Ql-6mD" firstAttribute="centerY" secondItem="mF2-wO-Cfd" secondAttribute="centerY" id="ROL-vC-Au2"/>
-                                                        <constraint firstItem="5KB-dB-upZ" firstAttribute="leading" secondItem="mF2-wO-Cfd" secondAttribute="leading" constant="10" id="T9l-pc-FAR"/>
-                                                    </constraints>
-                                                </view>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="32" id="WaB-nU-Qq8"/>
+                                                    <constraint firstAttribute="height" constant="32" id="6wj-kt-HCp"/>
                                                 </constraints>
-                                                <color key="fillColor" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </box>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" placeholderString="example.com" drawsBackground="YES" id="jX5-qS-9De" customClass="AddDomainCell" customModule="Shut_Up" customModuleProvider="target">
+                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="AddDomainCell BG"/>
+                                                </textFieldCell>
+                                                <connections>
+                                                    <action selector="addAction:" target="XfG-lQ-9wD" id="s8i-aF-DCe"/>
+                                                </connections>
+                                            </textField>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="ZjL-Rx-1qN" secondAttribute="trailing" constant="15" id="Cvm-t1-agD"/>
+                                            <constraint firstAttribute="bottom" secondItem="ZjL-Rx-1qN" secondAttribute="bottom" constant="15" id="Jb2-bC-JUB"/>
+                                            <constraint firstItem="ZjL-Rx-1qN" firstAttribute="leading" secondItem="CbD-oy-dJB" secondAttribute="leading" constant="15" id="RI5-UT-8q1"/>
                                             <constraint firstAttribute="bottom" secondItem="1sw-Rm-hiV" secondAttribute="bottom" id="U38-P5-HMr"/>
-                                            <constraint firstAttribute="bottom" secondItem="kyq-1A-bvk" secondAttribute="bottom" constant="15" id="c2f-fs-GP4"/>
-                                            <constraint firstItem="kyq-1A-bvk" firstAttribute="leading" secondItem="CbD-oy-dJB" secondAttribute="leading" constant="15" id="oio-Nr-9pw"/>
                                             <constraint firstAttribute="trailing" secondItem="1sw-Rm-hiV" secondAttribute="trailing" id="qEd-5Q-MWj"/>
                                             <constraint firstItem="1sw-Rm-hiV" firstAttribute="top" secondItem="CbD-oy-dJB" secondAttribute="top" id="vDd-8Z-BEP"/>
                                             <constraint firstItem="1sw-Rm-hiV" firstAttribute="leading" secondItem="CbD-oy-dJB" secondAttribute="leading" id="wEL-RS-SUm"/>
-                                            <constraint firstAttribute="trailing" secondItem="kyq-1A-bvk" secondAttribute="trailing" constant="15" id="xPn-sJ-eHh"/>
                                         </constraints>
                                     </customView>
                                 </subviews>
@@ -1048,6 +1027,7 @@ DQ
                         <outlet property="enableWhitelistCheckbox" destination="hNL-RI-IFS" id="cyw-Y3-Hzy"/>
                         <outlet property="lastCssUpdateLabel" destination="eQ6-c3-SwY" id="i0H-4e-tH2"/>
                         <outlet property="showContextMenuCheckbox" destination="vSq-3I-fD8" id="4YS-hF-YLo"/>
+                        <outlet property="whitelistAddField" destination="ZjL-Rx-1qN" id="TXc-FS-ofi"/>
                         <outlet property="whitelistInfoLabel" destination="2nG-k5-jvw" id="3Lq-2j-8q8"/>
                         <outlet property="whitelistScrollView" destination="1sw-Rm-hiV" id="W3p-0U-0yw"/>
                         <outlet property="whitelistView" destination="Z7W-xZ-9s9" id="cxd-BP-LdX"/>
@@ -1063,10 +1043,12 @@ DQ
         <image name="Baby Browser Aqua" width="412" height="256"/>
         <image name="Large Bubble" width="306" height="274"/>
         <image name="Large Chrome" width="64" height="64"/>
-        <image name="NSAddTemplate" width="11" height="11"/>
         <image name="Small Chrome" width="16" height="16"/>
         <image name="Small Edge" width="16" height="16"/>
         <image name="Small Firefox" width="16" height="16"/>
         <image name="Small Opera" width="16" height="16"/>
+        <namedColor name="AddDomainCell BG">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

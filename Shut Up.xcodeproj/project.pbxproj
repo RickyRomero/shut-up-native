@@ -43,6 +43,7 @@
 		11C17A0D248C941700D2A164 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EF35702479F12000D5EFD2 /* Preferences.swift */; };
 		11C17A0E248C995200D2A164 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111C4DD6234A2D040034054C /* Info.swift */; };
 		11C17A13248CA1F000D2A164 /* DebugToolsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C17A11248CA1F000D2A164 /* DebugToolsController.swift */; };
+		11D5E7E52495B5B4000FBE99 /* AddDomainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D5E7E42495B5B4000FBE99 /* AddDomainCell.swift */; };
 		11E225A5248CAEA600672115 /* KeychainTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E225A4248CAEA600672115 /* KeychainTableController.swift */; };
 		11E4B0B3246D0EF3007340A4 /* EncryptedFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E4B0B2246D0EF3007340A4 /* EncryptedFile.swift */; };
 		11E4B0B4246D0EF3007340A4 /* EncryptedFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E4B0B2246D0EF3007340A4 /* EncryptedFile.swift */; };
@@ -108,7 +109,7 @@
 
 /* Begin PBXFileReference section */
 		110C5A93247C41DD00004DFA /* EnableExtensionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableExtensionsViewController.swift; sourceTree = "<group>"; };
-		110F510C247B7C9000D58266 /* DelegatingRecoverableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DelegatingRecoverableError.swift; path = "Shut Up/DelegatingRecoverableError.swift"; sourceTree = SOURCE_ROOT; };
+		110F510C247B7C9000D58266 /* DelegatingRecoverableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DelegatingRecoverableError.swift; path = "Shut Up/Models/DelegatingRecoverableError.swift"; sourceTree = SOURCE_ROOT; };
 		110FEE0D2476D07100AA0B83 /* MessagingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingError.swift; sourceTree = "<group>"; };
 		111C4DD2234A2ADD0034054C /* Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setup.swift; sourceTree = "<group>"; };
 		111C4DD6234A2D040034054C /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
@@ -130,6 +131,7 @@
 		11B920FD247D51760002C430 /* BrowserBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserBridge.swift; sourceTree = "<group>"; };
 		11B920FF247D6F520002C430 /* DefaultBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultBrowserViewController.swift; sourceTree = "<group>"; };
 		11C17A11248CA1F000D2A164 /* DebugToolsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugToolsController.swift; sourceTree = "<group>"; };
+		11D5E7E42495B5B4000FBE99 /* AddDomainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDomainCell.swift; sourceTree = "<group>"; };
 		11E225A4248CAEA600672115 /* KeychainTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainTableController.swift; sourceTree = "<group>"; };
 		11E4B0B2246D0EF3007340A4 /* EncryptedFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptedFile.swift; sourceTree = "<group>"; };
 		11E581CD231DB6FC00910010 /* Shut Up.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shut Up.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -244,6 +246,36 @@
 			path = Welcome;
 			sourceTree = "<group>";
 		};
+		11D5E7E12495B4F8000FBE99 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				11B920FD247D51760002C430 /* BrowserBridge.swift */,
+				110F510C247B7C9000D58266 /* DelegatingRecoverableError.swift */,
+				11358188236FCB0F00BF7617 /* Links.swift */,
+				1160244524906B2700221428 /* RelativeTime.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		11D5E7E22495B550000FBE99 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				11E581D4231DB6FC00910010 /* Main.storyboard */,
+				11D5E7E42495B5B4000FBE99 /* AddDomainCell.swift */,
+				11FD0C25235D10FE00FC0587 /* LargeBubbleImageView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		11D5E7E32495B557000FBE99 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				11F288EF235CE20B00DEBCE5 /* MainWindowController.swift */,
+				11E581D7231DB6FC00910010 /* MainViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		11E581C4231DB6FC00910010 = {
 			isa = PBXGroup;
 			children = (
@@ -271,17 +303,12 @@
 		11E581CF231DB6FC00910010 /* Shut Up */ = {
 			isa = PBXGroup;
 			children = (
+				11D5E7E12495B4F8000FBE99 /* Models */,
+				11D5E7E22495B550000FBE99 /* Views */,
+				11D5E7E32495B557000FBE99 /* Controllers */,
 				116BEFFC247C34620099EE0F /* Welcome */,
 				11E581D0231DB6FC00910010 /* Shut Up.entitlements */,
-				11E581D4231DB6FC00910010 /* Main.storyboard */,
 				11E581D2231DB6FC00910010 /* AppDelegate.swift */,
-				11FD0C25235D10FE00FC0587 /* LargeBubbleImageView.swift */,
-				11F288EF235CE20B00DEBCE5 /* MainWindowController.swift */,
-				11E581D7231DB6FC00910010 /* MainViewController.swift */,
-				11358188236FCB0F00BF7617 /* Links.swift */,
-				110F510C247B7C9000D58266 /* DelegatingRecoverableError.swift */,
-				11B920FD247D51760002C430 /* BrowserBridge.swift */,
-				1160244524906B2700221428 /* RelativeTime.swift */,
 				11E581DB231DB6FD00910010 /* Info.plist */,
 				11E581D9231DB6FD00910010 /* Assets.xcassets */,
 			);
@@ -555,6 +582,7 @@
 				110C5A94247C41DD00004DFA /* EnableExtensionsViewController.swift in Sources */,
 				11F903D9247312580012051C /* ConditionalLockAction.swift in Sources */,
 				11EF35712479F12000D5EFD2 /* Preferences.swift in Sources */,
+				11D5E7E52495B5B4000FBE99 /* AddDomainCell.swift in Sources */,
 				11E581D8231DB6FC00910010 /* MainViewController.swift in Sources */,
 				11F288F0235CE20B00DEBCE5 /* MainWindowController.swift in Sources */,
 				11FD0C26235D10FE00FC0587 /* LargeBubbleImageView.swift in Sources */,
