@@ -19,7 +19,7 @@ class MainViewController: NSViewController {
     @IBOutlet var lastCssUpdateLabel: NSTextField!
     
     var minWinHeight: Double!
-    var winWidth = 800.0
+    var winWidth = 700.0
 
     var blocker = Extension()
     var helper = Extension()

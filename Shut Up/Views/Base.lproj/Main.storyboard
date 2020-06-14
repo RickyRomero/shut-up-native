@@ -228,10 +228,10 @@
                     <window key="window" title="Shut Up" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" fullSizeContentView="YES"/>
                         <windowCollectionBehavior key="collectionBehavior" fullScreenNone="YES"/>
-                        <rect key="contentRect" x="0.0" y="0.0" width="800" height="400"/>
+                        <rect key="contentRect" x="0.0" y="0.0" width="700" height="400"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <value key="minSize" type="size" width="800" height="400"/>
-                        <value key="maxSize" type="size" width="800" height="600"/>
+                        <value key="minSize" type="size" width="700" height="400"/>
+                        <value key="maxSize" type="size" width="700" height="600"/>
                         <toolbar key="toolbar" implicitIdentifier="7103FDCE-1D01-4B52-B45F-7DB13DFD69C5" autosavesConfiguration="NO" allowsUserCustomization="NO" showsBaselineSeparator="NO" displayMode="iconAndLabel" sizeMode="regular" id="s3P-rj-cZx">
                             <allowedToolbarItems/>
                             <defaultToolbarItems/>
@@ -699,7 +699,7 @@ DQ
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="MainViewController" customModule="Shut_Up" customModuleProvider="target" sceneMemberID="viewController">
                     <stackView key="view" distribution="fill" orientation="horizontal" alignment="top" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="250.99998474121094" detachesHiddenViews="YES" id="ayD-cw-UL3">
-                        <rect key="frame" x="0.0" y="0.0" width="800" height="429"/>
+                        <rect key="frame" x="0.0" y="0.0" width="700" height="429"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                         <subviews>
                             <visualEffectView blendingMode="behindWindow" material="sidebar" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="uns-gU-Itf">
@@ -884,16 +884,16 @@ DQ
                                 </constraints>
                             </visualEffectView>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="emp-g2-FkZ">
-                                <rect key="frame" x="400" y="0.0" width="400" height="429"/>
+                                <rect key="frame" x="400" y="0.0" width="300" height="429"/>
                                 <subviews>
                                     <box borderType="none" titlePosition="noTitle" transparent="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yjj-mt-dx3">
-                                        <rect key="frame" x="-3" y="388" width="406" height="43"/>
+                                        <rect key="frame" x="-3" y="388" width="306" height="43"/>
                                         <view key="contentView" id="glC-ff-aGW">
-                                            <rect key="frame" x="0.0" y="0.0" width="406" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="306" height="43"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="B7G-nS-Un0">
-                                                    <rect key="frame" x="18" y="14" width="370" height="16"/>
+                                                    <rect key="frame" x="18" y="14" width="270" height="16"/>
                                                     <textFieldCell key="cell" lineBreakMode="clipping" title="Hide comments everywhere, except:" id="L4f-Kl-bw7">
                                                         <font key="font" usesAppearanceFont="YES"/>
                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -912,26 +912,26 @@ DQ
                                         </constraints>
                                     </box>
                                     <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="Kia-qV-MHv">
-                                        <rect key="frame" x="0.0" y="389" width="400" height="5"/>
+                                        <rect key="frame" x="0.0" y="389" width="300" height="5"/>
                                     </box>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="CbD-oy-dJB">
-                                        <rect key="frame" x="0.0" y="0.0" width="400" height="391"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="391"/>
                                         <subviews>
                                             <scrollView focusRingType="none" verticalCompressionResistancePriority="749" borderType="none" autohidesScrollers="YES" horizontalLineScroll="26" horizontalPageScroll="10" verticalLineScroll="26" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1sw-Rm-hiV">
-                                                <rect key="frame" x="0.0" y="0.0" width="400" height="391"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="391"/>
                                                 <clipView key="contentView" id="OjP-zq-IGt">
-                                                    <rect key="frame" x="0.0" y="0.0" width="400" height="391"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="391"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnResizing="NO" autosaveColumns="NO" rowHeight="24" id="Z7W-xZ-9s9">
-                                                            <rect key="frame" x="0.0" y="0.0" width="400" height="367"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="300" height="367"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <size key="intercellSpacing" width="3" height="2"/>
                                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             <tableViewGridLines key="gridStyleMask" horizontal="YES"/>
                                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                             <tableColumns>
-                                                                <tableColumn width="397" minWidth="10" maxWidth="3.4028234663852886e+38" id="BDA-6n-vKe">
+                                                                <tableColumn width="297" minWidth="10" maxWidth="3.4028234663852886e+38" id="BDA-6n-vKe">
                                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -958,7 +958,7 @@ DQ
                                                 </scroller>
                                             </scrollView>
                                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZjL-Rx-1qN">
-                                                <rect key="frame" x="15" y="15" width="370" height="32"/>
+                                                <rect key="frame" x="15" y="15" width="270" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="32" id="6wj-kt-HCp"/>
                                                 </constraints>
@@ -988,7 +988,7 @@ DQ
                                     <constraint firstItem="CbD-oy-dJB" firstAttribute="leading" secondItem="emp-g2-FkZ" secondAttribute="leading" id="Jjd-Ru-3L6"/>
                                     <constraint firstAttribute="trailing" secondItem="Kia-qV-MHv" secondAttribute="trailing" id="ROA-AG-BKO"/>
                                     <constraint firstItem="Yjj-mt-dx3" firstAttribute="top" secondItem="emp-g2-FkZ" secondAttribute="top" id="V6i-Jo-QXK"/>
-                                    <constraint firstAttribute="width" constant="400" id="VZl-wN-gdS"/>
+                                    <constraint firstAttribute="width" constant="300" id="VZl-wN-gdS"/>
                                     <constraint firstAttribute="trailing" secondItem="Yjj-mt-dx3" secondAttribute="trailing" id="YXm-32-NmY"/>
                                     <constraint firstItem="Yjj-mt-dx3" firstAttribute="leading" secondItem="emp-g2-FkZ" secondAttribute="leading" id="oDR-Jx-xkK"/>
                                     <constraint firstItem="Kia-qV-MHv" firstAttribute="leading" secondItem="emp-g2-FkZ" secondAttribute="leading" id="zrU-4j-FC7"/>
