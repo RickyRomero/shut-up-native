@@ -755,7 +755,7 @@ DQ
                                                 <subviews>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hNL-RI-IFS">
                                                         <rect key="frame" x="-2" y="38" width="238" height="18"/>
-                                                        <buttonCell key="cell" type="check" title="Remember where I show comments" bezelStyle="regularSquare" imagePosition="leading" state="on" inset="2" id="f7t-fr-8lK">
+                                                        <buttonCell key="cell" type="check" title="Remember where I show comments" bezelStyle="regularSquare" imagePosition="leading" inset="2" id="f7t-fr-8lK">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
@@ -780,7 +780,7 @@ DQ
                                                     </customView>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vSq-3I-fD8">
                                                         <rect key="frame" x="-2" y="-2" width="156" height="18"/>
-                                                        <buttonCell key="cell" type="check" title="Show in context menu" bezelStyle="regularSquare" imagePosition="leading" state="on" inset="2" id="xLr-w5-Gms">
+                                                        <buttonCell key="cell" type="check" title="Show in context menu" bezelStyle="regularSquare" imagePosition="leading" inset="2" id="xLr-w5-Gms">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
