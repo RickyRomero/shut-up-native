@@ -61,9 +61,11 @@ final class Setup {
     private var bootstrapStarted = false
     private var bootstrapAttempted = false
 
-    func bootstrap() { bootstrap(false) }
+    func bootstrap(completionHandler: @escaping () -> Void) {
+        bootstrap(false, completionHandler: completionHandler)
+    }
 
-    func bootstrap(_ resetKeyHeld: Bool) {
+    func bootstrap(_ resetKeyHeld: Bool, completionHandler: @escaping () -> Void) {
         guard !bootstrapStarted else { return }
         bootstrapStarted = true
 
@@ -110,6 +112,7 @@ final class Setup {
 
             try? "".write(to: destUrl, atomically: true, encoding: .utf8)
             NSLog("bootstrap Shut Up Core \(Info.bundleId)")
+            completionHandler()
         }
     }
 
@@ -120,7 +123,7 @@ final class Setup {
 
         bootstrapStarted = false
         bootstrapAttempted = false
-        bootstrap()
+        bootstrap {}
     }
 
     func confirmReset() {

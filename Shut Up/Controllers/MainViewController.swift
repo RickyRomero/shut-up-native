@@ -92,6 +92,9 @@ class MainViewController: NSViewController {
         guard Preferences.main.setupRun else { return }
         guard !onboardingActive else { return }
 
+        let windowIsVisible = view.window?.isVisible ?? false
+        guard windowIsVisible else { return }
+
         let sheetViewController = storyboard!.instantiateController(withIdentifier: "SetupModalController") as! NSViewController
         presentAsSheet(sheetViewController)
     }

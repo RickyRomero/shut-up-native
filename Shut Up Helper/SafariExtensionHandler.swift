@@ -43,7 +43,7 @@ var clickCount = 0
 
 class SafariExtensionHandler: SFSafariExtensionHandler {
     override init() {
-        Setup.main.bootstrap()
+        Setup.main.bootstrap {}
 
         print("Should be fetching now")
         Stylesheet.main.update(force: false) { error in
@@ -58,7 +58,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     override func beginRequest(with context: NSExtensionContext) {
         super.beginRequest(with: context)
 
-        Setup.main.bootstrap()
+        Setup.main.bootstrap {}
 
         print(#function)
         NSLog(Info.bundleId)

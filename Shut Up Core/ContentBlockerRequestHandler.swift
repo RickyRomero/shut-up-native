@@ -14,7 +14,7 @@ class ContentBlockerRequestHandler: NSObject, NSExtensionRequestHandling {
         super.init()
         NSLog("init Shut Up Core \(Info.bundleId)")
 
-        Setup.main.bootstrap()
+        Setup.main.bootstrap {}
 
         print("Should be fetching now")
         Stylesheet.main.update(force: false) { error in

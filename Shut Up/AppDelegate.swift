@@ -13,7 +13,12 @@ import CoreGraphics
 class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         let optionKeyState = CGEventSource.keyState(.combinedSessionState, key: 0x3A)
-        Setup.main.bootstrap(optionKeyState)
+
+        Setup.main.bootstrap(optionKeyState) {
+            let mainSb = NSStoryboard(name: "Main", bundle: nil)
+            let mwc = mainSb.instantiateController(withIdentifier: "MainWindowController") as! MainWindowController
+            mwc.window?.makeKeyAndOrderFront(self)
+        }
     }
 
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool { true }
