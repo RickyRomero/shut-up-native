@@ -56,14 +56,6 @@ class MainViewController: NSViewController {
         ])
         lastCssUpdateLabel.font = NSFont(descriptor: tabularFigures, size: 0.0)
         resetCssLabelUpdateTimer()
-
-        // Listen for when the app receives focus
-        NotificationCenter.default.addObserver(
-            forName: NSApplication.didBecomeActiveNotification,
-            object: nil,
-            queue: .main,
-            using: appReceivedFocus(_:)
-        )
     }
 
     override func viewWillAppear() {
@@ -80,6 +72,15 @@ class MainViewController: NSViewController {
         minWinHeight = Double(view.window!.frame.height)
 
         view.window!.setFrame(savedFrame, display: true)
+
+        // Piggyback off of this one-time event to also start listening for
+        // when the app receives focus
+        NotificationCenter.default.addObserver(
+            forName: NSApplication.didBecomeActiveNotification,
+            object: nil,
+            queue: .main,
+            using: appReceivedFocus(_:)
+        )
     }
 
     override func viewDidAppear() {
