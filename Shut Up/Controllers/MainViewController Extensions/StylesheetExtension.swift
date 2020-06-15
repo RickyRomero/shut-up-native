@@ -38,9 +38,22 @@ extension MainViewController {
     }
 
     @IBAction func forceStylesheetUpdate(_ sender: NSButton) {
+        sender.isEnabled = false
+        lastCssUpdateLabel.isHidden = true
+        updatingSpinner.startAnimation(nil)
+        updatingIndicator.isHidden = false
         print("Should be fetching now")
-        Stylesheet.main.update(force: false) { error in
-            guard error == nil else { return /* and display the error */ }
+        Stylesheet.main.update(force: true) { error in
+            sender.isEnabled = true
+            self.lastCssUpdateLabel.isHidden = false
+            self.updatingIndicator.isHidden = true
+            self.updatingSpinner.stopAnimation(nil)
+
+            guard error == nil else {
+                NSApp.presentError(MessagingError(error!))
+                return
+            }
+
             let now = Date()
             Preferences.main.lastStylesheetUpdate = now
             self.updateLastCssUpdateLabel(with: now)

@@ -17,6 +17,8 @@ class MainViewController: NSViewController {
     @IBOutlet var whitelistScrollView: NSScrollView!
     @IBOutlet var whitelistAddField: NSTextField!
     @IBOutlet var lastCssUpdateLabel: NSTextField!
+    @IBOutlet var updatingIndicator: NSStackView!
+    @IBOutlet var updatingSpinner: NSProgressIndicator!
     
     var minWinHeight: Double!
     var winWidth = 700.0

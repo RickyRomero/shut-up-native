@@ -173,6 +173,9 @@ class MessagingError: NSError {
                     title = "Unexpected response received"
                     info = "Shut Up got an unexpected response when connecting to rickyromero.com. Check your Internet connection or try again later."
             }
+        } else if cause is URLError {
+            title = "Cannot connect to rickyromero.com"
+            info = cause.localizedDescription
         }
 
         return genAlertContents(MessageContents(title: title, info: info, options: options?.reversed()))

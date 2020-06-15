@@ -29,9 +29,11 @@ class Stylesheet {
 
         let sessionConfig = URLSessionConfiguration.ephemeral
         sessionConfig.httpAdditionalHeaders = [
-            "User-Agent": "\(Info.productName)/\(Info.version) (\(Info.buildNum))",
-            "Referer": "Nunya"
+            "User-Agent": "\(Info.productName)/\(Info.version) (\(Info.buildNum))"
         ]
+        if !force && Preferences.main.etag != "" {
+            sessionConfig.httpAdditionalHeaders?["If-None-Match"] = Preferences.main.etag
+        }
         sessionConfig.timeoutIntervalForRequest = 5 // seconds
         sessionConfig.timeoutIntervalForRequest = 10 // seconds
 
@@ -45,22 +47,102 @@ class Stylesheet {
         defer {
             waitingForResponse = false
             DispatchQueue.main.async {
-                self.completionHandler?(error != nil ? NetworkingError.interpretingResponse : nil)
+                self.completionHandler?(error)
                 self.completionHandler = nil
             }
         }
 
-        print("Received response from server")
         guard error == nil else {
-            print(error!)
+            print("Encountered an error when updating the stylesheet:")
+            print(error!.localizedDescription)
             return
         }
 
-        guard data != nil else {
+        guard let data = data else {
             print("No data received from request.")
             return
         }
 
-        print(String(data: data!, encoding: .utf8)!)
+        guard let response = response as? HTTPURLResponse else {
+            print("No response received from request.")
+            return
+        }
+
+        print("Data length:", data.count)
+        print("Response:", response.statusCode)
+        let headers = response.allHeaderFields
+        if let etag = headers["Etag"] as? String {
+            print("ETag:", etag)
+            Preferences.main.etag = etag
+        }
+        print("thank's")
+
+//        print(String(data: data, encoding: .utf8)!)
     }
+
+    func parseCss(css: Data) {
+        
+    }
+}
+
+
+func selector(from css: String) -> String {
+    let strippedCSS = minify(css: css)
+
+    let displayNoneRegex = try! NSRegularExpression(pattern: "display:\\s*none", options: .caseInsensitive)
+    let declarationBlocks = strippedCSS.components(separatedBy: "}")
+    let selectorWhitespaceRegex = try! NSRegularExpression(pattern: "^\\s+|\\s+$", options: .dotMatchesLineSeparators)
+    let concatString = ", "
+
+    var displayNoneCount = 0
+    var selector = ""
+    var fullSelector: [String] = []
+
+    for block in declarationBlocks {
+        displayNoneCount = displayNoneRegex.numberOfMatches(
+            in: block,
+            options: NSRegularExpression.MatchingOptions(),
+            range: NSMakeRange(0, block.count)
+        )
+        
+        if displayNoneCount > 0 {
+            selector = block.components(separatedBy: "{")[0]
+            selector = selectorWhitespaceRegex.stringByReplacingMatches(
+                in: selector,
+                options: [],
+                range: NSMakeRange(0, selector.count),
+                withTemplate: ""
+            )
+            
+            fullSelector.append(selector)
+        }
+    }
+
+    return fullSelector.joined(separator: concatString)
+}
+
+func minify(css: String) -> String {
+    let cleanupPatterns = [
+        ["/\\*.+?\\*/", ""],    // Comments
+        ["^\\s+",       ""],    // Leading whitespace
+        [",\\s+",       ", "],  // Selector whitespace
+    ]
+
+    var strippedCSS = css
+    var cleanupPattern: String!
+    var replacementTemplate: String!
+    var cleanupRegex: NSRegularExpression!
+    for replacementPair in cleanupPatterns {
+        cleanupPattern = replacementPair[0]
+        replacementTemplate = replacementPair[1]
+        cleanupRegex = try! NSRegularExpression(pattern: cleanupPattern, options: NSRegularExpression.Options.dotMatchesLineSeparators)
+        strippedCSS = cleanupRegex.stringByReplacingMatches(in: strippedCSS,
+            options: NSRegularExpression.MatchingOptions(),
+            range: NSMakeRange(0, strippedCSS.count),
+            withTemplate: replacementTemplate)
+    }
+
+    print(strippedCSS)
+
+    return strippedCSS
 }

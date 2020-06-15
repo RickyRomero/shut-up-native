@@ -834,15 +834,45 @@ DQ
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
+                                                    <stackView hidden="YES" distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VY0-Te-ENx">
+                                                        <rect key="frame" x="0.0" y="0.0" width="90" height="21"/>
+                                                        <subviews>
+                                                            <progressIndicator wantsLayer="YES" maxValue="100" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="kmX-0T-y2Z">
+                                                                <rect key="frame" x="0.0" y="0.0" width="16" height="21"/>
+                                                            </progressIndicator>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YRp-VE-Olt">
+                                                                <rect key="frame" x="22" y="2" width="70" height="16"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Updating…" id="uz4-1j-Dod">
+                                                                    <font key="font" metaFont="system"/>
+                                                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="kmX-0T-y2Z" firstAttribute="centerY" secondItem="VY0-Te-ENx" secondAttribute="centerY" id="sDJ-Ku-eOX"/>
+                                                        </constraints>
+                                                        <visibilityPriorities>
+                                                            <integer value="1000"/>
+                                                            <integer value="1000"/>
+                                                        </visibilityPriorities>
+                                                        <customSpacing>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                        </customSpacing>
+                                                    </stackView>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" id="C6n-p8-w7o"/>
+                                                    <constraint firstItem="VY0-Te-ENx" firstAttribute="height" secondItem="T02-vC-cYG" secondAttribute="height" id="yom-PR-MEf"/>
                                                 </constraints>
                                                 <visibilityPriorities>
                                                     <integer value="1000"/>
                                                     <integer value="1000"/>
+                                                    <integer value="1000"/>
                                                 </visibilityPriorities>
                                                 <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
                                                     <real value="3.4028234663852886e+38"/>
                                                     <real value="3.4028234663852886e+38"/>
                                                 </customSpacing>
@@ -1027,6 +1057,8 @@ DQ
                         <outlet property="enableWhitelistCheckbox" destination="hNL-RI-IFS" id="cyw-Y3-Hzy"/>
                         <outlet property="lastCssUpdateLabel" destination="eQ6-c3-SwY" id="i0H-4e-tH2"/>
                         <outlet property="showContextMenuCheckbox" destination="vSq-3I-fD8" id="4YS-hF-YLo"/>
+                        <outlet property="updatingIndicator" destination="VY0-Te-ENx" id="Da6-Oy-opE"/>
+                        <outlet property="updatingSpinner" destination="kmX-0T-y2Z" id="RxV-cB-HSG"/>
                         <outlet property="whitelistAddField" destination="ZjL-Rx-1qN" id="TXc-FS-ofi"/>
                         <outlet property="whitelistInfoLabel" destination="2nG-k5-jvw" id="3Lq-2j-8q8"/>
                         <outlet property="whitelistScrollView" destination="1sw-Rm-hiV" id="W3p-0U-0yw"/>
