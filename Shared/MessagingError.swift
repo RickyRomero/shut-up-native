@@ -37,13 +37,6 @@ enum BrowserError: Error {
     case requestingExtensionStatus
 }
 
-enum NetworkingError: Error {
-    case accessingNetwork
-    case resolvingDns
-    case contactingServer
-    case interpretingResponse
-}
-
 enum RecoveryOption: String, CaseIterable, CustomStringConvertible {
     case ok
     case quit
@@ -159,19 +152,6 @@ class MessagingError: NSError {
                 case .requestingExtensionStatus:
                     title = "Safari failed to provide extension info"
                     info = "Shut Up asked Safari if its extensions are enabled, but it failed. Try quitting Shut Up and moving it to your Applications folder.\n\nIf the issue persists, try uninstalling Shut Up, restarting your Mac, and reinstalling Shut Up."
-            }
-        } else if cause is NetworkingError {
-            switch cause as! NetworkingError {
-                case .accessingNetwork:
-                    title = "No network connection"
-                    info = "Your Mac appears to be offline. Stylesheet updates require an active Internet connection."
-                case .resolvingDns: fallthrough
-                case .contactingServer:
-                    title = "Cannot connect to rickyromero.com"
-                    info = "Check your Internet connection or try again later."
-                case .interpretingResponse:
-                    title = "Unexpected response received"
-                    info = "Shut Up got an unexpected response when connecting to rickyromero.com. Check your Internet connection or try again later."
             }
         } else if cause is URLError {
             title = "Cannot connect to rickyromero.com"
