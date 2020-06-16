@@ -99,4 +99,9 @@ class MainViewController: NSViewController {
         let sheetViewController = storyboard!.instantiateController(withIdentifier: "SetupModalController") as! NSViewController
         presentAsSheet(sheetViewController)
     }
+
+    @IBAction func openQrCodeSheet(_ sender: NSMenuItem) {
+        let sheetViewController = storyboard!.instantiateController(withIdentifier: "MobileAppVC") as! NSViewController
+        presentAsSheet(sheetViewController)
+    }
 }

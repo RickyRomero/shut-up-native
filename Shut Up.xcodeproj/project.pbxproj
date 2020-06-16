@@ -30,6 +30,7 @@
 		112C6B82247C669A00278E1A /* WelcomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112C6B81247C669A00278E1A /* WelcomePageController.swift */; };
 		11358189236FCB0F00BF7617 /* Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11358188236FCB0F00BF7617 /* Links.swift */; };
 		113CAF73247B08AD00311C57 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113CAF72247B08AD00311C57 /* WelcomeViewController.swift */; };
+		114F8BDC2498928400FD05C7 /* MobileAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114F8BDB2498928400FD05C7 /* MobileAppViewController.swift */; };
 		1160244624906B2700221428 /* RelativeTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160244524906B2700221428 /* RelativeTime.swift */; };
 		117578622355876000827387 /* SetupModalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117578612355876000827387 /* SetupModalController.swift */; };
 		119742CF2478DC94000AFA2D /* Stylesheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119742CE2478DC94000AFA2D /* Stylesheet.swift */; };
@@ -128,6 +129,7 @@
 		112C6B81247C669A00278E1A /* WelcomePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageController.swift; sourceTree = "<group>"; };
 		11358188236FCB0F00BF7617 /* Links.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Links.swift; sourceTree = "<group>"; };
 		113CAF72247B08AD00311C57 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		114F8BDB2498928400FD05C7 /* MobileAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MobileAppViewController.swift; path = "Shut Up/Controllers/MobileAppViewController.swift"; sourceTree = SOURCE_ROOT; };
 		1160244524906B2700221428 /* RelativeTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelativeTime.swift; sourceTree = "<group>"; };
 		117578612355876000827387 /* SetupModalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupModalController.swift; sourceTree = "<group>"; };
 		119742CE2478DC94000AFA2D /* Stylesheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stylesheet.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 			children = (
 				11F288EF235CE20B00DEBCE5 /* MainWindowController.swift */,
 				11E581D7231DB6FC00910010 /* MainViewController.swift */,
+				114F8BDB2498928400FD05C7 /* MobileAppViewController.swift */,
 				1197B4AD2496A8100072B074 /* MainViewController Extensions */,
 			);
 			path = Controllers;
@@ -620,6 +623,7 @@
 				11A34D562354E9D70008F0CA /* Crypto.swift in Sources */,
 				119742CF2478DC94000AFA2D /* Stylesheet.swift in Sources */,
 				11E4B0B3246D0EF3007340A4 /* EncryptedFile.swift in Sources */,
+				114F8BDC2498928400FD05C7 /* MobileAppViewController.swift in Sources */,
 				11E581D3231DB6FC00910010 /* AppDelegate.swift in Sources */,
 				113CAF73247B08AD00311C57 /* WelcomeViewController.swift in Sources */,
 				112C6B82247C669A00278E1A /* WelcomePageController.swift in Sources */,

@@ -53,10 +53,10 @@
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="IIe-YR-RrD"/>
-                                                    <menuItem title="Shut Up for iPhone and iPad" id="hIP-cr-ZHq">
+                                                    <menuItem title="Shut Up for iPhone and iPad…" image="Small App Store" id="hIP-cr-ZHq">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
-                                                            <action selector="didChooseLinkItem:" target="Voe-Tx-rLC" id="5O7-to-zhQ"/>
+                                                            <action selector="openQrCodeSheet:" target="Ady-hI-5gd" id="Pao-6k-0Df"/>
                                                         </connections>
                                                     </menuItem>
                                                 </items>
@@ -219,12 +219,12 @@
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-120" y="-143"/>
+            <point key="canvasLocation" x="-120" y="-212"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController storyboardIdentifier="MainWindowController" showSeguePresentationStyle="single" id="B8D-0N-5wS" customClass="MainWindowController" customModule="Shut_Up" customModuleProvider="target" sceneMemberID="viewController">
+                <windowController storyboardIdentifier="MainWC" showSeguePresentationStyle="single" id="B8D-0N-5wS" customClass="MainWindowController" customModule="Shut_Up" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Shut Up" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" fullSizeContentView="YES"/>
                         <windowCollectionBehavior key="collectionBehavior" fullScreenNone="YES"/>
@@ -427,6 +427,169 @@ DQ
                 <customObject id="7co-of-Ij3" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="916" y="713.5"/>
+        </scene>
+        <!--Mobile App View Controller-->
+        <scene sceneID="8GU-7E-teh">
+            <objects>
+                <viewController storyboardIdentifier="MobileAppVC" id="tHJ-Xu-VPZ" customClass="MobileAppViewController" customModule="Shut_Up" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="qWX-YA-HxJ">
+                        <rect key="frame" x="0.0" y="0.0" width="555" height="331"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5UU-fS-GWL">
+                                <rect key="frame" x="0.0" y="0.0" width="555" height="331"/>
+                                <subviews>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="eWU-yI-w9w">
+                                        <rect key="frame" x="0.0" y="41" width="555" height="290"/>
+                                        <subviews>
+                                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1ll-1A-xkh">
+                                                <rect key="frame" x="20" y="20" width="250" height="250"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="250" id="K9o-St-v6I"/>
+                                                    <constraint firstAttribute="width" constant="250" id="u5H-ln-0Sl"/>
+                                                </constraints>
+                                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="tt0-g1-hNf"/>
+                                            </imageView>
+                                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="yhe-fV-vie">
+                                                <rect key="frame" x="285" y="101" width="250" height="88"/>
+                                                <subviews>
+                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="N6f-Sx-6OI">
+                                                        <rect key="frame" x="-2" y="0.0" width="254" height="32"/>
+                                                        <textFieldCell key="cell" title="Shut Up for iPhone and iPad requires iOS 11 or later." id="2Xe-4N-oPR">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="KGM-hn-NZE">
+                                                        <rect key="frame" x="-2" y="40" width="254" height="48"/>
+                                                        <textFieldCell key="cell" title="Open the Camera app on your iPhone or iPad, then point it at this window to get started." id="zM0-gK-USm">
+                                                            <font key="font" metaFont="systemBold"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="N6f-Sx-6OI" secondAttribute="bottom" id="QvA-AI-yY3"/>
+                                                    <constraint firstAttribute="trailing" secondItem="N6f-Sx-6OI" secondAttribute="trailing" id="RDN-fE-MYD"/>
+                                                    <constraint firstItem="KGM-hn-NZE" firstAttribute="top" secondItem="yhe-fV-vie" secondAttribute="top" id="Vne-zf-mfa"/>
+                                                    <constraint firstItem="KGM-hn-NZE" firstAttribute="leading" secondItem="yhe-fV-vie" secondAttribute="leading" id="fAK-lH-PFX"/>
+                                                    <constraint firstItem="N6f-Sx-6OI" firstAttribute="top" secondItem="KGM-hn-NZE" secondAttribute="bottom" constant="8" symbolic="YES" id="mgF-Vb-mca"/>
+                                                    <constraint firstItem="N6f-Sx-6OI" firstAttribute="leading" secondItem="yhe-fV-vie" secondAttribute="leading" id="utT-pb-Ubh"/>
+                                                    <constraint firstAttribute="trailing" secondItem="KGM-hn-NZE" secondAttribute="trailing" id="yDG-fj-DuJ"/>
+                                                </constraints>
+                                            </customView>
+                                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gPl-ys-ORU">
+                                                <rect key="frame" x="318" y="37" width="48" height="48"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="m3h-eS-2sm"/>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="yhe-fV-vie" firstAttribute="leading" secondItem="1ll-1A-xkh" secondAttribute="trailing" constant="15" id="0OJ-YW-09u"/>
+                                            <constraint firstAttribute="bottom" secondItem="1ll-1A-xkh" secondAttribute="bottom" constant="20" symbolic="YES" id="FR9-rZ-EY8"/>
+                                            <constraint firstItem="1ll-1A-xkh" firstAttribute="leading" secondItem="eWU-yI-w9w" secondAttribute="leading" constant="20" symbolic="YES" id="LOE-Hn-5Vk"/>
+                                            <constraint firstItem="1ll-1A-xkh" firstAttribute="top" secondItem="eWU-yI-w9w" secondAttribute="top" constant="20" symbolic="YES" id="Opu-VJ-7Lf"/>
+                                            <constraint firstItem="yhe-fV-vie" firstAttribute="width" secondItem="1ll-1A-xkh" secondAttribute="width" id="Xjx-rO-GHX"/>
+                                            <constraint firstItem="yhe-fV-vie" firstAttribute="centerY" secondItem="1ll-1A-xkh" secondAttribute="centerY" id="clD-q2-zec"/>
+                                            <constraint firstAttribute="trailing" secondItem="yhe-fV-vie" secondAttribute="trailing" constant="20" symbolic="YES" id="mN9-gS-pnZ"/>
+                                        </constraints>
+                                    </customView>
+                                    <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="he7-e0-jYm">
+                                        <rect key="frame" x="0.0" y="38" width="555" height="5"/>
+                                    </box>
+                                    <box boxType="custom" borderType="none" borderWidth="0.0" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="2fH-EL-Wms">
+                                        <rect key="frame" x="0.0" y="0.0" width="555" height="40"/>
+                                        <view key="contentView" id="KRI-bH-vU1">
+                                            <rect key="frame" x="0.0" y="0.0" width="555" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Frh-WL-Urc">
+                                                    <rect key="frame" x="184" y="10" width="188" height="21"/>
+                                                    <subviews>
+                                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kcc-Cf-Wpc">
+                                                            <rect key="frame" x="-6" y="-7" width="100" height="32"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="88" id="SC1-bo-SVY"/>
+                                                            </constraints>
+                                                            <buttonCell key="cell" type="push" title="Send Link" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="g2P-jN-EKA">
+                                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                <font key="font" metaFont="system"/>
+                                                            </buttonCell>
+                                                        </button>
+                                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ghq-K4-Ekx">
+                                                            <rect key="frame" x="94" y="-7" width="100" height="32"/>
+                                                            <buttonCell key="cell" type="push" title="Done" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fuJ-ph-Iwl">
+                                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                <font key="font" metaFont="system"/>
+                                                                <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                                            </buttonCell>
+                                                            <connections>
+                                                                <action selector="performClose:" target="7fN-CG-JWX" id="Amv-zr-3IO"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="ghq-K4-Ekx" firstAttribute="width" relation="greaterThanOrEqual" secondItem="kcc-Cf-Wpc" secondAttribute="width" id="JfP-CQ-2zA"/>
+                                                    </constraints>
+                                                    <visibilityPriorities>
+                                                        <integer value="1000"/>
+                                                        <integer value="1000"/>
+                                                    </visibilityPriorities>
+                                                    <customSpacing>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                    </customSpacing>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Frh-WL-Urc" firstAttribute="centerY" secondItem="KRI-bH-vU1" secondAttribute="centerY" id="71T-ea-rNP"/>
+                                                <constraint firstItem="Frh-WL-Urc" firstAttribute="centerX" secondItem="KRI-bH-vU1" secondAttribute="centerX" id="kTf-rz-2Pt"/>
+                                            </constraints>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="lKa-bc-EIO"/>
+                                        </constraints>
+                                        <color key="fillColor" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </box>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="eWU-yI-w9w" firstAttribute="leading" secondItem="5UU-fS-GWL" secondAttribute="leading" id="MtJ-W8-1dN"/>
+                                    <constraint firstItem="2fH-EL-Wms" firstAttribute="leading" secondItem="5UU-fS-GWL" secondAttribute="leading" id="WIx-PF-2qh"/>
+                                    <constraint firstAttribute="trailing" secondItem="eWU-yI-w9w" secondAttribute="trailing" id="bqA-US-cGq"/>
+                                    <constraint firstAttribute="trailing" secondItem="he7-e0-jYm" secondAttribute="trailing" id="cmP-tK-3SG"/>
+                                    <constraint firstAttribute="trailing" secondItem="2fH-EL-Wms" secondAttribute="trailing" id="tpa-bO-3gZ"/>
+                                    <constraint firstItem="he7-e0-jYm" firstAttribute="leading" secondItem="5UU-fS-GWL" secondAttribute="leading" id="wJn-Zx-rLD"/>
+                                </constraints>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="5UU-fS-GWL" secondAttribute="trailing" id="Loj-7S-vzd"/>
+                            <constraint firstItem="5UU-fS-GWL" firstAttribute="leading" secondItem="qWX-YA-HxJ" secondAttribute="leading" id="qcD-GL-ZG0"/>
+                            <constraint firstAttribute="bottom" secondItem="5UU-fS-GWL" secondAttribute="bottom" id="tFm-Yh-51m"/>
+                            <constraint firstItem="5UU-fS-GWL" firstAttribute="top" secondItem="qWX-YA-HxJ" secondAttribute="top" id="uzR-Rv-L1r"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="qrCodeContainer" destination="1ll-1A-xkh" id="R6T-bP-oLM"/>
+                    </connections>
+                </viewController>
+                <customObject id="7fN-CG-JWX" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="894" y="1163"/>
         </scene>
         <!--Default Browser View Controller-->
         <scene sceneID="9uI-L9-cWA">
@@ -1075,6 +1238,7 @@ DQ
         <image name="Baby Browser Aqua" width="412" height="256"/>
         <image name="Large Bubble" width="306" height="274"/>
         <image name="Large Chrome" width="64" height="64"/>
+        <image name="Small App Store" width="16" height="16"/>
         <image name="Small Chrome" width="16" height="16"/>
         <image name="Small Edge" width="16" height="16"/>
         <image name="Small Firefox" width="16" height="16"/>
