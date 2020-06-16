@@ -448,7 +448,7 @@ DQ
                                                     <constraint firstAttribute="height" constant="250" id="K9o-St-v6I"/>
                                                     <constraint firstAttribute="width" constant="250" id="u5H-ln-0Sl"/>
                                                 </constraints>
-                                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="tt0-g1-hNf"/>
+                                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="tt0-g1-hNf"/>
                                             </imageView>
                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="yhe-fV-vie">
                                                 <rect key="frame" x="285" y="101" width="250" height="88"/>
@@ -508,15 +508,15 @@ DQ
                                                 <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Frh-WL-Urc">
                                                     <rect key="frame" x="184" y="10" width="188" height="21"/>
                                                     <subviews>
-                                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kcc-Cf-Wpc">
+                                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Y4e-MA-EZI">
                                                             <rect key="frame" x="-6" y="-7" width="100" height="32"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="88" id="SC1-bo-SVY"/>
-                                                            </constraints>
-                                                            <buttonCell key="cell" type="push" title="Send Link" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="g2P-jN-EKA">
+                                                            <buttonCell key="cell" type="push" title="Send Link" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="X40-W6-4Oc">
                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                 <font key="font" metaFont="system"/>
                                                             </buttonCell>
+                                                            <connections>
+                                                                <action selector="showSharingPicker:" target="tHJ-Xu-VPZ" id="sNQ-hJ-1uR"/>
+                                                            </connections>
                                                         </button>
                                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ghq-K4-Ekx">
                                                             <rect key="frame" x="94" y="-7" width="100" height="32"/>
@@ -533,7 +533,7 @@ DQ
                                                         </button>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="ghq-K4-Ekx" firstAttribute="width" relation="greaterThanOrEqual" secondItem="kcc-Cf-Wpc" secondAttribute="width" id="JfP-CQ-2zA"/>
+                                                        <constraint firstItem="ghq-K4-Ekx" firstAttribute="width" secondItem="Y4e-MA-EZI" secondAttribute="width" id="yHI-ol-gwr"/>
                                                     </constraints>
                                                     <visibilityPriorities>
                                                         <integer value="1000"/>
