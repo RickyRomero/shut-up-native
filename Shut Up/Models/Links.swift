@@ -8,36 +8,136 @@
 
 import SafariServices
 
-struct Links {
-    static let lookupTable = [
-        "Shut Up for Chrome":
-            URL(string: "https://chrome.google.com/webstore/detail/shut-up-comment-blocker/oklfoejikkmejobodofaimigojomlfim")!,
-        "Shut Up for Firefox":
-            URL(string: "https://addons.mozilla.org/en-US/firefox/addon/shut-up-comment-blocker/")!,
-        "Shut Up for Edge":
-            URL(string: "https://microsoftedge.microsoft.com/addons/detail/giifliakcgfijgkejmenachfdncbpalp")!,
-        "Shut Up for Opera":
-            URL(string: "https://github.com/panicsteve/shutup-css#installation-on-opera")!,
-        "Shut Up for iPhone and iPad":
-            URL(string: "https://apps.apple.com/app/id1015043880")!,
-        "Release Notes":
-            URL(string: "https://rickyromero.com/shutup/release-notes/")!,
-        "Privacy Policy":
-            URL(string: "https://rickyromero.com/shutup/privacy/")!
-    ]
+protocol Link {
+    var destination: URL! { get }
+    var menuTitle: String { get }
 
-    static func openStorePageFor(_ browser: WebBrowser) {
-        var destination: URL!
-        switch browser {
-            case .chrome: destination = lookupTable["Shut Up for Chrome"]
-            case .firefox: destination = lookupTable["Shut Up for Firefox"]
-            case .edge: destination = lookupTable["Shut Up for Edge"]
-            case .opera: destination = lookupTable["Shut Up for Opera"]
-            default: return
-        }
+    func open()
+}
 
+struct BasicLink: Link {
+    let destination: URL!
+    let menuTitle: String
+
+    init (menuTitle: String, dest: String) {
+        destination = URL(string: dest)
+        self.menuTitle = menuTitle
+    }
+
+    func open() {
         NSWorkspace.shared.open(destination)
     }
+}
+
+struct ExtensionLink: Link {
+    let destination: URL!
+    let preferredBrowser: WebBrowser
+    let menuTitle: String
+
+    init (menuTitle: String, dest: String, browser: WebBrowser) {
+        preferredBrowser = browser
+        destination = URL(string: dest)
+        self.menuTitle = menuTitle
+    }
+
+    // Try to open the link with its matching browser.
+    func open() {
+        let ws = NSWorkspace.shared
+        var bundleId: String?
+
+        switch preferredBrowser {
+            case .chrome: bundleId = "com.google.chrome"
+            case .firefox: bundleId = "org.mozilla.firefox"
+            case .edge: bundleId = "com.microsoft.edgemac"
+            case .opera: bundleId = "com.operasoftware.opera"
+            default: bundleId = nil
+        }
+
+        if let bundleId = bundleId {
+            if #available(macOS 10.15, *) {
+                let appLocation = ws.urlForApplication(withBundleIdentifier: bundleId)
+
+                if let appLocation = appLocation {
+                    ws.open(
+                        [destination],
+                        withApplicationAt: appLocation,
+                        configuration: NSWorkspace.OpenConfiguration()
+                    ) { (_, error) in
+                        if error != nil {
+                            ws.open(self.destination)
+                        }
+                    }
+                } else {
+                    ws.open(destination)
+                }
+            } else {
+                let linkOpened = ws.open(
+                    [destination],
+                    withAppBundleIdentifier: bundleId,
+                    options: [],
+                    additionalEventParamDescriptor: nil,
+                    launchIdentifiers: nil
+                )
+                if !linkOpened {
+                    ws.open(destination)
+                }
+            }
+        } else {
+            ws.open(destination)
+        }
+    }
+}
+
+struct LinkCollection {
+    let items: [Link]
+
+    func open(by menuItem: NSMenuItem) {
+        let target = items.filter { $0.menuTitle == menuItem.title } [0]
+        target.open()
+    }
+
+    func open(by browser: WebBrowser) {
+        let extensionLinks = items.filter { $0 is ExtensionLink } as! [ExtensionLink]
+        let linkForBrowser = extensionLinks.filter { $0.preferredBrowser == browser } [0]
+        linkForBrowser.open()
+    }
+}
+
+struct Links {
+    static let collection = LinkCollection(items: [
+        ExtensionLink(
+            menuTitle: "Shut Up for Chrome",
+            dest: "https://chrome.google.com/webstore/detail/shut-up-comment-blocker/oklfoejikkmejobodofaimigojomlfim",
+            browser: .chrome
+        ),
+        ExtensionLink(
+            menuTitle: "Shut Up for Firefox",
+            dest: "https://addons.mozilla.org/en-US/firefox/addon/shut-up-comment-blocker/",
+            browser: .firefox
+        ),
+        ExtensionLink(
+            menuTitle: "Shut Up for Edge",
+            dest: "https://microsoftedge.microsoft.com/addons/detail/giifliakcgfijgkejmenachfdncbpalp",
+            browser: .edge
+        ),
+        ExtensionLink(
+            menuTitle: "Shut Up for Opera",
+            dest: "https://github.com/panicsteve/shutup-css#installation-on-opera",
+            browser: .opera
+        ),
+        BasicLink(
+            menuTitle: "Shut Up for iPhone and iPad",
+            dest: "https://apps.apple.com/app/id1015043880"
+        ),
+        BasicLink(
+            menuTitle: "Release Notes",
+            dest: "https://rickyromero.com/shutup/release-notes/"
+        ),
+        BasicLink(
+            menuTitle: "Privacy Policy",
+            dest: "https://rickyromero.com/shutup/privacy/"
+        ),
+    ])
 
     static func composeEmail() {
         let knownSafariReleases = [

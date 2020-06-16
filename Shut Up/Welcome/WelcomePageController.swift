@@ -84,7 +84,7 @@ class WelcomePageController: NSPageController {
     }
 
     @IBAction func defaultBrowserClicked(_ sender: NSButton) {
-        Links.openStorePageFor(defaultBrowser)
+        Links.collection.open(by: defaultBrowser)
     }
 }
 
