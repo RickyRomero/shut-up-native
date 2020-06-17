@@ -1088,9 +1088,9 @@ DQ
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="B7G-nS-Un0">
-                                                    <rect key="frame" x="13" y="14" width="280" height="16"/>
+                                                    <rect key="frame" x="16" y="14" width="274" height="16"/>
                                                     <textFieldCell key="cell" lineBreakMode="clipping" title="Hide comments everywhere, except:" id="L4f-Kl-bw7">
-                                                        <font key="font" usesAppearanceFont="YES"/>
+                                                        <font key="font" metaFont="systemBold"/>
                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
@@ -1098,8 +1098,8 @@ DQ
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="B7G-nS-Un0" firstAttribute="centerY" secondItem="glC-ff-aGW" secondAttribute="centerY" id="CWh-Z8-ZvP"/>
-                                                <constraint firstAttribute="trailing" secondItem="B7G-nS-Un0" secondAttribute="trailing" constant="15" id="khi-YK-d5l"/>
-                                                <constraint firstItem="B7G-nS-Un0" firstAttribute="leading" secondItem="glC-ff-aGW" secondAttribute="leading" constant="15" id="uCd-3G-06b"/>
+                                                <constraint firstAttribute="trailing" secondItem="B7G-nS-Un0" secondAttribute="trailing" constant="18" id="khi-YK-d5l"/>
+                                                <constraint firstItem="B7G-nS-Un0" firstAttribute="leading" secondItem="glC-ff-aGW" secondAttribute="leading" constant="18" id="uCd-3G-06b"/>
                                             </constraints>
                                         </view>
                                         <constraints>
@@ -1118,7 +1118,7 @@ DQ
                                                     <rect key="frame" x="0.0" y="0.0" width="300" height="391"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
-                                                        <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnResizing="NO" autosaveColumns="NO" rowHeight="24" id="Z7W-xZ-9s9">
+                                                        <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnResizing="NO" autosaveColumns="NO" rowHeight="24" rowSizeStyle="automatic" viewBased="YES" id="Z7W-xZ-9s9">
                                                             <rect key="frame" x="0.0" y="0.0" width="300" height="329"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <size key="intercellSpacing" width="3" height="2"/>
@@ -1137,6 +1137,26 @@ DQ
                                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                                    <prototypeCellViews>
+                                                                        <tableCellView identifier="WhitelistCell" id="bet-KT-g7h">
+                                                                            <rect key="frame" x="1" y="1" width="297" height="24"/>
+                                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                            <subviews>
+                                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b6h-C7-XOx">
+                                                                                    <rect key="frame" x="12" y="4" width="273" height="17"/>
+                                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Hide comments everywhere, except:" id="gcE-XB-Kmq">
+                                                                                        <font key="font" metaFont="system"/>
+                                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                                    </textFieldCell>
+                                                                                </textField>
+                                                                            </subviews>
+                                                                            <connections>
+                                                                                <outlet property="textField" destination="b6h-C7-XOx" id="wV7-mk-L5C"/>
+                                                                            </connections>
+                                                                        </tableCellView>
+                                                                    </prototypeCellViews>
                                                                 </tableColumn>
                                                             </tableColumns>
                                                         </tableView>

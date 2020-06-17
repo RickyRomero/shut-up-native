@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		110C5A94247C41DD00004DFA /* EnableExtensionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110C5A93247C41DD00004DFA /* EnableExtensionsViewController.swift */; };
 		110F510D247B7C9000D58266 /* DelegatingRecoverableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110F510C247B7C9000D58266 /* DelegatingRecoverableError.swift */; };
+		110FDE402499DB5E00AC5651 /* Whitelist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110FDE3F2499DB5E00AC5651 /* Whitelist.swift */; };
+		110FDE412499DB6300AC5651 /* Whitelist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110FDE3F2499DB5E00AC5651 /* Whitelist.swift */; };
+		110FDE422499DB6300AC5651 /* Whitelist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110FDE3F2499DB5E00AC5651 /* Whitelist.swift */; };
 		110FEE0E2476D07100AA0B83 /* MessagingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110FEE0D2476D07100AA0B83 /* MessagingError.swift */; };
 		110FEE0F2476D07100AA0B83 /* MessagingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110FEE0D2476D07100AA0B83 /* MessagingError.swift */; };
 		110FEE102476D07100AA0B83 /* MessagingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110FEE0D2476D07100AA0B83 /* MessagingError.swift */; };
@@ -115,6 +118,7 @@
 /* Begin PBXFileReference section */
 		110C5A93247C41DD00004DFA /* EnableExtensionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableExtensionsViewController.swift; sourceTree = "<group>"; };
 		110F510C247B7C9000D58266 /* DelegatingRecoverableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DelegatingRecoverableError.swift; path = "Shut Up/Models/DelegatingRecoverableError.swift"; sourceTree = SOURCE_ROOT; };
+		110FDE3F2499DB5E00AC5651 /* Whitelist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Whitelist.swift; sourceTree = "<group>"; };
 		110FEE0D2476D07100AA0B83 /* MessagingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingError.swift; sourceTree = "<group>"; };
 		111C4DD2234A2ADD0034054C /* Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setup.swift; sourceTree = "<group>"; };
 		111C4DD6234A2D040034054C /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
@@ -211,6 +215,7 @@
 				111C4DD2234A2ADD0034054C /* Setup.swift */,
 				11EF35702479F12000D5EFD2 /* Preferences.swift */,
 				119742CE2478DC94000AFA2D /* Stylesheet.swift */,
+				110FDE3F2499DB5E00AC5651 /* Whitelist.swift */,
 				11A34D552354E9D70008F0CA /* Crypto.swift */,
 				11E4B0B2246D0EF3007340A4 /* EncryptedFile.swift */,
 				110FEE0D2476D07100AA0B83 /* MessagingError.swift */,
@@ -627,6 +632,7 @@
 				11E581D3231DB6FC00910010 /* AppDelegate.swift in Sources */,
 				113CAF73247B08AD00311C57 /* WelcomeViewController.swift in Sources */,
 				112C6B82247C669A00278E1A /* WelcomePageController.swift in Sources */,
+				110FDE402499DB5E00AC5651 /* Whitelist.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -640,6 +646,7 @@
 				11A34D572354E9D70008F0CA /* Crypto.swift in Sources */,
 				11F903DA247312580012051C /* ConditionalLockAction.swift in Sources */,
 				11E4B0B4246D0EF3007340A4 /* EncryptedFile.swift in Sources */,
+				110FDE412499DB6300AC5651 /* Whitelist.swift in Sources */,
 				11F903BA2470F96D0012051C /* LockFile.swift in Sources */,
 				111C4DD4234A2ADD0034054C /* Setup.swift in Sources */,
 				110FEE0F2476D07100AA0B83 /* MessagingError.swift in Sources */,
@@ -657,6 +664,7 @@
 				11A34D582354E9D70008F0CA /* Crypto.swift in Sources */,
 				11F903DB247312580012051C /* ConditionalLockAction.swift in Sources */,
 				11E4B0B5246D0EF3007340A4 /* EncryptedFile.swift in Sources */,
+				110FDE422499DB6300AC5651 /* Whitelist.swift in Sources */,
 				11F903BB2470F96D0012051C /* LockFile.swift in Sources */,
 				111C4DD5234A2ADD0034054C /* Setup.swift in Sources */,
 				110FEE102476D07100AA0B83 /* MessagingError.swift in Sources */,

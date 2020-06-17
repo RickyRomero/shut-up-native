@@ -44,7 +44,6 @@ class MainViewController: NSViewController {
         Preferences.main.delegate = self
         whitelistView.delegate = self
         whitelistView.dataSource = self
-        whitelistAddField.delegate = self
         enableHelperGuide.isHidden = true
 
         // Set up CSS update label
