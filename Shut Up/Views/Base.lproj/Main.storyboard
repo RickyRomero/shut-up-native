@@ -455,8 +455,10 @@ DQ
                                                 <subviews>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="N6f-Sx-6OI">
                                                         <rect key="frame" x="-2" y="0.0" width="254" height="32"/>
-                                                        <textFieldCell key="cell" title="Shut Up for iPhone and iPad requires iOS 11 or later." id="2Xe-4N-oPR">
+                                                        <textFieldCell key="cell" id="2Xe-4N-oPR">
                                                             <font key="font" metaFont="system"/>
+                                                            <string key="title">Shut Up for iPhone and iPad requires
+iOS 11 or later.</string>
                                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
@@ -1086,7 +1088,7 @@ DQ
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="B7G-nS-Un0">
-                                                    <rect key="frame" x="18" y="14" width="270" height="16"/>
+                                                    <rect key="frame" x="13" y="14" width="280" height="16"/>
                                                     <textFieldCell key="cell" lineBreakMode="clipping" title="Hide comments everywhere, except:" id="L4f-Kl-bw7">
                                                         <font key="font" usesAppearanceFont="YES"/>
                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1096,8 +1098,8 @@ DQ
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="B7G-nS-Un0" firstAttribute="centerY" secondItem="glC-ff-aGW" secondAttribute="centerY" id="CWh-Z8-ZvP"/>
-                                                <constraint firstAttribute="trailing" secondItem="B7G-nS-Un0" secondAttribute="trailing" constant="20" symbolic="YES" id="khi-YK-d5l"/>
-                                                <constraint firstItem="B7G-nS-Un0" firstAttribute="leading" secondItem="glC-ff-aGW" secondAttribute="leading" constant="20" symbolic="YES" id="uCd-3G-06b"/>
+                                                <constraint firstAttribute="trailing" secondItem="B7G-nS-Un0" secondAttribute="trailing" constant="15" id="khi-YK-d5l"/>
+                                                <constraint firstItem="B7G-nS-Un0" firstAttribute="leading" secondItem="glC-ff-aGW" secondAttribute="leading" constant="15" id="uCd-3G-06b"/>
                                             </constraints>
                                         </view>
                                         <constraints>
@@ -1117,7 +1119,7 @@ DQ
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnResizing="NO" autosaveColumns="NO" rowHeight="24" id="Z7W-xZ-9s9">
-                                                            <rect key="frame" x="0.0" y="0.0" width="300" height="367"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="300" height="329"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <size key="intercellSpacing" width="3" height="2"/>
                                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1140,7 +1142,7 @@ DQ
                                                         </tableView>
                                                     </subviews>
                                                 </clipView>
-                                                <edgeInsets key="contentInsets" left="0.0" right="0.0" top="0.0" bottom="24"/>
+                                                <edgeInsets key="contentInsets" left="0.0" right="0.0" top="0.0" bottom="62"/>
                                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="lUJ-ra-ozy">
                                                     <rect key="frame" x="-100" y="-100" width="223" height="15"/>
                                                     <autoresizingMask key="autoresizingMask"/>
