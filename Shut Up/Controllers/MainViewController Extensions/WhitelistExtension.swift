@@ -30,13 +30,14 @@ extension MainViewController: NSTableViewDataSource {
         let cellId = NSUserInterfaceItemIdentifier("WhitelistCell")
         let cell = whitelistView.makeView(withIdentifier: cellId, owner: nil) as? NSTableCellView
         if let cell = cell {
-            cell.textField?.stringValue = "\(row)"
+            let domain = Whitelist.main.entries[row]
+            cell.textField?.stringValue = domain
         }
         return cell
     }
 
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return 400
+        return Whitelist.main.entries.count
     }
 }
 
@@ -61,5 +62,13 @@ extension MainViewController: NSTableViewDelegate {
 
     func tableView(_ tableView: NSTableView, didRemove rowView: NSTableRowView, forRow row: Int) {
         print("Hey. We're removing a row. It's row \(row).")
+    }
+}
+
+// MARK: WhitelistDataDelegate
+
+extension MainViewController: WhitelistDataDelegate {
+    func whitelistDidUpdateExternally() {
+        whitelistView.reloadData()
     }
 }

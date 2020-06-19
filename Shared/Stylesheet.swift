@@ -16,9 +16,9 @@ class Stylesheet {
     private var completionHandler: ((Error?) -> Void)?
 
     private let file = EncryptedFile(
-        fsPath: Info.localCssUrl,
+        fsLocation: Info.localCssUrl,
         bundleOrigin: Bundle.main.url(forResource: "shutup", withExtension: "css")!
-    )
+    ) {}
 
     func update(force: Bool, completionHandler: @escaping (Error?) -> Void) {
         guard waitingForResponse == false else { return }

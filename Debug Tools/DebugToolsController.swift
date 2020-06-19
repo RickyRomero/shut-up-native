@@ -46,4 +46,8 @@ class DebugToolsController: NSViewController {
     @IBAction func resetGroupPrefs(_ sender: NSButton) {
         Preferences.main.reset()
     }
+
+    @IBAction func showGroupContainer(_ sender: NSButton) {
+        NSWorkspace.shared.selectFile(nil, inFileViewerRootedAtPath: Info.containerUrl.path)
+    }
 }

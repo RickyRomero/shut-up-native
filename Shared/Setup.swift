@@ -11,7 +11,6 @@ import Cocoa
 final class CryptoSetupCla: ConditionalLockAction {
     var queue: ClaQueue?
     var lock = LockFile(url: Info.containerUrl.appendingPathComponent("keychain.lock"))
-    var succeeded = false
     private var _error: Error?
     var error: Error? {
         get { _error }
@@ -19,7 +18,6 @@ final class CryptoSetupCla: ConditionalLockAction {
     }
 
     func obtainLockAndTakeActionIf() -> Bool {
-        print(#function)
         do {
             try Crypto.main.requestKeychainUnlock()
 
@@ -31,23 +29,15 @@ final class CryptoSetupCla: ConditionalLockAction {
     }
 
     func action() {
-        print(#function)
         do {
             if Crypto.main.preCatalinaKeysPresent {
-                print("Pre-Catalina keys present. Migrating....................................")
                 try Crypto.main.migratePreCatalinaKeys()
             } else if !Crypto.main.requiredKeysPresent {
-                print("Required keys not present. Generating....................................")
                 try Crypto.main.generateKeyPair()
             }
         } catch {
             self.error = error
         }
-    }
-
-    func finally() {
-        print(#function)
-        print("Finished crypto setup.")
     }
 }
 
@@ -68,6 +58,10 @@ final class Setup {
     func bootstrap(_ resetKeyHeld: Bool, completionHandler: @escaping () -> Void) {
         guard !bootstrapStarted else { return }
         bootstrapStarted = true
+
+        if queryAvailableSpace() < 200 * 1000 * 1000 { // 200 MB
+            NSApp.presentError(MessagingError(FileError.checkingFreeSpace))
+        }
 
         if resetKeyHeld {
             confirmReset()
@@ -172,5 +166,17 @@ final class Setup {
         }
 
         NSApp.terminate(nil)
+    }
+
+    func queryAvailableSpace() -> Int64 {
+        let targetLocation = Info.containerUrl
+        if #available(macOS 10.13, *) {
+            let values = try! targetLocation.resourceValues(forKeys: [.volumeAvailableCapacityForImportantUsageKey])
+            return values.volumeAvailableCapacityForImportantUsage!
+        } else {
+            let attributes = try! FileManager.default.attributesOfFileSystem(forPath: targetLocation.path)
+            let freeSize = attributes[.systemFreeSize] as? NSNumber
+            return freeSize!.int64Value
+        }
     }
 }

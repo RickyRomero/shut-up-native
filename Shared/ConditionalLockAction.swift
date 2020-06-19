@@ -37,8 +37,6 @@ final class ClaQueue {
 protocol ConditionalLockAction {
     // Which lock should we use to manage the state of this?
     var lock: LockFile { get set }
-    // Add a variable we can check later to figure out what happened.
-    var succeeded: Bool { get set }
     var queue: ClaQueue? { get set }
     var error: Error? { get set }
 
