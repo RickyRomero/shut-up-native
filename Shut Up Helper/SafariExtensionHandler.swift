@@ -66,6 +66,19 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     }
 
     override func toolbarItemClicked(in window: SFSafariWindow) {
+        print("Whitelist load finished:", Whitelist.main.loadFinished)
+        print(Whitelist.main.entries)
+        window.getActiveTab { tab in
+            tab?.getActivePage { page in
+                page?.getPropertiesWithCompletionHandler { properties in
+                    guard let domain = properties?.url?.host else { return }
+                    print("Page properties", domain)
+                    Whitelist.main.toggle(domain: domain)
+                    print(Whitelist.main.entries)
+                }
+            }
+        }
+
         print(#function)
         // This method will be called when your toolbar item is clicked.
         NSLog("com.rickyromero.shutup.blocker helper The extension's toolbar item was clicked")
@@ -91,8 +104,8 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
 //                NSSound.beep()
 
                 NSLog("com.rickyromero.shutup.blocker helper blocker updated!!!")
-                window.getActiveTab {(tab: SFSafariTab?) in
-                    tab?.getActivePage {(page: SFSafariPage?) in
+                window.getActiveTab { tab in
+                    tab?.getActivePage { page in
                         page?.reload()
                         NSLog("ok i did it!!!")
                     }

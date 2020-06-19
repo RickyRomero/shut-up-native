@@ -28,29 +28,6 @@ struct Extension {
 }
 
 extension MainViewController {
-    func appReceivedFocus(_: Notification) {
-        BrowserBridge.main.requestExtensionStates { states in
-            var errorOccurred = false
-            states.forEach { state in
-                guard state.error == nil else {
-                    errorOccurred = true
-                    return
-                }
-
-                switch state.id {
-                case Info.blockerBundleId: self.blocker.enabled = state.state!
-                    case Info.helperBundleId: self.helper.enabled = state.state!
-                    default: break
-                }
-            }
-
-            self.reflectExtensionAndPreferenceStates()
-            if errorOccurred {
-                self.presentError(MessagingError(BrowserError.requestingExtensionStatus))
-            }
-        }
-    }
-
     @IBAction func openSafariExtensionPreferences(_ sender: NSButton?) {
         BrowserBridge.main.showPrefs(for: Info.helperBundleId) { error in
             guard error == nil else {

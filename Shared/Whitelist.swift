@@ -15,21 +15,41 @@ class Whitelist {
             fsLocation: Info.whitelistUrl,
             bundleOrigin: Bundle.main.url(forResource: "domain-whitelist", withExtension: "json")!
         ) {
-            self.entries = self.load() ?? []
+            self.load()
+            DispatchQueue.main.async {
+                print("First event")
+                print(self.entries)
+                self.delegate?.newWhitelistDataAvailable()
+            }
+
             self.file.externalUpdateOccurred = { data in
-                self.entries = self.load() ?? []
+                self.load()
 
                 DispatchQueue.main.async {
-                    self.delegate?.whitelistDidUpdateExternally()
+                    print("External Update")
+                    print(self.entries)
+                    self.delegate?.newWhitelistDataAvailable()
                 }
             }
         }
     }
 
-    var delegate: WhitelistDataDelegate?
-    var entries: [String] = []
+    private var _delegate: WhitelistDataDelegate?
+    var delegate: WhitelistDataDelegate? {
+        get { _delegate }
+        set {
+            _delegate = newValue
+            _delegate?.newWhitelistDataAvailable()
+        }
+    }
+    private var _entries: [String] = []
+    var entries: [String] {
+        get { _entries }
+        set { _entries = newValue.sorted() }
+    }
 
     private var file: EncryptedFile!
+    var loadFinished = false
 
     static func parseDomain(from item: String) -> String? {
         guard item.count > 0 else { return nil }
@@ -77,31 +97,82 @@ class Whitelist {
         return item
     }
 
-    func load() -> [String]? {
-        guard let data = file.read() else { return nil }
+    func load() {
+        guard let data = file.read() else { return }
 
         do {
             let decoder = JSONDecoder()
             let whitelistData = try decoder.decode([String].self, from: data)
 
             print(whitelistData)
-            return whitelistData
+            entries = whitelistData
+            loadFinished = true
         } catch {
             if error is CryptoError {
                 NSApp.presentError(MessagingError(error))
             } else {
                 NSApp.presentError(MessagingError(FileError.readingFile))
             }
-            return nil
+            return
+        }
+    }
+
+    func save() {
+        do {
+            let encoder = JSONEncoder()
+            let whitelistData = try encoder.encode(entries)
+
+            try file.write(data: whitelistData, completionHandler: nil)
+        } catch {
+            if error is CryptoError {
+                NSApp.presentError(MessagingError(error))
+            } else {
+                NSApp.presentError(MessagingError(FileError.writingFile))
+            }
+            return
         }
     }
 
     func add(domain: String) -> Bool {
 //        file.read()
+        print(#function)
+        guard loadFinished else { return false }
+        guard !entries.contains(domain) else { return false }
+
+        print(entries)
+        entries.append(domain)
+        print(entries)
+
+        save()
+
         return true
     }
+
+    func remove(domain: String) -> Bool {
+        print(#function)
+        guard loadFinished else { return false }
+        guard entries.contains(domain) else { return false }
+
+        print(entries)
+        entries.remove(at: entries.firstIndex(of: domain)!)
+        print(entries)
+
+        save()
+
+        return true
+    }
+
+    func toggle(domain: String) -> Bool {
+        if entries.contains(domain) {
+            return remove(domain: domain)
+        } else {
+            return add(domain: domain)
+        }
+    }
+
+    func reset() { file.reset() }
 }
 
 protocol WhitelistDataDelegate {
-    func whitelistDidUpdateExternally()
+    func newWhitelistDataAvailable()
 }

@@ -46,10 +46,14 @@ final class EncryptedFile {
     let fsLocation: URL
     let bundleOrigin: URL
 
-    var weLastWroteAt: Date?
+    var mostRecentlySeenModification: Date?
     var lastModified: Date? {
+        print("Getting lastModified...")
+        print(fsLocation.path)
         let attributes = try? FileManager.default.attributesOfItem(atPath: fsLocation.path)
-        return attributes?[.creationDate] as? Date
+        print("Well... did it work...")
+        print(attributes?[.modificationDate] as? Date)
+        return attributes?[.modificationDate] as? Date
     }
 
     var cache: Data?
@@ -65,8 +69,13 @@ final class EncryptedFile {
     }
 
     func read() -> Data? {
-        if lastModified != weLastWroteAt || cache == nil {
+        print("read", lastModified, mostRecentlySeenModification)
+        if lastModified != mostRecentlySeenModification || cache == nil {
+            print("getting contents")
+            var modificationOccurred = false
             let readCla = EncryptedFileCla(for: fsLocation) { () throws in
+                // Executed when the lock is obtained
+                print("lock obtained")
                 var fileData: Data!
 
                 do {
@@ -81,18 +90,24 @@ final class EncryptedFile {
                     try self.write(data: fileData, completionHandler: nil)
                 }
 
+                modificationOccurred = self.cache != nil && self.cache != fileData
                 self.cache = fileData
             }
 
             ClaQueue([readCla]).run { error in
+                // Executed when the lock operation has completed
+                print("cla finished")
                 guard error == nil else {
                     NSApp.presentError(error!)
                     return
                 }
 
+                self.mostRecentlySeenModification = self.lastModified
                 DispatchQueue.main.async {
                     self.initCallback?()
-                    self.externalUpdateOccurred?(self.cache!)
+                    if modificationOccurred {
+                        self.externalUpdateOccurred?(self.cache!)
+                    }
 
                     self.initCallback = nil
                 }
@@ -103,14 +118,14 @@ final class EncryptedFile {
     }
 
     func write(data contents: Data, completionHandler: (() -> Void)?) throws {
-        guard lastModified == weLastWroteAt else {
+        guard lastModified == mostRecentlySeenModification else {
             throw FileError.writingFile
         }
 
         let writeCla = EncryptedFileCla(for: fsLocation) { () throws in
             let encryptedData = try Crypto.main.transform(with: .encryption, data: contents)
             try encryptedData.write(to: self.fsLocation)
-            self.weLastWroteAt = self.lastModified
+            self.mostRecentlySeenModification = self.lastModified
 
             self.cache = contents
         }
@@ -125,5 +140,9 @@ final class EncryptedFile {
                 completionHandler?()
             }
         }
+    }
+
+    func reset() {
+        try? FileManager.default.removeItem(at: fsLocation)
     }
 }

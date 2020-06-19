@@ -38,6 +38,8 @@ class MainViewController: NSViewController {
         return blockerIsDisabled || prefsRequireAssistant
     }
 
+    var whitelistTableEntries: [String] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -88,6 +90,31 @@ class MainViewController: NSViewController {
         super.viewDidAppear()
 
         whitelistScrollView.becomeFirstResponder()
+    }
+
+    func appReceivedFocus(_: Notification) {
+        Whitelist.main.load()
+
+        BrowserBridge.main.requestExtensionStates { states in
+            var errorOccurred = false
+            states.forEach { state in
+                guard state.error == nil else {
+                    errorOccurred = true
+                    return
+                }
+
+                switch state.id {
+                case Info.blockerBundleId: self.blocker.enabled = state.state!
+                    case Info.helperBundleId: self.helper.enabled = state.state!
+                    default: break
+                }
+            }
+
+            self.reflectExtensionAndPreferenceStates()
+            if errorOccurred {
+                self.presentError(MessagingError(BrowserError.requestingExtensionStatus))
+            }
+        }
     }
 
     func openSetupAssistant() {

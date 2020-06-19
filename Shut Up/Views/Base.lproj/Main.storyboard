@@ -138,6 +138,9 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Delete" id="gFX-FD-lIv">
+                                            <string key="keyEquivalent" base64-UTF8="YES">
+CA
+</string>
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="delete:" target="Ady-hI-5gd" id="e8q-Ze-Mip"/>
@@ -1150,6 +1153,9 @@ DQ
                                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                     </textFieldCell>
+                                                                                    <connections>
+                                                                                        <action selector="rowWasEdited:" target="XfG-lQ-9wD" id="pEX-Bx-wN7"/>
+                                                                                    </connections>
                                                                                 </textField>
                                                                             </subviews>
                                                                             <connections>
@@ -1177,7 +1183,7 @@ DQ
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="32" id="6wj-kt-HCp"/>
                                                 </constraints>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" placeholderString="example.com" drawsBackground="YES" id="jX5-qS-9De" customClass="AddDomainCell" customModule="Shut_Up" customModuleProvider="target">
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" placeholderString="example.com" drawsBackground="YES" id="jX5-qS-9De" customClass="AddDomainCell" customModule="Shut_Up" customModuleProvider="target">
                                                     <font key="font" usesAppearanceFont="YES"/>
                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="AddDomainCell BG"/>

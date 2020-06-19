@@ -83,6 +83,8 @@ class Stylesheet {
     func parseCss(css: Data) {
         
     }
+
+    func reset() { file.reset() }
 }
 
 

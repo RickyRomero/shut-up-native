@@ -134,7 +134,6 @@ final class Setup {
         if decision == .alertFirstButtonReturn {
             NSApp.terminate(nil)
         } else {
-            print("Reset")
             reset()
         }
     }
@@ -143,6 +142,8 @@ final class Setup {
         try? Crypto.main.clear(preCatalinaItems: true)
         try? Crypto.main.clear()
         Preferences.main.reset()
+        Whitelist.main.reset()
+        Stylesheet.main.reset()
 
         // Relaunch the app and stop this instance
         let resourceUrl = Bundle.main.resourceURL
@@ -165,7 +166,8 @@ final class Setup {
             )
         }
 
-        NSApp.terminate(nil)
+        // Avoid NSApp.terminate(_:) here because it gives the app a chance to do other things
+        exit(0)
     }
 
     func queryAvailableSpace() -> Int64 {
