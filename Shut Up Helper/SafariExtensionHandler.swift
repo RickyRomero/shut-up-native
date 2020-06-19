@@ -45,9 +45,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     override init() {
         Setup.main.bootstrap {}
 
-        print("Should be fetching now")
         Stylesheet.main.update(force: false) { error in
-            print("done")
         }
 
         
@@ -60,30 +58,21 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
 
         Setup.main.bootstrap {}
 
-        print(#function)
-        NSLog(Info.bundleId)
 //        try? Setup.encryption()
     }
 
     override func toolbarItemClicked(in window: SFSafariWindow) {
-        print("Whitelist load finished:", Whitelist.main.loadFinished)
-        print(Whitelist.main.entries)
         window.getActiveTab { tab in
             tab?.getActivePage { page in
                 page?.getPropertiesWithCompletionHandler { properties in
                     guard let domain = properties?.url?.host else { return }
-                    print("Page properties", domain)
                     Whitelist.main.toggle(domain: domain)
-                    print(Whitelist.main.entries)
                 }
             }
         }
 
-        print(#function)
         // This method will be called when your toolbar item is clicked.
-        NSLog("com.rickyromero.shutup.blocker helper The extension's toolbar item was clicked")
         clickCount += 1
-        print(clickCount % 2 == 1)
 
 //        let blockerContents = (clickCount % 2 == 1) ? basicBlocker : complexBlocker
         let blockerContents = basicBlocker
@@ -93,7 +82,6 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
             print(error.localizedDescription)
         }
         
-        NSLog("com.rickyromero.shutup.blocker helper wrote, reloading content blocker!!!")
         SFContentBlockerManager.reloadContentBlocker(withIdentifier: Info.blockerBundleId) { error in
             if (error != nil)
             {
@@ -103,11 +91,9 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
             {
 //                NSSound.beep()
 
-                NSLog("com.rickyromero.shutup.blocker helper blocker updated!!!")
                 window.getActiveTab { tab in
                     tab?.getActivePage { page in
                         page?.reload()
-                        NSLog("ok i did it!!!")
                     }
                 }
             }
@@ -115,12 +101,9 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     }
 
     override func validateToolbarItem(in window: SFSafariWindow, validationHandler: @escaping ((Bool, String) -> Void)) {
-        print(#function)
-
         window.getActiveTab { tab in
             tab?.getActivePage { page in
                 page?.getPropertiesWithCompletionHandler { props in
-                    print(props?.url?.host)
                     let enabled = ["http", "https"].contains(props?.url?.scheme ?? "")
                     validationHandler(enabled, "")
                 }
@@ -134,18 +117,13 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     }
 
     override func validateContextMenuItem(withCommand command: String, in page: SFSafariPage, userInfo: [String : Any]? = nil, validationHandler: @escaping (Bool, String?) -> Void) {
-        print(#function)
         validationHandler(false, nil)
     }
 
     func completeLoad(error: Error?) {
-        print(#function)
-        if (error != nil)
-        {
+        if error != nil {
             print(error!)
-        }
-        else
-        {
+        } else {
             NSLog("completeLoad!!!")
         }
     }

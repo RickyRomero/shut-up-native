@@ -89,17 +89,13 @@ final class Setup {
             var success = false
             do {
                 let originalData = "The quick brown fox jumps over the lazy dog.".data(using: .utf8)!
-                print(originalData.base64EncodedString())
                 let encryptedData = try Crypto.main.transform(with: .encryption, data: originalData)
-                print(encryptedData.base64EncodedString())
                 let reconstitutedData = try Crypto.main.transform(with: .decryption, data: encryptedData)
-                print(reconstitutedData.base64EncodedString())
                 success = true
             } catch {
                 print(error.localizedDescription)
             }
 
-            print("DONE??????????")
             let timestamp = String(Date().timeIntervalSince1970)
             let id = Info.bundleId
             let destUrl = Info.containerUrl.appendingPathComponent("\(id).\(timestamp).\(success).txt")

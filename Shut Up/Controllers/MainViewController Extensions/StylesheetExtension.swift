@@ -42,7 +42,6 @@ extension MainViewController {
         lastCssUpdateLabel.isHidden = true
         updatingSpinner.startAnimation(nil)
         updatingIndicator.isHidden = false
-        print("Should be fetching now")
         Stylesheet.main.update(force: true) { error in
             sender.isEnabled = true
             self.lastCssUpdateLabel.isHidden = false

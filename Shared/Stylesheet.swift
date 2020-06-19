@@ -68,14 +68,10 @@ class Stylesheet {
             return
         }
 
-        print("Data length:", data.count)
-        print("Response:", response.statusCode)
         let headers = response.allHeaderFields
         if let etag = headers["Etag"] as? String {
-            print("ETag:", etag)
             Preferences.main.etag = etag
         }
-        print("thank's")
 
 //        print(String(data: data, encoding: .utf8)!)
     }

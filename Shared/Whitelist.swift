@@ -17,8 +17,6 @@ class Whitelist {
         ) {
             self.load()
             DispatchQueue.main.async {
-                print("First event")
-                print(self.entries)
                 self.delegate?.newWhitelistDataAvailable()
             }
 
@@ -26,8 +24,6 @@ class Whitelist {
                 self.load()
 
                 DispatchQueue.main.async {
-                    print("External Update")
-                    print(self.entries)
                     self.delegate?.newWhitelistDataAvailable()
                 }
             }
@@ -104,7 +100,6 @@ class Whitelist {
             let decoder = JSONDecoder()
             let whitelistData = try decoder.decode([String].self, from: data)
 
-            print(whitelistData)
             entries = whitelistData
             loadFinished = true
         } catch {
@@ -134,29 +129,20 @@ class Whitelist {
     }
 
     func add(domain: String) -> Bool {
-//        file.read()
-        print(#function)
         guard loadFinished else { return false }
         guard !entries.contains(domain) else { return false }
 
-        print(entries)
         entries.append(domain)
-        print(entries)
-
         save()
 
         return true
     }
 
     func remove(domain: String) -> Bool {
-        print(#function)
         guard loadFinished else { return false }
         guard entries.contains(domain) else { return false }
 
-        print(entries)
         entries.remove(at: entries.firstIndex(of: domain)!)
-        print(entries)
-
         save()
 
         return true

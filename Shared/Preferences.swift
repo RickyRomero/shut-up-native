@@ -25,7 +25,6 @@ final class Preferences {
         guard !setupStarted else { return }
         setupStarted = true
 
-        print(Info.groupId)
         suitePrefs.register(defaults: [
             "lastBuildRun": 0,
             "setupAssistantCompleteForBuild": 0,

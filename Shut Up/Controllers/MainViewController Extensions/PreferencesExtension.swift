@@ -27,7 +27,6 @@ extension MainViewController {
         // This prevents multiple calls of this function from
         // snapping the animation to completion.
         if lastHelperUiUpdate < helper.lastUpdated {
-            print(#function, lastHelperUiUpdate.timeIntervalSince1970)
             lastHelperUiUpdate = helper.lastUpdated
 
             NSAnimationContext.runAnimationGroup({ context in

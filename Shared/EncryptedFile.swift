@@ -48,11 +48,7 @@ final class EncryptedFile {
 
     var mostRecentlySeenModification: Date?
     var lastModified: Date? {
-        print("Getting lastModified...")
-        print(fsLocation.path)
         let attributes = try? FileManager.default.attributesOfItem(atPath: fsLocation.path)
-        print("Well... did it work...")
-        print(attributes?[.modificationDate] as? Date)
         return attributes?[.modificationDate] as? Date
     }
 
@@ -69,13 +65,10 @@ final class EncryptedFile {
     }
 
     func read() -> Data? {
-        print("read", lastModified, mostRecentlySeenModification)
         if lastModified != mostRecentlySeenModification || cache == nil {
-            print("getting contents")
             var modificationOccurred = false
             let readCla = EncryptedFileCla(for: fsLocation) { () throws in
                 // Executed when the lock is obtained
-                print("lock obtained")
                 var fileData: Data!
 
                 do {
@@ -96,7 +89,6 @@ final class EncryptedFile {
 
             ClaQueue([readCla]).run { error in
                 // Executed when the lock operation has completed
-                print("cla finished")
                 guard error == nil else {
                     NSApp.presentError(error!)
                     return

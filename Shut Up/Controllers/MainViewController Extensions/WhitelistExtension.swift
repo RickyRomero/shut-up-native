@@ -10,22 +10,16 @@ import Cocoa
 
 extension MainViewController {
     @IBAction func addAction(_ sender: NSTextField) {
-        print(#function)
-        print("action")
-
         if let domain = verifyWhitelistEntry(for: sender.stringValue, on: nil) {
-            print(domain)
             sender.stringValue = ""
         }
     }
 
     @IBAction func rowWasEdited(_ sender: NSTextField) {
-        print(#function)
         let row = whitelistView.row(for: sender)
 
         if row > -1 {
             if let domain = verifyWhitelistEntry(for: sender.stringValue, on: row) {
-                print(domain)
                 sender.stringValue = domain
             } else {
                 sender.stringValue = whitelistTableEntries[row]
@@ -83,7 +77,6 @@ extension MainViewController: NSTableViewDelegate {
     func tableView(_ tableView: NSTableView, rowActionsForRow row: Int, edge: NSTableView.RowActionEdge) -> [NSTableViewRowAction] {
         if (edge == .trailing) {
             let deleteAction = NSTableViewRowAction(style: .destructive, title: "Delete", handler: { rowAction, row in
-                print("Deleting...")
                 self.whitelistView.removeRows(
                     at: IndexSet(integer: row),
                     withAnimation: .effectFade
@@ -104,7 +97,6 @@ extension MainViewController: NSTableViewDelegate {
 
 extension MainViewController: WhitelistDataDelegate {
     func newWhitelistDataAvailable() {
-        print(#function)
         if #available(macOS 10.15, *) {
             whitelistView.beginUpdates()
             let diff = Whitelist.main.entries.difference(from: whitelistTableEntries)
