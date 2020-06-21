@@ -11,13 +11,15 @@ import CoreGraphics
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+    var mwc: MainWindowController!
+
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         let optionKeyState = CGEventSource.keyState(.combinedSessionState, key: 0x3A)
         let mainSb = NSStoryboard(name: "Main", bundle: nil)
-        let mwc = mainSb.instantiateController(withIdentifier: "MainWC") as! MainWindowController
+        mwc = mainSb.instantiateController(withIdentifier: "MainWC") as? MainWindowController
 
         Setup.main.bootstrap(optionKeyState) {
-            mwc.window?.makeKeyAndOrderFront(self)
+            self.mwc.window?.makeKeyAndOrderFront(self)
         }
     }
 
