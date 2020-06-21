@@ -12,6 +12,9 @@ extension MainViewController {
     @IBAction func addAction(_ sender: NSTextField) {
         if let domain = verifyWhitelistEntry(for: sender.stringValue, on: nil) {
             sender.stringValue = ""
+            if Whitelist.main.add(domains: [domain]) {
+                reloadTableData()
+            }
         }
     }
 
@@ -21,6 +24,9 @@ extension MainViewController {
         if row > -1 {
             if let domain = verifyWhitelistEntry(for: sender.stringValue, on: row) {
                 sender.stringValue = domain
+                _ = Whitelist.main.add(domains: [domain])
+                _ = Whitelist.main.remove(domains: [whitelistTableEntries[row]])
+                reloadTableData()
             } else {
                 sender.stringValue = whitelistTableEntries[row]
             }
@@ -43,10 +49,37 @@ extension MainViewController {
     }
 
     @IBAction func delete(_ sender: AnyObject) {
-//        whitelistView.selectedRowIndexes.forEach { row in
-//            let domain = Whitelist.main.entries[row]
-//        }
-//        whitelistView.removeRows(at: whitelistView.selectedRowIndexes, withAnimation: .slideUp)
+        let domainsToRemove = whitelistView.selectedRowIndexes.map { row in
+            Whitelist.main.entries[row]
+        }
+        if Whitelist.main.remove(domains: domainsToRemove) {
+            reloadTableData()
+        }
+    }
+
+    func reloadTableData() {
+        print(#function)
+        if #available(macOS 10.15, *) {
+            whitelistView.beginUpdates()
+            let diff = Whitelist.main.entries.difference(from: whitelistTableEntries)
+
+            diff.forEach { change in
+                switch change {
+                    case let .remove(offset, _, _):
+                        whitelistTableEntries.remove(at: offset)
+                        let indexSet = IndexSet([offset])
+                        whitelistView.removeRows(at: indexSet, withAnimation: .slideUp)
+                    case let .insert(offset, newElement, _):
+                        whitelistTableEntries.insert(newElement, at: offset)
+                        let indexSet = IndexSet([offset])
+                        whitelistView.insertRows(at: indexSet, withAnimation: .slideDown)
+                }
+            }
+            whitelistView.endUpdates()
+        } else {
+            whitelistTableEntries = Whitelist.main.entries
+            whitelistView.reloadData()
+        }
     }
 }
 
@@ -97,27 +130,7 @@ extension MainViewController: NSTableViewDelegate {
 
 extension MainViewController: WhitelistDataDelegate {
     func newWhitelistDataAvailable() {
-        if #available(macOS 10.15, *) {
-            whitelistView.beginUpdates()
-            let diff = Whitelist.main.entries.difference(from: whitelistTableEntries)
-
-            diff.forEach { change in
-                switch change {
-                    case let .remove(offset, _, _):
-                        whitelistTableEntries.remove(at: offset)
-                        let indexSet = IndexSet([offset])
-                        whitelistView.removeRows(at: indexSet, withAnimation: .slideUp)
-                    case let .insert(offset, newElement, _):
-                        whitelistTableEntries.insert(newElement, at: offset)
-                        let indexSet = IndexSet([offset])
-                        whitelistView.insertRows(at: indexSet, withAnimation: .slideDown)
-                }
-            }
-            whitelistView.endUpdates()
-        } else {
-            whitelistTableEntries = Whitelist.main.entries
-            whitelistView.reloadData()
-        }
+        reloadTableData()
     }
 }
 

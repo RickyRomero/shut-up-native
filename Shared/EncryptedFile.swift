@@ -42,6 +42,7 @@ final class EncryptedFile {
 
     func read() -> Data? {
         if lastModified != mostRecentlySeenModification || cache == nil {
+            defer { self.lock.unlock() }
             var modificationOccurred = false
 
             do {
@@ -67,12 +68,9 @@ final class EncryptedFile {
                     self.cache = fileData
 
                     self.mostRecentlySeenModification = self.lastModified
-
-                    self.lock.unlock()
                 }
             } catch {
                 DispatchQueue.main.async { showError(error) }
-                self.lock.unlock()
             }
 
             DispatchQueue.main.async {
@@ -92,6 +90,7 @@ final class EncryptedFile {
         guard lastModified == mostRecentlySeenModification else {
             throw FileError.writingFile
         }
+        defer { self.lock.unlock() }
 
         do {
             let keysPresent = try keysVerifiedPresent()
@@ -104,12 +103,9 @@ final class EncryptedFile {
                 self.mostRecentlySeenModification = self.lastModified
 
                 self.cache = contents
-
-                self.lock.unlock()
             }
         } catch {
             DispatchQueue.main.async { showError(error) }
-            self.lock.unlock()
         }
     }
 

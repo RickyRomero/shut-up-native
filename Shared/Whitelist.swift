@@ -67,7 +67,9 @@ class Whitelist {
             guard match.range.length == item.utf16.count else { return nil }
 
             // Attempt to parse the hostname out if the NSDataDetector found something
-            if let parsedDomain = URL(string: item)?.host { return parsedDomain }
+            if let parsedDomain = URL(string: item)?.host {
+                return stripWww(from: parsedDomain)
+            }
         }
 
         // Fallback tests, for weird TLDs
@@ -90,7 +92,15 @@ class Whitelist {
         )
         guard domainNameCount > 0 else { return nil }
         
-        return item
+        return stripWww(from: item)
+    }
+
+    static func stripWww(from domain: String) -> String {
+        var components = domain.split(separator: ".")
+        if components[0] == "www" && components.count > 2 {
+            components.removeFirst()
+        }
+        return components.joined(separator: ".")
     }
 
     func load() {
@@ -128,31 +138,43 @@ class Whitelist {
         }
     }
 
-    func add(domain: String) -> Bool {
+    func add(domains: [String]) -> Bool {
         guard loadFinished else { return false }
-        guard !entries.contains(domain) else { return false }
 
-        entries.append(domain)
+        var domainsToAdd: [String] = []
+        for domain in domains {
+            if !entries.contains(domain) {
+                domainsToAdd.append(domain)
+            }
+        }
+
+        entries.append(contentsOf: domainsToAdd)
         save()
 
-        return true
+        return domainsToAdd.count > 0
     }
 
-    func remove(domain: String) -> Bool {
+    func remove(domains: [String]) -> Bool {
         guard loadFinished else { return false }
-        guard entries.contains(domain) else { return false }
 
-        entries.remove(at: entries.firstIndex(of: domain)!)
+        var domainsRemoved = 0
+        for domain in domains {
+            if let index = entries.firstIndex(of: domain) {
+                entries.remove(at: index)
+                domainsRemoved += 1
+            }
+        }
+
         save()
 
-        return true
+        return domainsRemoved > 0
     }
 
     func toggle(domain: String) -> Bool {
         if entries.contains(domain) {
-            return remove(domain: domain)
+            return remove(domains: [domain])
         } else {
-            return add(domain: domain)
+            return add(domains: [domain])
         }
     }
 

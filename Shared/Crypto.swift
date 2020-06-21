@@ -42,6 +42,7 @@ final class Crypto {
     private var setupStarted = false
     func bootstrap() {
         guard !setupStarted else { return }
+        defer { self.lock.unlock() }
         setupStarted = true
 
         do {
@@ -62,7 +63,6 @@ final class Crypto {
             } catch {
                 DispatchQueue.main.async { showError(error) }
             }
-            self.lock.unlock()
         }
     }
 
