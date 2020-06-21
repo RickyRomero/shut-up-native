@@ -26,6 +26,10 @@ final class Setup {
         guard !bootstrapStarted else { return }
         bootstrapStarted = true
 
+        if #available(macOS 10.16, *) {
+            showError(MiscError.runningBetaOs)
+        }
+
         if queryAvailableSpace() < 200 * 1000 * 1000 { // 200 MB
             showError(FileError.checkingFreeSpace)
         }

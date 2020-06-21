@@ -37,6 +37,10 @@ enum BrowserError: Error {
     case requestingExtensionStatus
 }
 
+enum MiscError: Error {
+    case runningBetaOs
+}
+
 enum RecoveryOption: String, CaseIterable, CustomStringConvertible {
     case ok
     case quit
@@ -135,11 +139,11 @@ class MessagingError: NSError {
                     info = "Quit Shut Up and delete any files you don’t need."
                     options = [.quit]
                 case .readingFile:
-                    title = "Example Error"
-                    info = "Example Info"
+                    title = "Failed to read an internal file"
+                    info = "Shut Up failed to read from an internal file. If this issue persists, please quit and restart Shut Up."
                 case .writingFile:
-                    title = "Example Error"
-                    info = "Example Info"
+                    title = "Failed to write an internal file"
+                    info = "Shut Up failed to write to an internal file. If this issue persists, please quit and restart Shut Up."
             }
         } else if cause is BrowserError {
             switch cause as! BrowserError {
@@ -152,6 +156,12 @@ class MessagingError: NSError {
                 case .requestingExtensionStatus:
                     title = "Safari failed to provide extension info"
                     info = "Shut Up asked Safari if its extensions are enabled, but it failed. Try quitting Shut Up and moving it to your Applications folder.\n\nIf the issue persists, try uninstalling Shut Up, restarting your Mac, and reinstalling Shut Up."
+            }
+        } else if cause is MiscError {
+            switch cause as! MiscError {
+                case .runningBetaOs:
+                    title = "Time traveling detected"
+                    info = "This version of macOS may not work perfectly with Shut Up. An update to Shut Up will support macOS Monterey when the final version is released this fall.\n\nIf you encounter bugs, you can email me via Help > Contact Developer. Please also use the Feedback Assistant app to report bugs to Apple."
             }
         } else if cause is URLError {
             title = "Cannot connect to rickyromero.com"
