@@ -35,8 +35,7 @@ final class EncryptedFile {
         queue.sync { _ = read() }
     }
 
-    func keysVerifiedPresent() throws -> Bool {
-        try Crypto.main.requestKeychainUnlock()
+    func keysVerifiedPresent() -> Bool {
         return Crypto.main.requiredKeysPresent
     }
 
@@ -46,7 +45,7 @@ final class EncryptedFile {
             var modificationOccurred = false
 
             do {
-                let keysPresent = try keysVerifiedPresent()
+                let keysPresent = keysVerifiedPresent()
                 if keysPresent {
                     self.lock.claim()
 
@@ -93,7 +92,7 @@ final class EncryptedFile {
         defer { self.lock.unlock() }
 
         do {
-            let keysPresent = try keysVerifiedPresent()
+            let keysPresent = keysVerifiedPresent()
 
             if keysPresent {
                 self.lock.claim()

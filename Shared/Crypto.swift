@@ -45,13 +45,6 @@ final class Crypto {
         defer { self.lock.unlock() }
         setupStarted = true
 
-        do {
-            try requestKeychainUnlock()
-        } catch {
-            DispatchQueue.main.async { showError(error) }
-            return
-        }
-
         if preCatalinaKeysPresent || !requiredKeysPresent {
             self.lock.claim()
             do {
@@ -62,22 +55,6 @@ final class Crypto {
                 }
             } catch {
                 DispatchQueue.main.async { showError(error) }
-            }
-        }
-    }
-
-    func requestKeychainUnlock() throws {
-        var keychainStatus = SecKeychainStatus()
-        SecKeychainGetStatus(nil, &keychainStatus)
-        let keychainAccessible =
-            (keychainStatus & kSecUnlockStateStatus) > 0 &&
-            (keychainStatus & kSecReadPermStatus) > 0 &&
-            (keychainStatus & kSecWritePermStatus) > 0
-
-        if !keychainAccessible {
-            let result = SecKeychainUnlock(nil, 0, nil, false)
-            if result != errSecSuccess {
-                throw CryptoError.accessingKeychain
             }
         }
     }

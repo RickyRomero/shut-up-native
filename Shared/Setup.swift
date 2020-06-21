@@ -40,11 +40,6 @@ final class Setup {
 
         Preferences.main.setDefaults()
 
-//        var defaultKeychain: SecKeychain? = nil
-//        let status = SecKeychainCopyDefault(&defaultKeychain)
-//        print(status)
-//        SecKeychainLock(defaultKeychain)
-
         Crypto.main.bootstrap()
         
 
