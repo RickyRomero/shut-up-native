@@ -112,7 +112,7 @@ class MainViewController: NSViewController {
 
             self.reflectExtensionAndPreferenceStates()
             if errorOccurred {
-                self.presentError(MessagingError(BrowserError.requestingExtensionStatus))
+                showError(BrowserError.requestingExtensionStatus)
             }
         }
     }

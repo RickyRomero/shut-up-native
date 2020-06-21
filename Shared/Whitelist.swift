@@ -104,9 +104,9 @@ class Whitelist {
             loadFinished = true
         } catch {
             if error is CryptoError {
-                NSApp.presentError(MessagingError(error))
+                showError(error)
             } else {
-                NSApp.presentError(MessagingError(FileError.readingFile))
+                showError(FileError.readingFile)
             }
             return
         }
@@ -120,9 +120,9 @@ class Whitelist {
             try file.write(data: whitelistData)
         } catch {
             if error is CryptoError {
-                NSApp.presentError(MessagingError(error))
+                showError(error)
             } else {
-                NSApp.presentError(MessagingError(FileError.writingFile))
+                showError(FileError.writingFile)
             }
             return
         }

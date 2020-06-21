@@ -71,7 +71,7 @@ final class EncryptedFile {
                     self.lock.unlock()
                 }
             } catch {
-                DispatchQueue.main.async { NSApp.presentError(MessagingError(error)) }
+                DispatchQueue.main.async { showError(error) }
                 self.lock.unlock()
             }
 
@@ -108,7 +108,7 @@ final class EncryptedFile {
                 self.lock.unlock()
             }
         } catch {
-            DispatchQueue.main.async { NSApp.presentError(MessagingError(error)) }
+            DispatchQueue.main.async { showError(error) }
             self.lock.unlock()
         }
     }

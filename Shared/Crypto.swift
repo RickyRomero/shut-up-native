@@ -47,24 +47,22 @@ final class Crypto {
         do {
             try requestKeychainUnlock()
         } catch {
-            DispatchQueue.main.async { NSApp.presentError(MessagingError(error)) }
+            DispatchQueue.main.async { showError(error) }
             return
         }
 
         if preCatalinaKeysPresent || !requiredKeysPresent {
-            queue.sync { self.lock.claim() }
-            queue.sync {
-                do {
-                    if Crypto.main.preCatalinaKeysPresent {
-                        try Crypto.main.migratePreCatalinaKeys()
-                    } else if !Crypto.main.requiredKeysPresent {
-                        try Crypto.main.generateKeyPair()
-                    }
-                } catch {
-                    DispatchQueue.main.async { NSApp.presentError(MessagingError(error)) }
+            self.lock.claim()
+            do {
+                if Crypto.main.preCatalinaKeysPresent {
+                    try Crypto.main.migratePreCatalinaKeys()
+                } else if !Crypto.main.requiredKeysPresent {
+                    try Crypto.main.generateKeyPair()
                 }
+            } catch {
+                DispatchQueue.main.async { showError(error) }
             }
-            queue.sync { self.lock.unlock() }
+            self.lock.unlock()
         }
     }
 

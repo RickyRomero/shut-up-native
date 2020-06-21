@@ -59,3 +59,11 @@ extension AppDelegate: ErrorRecoveryDelegate {
         return DelegatingRecoverableError(recoveringFrom: error, with: self)
     }
 }
+
+func showError(_ error: Error) {
+    if error is MessagingError {
+        NSApp.presentError(error)
+    } else {
+        NSApp.presentError(MessagingError(error))
+    }
+}

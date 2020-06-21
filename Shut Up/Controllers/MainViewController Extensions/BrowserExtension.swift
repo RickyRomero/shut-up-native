@@ -31,7 +31,7 @@ extension MainViewController {
     @IBAction func openSafariExtensionPreferences(_ sender: NSButton?) {
         BrowserBridge.main.showPrefs(for: Info.helperBundleId) { error in
             guard error == nil else {
-                self.presentError(MessagingError(BrowserError.showingSafariPreferences))
+                showError(BrowserError.showingSafariPreferences)
                 return
             }
         }

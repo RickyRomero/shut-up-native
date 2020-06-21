@@ -27,7 +27,7 @@ final class Setup {
         bootstrapStarted = true
 
         if queryAvailableSpace() < 200 * 1000 * 1000 { // 200 MB
-            NSApp.presentError(MessagingError(FileError.checkingFreeSpace))
+            showError(FileError.checkingFreeSpace)
         }
 
         if resetKeyHeld {
@@ -121,8 +121,9 @@ final class Setup {
             )
         }
 
-        // Avoid NSApp.terminate(_:) here because it gives the app a chance to do other things
-        exit(0)
+        DispatchQueue.main.async {
+            NSApp.terminate(self)
+        }
     }
 
     func queryAvailableSpace() -> Int64 {

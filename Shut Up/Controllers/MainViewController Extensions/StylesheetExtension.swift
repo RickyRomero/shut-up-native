@@ -49,7 +49,7 @@ extension MainViewController {
             self.updatingSpinner.stopAnimation(nil)
 
             guard error == nil else {
-                NSApp.presentError(MessagingError(error!))
+                showError(error!)
                 return
             }
 

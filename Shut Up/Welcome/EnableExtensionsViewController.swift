@@ -64,7 +64,7 @@ class EnableExtensionsViewController: NSViewController, PageContentResponder {
             self.delegate?.updateContinueButton(with: self.blockerEnabled)
 
             if errorOccurred {
-                self.presentError(MessagingError(BrowserError.requestingExtensionStatus))
+                showError(BrowserError.requestingExtensionStatus)
             }
         }
     }
@@ -84,7 +84,7 @@ class EnableExtensionsViewController: NSViewController, PageContentResponder {
     @IBAction func coreButtonClicked(_ sender: NSButton) {
         BrowserBridge.main.showPrefs(for: Info.blockerBundleId) { error in
             guard error == nil else {
-                self.presentError(MessagingError(BrowserError.showingSafariPreferences))
+                showError(BrowserError.showingSafariPreferences)
                 return
             }
         }
@@ -93,7 +93,7 @@ class EnableExtensionsViewController: NSViewController, PageContentResponder {
     @IBAction func helperButtonClicked(_ sender: NSButton) {
         BrowserBridge.main.showPrefs(for: Info.helperBundleId) { error in
             guard error == nil else {
-                self.presentError(MessagingError(BrowserError.showingSafariPreferences))
+                showError(BrowserError.showingSafariPreferences)
                 return
             }
         }

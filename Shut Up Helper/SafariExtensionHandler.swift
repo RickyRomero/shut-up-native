@@ -128,3 +128,5 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         }
     }
 }
+
+func showError(_: Error) {}

@@ -36,3 +36,5 @@ class ContentBlockerRequestHandler: NSObject, NSExtensionRequestHandling {
     }
     
 }
+
+func showError(_: Error) {}
