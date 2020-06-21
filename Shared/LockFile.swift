@@ -11,12 +11,12 @@ import Foundation
 final class LockFile {
     private var url: URL
     private var claimedDate: Date?
-    private var timerStartedDate: Date?
+    private let queue: DispatchQueue!
     var expiry = 120 // seconds
-    var timeout = 150 // seconds
 
     init(url: URL) {
         self.url = url
+        queue = DispatchQueue(label: "\(Info.bundleId).\(url.lastPathComponent)")
     }
 
     func attempt() -> Bool {
@@ -31,10 +31,10 @@ final class LockFile {
 
     func unlock() {
         guard claimedByUs else { return }
-        destroy()
+        smash()
     }
 
-    func destroy() {
+    func smash() { // Forcefully remove the lock
         claimedDate = nil
         try? FileManager.default.setAttributes([.immutable: 0], ofItemAtPath: url.path)
         try? FileManager.default.removeItem(at: url)
@@ -46,12 +46,7 @@ final class LockFile {
     }
 
     private var claimedByUs: Bool { lockDate == claimedDate && lockDate != nil }
-    private var timerActive: Bool {
-        let negativeTimeout = Double(timeout) * -1
-        let timerAge = timerStartedDate?.timeIntervalSinceNow
-        guard timerAge != nil else { return false }
-        return timerAge! > negativeTimeout
-    }
+    private var timerActive = false
     private var lockExpired: Bool {
         let negativeExpiry = Double(expiry) * -1
         let age = lockDate?.timeIntervalSinceNow
@@ -59,45 +54,26 @@ final class LockFile {
         return age! < negativeExpiry
     }
 
-    func claim(_ cla: ConditionalLockAction) {
-        guard cla.obtainLockAndTakeActionIf() == true else {
-            cla.otherwise()
-            cla.finally()
-            cla.queue?.next()
-            return
-        }
+    func claim() {
         guard !timerActive else { return }
-        timerStartedDate = Date()
+        timerActive = true
 
-        pollLock(cla)
-    }
+        var pollingTask: DispatchWorkItem
+        pollingTask = DispatchWorkItem {
+            while true {
+                let lockClaimed = self.attempt()
+                if lockClaimed {
+                    break
+                } else {
+                    if self.lockExpired {
+                        self.smash()
+                    }
 
-    private func pollLock(_ cla: ConditionalLockAction) {
-        let lockClaimed = attempt()
-        if lockClaimed {
-            if cla.obtainLockAndTakeActionIf() == true {
-                cla.action()
-            } else {
-                cla.otherwise()
-            }
-
-            cla.finally()
-            unlock()
-            cla.queue?.next()
-        } else {
-            guard timerActive else {
-//                cla.error = LockError.timedOut
-                cla.finally()
-                cla.queue?.next()
-                return
-            }
-            if lockExpired {
-                destroy()
-            }
-
-            Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
-                self.pollLock(cla)
+                    usleep(1000 * 1000 / 2)
+                }
             }
         }
+
+        queue.sync(execute: pollingTask)
     }
 }

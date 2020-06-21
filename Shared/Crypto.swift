@@ -25,17 +25,48 @@ final class Crypto {
         queryBase[kSecAttrKeySizeInBits] = constants["bits"]!
     }
     static var main = Crypto()
+    let lock = LockFile(url: Info.containerUrl.appendingPathComponent("keychain.lock"))
+    let queue = DispatchQueue(label: "\(Info.bundleId).keychain")
 
-    let constants: [String: Any] = [
+    private let constants: [String: Any] = [
         "accessGroup":  Info.groupId,
         "type":         kSecAttrKeyTypeRSA,
         "bits":         3072,
         "label":        "Shut Up Encryption Key"
     ]
-    var queryBase: [CFString: Any] = [
+    private var queryBase: [CFString: Any] = [
         kSecClass:     kSecClassKey,
         kSecReturnRef: true
     ]
+
+    private var setupStarted = false
+    func bootstrap() {
+        guard !setupStarted else { return }
+        setupStarted = true
+
+        do {
+            try requestKeychainUnlock()
+        } catch {
+            DispatchQueue.main.async { NSApp.presentError(MessagingError(error)) }
+            return
+        }
+
+        if preCatalinaKeysPresent || !requiredKeysPresent {
+            queue.sync { self.lock.claim() }
+            queue.sync {
+                do {
+                    if Crypto.main.preCatalinaKeysPresent {
+                        try Crypto.main.migratePreCatalinaKeys()
+                    } else if !Crypto.main.requiredKeysPresent {
+                        try Crypto.main.generateKeyPair()
+                    }
+                } catch {
+                    DispatchQueue.main.async { NSApp.presentError(MessagingError(error)) }
+                }
+            }
+            queue.sync { self.lock.unlock() }
+        }
+    }
 
     func requestKeychainUnlock() throws {
         var keychainStatus = SecKeychainStatus()

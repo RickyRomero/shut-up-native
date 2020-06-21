@@ -8,39 +8,6 @@
 
 import Cocoa
 
-final class CryptoSetupCla: ConditionalLockAction {
-    var queue: ClaQueue?
-    var lock = LockFile(url: Info.containerUrl.appendingPathComponent("keychain.lock"))
-    private var _error: Error?
-    var error: Error? {
-        get { _error }
-        set { _error = (_error == nil ? newValue : _error) }
-    }
-
-    func obtainLockAndTakeActionIf() -> Bool {
-        do {
-            try Crypto.main.requestKeychainUnlock()
-
-            return Crypto.main.preCatalinaKeysPresent || !Crypto.main.requiredKeysPresent
-        } catch {
-            self.error = error
-            return false
-        }
-    }
-
-    func action() {
-        do {
-            if Crypto.main.preCatalinaKeysPresent {
-                try Crypto.main.migratePreCatalinaKeys()
-            } else if !Crypto.main.requiredKeysPresent {
-                try Crypto.main.generateKeyPair()
-            }
-        } catch {
-            self.error = error
-        }
-    }
-}
-
 final class Setup {
     static var main = Setup()
     private init() {}
@@ -74,36 +41,28 @@ final class Setup {
 //        print(status)
 //        SecKeychainLock(defaultKeychain)
 
-        ClaQueue([
-            CryptoSetupCla()
-        ]).run { (error: Error?) in
-            self.bootstrapAttempted = true
+        Crypto.main.bootstrap()
+        
 
-            guard error == nil else {
-                if Info.isApp {
-                    NSApp.presentError(MessagingError(error!))
-                }
-                return
-            }
+        self.bootstrapAttempted = true
 
-            var success = false
-            do {
-                let originalData = "The quick brown fox jumps over the lazy dog.".data(using: .utf8)!
-                let encryptedData = try Crypto.main.transform(with: .encryption, data: originalData)
-                let reconstitutedData = try Crypto.main.transform(with: .decryption, data: encryptedData)
-                success = true
-            } catch {
-                print(error.localizedDescription)
-            }
-
-            let timestamp = String(Date().timeIntervalSince1970)
-            let id = Info.bundleId
-            let destUrl = Info.containerUrl.appendingPathComponent("\(id).\(timestamp).\(success).txt")
-
-            try? "".write(to: destUrl, atomically: true, encoding: .utf8)
-            NSLog("bootstrap Shut Up Core \(Info.bundleId)")
-            completionHandler()
+        var success = false
+        do {
+            let originalData = "The quick brown fox jumps over the lazy dog.".data(using: .utf8)!
+            let encryptedData = try Crypto.main.transform(with: .encryption, data: originalData)
+            let reconstitutedData = try Crypto.main.transform(with: .decryption, data: encryptedData)
+            success = true
+        } catch {
+            print(error.localizedDescription)
         }
+
+        let timestamp = String(Date().timeIntervalSince1970)
+        let id = Info.bundleId
+        let destUrl = Info.containerUrl.appendingPathComponent("\(id).\(timestamp).\(success).txt")
+
+        try? "".write(to: destUrl, atomically: true, encoding: .utf8)
+        NSLog("bootstrap Shut Up Core \(Info.bundleId)")
+        completionHandler()
     }
 
     func restart() {

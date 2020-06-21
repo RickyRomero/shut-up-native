@@ -14,18 +14,18 @@ class Whitelist {
         file = EncryptedFile(
             fsLocation: Info.whitelistUrl,
             bundleOrigin: Bundle.main.url(forResource: "domain-whitelist", withExtension: "json")!
-        ) {
+        )
+
+        self.load()
+        DispatchQueue.main.async {
+            self.delegate?.newWhitelistDataAvailable()
+        }
+
+        self.file.externalUpdateOccurred = { data in
             self.load()
+
             DispatchQueue.main.async {
                 self.delegate?.newWhitelistDataAvailable()
-            }
-
-            self.file.externalUpdateOccurred = { data in
-                self.load()
-
-                DispatchQueue.main.async {
-                    self.delegate?.newWhitelistDataAvailable()
-                }
             }
         }
     }
@@ -117,7 +117,7 @@ class Whitelist {
             let encoder = JSONEncoder()
             let whitelistData = try encoder.encode(entries)
 
-            try file.write(data: whitelistData, completionHandler: nil)
+            try file.write(data: whitelistData)
         } catch {
             if error is CryptoError {
                 NSApp.presentError(MessagingError(error))

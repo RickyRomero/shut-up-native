@@ -77,9 +77,6 @@
 		11F903B92470F96D0012051C /* LockFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F903B82470F96D0012051C /* LockFile.swift */; };
 		11F903BA2470F96D0012051C /* LockFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F903B82470F96D0012051C /* LockFile.swift */; };
 		11F903BB2470F96D0012051C /* LockFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F903B82470F96D0012051C /* LockFile.swift */; };
-		11F903D9247312580012051C /* ConditionalLockAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F903D8247312580012051C /* ConditionalLockAction.swift */; };
-		11F903DA247312580012051C /* ConditionalLockAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F903D8247312580012051C /* ConditionalLockAction.swift */; };
-		11F903DB247312580012051C /* ConditionalLockAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F903D8247312580012051C /* ConditionalLockAction.swift */; };
 		11FD0C26235D10FE00FC0587 /* LargeBubbleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FD0C25235D10FE00FC0587 /* LargeBubbleImageView.swift */; };
 /* End PBXBuildFile section */
 
@@ -170,7 +167,6 @@
 		11EF35702479F12000D5EFD2 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		11F288EF235CE20B00DEBCE5 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		11F903B82470F96D0012051C /* LockFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockFile.swift; sourceTree = "<group>"; };
-		11F903D8247312580012051C /* ConditionalLockAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionalLockAction.swift; sourceTree = "<group>"; };
 		11FD0C25235D10FE00FC0587 /* LargeBubbleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeBubbleImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -220,7 +216,6 @@
 				11E4B0B2246D0EF3007340A4 /* EncryptedFile.swift */,
 				110FEE0D2476D07100AA0B83 /* MessagingError.swift */,
 				11F903B82470F96D0012051C /* LockFile.swift */,
-				11F903D8247312580012051C /* ConditionalLockAction.swift */,
 				111C4DD6234A2D040034054C /* Info.swift */,
 			);
 			path = Shared;
@@ -608,7 +603,6 @@
 				11358189236FCB0F00BF7617 /* Links.swift in Sources */,
 				11B92100247D6F520002C430 /* DefaultBrowserViewController.swift in Sources */,
 				110C5A94247C41DD00004DFA /* EnableExtensionsViewController.swift in Sources */,
-				11F903D9247312580012051C /* ConditionalLockAction.swift in Sources */,
 				11EF35712479F12000D5EFD2 /* Preferences.swift in Sources */,
 				11D5E7E52495B5B4000FBE99 /* AddDomainCell.swift in Sources */,
 				11E581D8231DB6FC00910010 /* MainViewController.swift in Sources */,
@@ -644,7 +638,6 @@
 				11E581E9231DB6FD00910010 /* SafariExtensionHandler.swift in Sources */,
 				11EF35722479F12000D5EFD2 /* Preferences.swift in Sources */,
 				11A34D572354E9D70008F0CA /* Crypto.swift in Sources */,
-				11F903DA247312580012051C /* ConditionalLockAction.swift in Sources */,
 				11E4B0B4246D0EF3007340A4 /* EncryptedFile.swift in Sources */,
 				110FDE412499DB6300AC5651 /* Whitelist.swift in Sources */,
 				11F903BA2470F96D0012051C /* LockFile.swift in Sources */,
@@ -662,7 +655,6 @@
 				11E58208231DB82E00910010 /* ContentBlockerRequestHandler.swift in Sources */,
 				11EF35732479F12000D5EFD2 /* Preferences.swift in Sources */,
 				11A34D582354E9D70008F0CA /* Crypto.swift in Sources */,
-				11F903DB247312580012051C /* ConditionalLockAction.swift in Sources */,
 				11E4B0B5246D0EF3007340A4 /* EncryptedFile.swift in Sources */,
 				110FDE422499DB6300AC5651 /* Whitelist.swift in Sources */,
 				11F903BB2470F96D0012051C /* LockFile.swift in Sources */,
