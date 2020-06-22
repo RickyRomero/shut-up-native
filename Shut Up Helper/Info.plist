@@ -8,6 +8,8 @@
 	<string>Shut Up Helper</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIconFile</key>
+	<string></string>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -19,7 +21,9 @@
 	<key>CFBundleShortVersionString</key>
 	<string>3.0</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>LSMinimumSystemVersion</key>
 	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
 	<key>NSExtension</key>
@@ -28,6 +32,19 @@
 		<string>com.apple.Safari.extension</string>
 		<key>NSExtensionPrincipalClass</key>
 		<string>$(PRODUCT_MODULE_NAME).SafariExtensionHandler</string>
+		<key>SFSafariAssociatedContentBlockers</key>
+		<array>
+			<string>com.rickyromero.shutup.blocker</string>
+		</array>
+		<key>SFSafariContextMenu</key>
+		<array>
+			<dict>
+				<key>Command</key>
+				<string>Toggle</string>
+				<key>Text</key>
+				<string>Toggle Comments</string>
+			</dict>
+		</array>
 		<key>SFSafariExtensionBundleIdentifiersToUninstall</key>
 		<array>
 			<string>net.rickyromero.shutup</string>
@@ -43,19 +60,6 @@
 			<key>Label</key>
 			<string>Shut Up</string>
 		</dict>
-		<key>SFSafariContextMenu</key>
-		<array>
-			<dict>
-				<key>Text</key>
-				<string>Toggle Comments</string>
-				<key>Command</key>
-				<string>Toggle</string>
-			</dict>
-		</array>
-		<key>SFSafariAssociatedContentBlockers</key>
-		<array>
-			<string>com.rickyromero.shutup.blocker</string>
-		</array>
 		<key>SFSafariWebsiteAccess</key>
 		<dict>
 			<key>Level</key>
@@ -69,9 +73,5 @@ shutup.css © 2010 - 2020 Steven Frank and contributors</string>
 	<string>Enables Shut Up’s toolbar button, context menu item, and stylesheet updater. Recommended for full functionality.</string>
 	<key>TeamIdentifierPrefix</key>
 	<string>$(TeamIdentifierPrefix)</string>
-	<key>CFBundleIconFile</key>
-	<string></string>
-	<key>ITSAppUsesNonExemptEncryption</key>
-	<false/>
 </dict>
 </plist>
