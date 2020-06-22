@@ -151,10 +151,7 @@ extension MainViewController: NSTableViewDelegate {
     func tableView(_ tableView: NSTableView, rowActionsForRow row: Int, edge: NSTableView.RowActionEdge) -> [NSTableViewRowAction] {
         if (edge == .trailing) {
             let deleteAction = NSTableViewRowAction(style: .destructive, title: "Delete", handler: { rowAction, row in
-                self.whitelistView.removeRows(
-                    at: IndexSet(integer: row),
-                    withAnimation: .effectFade
-                )
+                self.remove(domains: [Whitelist.main.entries[row]])
             })
             deleteAction.backgroundColor = .red
             return [deleteAction]
