@@ -12,9 +12,7 @@ extension MainViewController {
     @IBAction func addAction(_ sender: NSTextField) {
         if let domain = verifyWhitelistEntry(for: sender.stringValue, on: nil) {
             sender.stringValue = ""
-            if Whitelist.main.add(domains: [domain]) {
-                reloadTableData()
-            }
+            add(domains: [domain])
         }
     }
 
@@ -24,9 +22,7 @@ extension MainViewController {
         if row > -1 {
             if let domain = verifyWhitelistEntry(for: sender.stringValue, on: row) {
                 sender.stringValue = domain
-                _ = Whitelist.main.add(domains: [domain])
-                _ = Whitelist.main.remove(domains: [whitelistTableEntries[row]])
-                reloadTableData()
+                change(from: whitelistTableEntries[row], to: domain)
             } else {
                 sender.stringValue = whitelistTableEntries[row]
             }
@@ -48,13 +44,58 @@ extension MainViewController {
         return domain
     }
 
+    func add(domains: [String]) {
+        let domainsAdded = Whitelist.main.add(domains: domains)
+        if domainsAdded.count > 0 {
+            undoManager?.registerUndo(withTarget: self, handler: { targetType in
+                targetType.remove(domains: domainsAdded)
+            })
+
+            if let actionName = undoManager?.undoActionName, actionName == "" {
+                undoManager?.setActionName("Add \(undoString(from: domainsAdded))")
+            }
+
+            reloadTableData()
+        }
+    }
+
+    func remove(domains: [String]) {
+        let domainsRemoved = Whitelist.main.remove(domains: domains)
+        if domainsRemoved.count > 0 {
+            undoManager?.registerUndo(withTarget: self, handler: { targetType in
+                targetType.add(domains: domainsRemoved)
+            })
+
+            if let actionName = undoManager?.undoActionName, actionName == "" {
+                undoManager?.setActionName("Delete \(undoString(from: domainsRemoved))")
+            }
+
+            reloadTableData()
+        }
+    }
+
+    func change(from: String, to: String) {
+        _ = Whitelist.main.remove(domains: [from])
+        _ = Whitelist.main.add(domains: [to])
+
+        undoManager?.registerUndo(withTarget: self, handler: { targetType in
+            targetType.change(from: to, to: from)
+        })
+        undoManager?.setActionName("Edit Domain")
+
+        reloadTableData()
+    }
+
+    func undoString(from domains: [String]) -> String {
+        if domains.count == 1 { return domains[0] }
+        return "\(domains.count) Domains"
+    }
+
     @IBAction func delete(_ sender: AnyObject) {
         let domainsToRemove = whitelistView.selectedRowIndexes.map { row in
             Whitelist.main.entries[row]
         }
-        if Whitelist.main.remove(domains: domainsToRemove) {
-            reloadTableData()
-        }
+        remove(domains: domainsToRemove)
     }
 
     func reloadTableData() {
@@ -130,6 +171,7 @@ extension MainViewController: NSTableViewDelegate {
 
 extension MainViewController: WhitelistDataDelegate {
     func newWhitelistDataAvailable() {
+        undoManager?.removeAllActions()
         reloadTableData()
     }
 }

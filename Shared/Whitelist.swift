@@ -138,39 +138,39 @@ class Whitelist {
         }
     }
 
-    func add(domains: [String]) -> Bool {
-        guard loadFinished else { return false }
+    func add(domains: [String]) -> [String] {
+        guard loadFinished else { return [] }
 
-        var domainsToAdd: [String] = []
+        var domainsAdded: [String] = []
         for domain in domains {
             if !entries.contains(domain) {
-                domainsToAdd.append(domain)
+                domainsAdded.append(domain)
             }
         }
 
-        entries.append(contentsOf: domainsToAdd)
+        entries.append(contentsOf: domainsAdded)
         save()
 
-        return domainsToAdd.count > 0
+        return domainsAdded
     }
 
-    func remove(domains: [String]) -> Bool {
-        guard loadFinished else { return false }
+    func remove(domains: [String]) -> [String] {
+        guard loadFinished else { return [] }
 
-        var domainsRemoved = 0
+        var domainsRemoved: [String] = []
         for domain in domains {
             if let index = entries.firstIndex(of: domain) {
+                domainsRemoved.append(entries[index])
                 entries.remove(at: index)
-                domainsRemoved += 1
             }
         }
 
         save()
 
-        return domainsRemoved > 0
+        return domainsRemoved
     }
 
-    func toggle(domain: String) -> Bool {
+    func toggle(domain: String) -> [String] {
         if entries.contains(domain) {
             return remove(domains: [domain])
         } else {
