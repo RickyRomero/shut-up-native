@@ -32,7 +32,7 @@ enum FileError: Error {
 }
 
 enum BrowserError: Error {
-    case providingBlocklist
+    case providingBlockRules
     case showingSafariPreferences
     case requestingExtensionStatus
 }
@@ -147,9 +147,9 @@ class MessagingError: NSError {
             }
         } else if cause is BrowserError {
             switch cause as! BrowserError {
-                case .providingBlocklist:
-                    title = "Safari failed to read Shut Up’s blocklist"
-                    info = "Shut Up sent Safari a new blocklist, but it failed. Try restarting Safari. If the issue persists, try restarting your Mac."
+                case .providingBlockRules:
+                    title = "Safari failed to read Shut Up’s content-blocking rules"
+                    info = "Shut Up sent Safari new content-blocking rules, but it failed. Try restarting Safari. If the issue persists, try restarting your Mac."
                 case .showingSafariPreferences:
                     title = "Safari failed to open its preferences"
                     info = "Shut Up asked Safari to open its preferences window, but it failed. Try opening Safari’s preferences manually, then go to the “Extensions” section."
@@ -161,7 +161,7 @@ class MessagingError: NSError {
             switch cause as! MiscError {
                 case .runningBetaOs:
                     title = "Time traveling detected"
-                    info = "This version of macOS may not work perfectly with Shut Up. An update to Shut Up will support macOS Monterey when the final version is released this fall.\n\nIf you encounter bugs, you can email me via Help > Contact Developer. Please also use the Feedback Assistant app to report bugs to Apple."
+                    info = "This version of macOS may not work perfectly with Shut Up. A future update to Shut Up will support macOS Big Sur following its final release this fall.\n\nIf you encounter bugs, you can email me via Help > Contact Developer. Please also use the Feedback Assistant app to report bugs to Apple."
             }
         } else if cause is URLError {
             title = "Cannot connect to rickyromero.com"
