@@ -27,7 +27,7 @@ final class Setup {
         bootstrapStarted = true
 
         if Info.isApp {
-            if #available(macOS 11, *) {
+            if #available(macOS 10.16, *) {
                 showError(MiscError.runningBetaOs)
             }
 
