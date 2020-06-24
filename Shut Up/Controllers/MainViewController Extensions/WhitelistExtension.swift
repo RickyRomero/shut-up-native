@@ -35,7 +35,7 @@ extension MainViewController {
             return nil
         }
 
-        let index = whitelistTableEntries.firstIndex(of: domain)
+        let index = Whitelist.firstIndex(of: domain, in: whitelistTableEntries)
         guard index == nil else {
             if index != row { NSSound.beep() }
             return nil

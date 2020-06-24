@@ -100,7 +100,37 @@ class Whitelist {
         if components[0] == "www" && components.count > 2 {
             components.removeFirst()
         }
-        return components.joined(separator: ".")
+        return components.joined(separator: ".").lowercased()
+    }
+
+    // Subdomain-sensitive matching
+    static func domainDoesMatch(domain: String, in collection: [String]) -> Bool {
+        return firstIndex(of: domain, in: collection) != nil
+    }
+
+    static func firstIndex(of domain: String, in collection: [String]) -> Int? {
+        let domain = domain.lowercased()
+        let domainComponents = domain.split(separator: ".").reversed() as Array
+
+        for (index, entry) in collection.enumerated() {
+            var matched = false
+            let entryComponents = entry.split(separator: ".").reversed() as Array
+            guard entryComponents.count <= domainComponents.count else { continue }
+
+            for (cIndex, component) in entryComponents.enumerated() {
+                guard component == domainComponents[cIndex] else {
+                    matched = false
+                    break
+                }
+                matched = true
+            }
+
+            if matched {
+                return index
+            }
+        }
+
+        return nil
     }
 
     func load() {
@@ -143,7 +173,7 @@ class Whitelist {
 
         var domainsAdded: [String] = []
         for domain in domains {
-            if !entries.contains(domain) {
+            if !matches(domain: domain) {
                 domainsAdded.append(domain)
             }
         }
@@ -176,6 +206,10 @@ class Whitelist {
         } else {
             return add(domains: [domain])
         }
+    }
+
+    func matches(domain: String) -> Bool {
+        return Whitelist.domainDoesMatch(domain: domain, in: entries)
     }
 
     func reset() { file.reset() }
