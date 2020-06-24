@@ -82,6 +82,18 @@ class Stylesheet {
             Preferences.main.etag = etag
         }
 
+        if data.count > 0 {
+            do {
+                try file.write(data: data)
+            } catch {
+                if error is CryptoError {
+                    showError(error)
+                } else {
+                    showError(FileError.writingFile)
+                }
+                return
+            }
+        }
 //        print(String(data: data, encoding: .utf8)!)
     }
 
