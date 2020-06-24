@@ -44,6 +44,21 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
                         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50)) {
                             page?.reload()
                         }
+
+                        let shouldRemove = (
+                            !Preferences.main.automaticWhitelisting ||
+                            (props?.usesPrivateBrowsing ?? false)
+                        )
+                        if shouldRemove {
+                            // Unfortunately this also requires an ugly delay...
+                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
+                                _ = Whitelist.main.remove(domains: [domain])
+                                SFContentBlockerManager.reloadContentBlocker(
+                                    withIdentifier: Info.blockerBundleId,
+                                    completionHandler: nil
+                                )
+                            }
+                        }
                     }
                 }
             }
