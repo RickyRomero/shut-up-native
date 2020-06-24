@@ -41,28 +41,9 @@ final class Setup {
         }
 
         Preferences.main.setDefaults()
-
         Crypto.main.bootstrap()
-        
 
         self.bootstrapAttempted = true
-
-        var success = false
-        do {
-            let originalData = "The quick brown fox jumps over the lazy dog.".data(using: .utf8)!
-            let encryptedData = try Crypto.main.transform(with: .encryption, data: originalData)
-            let reconstitutedData = try Crypto.main.transform(with: .decryption, data: encryptedData)
-            success = true
-        } catch {
-            print(error.localizedDescription)
-        }
-
-        let timestamp = String(Date().timeIntervalSince1970)
-        let id = Info.bundleId
-        let destUrl = Info.containerUrl.appendingPathComponent("\(id).\(timestamp).\(success).txt")
-
-        try? "".write(to: destUrl, atomically: true, encoding: .utf8)
-
         completionHandler()
     }
 
