@@ -24,15 +24,12 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     override func toolbarItemClicked(in window: SFSafariWindow) {
         window.getActiveTab { tab in
             tab?.getActivePage { page in
-                page?.getPropertiesWithCompletionHandler { properties in
-                    guard let fullHost = properties?.url?.host else { return }
-                    let domain = Whitelist.stripWww(from: fullHost)
+                page?.getPropertiesWithCompletionHandler { props in
+                    guard let domain = self.getDomain(from: props?.url) else { return }
                     _ = Whitelist.main.toggle(domain: domain)
 
                     window.getToolbarItem { button in
-                        let matched = Whitelist.main.matches(domain: domain)
-                        let icon = matched ? toolbarImages.enabled : toolbarImages.disabled
-                        button?.setImage(icon)
+                        self.updateIcon(in: button, for: props?.url)
                     }
 
                     SFContentBlockerManager.reloadContentBlocker(withIdentifier: Info.blockerBundleId) { error in
@@ -41,7 +38,12 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
                             return
                         }
 
-                        page?.reload()
+                        // This event lies, dispatching the completion handler before it's ready.
+                        // It's pretty consistently ready at about 10 milliseconds of delay on my system.
+                        // Hopefully 50 milliseconds is long enough of a pause to sort it out on every system.
+                        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50)) {
+                            page?.reload()
+                        }
                     }
                 }
             }
@@ -52,16 +54,27 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         window.getActiveTab { tab in
             tab?.getActivePage { page in
                 page?.getPropertiesWithCompletionHandler { props in
+                    window.getToolbarItem { button in
+                        self.updateIcon(in: button, for: props?.url)
+                    }
                     let enabled = ["http", "https"].contains(props?.url?.scheme ?? "")
                     validationHandler(enabled, "")
                 }
             }
         }
-//        window.getToolbarItem {(button: SFSafariToolbarItem?) in
-//            let image = NSImage.init(contentsOf: Bundle.main.url(forResource: "turn-on", withExtension: "pdf")!)
-//            //            button?.setImage(image)
-//            //            button?.setEnabled(false)
-//        }
+    }
+
+    func getDomain(from url: URL?) -> String? {
+        guard let fullHost = url?.host else { return nil }
+        return Whitelist.stripWww(from: fullHost)
+    }
+
+    func updateIcon(in button: SFSafariToolbarItem?, for url: URL?) {
+        guard let domain = getDomain(from: url) else { return }
+
+        let matched = Whitelist.main.matches(domain: domain)
+        let icon = matched ? toolbarImages.disabled : toolbarImages.enabled
+        button?.setImage(icon)
     }
 
     override func validateContextMenuItem(withCommand command: String, in page: SFSafariPage, userInfo: [String : Any]? = nil, validationHandler: @escaping (Bool, String?) -> Void) {

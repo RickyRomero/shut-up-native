@@ -39,7 +39,9 @@ final class EncryptedFile {
         return Crypto.main.requiredKeysPresent
     }
 
-    func read() -> Data? {
+    func read(force: Bool = false) -> Data? {
+        if force { cache = nil }
+
         if lastModified != mostRecentlySeenModification || cache == nil {
             defer { self.lock.unlock() }
             var modificationOccurred = false

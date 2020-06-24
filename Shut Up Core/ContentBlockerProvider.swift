@@ -12,6 +12,7 @@ final class ContentBlockerProvider {
     func coalesce() -> [ContentBlockerRule] {
         let selectors = ["img"]
 //        let selectors = Stylesheet.main.selectors
+        Whitelist.main.load(force: true)
         let whitelist = Whitelist.main.entries
         try? whitelist.joined(separator: "\n").write(
             to: Info.tempBlocklistUrl.appendingPathExtension("\(Date().timeIntervalSince1970).txt"),

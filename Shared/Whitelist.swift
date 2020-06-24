@@ -133,8 +133,8 @@ class Whitelist {
         return nil
     }
 
-    func load() {
-        guard let data = file.read() else { return }
+    func load(force: Bool = false) {
+        guard let data = file.read(force: force) else { return }
 
         do {
             let decoder = JSONDecoder()
