@@ -711,7 +711,7 @@ DQ
                                     <subviews>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="YpP-fY-YwK">
                                             <rect key="frame" x="23" y="25" width="504" height="32"/>
-                                            <textFieldCell key="cell" title="Lets you show and hide comments with the click of a button, among other things. Recommended for full functionality." id="mkw-hH-bhF">
+                                            <textFieldCell key="cell" title="Lets you show and hide comments with the click of a button. Recommended for full functionality." id="mkw-hH-bhF">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
