@@ -15,7 +15,7 @@ class ContentBlockerRequestHandler: NSObject, NSExtensionRequestHandling {
         Setup.main.bootstrap {}
 
         Stylesheet.main.update(force: false) { error in
-            print("done")
+//            print("done")
         }
     }
 

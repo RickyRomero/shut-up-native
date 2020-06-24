@@ -62,7 +62,7 @@ final class Setup {
         let destUrl = Info.containerUrl.appendingPathComponent("\(id).\(timestamp).\(success).txt")
 
         try? "".write(to: destUrl, atomically: true, encoding: .utf8)
-        NSLog("bootstrap Shut Up Core \(Info.bundleId)")
+
         completionHandler()
     }
 

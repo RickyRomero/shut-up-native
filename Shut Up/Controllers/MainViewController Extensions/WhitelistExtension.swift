@@ -99,7 +99,6 @@ extension MainViewController {
     }
 
     func reloadTableData() {
-        print(#function)
         if #available(macOS 10.15, *) {
             whitelistView.beginUpdates()
             let diff = Whitelist.main.entries.difference(from: whitelistTableEntries)
@@ -157,10 +156,6 @@ extension MainViewController: NSTableViewDelegate {
             return [deleteAction]
         }
         return []
-    }
-
-    func tableView(_ tableView: NSTableView, didRemove rowView: NSTableRowView, forRow row: Int) {
-        print("Hey. We're removing a row. It's row \(row).")
     }
 }
 
