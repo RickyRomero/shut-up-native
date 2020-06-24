@@ -20,8 +20,16 @@ class Stylesheet {
         bundleOrigin: Bundle.main.url(forResource: "shutup", withExtension: "css")!
     )
 
-    func update(force: Bool, completionHandler: @escaping (Error?) -> Void) {
+    var updateIsDue: Bool {
+        let twoDays: Double = 60 * 60 * 24 * 2
+        let deadline = Preferences.main.lastStylesheetUpdate.addingTimeInterval(twoDays)
+
+        return deadline.timeIntervalSinceNow < 0.0
+    }
+
+    func update(force: Bool, completionHandler: ((Error?) -> Void)?) {
         guard waitingForResponse == false else { return }
+        guard updateIsDue || force else { return }
 
         waitingForResponse = true
         self.completionHandler = completionHandler
@@ -45,6 +53,7 @@ class Stylesheet {
 
     func handleServerResponse(data: Data?, response: URLResponse?, error: Error?) {
         defer {
+            Preferences.main.lastStylesheetUpdate = Date()
             waitingForResponse = false
             DispatchQueue.main.async {
                 self.completionHandler?(error)

@@ -28,7 +28,9 @@ extension MainViewController {
         let cutoffDate = Date(timeIntervalSinceNow: cutoff * -1.0)
         let relativeTimeStr: String!
 
-        if timestamp < cutoffDate {
+        if timestamp == Date(timeIntervalSince1970: 0) {
+            relativeTimeStr = "--"
+        } else if timestamp < cutoffDate {
             relativeTimeStr = "Updated over 1 week ago"
         } else {
             relativeTimeStr = "Updated \(timestamp.relativeTime)"
@@ -54,7 +56,6 @@ extension MainViewController {
             }
 
             let now = Date()
-            Preferences.main.lastStylesheetUpdate = now
             self.updateLastCssUpdateLabel(with: now)
             self.resetCssLabelUpdateTimer()
         }

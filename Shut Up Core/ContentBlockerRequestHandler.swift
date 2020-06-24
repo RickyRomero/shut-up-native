@@ -9,17 +9,11 @@
 import Foundation
 
 class ContentBlockerRequestHandler: NSObject, NSExtensionRequestHandling {
-
-    override init() {
-        super.init()
+    func beginRequest(with context: NSExtensionContext) {
         Setup.main.bootstrap {}
 
-        Stylesheet.main.update(force: false) { error in
-//            print("done")
-        }
-    }
+        Stylesheet.main.update(force: false, completionHandler: nil)
 
-    func beginRequest(with context: NSExtensionContext) {
         // Get coalesced rules from stylesheet and whitelist
         let provider = ContentBlockerProvider()
         let rules = provider.coalesce()
@@ -46,7 +40,6 @@ class ContentBlockerRequestHandler: NSObject, NSExtensionRequestHandling {
 
         context.completeRequest(returningItems: [item], completionHandler: nil)
     }
-    
 }
 
 func showError(_: Error) {}

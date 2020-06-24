@@ -19,15 +19,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         mwc = mainSb.instantiateController(withIdentifier: "MainWC") as? MainWindowController
 
         Setup.main.bootstrap(optionKeyState) {
+            Stylesheet.main.update(force: false, completionHandler: nil)
             self.mwc.window?.makeKeyAndOrderFront(self)
         }
     }
 
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool { true }
-
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
-    }
 
     @IBAction func didChooseLinkItem(_ sender: NSMenuItem) {
         Links.collection.open(by: sender)
