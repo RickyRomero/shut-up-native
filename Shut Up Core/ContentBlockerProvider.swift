@@ -14,11 +14,6 @@ final class ContentBlockerProvider {
 //        let selectors = Stylesheet.main.selectors
         Whitelist.main.load(force: true)
         let whitelist = Whitelist.main.entries
-        try? whitelist.joined(separator: "\n").write(
-            to: Info.tempBlocklistUrl.appendingPathExtension("\(Date().timeIntervalSince1970).txt"),
-            atomically: true,
-            encoding: .utf8
-        )
 
         let rules = selectors.map { selector -> ContentBlockerRule in
             let trigger = ContentBlockerRuleTrigger(

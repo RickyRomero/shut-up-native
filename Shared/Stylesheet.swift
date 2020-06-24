@@ -82,7 +82,7 @@ class Stylesheet {
             Preferences.main.etag = etag
         }
 
-        if data.count > 0 {
+        if data.count > 0 { // TODO: Validate!
             do {
                 try file.write(data: data)
             } catch {
