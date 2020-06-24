@@ -8,91 +8,39 @@
 
 import SafariServices
 
-let basicBlocker = """
-[
-  {
-    "action": {
-      "selector": "p",
-      "type": "css-display-none"
-    },
-    "trigger": {
-      "url-filter": ".*"
-    }
-  }
-]
-"""
-
-let complexBlocker = """
-[
-  {
-    "action": {
-      "selector": "p",
-      "type": "css-display-none"
-    },
-    "trigger": {
-      "unless-domain": [
-        "*rickyromero.com"
-      ],
-      "url-filter": ".*"
-    }
-  }
-]
-"""
-
-var clickCount = 0
-
 class SafariExtensionHandler: SFSafariExtensionHandler {
-    override init() {
-        Setup.main.bootstrap {}
+    struct toolbarImages {
+        private static let enabledUrl = Bundle.main.urlForImageResource("turn-off")!
+        private static let disabledUrl = Bundle.main.urlForImageResource("turn-on")!
 
-        Stylesheet.main.update(force: false) { error in
-        }
-
-        
-//        print(Setup.main.counter)
-        super.init()
+        static let enabled = NSImage(contentsOfFile: enabledUrl.path)
+        static let disabled = NSImage(contentsOfFile: disabledUrl.path)
     }
 
     override func beginRequest(with context: NSExtensionContext) {
-        super.beginRequest(with: context)
-
         Setup.main.bootstrap {}
-
-//        try? Setup.encryption()
     }
 
     override func toolbarItemClicked(in window: SFSafariWindow) {
         window.getActiveTab { tab in
             tab?.getActivePage { page in
                 page?.getPropertiesWithCompletionHandler { properties in
-                    guard let domain = properties?.url?.host else { return }
-                    Whitelist.main.toggle(domain: domain)
-                }
-            }
-        }
+                    guard let fullHost = properties?.url?.host else { return }
+                    let domain = Whitelist.stripWww(from: fullHost)
+                    _ = Whitelist.main.toggle(domain: domain)
 
-        // This method will be called when your toolbar item is clicked.
-        clickCount += 1
+                    window.getToolbarItem { button in
+                        let matched = Whitelist.main.matches(domain: domain)
+                        let icon = matched ? toolbarImages.enabled : toolbarImages.disabled
+                        button?.setImage(icon)
+                    }
 
-//        let blockerContents = (clickCount % 2 == 1) ? basicBlocker : complexBlocker
-        let blockerContents = basicBlocker
-        do {
-            try blockerContents.write(to: Info.tempBlocklistUrl, atomically: true, encoding: .utf8)
-        } catch {
-            print(error.localizedDescription)
-        }
-        
-        SFContentBlockerManager.reloadContentBlocker(withIdentifier: Info.blockerBundleId) { error in
-            if (error != nil)
-            {
-                NSLog("com.rickyromero.shutup.blocker helper error: \(error!.localizedDescription)")
-            }
-            else
-            {
-//                NSSound.beep()
+                    SFContentBlockerManager.reloadContentBlocker(withIdentifier: Info.blockerBundleId) { error in
+                        guard error == nil else {
+                            NSLog("com.rickyromero.shutup.blocker helper error: \(error!.localizedDescription)")
+                            return
+                        }
 
-                window.getActiveTab { tab in
-                    tab?.getActivePage { page in
                         page?.reload()
                     }
                 }
@@ -118,14 +66,6 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
 
     override func validateContextMenuItem(withCommand command: String, in page: SFSafariPage, userInfo: [String : Any]? = nil, validationHandler: @escaping (Bool, String?) -> Void) {
         validationHandler(false, nil)
-    }
-
-    func completeLoad(error: Error?) {
-        if error != nil {
-            print(error!)
-        } else {
-            NSLog("completeLoad!!!")
-        }
     }
 }
 

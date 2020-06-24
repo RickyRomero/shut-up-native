@@ -15,6 +15,8 @@
 		110FEE0E2476D07100AA0B83 /* MessagingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110FEE0D2476D07100AA0B83 /* MessagingError.swift */; };
 		110FEE0F2476D07100AA0B83 /* MessagingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110FEE0D2476D07100AA0B83 /* MessagingError.swift */; };
 		110FEE102476D07100AA0B83 /* MessagingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110FEE0D2476D07100AA0B83 /* MessagingError.swift */; };
+		11161DC724A26EDA00F12B10 /* ContentBlockerRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11161DC624A26EDA00F12B10 /* ContentBlockerRule.swift */; };
+		11161DC924A271DA00F12B10 /* ContentBlockerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11161DC824A271DA00F12B10 /* ContentBlockerProvider.swift */; };
 		111C4DD3234A2ADD0034054C /* Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111C4DD2234A2ADD0034054C /* Setup.swift */; };
 		111C4DD4234A2ADD0034054C /* Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111C4DD2234A2ADD0034054C /* Setup.swift */; };
 		111C4DD5234A2ADD0034054C /* Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111C4DD2234A2ADD0034054C /* Setup.swift */; };
@@ -65,7 +67,6 @@
 		11E581E6231DB6FD00910010 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11E581E5231DB6FD00910010 /* Cocoa.framework */; };
 		11E581E9231DB6FD00910010 /* SafariExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E581E8231DB6FD00910010 /* SafariExtensionHandler.swift */; };
 		11E58203231DB82E00910010 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11E581E5231DB6FD00910010 /* Cocoa.framework */; };
-		11E58206231DB82E00910010 /* blockerList.json in Resources */ = {isa = PBXBuildFile; fileRef = 11E58205231DB82E00910010 /* blockerList.json */; };
 		11E58208231DB82E00910010 /* ContentBlockerRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E58207231DB82E00910010 /* ContentBlockerRequestHandler.swift */; };
 		11E5820D231DB82E00910010 /* Shut Up Core.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 11E58202231DB82E00910010 /* Shut Up Core.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		11E58219231DFDA100910010 /* turn-off.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 11E58217231DFDA100910010 /* turn-off.pdf */; };
@@ -117,6 +118,8 @@
 		110F510C247B7C9000D58266 /* DelegatingRecoverableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DelegatingRecoverableError.swift; path = "Shut Up/Models/DelegatingRecoverableError.swift"; sourceTree = SOURCE_ROOT; };
 		110FDE3F2499DB5E00AC5651 /* Whitelist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Whitelist.swift; sourceTree = "<group>"; };
 		110FEE0D2476D07100AA0B83 /* MessagingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingError.swift; sourceTree = "<group>"; };
+		11161DC624A26EDA00F12B10 /* ContentBlockerRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentBlockerRule.swift; sourceTree = "<group>"; };
+		11161DC824A271DA00F12B10 /* ContentBlockerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentBlockerProvider.swift; sourceTree = "<group>"; };
 		111C4DD2234A2ADD0034054C /* Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setup.swift; sourceTree = "<group>"; };
 		111C4DD6234A2D040034054C /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		111C4DDB234A46C10034054C /* shutup.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = shutup.css; sourceTree = "<group>"; };
@@ -158,7 +161,6 @@
 		11E581EF231DB6FD00910010 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11E581F4231DB6FD00910010 /* Shut Up Helper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Shut Up Helper.entitlements"; sourceTree = "<group>"; };
 		11E58202231DB82E00910010 /* Shut Up Core.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Shut Up Core.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		11E58205231DB82E00910010 /* blockerList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = blockerList.json; sourceTree = "<group>"; };
 		11E58207231DB82E00910010 /* ContentBlockerRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentBlockerRequestHandler.swift; sourceTree = "<group>"; };
 		11E58209231DB82E00910010 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11E5820A231DB82E00910010 /* Shut Up Core.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Shut Up Core.entitlements"; sourceTree = "<group>"; };
@@ -360,8 +362,9 @@
 		11E58204231DB82E00910010 /* Shut Up Core */ = {
 			isa = PBXGroup;
 			children = (
-				11E58205231DB82E00910010 /* blockerList.json */,
 				11E58207231DB82E00910010 /* ContentBlockerRequestHandler.swift */,
+				11161DC624A26EDA00F12B10 /* ContentBlockerRule.swift */,
+				11161DC824A271DA00F12B10 /* ContentBlockerProvider.swift */,
 				11E58209231DB82E00910010 /* Info.plist */,
 				11E5820A231DB82E00910010 /* Shut Up Core.entitlements */,
 			);
@@ -575,7 +578,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				111C4DDE234A46C10034054C /* shutup.css in Resources */,
-				11E58206231DB82E00910010 /* blockerList.json in Resources */,
 				111C4DE2234A47180034054C /* domain-whitelist.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -656,7 +658,9 @@
 				11EF35732479F12000D5EFD2 /* Preferences.swift in Sources */,
 				11A34D582354E9D70008F0CA /* Crypto.swift in Sources */,
 				11E4B0B5246D0EF3007340A4 /* EncryptedFile.swift in Sources */,
+				11161DC724A26EDA00F12B10 /* ContentBlockerRule.swift in Sources */,
 				110FDE422499DB6300AC5651 /* Whitelist.swift in Sources */,
+				11161DC924A271DA00F12B10 /* ContentBlockerProvider.swift in Sources */,
 				11F903BB2470F96D0012051C /* LockFile.swift in Sources */,
 				111C4DD5234A2ADD0034054C /* Setup.swift in Sources */,
 				110FEE102476D07100AA0B83 /* MessagingError.swift in Sources */,
