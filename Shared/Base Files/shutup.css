@@ -184,7 +184,9 @@ a.commentCountLink,
 p.theme-comments,
 
 /* BBC News */
+.comments-button,
 .dna-comment,
+.nw-c-comment,
 
 /* ZDNet */
 .view-6,
@@ -235,8 +237,8 @@ p.theme-comments,
 fb\:comments,
 div[data-testid^=UFI2CommentsList],
 /* new facebook beta look */
-[aria-label="Comment"],
-[aria-label="Comment reply"],
+[aria-label^="Comment"],
+[aria-label^="Reply"],
 
 /* buzzfeed */
 #responses,
@@ -401,12 +403,6 @@ div.comments-bar,
 /* lefigaro.fr */
 #reagir,
 
-/* rue89.nouvelobs.com */
-#commentaires,
-
-/* numerama.com */
-.commentaires,
-
 /* huffingtonpost.fr */
 #conversations-huffpost-web,
 
@@ -510,7 +506,6 @@ article._8Rm4L div.ybXk5, /* Feed, all comments except OP */
 article._8Rm4L a.r8ZrO, /* Feed, show comments link */
 
 /* Pixiv */
-div#root section.iwWiuY,
 div#root section.dBUetj,
 #js-mount-point-comment-module,
 .comment-list,
@@ -671,8 +666,22 @@ div.pod-body.review,
 /* MyAnimeList */
 div.detail-characters-list ~ div.borderDark,
 
+/* rule34.xxx */
+.content form ~ a#ci ~ div[id^=c0],
+.content form ~ a#ci ~ div[id^=c1],
+.content form ~ a#ci ~ div[id^=c2],
+.content form ~ a#ci ~ div[id^=c3],
+.content form ~ a#ci ~ div[id^=c4],
+.content form ~ a#ci ~ div[id^=c5],
+.content form ~ a#ci ~ div[id^=c6],
+.content form ~ a#ci ~ div[id^=c7],
+.content form ~ a#ci ~ div[id^=c8],
+.content form ~ a#ci ~ div[id^=c9],
+
 /* ...misc and generic... */
 
+[id*=commentaires i],
+[class*=commentaires i],
 .comments-list,
 #blogComments,
 #comments_pane,
@@ -681,6 +690,7 @@ div.detail-characters-list ~ div.borderDark,
 #comment_entries,
 #comment_form,
 #commentlist,
+#user-comments,
 .comments_area,
 .comments-area,
 .discussionContainer,
@@ -691,6 +701,8 @@ div.detail-characters-list ~ div.borderDark,
 .commenttxt,
 .post-comments,
 .post-comment-list,
+.user_comment,
+.widget-comments,
 #cmtWrapper
 {
     display: none !important;
