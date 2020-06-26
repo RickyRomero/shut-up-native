@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import SafariServices
 
 extension MainViewController {
     @IBAction func addAction(_ sender: NSTextField) {
@@ -27,6 +28,13 @@ extension MainViewController {
                 sender.stringValue = whitelistTableEntries[row]
             }
         }
+    }
+
+    @IBAction func delete(_ sender: AnyObject) {
+        let domainsToRemove = whitelistView.selectedRowIndexes.map { row in
+            Whitelist.main.entries[row]
+        }
+        remove(domains: domainsToRemove)
     }
 
     func verifyWhitelistEntry(for string: String, on row: Int?) -> String? {
@@ -56,6 +64,7 @@ extension MainViewController {
             }
 
             reloadTableData()
+            updateContentBlocker()
         }
     }
 
@@ -71,6 +80,7 @@ extension MainViewController {
             }
 
             reloadTableData()
+            updateContentBlocker()
         }
     }
 
@@ -84,18 +94,12 @@ extension MainViewController {
         undoManager?.setActionName("Edit Domain")
 
         reloadTableData()
+        updateContentBlocker()
     }
 
     func undoString(from domains: [String]) -> String {
         if domains.count == 1 { return domains[0] }
         return "\(domains.count) Domains"
-    }
-
-    @IBAction func delete(_ sender: AnyObject) {
-        let domainsToRemove = whitelistView.selectedRowIndexes.map { row in
-            Whitelist.main.entries[row]
-        }
-        remove(domains: domainsToRemove)
     }
 
     func reloadTableData() {
@@ -119,6 +123,15 @@ extension MainViewController {
         } else {
             whitelistTableEntries = Whitelist.main.entries
             whitelistView.reloadData()
+        }
+    }
+
+    func updateContentBlocker() {
+        SFContentBlockerManager.reloadContentBlocker(withIdentifier: Info.blockerBundleId) { error in
+            guard error == nil else {
+                showError(BrowserError.providingBlockRules)
+                return
+            }
         }
     }
 }
