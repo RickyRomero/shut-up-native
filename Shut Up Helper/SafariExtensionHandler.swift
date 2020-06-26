@@ -42,6 +42,8 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     }
 
     override func validateToolbarItem(in window: SFSafariWindow, validationHandler: @escaping ((Bool, String) -> Void)) {
+        Whitelist.main.load()
+
         window.getActiveTab { tab in
             tab?.getActivePage { page in
                 page?.getPropertiesWithCompletionHandler { props in
