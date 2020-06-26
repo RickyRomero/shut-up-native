@@ -95,6 +95,9 @@ class Stylesheet {
             }
         }
 //        print(String(data: data, encoding: .utf8)!)
+
+        // TODO: After validation, make sure to also tell
+        // Shut Up Core to update its rules
     }
 
     func parseCss(css: Data) {
