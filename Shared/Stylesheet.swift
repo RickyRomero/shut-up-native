@@ -27,7 +27,7 @@ class Stylesheet {
         return deadline.timeIntervalSinceNow < 0.0
     }
 
-    func update(force: Bool, completionHandler: ((Error?) -> Void)?) {
+    func update(force: Bool = false, completionHandler: ((Error?) -> Void)?) {
         guard waitingForResponse == false else { return }
         guard updateIsDue || force else { return }
 
@@ -52,11 +52,11 @@ class Stylesheet {
     }
 
     func handleServerResponse(data: Data?, response: URLResponse?, error: Error?) {
+        var outputError: Error?
         defer {
-            Preferences.main.lastStylesheetUpdate = Date()
             waitingForResponse = false
             DispatchQueue.main.async {
-                self.completionHandler?(error)
+                self.completionHandler?(outputError)
                 self.completionHandler = nil
             }
         }
@@ -64,6 +64,7 @@ class Stylesheet {
         guard error == nil else {
             print("Encountered an error when updating the stylesheet:")
             print(error!.localizedDescription)
+            outputError = error
             return
         }
 
@@ -77,27 +78,45 @@ class Stylesheet {
             return
         }
 
+        if data.count > 0 && response.statusCode == 200 {
+            guard validateCss(css: data) else {
+                outputError = MiscError.unexpectedNetworkResponse
+                return
+            }
+
+            do {
+                try file.write(data: data)
+            } catch {
+                if error is CryptoError {
+                    outputError = error
+                } else {
+                    outputError = FileError.writingFile
+                }
+                return
+            }
+        } else if data.count == 0 && response.statusCode == 304 {
+            // Stylesheet is unmodified; continue
+        } else {
+            outputError = MiscError.unexpectedNetworkResponse
+            return
+        }
+
+        Preferences.main.lastStylesheetUpdate = Date()
         let headers = response.allHeaderFields
         if let etag = headers["Etag"] as? String {
             Preferences.main.etag = etag
         }
 
-        if data.count > 0 { // TODO: Validate!
-            do {
-                try file.write(data: data)
-            } catch {
-                if error is CryptoError {
-                    showError(error)
-                } else {
-                    showError(FileError.writingFile)
-                }
-                return
-            }
-        }
 //        print(String(data: data, encoding: .utf8)!)
 
         // TODO: After validation, make sure to also tell
         // Shut Up Core to update its rules
+    }
+
+    func validateCss(css: Data) -> Bool {
+        guard css.count < 2 * 1024 * 1024 else { return false }
+
+        return true
     }
 
     func parseCss(css: Data) {

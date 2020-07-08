@@ -39,6 +39,7 @@ enum BrowserError: Error {
 
 enum MiscError: Error {
     case runningBetaOs
+    case unexpectedNetworkResponse
 }
 
 enum RecoveryOption: String, CaseIterable, CustomStringConvertible {
@@ -162,6 +163,9 @@ class MessagingError: NSError {
                 case .runningBetaOs:
                     title = "Time traveling detected"
                     info = "This version of macOS may not work perfectly with Shut Up. A future update to Shut Up will support macOS Big Sur following its final release this fall.\n\nIf you encounter bugs, you can email me via Help > Contact Developer. Please also use the Feedback Assistant app to report bugs to Apple."
+                case .unexpectedNetworkResponse:
+                    title = "Unexpected response from rickyromero.com"
+                    info = "Shut Up tried to update the stylesheet, but the response it received from the server wasn’t valid. Try again later."
             }
         } else if cause is URLError {
             title = "Cannot connect to rickyromero.com"

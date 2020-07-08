@@ -55,8 +55,7 @@ extension MainViewController {
                 return
             }
 
-            let now = Date()
-            self.updateLastCssUpdateLabel(with: now)
+            self.updateLastCssUpdateLabel(with: Preferences.main.lastStylesheetUpdate)
             self.resetCssLabelUpdateTimer()
         }
     }

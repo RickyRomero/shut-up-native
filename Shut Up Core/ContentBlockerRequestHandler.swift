@@ -12,7 +12,7 @@ class ContentBlockerRequestHandler: NSObject, NSExtensionRequestHandling {
     func beginRequest(with context: NSExtensionContext) {
         Setup.main.bootstrap {}
 
-        Stylesheet.main.update(force: false, completionHandler: nil)
+        Stylesheet.main.update(completionHandler: nil)
 
         // Get coalesced rules from stylesheet and whitelist
         let provider = ContentBlockerProvider()

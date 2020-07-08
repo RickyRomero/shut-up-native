@@ -19,7 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         mwc = mainSb.instantiateController(withIdentifier: "MainWC") as? MainWindowController
 
         Setup.main.bootstrap(optionKeyState) {
-            Stylesheet.main.update(force: false, completionHandler: nil)
+            Stylesheet.main.update(completionHandler: nil)
             self.mwc.window?.makeKeyAndOrderFront(self)
         }
     }
