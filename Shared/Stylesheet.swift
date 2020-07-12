@@ -9,6 +9,37 @@
 import Foundation
 import SafariServices
 
+struct Rule {
+    let source: String
+
+    var selectors: [String] {
+        get {
+            let selectorList = source
+                .split(separator: "{")[0]
+                .components(separatedBy: ", ")
+            
+            return selectorList.map { $0.trim() }
+        }
+    }
+
+    var type: RuleType {
+        get {
+            let declarationString = source.split(separator: "{")[1]
+
+            if declarationString.lowercased().contains("none") {
+                return .blocking
+            } else {
+                return .undoing
+            }
+        }
+    }
+}
+
+enum RuleType {
+    case blocking
+    case undoing
+}
+
 class Stylesheet {
     static var main = Stylesheet()
     private init() {}
@@ -26,6 +57,18 @@ class Stylesheet {
         let deadline = Preferences.main.lastStylesheetUpdate.addingTimeInterval(twoDays)
 
         return deadline.timeIntervalSinceNow < 0.0
+    }
+
+    var rules: [Rule] {
+        get {
+            guard let data = file.read() else { return [] }
+            guard let cssString = String(data: data, encoding: .utf8) else { return [] }
+
+            var ruleStrings = minify(css: cssString).split(separator: "}")
+            ruleStrings = ruleStrings.filter { $0.trim().count > 0 }
+
+            return ruleStrings.map { Rule(source: String($0)) }
+        }
     }
 
     func update(force: Bool = false, completionHandler: ((Error?) -> Void)?) {
@@ -164,10 +207,6 @@ class Stylesheet {
         return allPairsValid && displayNoneFound
     }
 
-    private func parseCss(css: Data) {
-        
-    }
-
     private func minify(css: String) -> String {
         let cleanupPatterns = [
             ["\\s*/\\*.+?\\*/\\s*", " "],    // Comments
@@ -189,34 +228,6 @@ class Stylesheet {
         }
 
         return strippedCSS
-    }
-
-    private func selector(from css: String) -> String {
-        let strippedCSS = minify(css: css)
-
-        let displayNoneRegex = try! NSRegularExpression(pattern: "display:\\s*none", options: .caseInsensitive)
-        let declarationBlocks = strippedCSS.components(separatedBy: "}")
-        let selectorWhitespaceRegex = try! NSRegularExpression(pattern: "^\\s+|\\s+$", options: .dotMatchesLineSeparators)
-        let concatString = ", "
-
-        var selector = ""
-        var fullSelector: [String] = []
-
-        for block in declarationBlocks {
-            if displayNoneRegex.test(block) {
-                selector = block.components(separatedBy: "{")[0]
-                selector = selectorWhitespaceRegex.stringByReplacingMatches(
-                    in: selector,
-                    options: [],
-                    range: NSMakeRange(0, selector.count),
-                    withTemplate: ""
-                )
-                
-                fullSelector.append(selector)
-            }
-        }
-
-        return fullSelector.joined(separator: concatString)
     }
 
     func reset() { file.reset() }

@@ -678,6 +678,9 @@ div.detail-characters-list ~ div.borderDark,
 .content form ~ a#ci ~ div[id^=c8],
 .content form ~ a#ci ~ div[id^=c9],
 
+/* teltarif.de */
+#LxComments,
+
 /* ...misc and generic... */
 
 [id*=commentaires i],
@@ -705,7 +708,7 @@ div.detail-characters-list ~ div.borderDark,
 .widget-comments,
 #cmtWrapper
 {
-    display: none !important;
+	display: none !important;
 }
 
 
@@ -729,7 +732,7 @@ table.diff .comment,
 .mw-summary-preview .comment
 
 {
-    display: initial !important;
+	display: initial !important;
 }
 
 /* GitHub - Pull Request comments */

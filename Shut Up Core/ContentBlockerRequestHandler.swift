@@ -12,11 +12,12 @@ class ContentBlockerRequestHandler: NSObject, NSExtensionRequestHandling {
     func beginRequest(with context: NSExtensionContext) {
         Setup.main.bootstrap {}
 
-        Stylesheet.main.update(completionHandler: nil)
-
         // Get coalesced rules from stylesheet and whitelist
         let provider = ContentBlockerProvider()
         let rules = provider.coalesce()
+
+        // Begin stylesheet update if necessary
+        Stylesheet.main.update(completionHandler: nil)
 
         // Set up JSON encoder with kebab-cased keys
         let encoder = JSONEncoder()
