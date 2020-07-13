@@ -12,7 +12,8 @@ import CoreGraphics
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     var mwc: MainWindowController?
-
+    @IBOutlet weak var appWindowMenuItem: NSMenuItem!
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         let optionKeyState = CGEventSource.keyState(.combinedSessionState, key: 0x3A)
 
@@ -22,8 +23,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
-    func applicationDidBecomeActive(_ notification: Notification) {
+    func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
         showAppWindow(nil)
+        return false
+    }
+
+    func appWindowMenuItem(isChecked: Bool) {
+        appWindowMenuItem.state = isChecked ? .on : .off
     }
 
     @IBAction func showAppWindow(_ sender: NSMenuItem?) {
