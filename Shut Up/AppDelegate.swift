@@ -11,20 +11,34 @@ import CoreGraphics
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-    var mwc: MainWindowController!
-
+    var mwc: MainWindowController?
+    @IBOutlet weak var appWindowMenuItem: NSMenuItem!
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         let optionKeyState = CGEventSource.keyState(.combinedSessionState, key: 0x3A)
-        let mainSb = NSStoryboard(name: "Main", bundle: nil)
-        mwc = mainSb.instantiateController(withIdentifier: "MainWC") as? MainWindowController
 
         Setup.main.bootstrap(optionKeyState) {
             Stylesheet.main.update(completionHandler: nil)
-            self.mwc.window?.makeKeyAndOrderFront(self)
+            self.showAppWindow(nil)
         }
     }
 
-    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool { true }
+    func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
+        showAppWindow(nil)
+        return false
+    }
+
+    func appWindowMenuItem(isChecked: Bool) {
+        appWindowMenuItem.state = isChecked ? .on : .off
+    }
+
+    @IBAction func showAppWindow(_ sender: NSMenuItem?) {
+        if mwc == nil {
+            let mainSb = NSStoryboard(name: "Main", bundle: nil)
+            mwc = mainSb.instantiateController(withIdentifier: "MainWC") as? MainWindowController
+        }
+        mwc?.window?.makeKeyAndOrderFront(self)
+    }
 
     @IBAction func didChooseLinkItem(_ sender: NSMenuItem) {
         Links.collection.open(by: sender)

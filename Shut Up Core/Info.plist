@@ -38,7 +38,7 @@
 		</array>
 	</dict>
 	<key>NSHumanReadableCopyright</key>
-    <string>© 2010 - 2020 Ricky Romero
+	<string>© 2010 - 2020 Ricky Romero
 shutup.css © 2010 - 2020 Steven Frank and contributors</string>
 	<key>NSHumanReadableDescription</key>
 	<string>Blocks comment sections on webpages.</string>

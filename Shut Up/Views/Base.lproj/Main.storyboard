@@ -24,6 +24,12 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="XMd-hF-RVe"/>
+                                        <menuItem title="Force Stylesheet Update" keyEquivalent="r" id="rU7-cH-BIU">
+                                            <connections>
+                                                <action selector="forceStylesheetUpdate:" target="Ady-hI-5gd" id="Fev-ws-zQD"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="fp6-XE-lWz"/>
                                         <menuItem title="Other Versions" id="3UL-K3-vNI">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <menu key="submenu" title="Other Versions" id="k7i-vQ-3Mw">
@@ -89,24 +95,6 @@
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="File" id="JrF-CV-qQ9">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="File" id="Igp-Zn-oRR">
-                                    <items>
-                                        <menuItem title="Close" keyEquivalent="w" id="LuS-75-dTe">
-                                            <connections>
-                                                <action selector="performClose:" target="Ady-hI-5gd" id="WBv-Vg-2kW"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="rtk-aa-dRr"/>
-                                        <menuItem title="Force Stylesheet Update" keyEquivalent="r" id="rU7-cH-BIU">
-                                            <connections>
-                                                <action selector="forceStylesheetUpdate:" target="Ady-hI-5gd" id="Fev-ws-zQD"/>
-                                            </connections>
-                                        </menuItem>
-                                    </items>
-                                </menu>
-                            </menuItem>
                             <menuItem title="Edit" id="Ufe-7B-iSr">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Edit" id="s2y-Vf-NBi">
@@ -158,6 +146,11 @@ CA
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Window" systemMenu="window" id="jgu-zr-M4c">
                                     <items>
+                                        <menuItem title="Close" keyEquivalent="w" id="53K-aG-0T2">
+                                            <connections>
+                                                <action selector="performClose:" target="Ady-hI-5gd" id="W66-S7-0Na"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem title="Minimize" keyEquivalent="m" id="n1C-tw-55j">
                                             <connections>
                                                 <action selector="performMiniaturize:" target="Ady-hI-5gd" id="D70-Q5-mjM"/>
@@ -170,6 +163,12 @@ CA
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="LCl-oc-Vzm"/>
+                                        <menuItem title="Shut Up" keyEquivalent="0" id="AIk-vF-mPt">
+                                            <connections>
+                                                <action selector="showAppWindow:" target="Voe-Tx-rLC" id="kNn-5L-g8b"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="SxF-ro-evB"/>
                                         <menuItem title="Bring All to Front" id="cw8-eG-1i1">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
@@ -218,7 +217,11 @@ CA
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Shut_Up" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Shut_Up" customModuleProvider="target">
+                    <connections>
+                        <outlet property="appWindowMenuItem" destination="AIk-vF-mPt" id="NxO-qS-geE"/>
+                    </connections>
+                </customObject>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
