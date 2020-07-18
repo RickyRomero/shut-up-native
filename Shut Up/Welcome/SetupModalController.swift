@@ -9,10 +9,13 @@
 import Cocoa
 
 class SetupModalController: NSViewController {
+    override var acceptsFirstResponder: Bool { true }
+
     override func viewWillAppear() {
         super.viewWillAppear()
         view.window?.styleMask.remove(.resizable)
         view.window?.preventsApplicationTerminationWhenModal = false
+        view.window?.makeFirstResponder(view)
     }
 
     @IBAction func performClose(_ sender: Any) {
