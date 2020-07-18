@@ -163,12 +163,6 @@ CA
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="LCl-oc-Vzm"/>
-                                        <menuItem title="Shut Up" keyEquivalent="0" id="AIk-vF-mPt">
-                                            <connections>
-                                                <action selector="showAppWindow:" target="Voe-Tx-rLC" id="kNn-5L-g8b"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="SxF-ro-evB"/>
                                         <menuItem title="Bring All to Front" id="cw8-eG-1i1">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
@@ -217,11 +211,7 @@ CA
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Shut_Up" customModuleProvider="target">
-                    <connections>
-                        <outlet property="appWindowMenuItem" destination="AIk-vF-mPt" id="NxO-qS-geE"/>
-                    </connections>
-                </customObject>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Shut_Up" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

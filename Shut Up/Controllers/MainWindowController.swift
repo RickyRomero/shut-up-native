@@ -19,7 +19,6 @@ class MainWindowController: NSWindowController {
         windowFrameAutosaveName = "MainWindow"
 
         mainWindow.isMovableByWindowBackground = true
-        mainWindow.isExcludedFromWindowsMenu = true
 
         if #available(macOS 10.13, *) {} else {
             // WORKAROUND: macOS Sierra has a bug where the toolbar renders
@@ -33,18 +32,6 @@ class MainWindowController: NSWindowController {
             // Now we need to clear out the title, because there doesn't seem
             // to be any other way to hide it here...
             mainWindow.title = ""
-        }
-    }
-
-    func windowDidBecomeKey(_ notification: Notification) {
-        if let delegate = NSApp.delegate as? AppDelegate {
-            delegate.appWindowMenuItem(isChecked: true)
-        }
-    }
-
-    func windowDidResignKey(_ notification: Notification) {
-        if let delegate = NSApp.delegate as? AppDelegate {
-            delegate.appWindowMenuItem(isChecked: false)
         }
     }
 }
