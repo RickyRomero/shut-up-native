@@ -12,8 +12,8 @@ class MobileAppViewController: NSViewController {
     @IBOutlet var qrCodeContainer: NSImageView!
     static let target = "https://apps.apple.com/app/id1015043880"
     static let targetUrl = URL(string: target)!
-
-    var sharingPicker: NSSharingServicePicker! = nil
+    var sharingPicker: NSSharingServicePicker!
+    override var acceptsFirstResponder: Bool { true }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +41,7 @@ class MobileAppViewController: NSViewController {
         super.viewWillAppear()
         view.window?.styleMask.remove(.resizable)
         view.window?.preventsApplicationTerminationWhenModal = false
+        view.window?.makeFirstResponder(view)
     }
 
     @IBAction func performClose(_ sender: Any) {
