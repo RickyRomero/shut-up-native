@@ -220,7 +220,7 @@ extension MainViewController: WhitelistDataDelegate {
     }
 }
 
-// MARK: WhitelistDataDelegate
+// MARK: NSMenuItemValidation
 
 extension MainViewController: NSMenuItemValidation {
     func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
