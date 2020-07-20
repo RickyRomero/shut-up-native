@@ -116,12 +116,12 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="zLe-ON-Gr3"/>
-                                        <menuItem title="Cut" keyEquivalent="x" id="DN7-qv-ll7">
+                                        <menuItem title="Cut" keyEquivalent="x" identifier="menu_cut" id="DN7-qv-ll7">
                                             <connections>
                                                 <action selector="cut:" target="Ady-hI-5gd" id="kpu-9j-FMe"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Copy" keyEquivalent="c" id="Wjv-HG-qMQ">
+                                        <menuItem title="Copy" keyEquivalent="c" identifier="menu_copy" id="Wjv-HG-qMQ">
                                             <connections>
                                                 <action selector="copy:" target="Ady-hI-5gd" id="XIC-gW-1fN"/>
                                             </connections>
@@ -131,7 +131,7 @@
                                                 <action selector="pasteAsPlainText:" target="Ady-hI-5gd" id="srj-Re-2bT"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Delete" id="gFX-FD-lIv">
+                                        <menuItem title="Delete" identifier="menu_delete" id="gFX-FD-lIv">
                                             <string key="keyEquivalent" base64-UTF8="YES">
 CA
 </string>

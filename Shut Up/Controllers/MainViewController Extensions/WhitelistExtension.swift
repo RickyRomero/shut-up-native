@@ -31,10 +31,49 @@ extension MainViewController {
     }
 
     @IBAction func delete(_: AnyObject) {
-        let domainsToRemove = whitelistView.selectedRowIndexes.map { row in
+        remove(domains: getSelectedDomains())
+    }
+
+    @IBAction func cut(_: AnyObject?) {
+        copy(nil)
+        delete(self)
+    }
+
+    @IBAction func copy(_: AnyObject?) {
+        let pasteboard = NSPasteboard.general
+        pasteboard.declareTypes([.string], owner: nil)
+        pasteboard.setString(
+            getSelectedDomains().joined(separator: "\n").appending("\n"),
+            forType: .string
+        )
+    }
+
+    @IBAction func pasteAsPlainText(_: AnyObject?) {
+        let pasteboard = NSPasteboard.general
+        let startingCount = Whitelist.main.entries.count
+        guard let clipboardContents = pasteboard.string(forType: .string) else {
+            NSSound.beep()
+            return
+        }
+
+        let domains = clipboardContents
+            .split(separator: "\n")
+            .map { String($0) }
+            .map { Whitelist.parseDomain(from: $0) }
+            .filter { $0 != nil }
+            .map { $0! }
+        let dedupedDomains = Array(Set(domains))
+        add(domains: dedupedDomains)
+
+        if startingCount == Whitelist.main.entries.count {
+            NSSound.beep()
+        }
+    }
+
+    func getSelectedDomains() -> [String] {
+        whitelistView.selectedRowIndexes.map { row in
             Whitelist.main.entries[row]
         }
-        remove(domains: domainsToRemove)
     }
 
     func verifyWhitelistEntry(for string: String, on row: Int?) -> String? {
@@ -180,9 +219,11 @@ extension MainViewController: WhitelistDataDelegate {
 
 extension MainViewController: NSMenuItemValidation {
     func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
-        if menuItem.title == "Delete" {
-            return whitelistView.selectedRowIndexes.count > 0
+        switch menuItem.identifier?.rawValue {
+        case "menu_cut": fallthrough
+        case "menu_copy": fallthrough
+        case "menu_delete": return whitelistView.selectedRowIndexes.count > 0
+        default: return true
         }
-        return true
     }
 }
