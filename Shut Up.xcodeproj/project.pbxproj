@@ -58,6 +58,7 @@
 		11E4B0B3246D0EF3007340A4 /* EncryptedFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E4B0B2246D0EF3007340A4 /* EncryptedFile.swift */; };
 		11E4B0B4246D0EF3007340A4 /* EncryptedFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E4B0B2246D0EF3007340A4 /* EncryptedFile.swift */; };
 		11E4B0B5246D0EF3007340A4 /* EncryptedFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E4B0B2246D0EF3007340A4 /* EncryptedFile.swift */; };
+		11E581D1231DB6FC00910010 /* Shut Up.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 11E581D0231DB6FC00910010 /* Shut Up.entitlements */; };
 		11E581D3231DB6FC00910010 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E581D2231DB6FC00910010 /* AppDelegate.swift */; };
 		11E581D6231DB6FC00910010 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11E581D4231DB6FC00910010 /* Main.storyboard */; };
 		11E581D8231DB6FC00910010 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E581D7231DB6FC00910010 /* MainViewController.swift */; };
@@ -468,7 +469,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = "Ricky Romero";
 				TargetAttributes = {
 					112A8123248C78D20077AA4B = {
@@ -553,6 +554,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11E581D1231DB6FC00910010 /* Shut Up.entitlements in Resources */,
 				11E581DA231DB6FD00910010 /* Assets.xcassets in Resources */,
 				111C4DE0234A47180034054C /* domain-whitelist.json in Resources */,
 				111C4DDC234A46C10034054C /* shutup.css in Resources */,
@@ -698,7 +700,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Debug Tools/Debug_Tools.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = TMM5P68287;
@@ -720,7 +722,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Debug Tools/Debug_Tools.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = TMM5P68287;
@@ -763,7 +765,6 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -825,7 +826,6 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
