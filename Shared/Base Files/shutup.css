@@ -723,8 +723,14 @@ html.Comments, body.Comments,
 html#comments, body#comments,
 html#Comments, body#Comments,
 
-/* highlight.js */
+/* City Observatory's "City Commentary" posts */
+body.post-template-default.category-commentary
+  > div.header:first-child
+  + div.content.comments,
+
+/* highlight.js and Prism */
 code span.comment,
+pre span.comment,
 
 /* MediaWiki edit summaries (Wikipedia, etc.) */
 #pagehistory .comment,
