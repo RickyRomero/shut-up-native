@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>DeveloperName</key>
+	<string>Ricky Romero</string>
+	<key>ApplicationDescription</key>
+	<string>Shut Up is a general-purpose comment blocker for Safari.</string>
+	<key>Website</key>
+	<string>https://rickyromero.com/shutup/</string>
+	<key>Connections</key>
+	<array>
+		<dict>
+			<key>IsIncoming</key>
+			<false/>
+			<key>Host</key>
+			<string>rickyromero.com</string>
+			<key>NetworkProtocol</key>
+			<string>TCP</string>
+			<key>Port</key>
+			<string>443</string>
+			<key>Relevance</key>
+			<string>Default</string>
+			<key>Purpose</key>
+			<string>Websites are redesigned without advance notice. To keep up with this, Shut Up uses [a stylesheet on my server](https://rickyromero.com/shutup/updates/shutup.css) to block comments. It checks this file for updates every 2 days. This is only for maintaining effective comment blocking – [Shut Up doesn&apos;t track you](https://rickyromero.com/shutup/privacy/).</string>
+			<key>DenyConsequences</key>
+			<string>Permanently denying this connection may gradually degrade Shut Up&apos;s comment blocking as websites are redesigned.</string>
+		</dict>
+	</array>
+</dict>
+</plist>

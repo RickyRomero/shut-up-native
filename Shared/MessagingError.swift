@@ -162,7 +162,7 @@ class MessagingError: NSError {
             switch cause as! MiscError {
                 case .runningBetaOs:
                     title = "Time traveling detected"
-                    info = "This version of macOS may not work perfectly with Shut Up. A future update to Shut Up will support macOS Big Sur following its final release this fall.\n\nIf you encounter bugs, you can email me via Help > Contact Developer. Please also use the Feedback Assistant app to report bugs to Apple."
+                    info = "This version of macOS may not work perfectly with Shut Up. A future update to Shut Up will support macOS 12 following its final release later this year.\n\nIf you encounter bugs, you can email me via Help > Contact Developer. Please also use the Feedback Assistant app to report bugs to Apple."
                 case .unexpectedNetworkResponse:
                     title = "Unexpected response from rickyromero.com"
                     info = "Shut Up tried to update the stylesheet, but the response the server sent was invalid. Try again later."
