@@ -17,6 +17,8 @@
 		110FEE102476D07100AA0B83 /* MessagingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110FEE0D2476D07100AA0B83 /* MessagingError.swift */; };
 		11161DC724A26EDA00F12B10 /* ContentBlockerRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11161DC624A26EDA00F12B10 /* ContentBlockerRule.swift */; };
 		11161DC924A271DA00F12B10 /* ContentBlockerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11161DC824A271DA00F12B10 /* ContentBlockerProvider.swift */; };
+		1118BC2C2525849E00355596 /* InternetAccessPolicy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1118BC2B2525849E00355596 /* InternetAccessPolicy.plist */; };
+		1118BC2D2525849E00355596 /* InternetAccessPolicy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1118BC2B2525849E00355596 /* InternetAccessPolicy.plist */; };
 		111C4DD3234A2ADD0034054C /* Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111C4DD2234A2ADD0034054C /* Setup.swift */; };
 		111C4DD4234A2ADD0034054C /* Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111C4DD2234A2ADD0034054C /* Setup.swift */; };
 		111C4DD5234A2ADD0034054C /* Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111C4DD2234A2ADD0034054C /* Setup.swift */; };
@@ -119,6 +121,7 @@
 		110FEE0D2476D07100AA0B83 /* MessagingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingError.swift; sourceTree = "<group>"; };
 		11161DC624A26EDA00F12B10 /* ContentBlockerRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentBlockerRule.swift; sourceTree = "<group>"; };
 		11161DC824A271DA00F12B10 /* ContentBlockerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentBlockerProvider.swift; sourceTree = "<group>"; };
+		1118BC2B2525849E00355596 /* InternetAccessPolicy.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = InternetAccessPolicy.plist; sourceTree = "<group>"; };
 		111C4DD2234A2ADD0034054C /* Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setup.swift; sourceTree = "<group>"; };
 		111C4DD6234A2D040034054C /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		111C4DDB234A46C10034054C /* shutup.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = shutup.css; sourceTree = "<group>"; };
@@ -218,6 +221,7 @@
 				110FEE0D2476D07100AA0B83 /* MessagingError.swift */,
 				11F903B82470F96D0012051C /* LockFile.swift */,
 				111C4DD6234A2D040034054C /* Info.swift */,
+				1118BC2B2525849E00355596 /* InternetAccessPolicy.plist */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -468,7 +472,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = "Ricky Romero";
 				TargetAttributes = {
 					112A8123248C78D20077AA4B = {
@@ -557,6 +561,7 @@
 				111C4DE0234A47180034054C /* domain-whitelist.json in Resources */,
 				111C4DDC234A46C10034054C /* shutup.css in Resources */,
 				11E581D6231DB6FC00910010 /* Main.storyboard in Resources */,
+				1118BC2C2525849E00355596 /* InternetAccessPolicy.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,6 +582,7 @@
 			files = (
 				111C4DDE234A46C10034054C /* shutup.css in Resources */,
 				111C4DE2234A47180034054C /* domain-whitelist.json in Resources */,
+				1118BC2D2525849E00355596 /* InternetAccessPolicy.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
