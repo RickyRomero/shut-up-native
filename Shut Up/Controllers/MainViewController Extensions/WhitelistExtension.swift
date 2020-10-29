@@ -30,11 +30,50 @@ extension MainViewController {
         }
     }
 
-    @IBAction func delete(_ sender: AnyObject) {
-        let domainsToRemove = whitelistView.selectedRowIndexes.map { row in
+    @IBAction func delete(_ sender: AnyObject?) {
+        remove(domains: getSelectedDomains())
+    }
+
+    @IBAction func cut(_ sender: AnyObject?) {
+        copy(nil)
+        delete(nil)
+    }
+
+    @IBAction func copy(_ sender: AnyObject?) {
+        let pasteboard = NSPasteboard.general
+        pasteboard.declareTypes([.string], owner: nil)
+        pasteboard.setString(
+            getSelectedDomains().joined(separator: "\n").appending("\n"),
+            forType: .string
+        )
+    }
+
+    @IBAction func pasteAsPlainText(_ sender: AnyObject?) {
+        let pasteboard = NSPasteboard.general
+        let startingCount = Whitelist.main.entries.count
+        guard let clipboardContents = pasteboard.string(forType: .string) else {
+            NSSound.beep()
+            return
+        }
+
+        let domains = clipboardContents
+            .split(separator: "\n")
+            .map { String($0) }
+            .map { Whitelist.parseDomain(from: $0) }
+            .filter { $0 != nil }
+            .map { $0! }
+        let dedupedDomains = Array(Set(domains))
+        add(domains: dedupedDomains)
+
+        if startingCount == Whitelist.main.entries.count {
+            NSSound.beep()
+        }
+    }
+
+    func getSelectedDomains() -> [String] {
+        return whitelistView.selectedRowIndexes.map { row in
             Whitelist.main.entries[row]
         }
-        remove(domains: domainsToRemove)
     }
 
     func verifyWhitelistEntry(for string: String, on row: Int?) -> String? {
@@ -181,13 +220,15 @@ extension MainViewController: WhitelistDataDelegate {
     }
 }
 
-// MARK: WhitelistDataDelegate
+// MARK: NSMenuItemValidation
 
 extension MainViewController: NSMenuItemValidation {
     func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
-        if menuItem.title == "Delete" {
-            return whitelistView.selectedRowIndexes.count > 0
+        switch menuItem.title {
+            case "Cut": fallthrough
+            case "Copy": fallthrough
+            case "Delete": return whitelistView.selectedRowIndexes.count > 0
+            default: return true
         }
-        return true
     }
 }
