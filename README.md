@@ -18,7 +18,7 @@ If you're simply looking to *install* Shut Up, these are the links you're lookin
 
 ## Minimum Requirements
 
-This version of Shut Up requires macOS Sierra or later. It currently requires Xcode 11 to build, though it will soon be updated for macOS Big Sur and Xcode 12.
+This version of Shut Up requires macOS Sierra or later. It requires Xcode 12 to build.
 
 ## License
 
