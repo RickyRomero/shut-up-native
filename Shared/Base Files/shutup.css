@@ -238,8 +238,8 @@ p.theme-comments,
 fb\:comments,
 div[data-testid^=UFI2CommentsList],
 /* new facebook beta look */
-[data-pagelet*="FeedUnit"] [aria-label^="Comment"],
-[data-pagelet*="FeedUnit"] [aria-label^="Reply"],
+[data-pagelet="page"] [aria-label^="Comment"],
+[data-pagelet="page"] [aria-label^="Reply"],
 
 /* buzzfeed */
 #responses,
@@ -672,6 +672,9 @@ div.detail-characters-list ~ div.borderDark,
 /* gazeta.pl */
 .commentsApp,
 
+/* Trójmiasto.pl */
+.Opinions,
+
 /* AppleInsider */
 .comment-section-head,
 .comment-section-head ~ .forum-comment,
@@ -682,6 +685,9 @@ div.detail-characters-list ~ div.borderDark,
 /* Bandcamp */
 .deets.populated > .writing,
 .spotlight-unit .item-desc,
+
+/* Various French streaming mirrors */
+.barremenu ~ div.row div[id^="critique"],
 
 /* Adult */
 .content form ~ a#ci ~ div[id^=c0],
@@ -707,6 +713,7 @@ body [class*=commentaires i],
 #comment_entries,
 #comment_form,
 #commentlist,
+#comments-panel,
 #user-comments,
 #user_commeent_section,
 .comments_area,
