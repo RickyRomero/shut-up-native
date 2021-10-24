@@ -14,6 +14,25 @@ struct ContentBlockerRule: Encodable {
 struct ContentBlockerRuleTrigger: Encodable {
     let urlFilter = ".*"
     let unlessDomain: [String]
+
+    enum QualifiedCodingKeys: String, CodingKey {
+        case urlFilter, unlessDomain
+    }
+
+    enum UnqualifiedCodingKeys: String, CodingKey {
+        case urlFilter
+    }
+
+    func encode(to encoder: Encoder) throws {
+        if unlessDomain.count > 0 {
+            var container = encoder.container(keyedBy: QualifiedCodingKeys.self)
+            try container.encode(urlFilter, forKey: .urlFilter)
+            try container.encode(unlessDomain, forKey: .unlessDomain)
+        } else {
+            var container = encoder.container(keyedBy: UnqualifiedCodingKeys.self)
+            try container.encode(urlFilter, forKey: .urlFilter)
+        }
+    }
 }
 
 struct ContentBlockerRuleAction: Encodable {
