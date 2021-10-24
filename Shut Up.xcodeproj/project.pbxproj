@@ -29,6 +29,9 @@
 		111C4DE0234A47180034054C /* domain-whitelist.json in Resources */ = {isa = PBXBuildFile; fileRef = 111C4DDF234A47180034054C /* domain-whitelist.json */; };
 		111C4DE1234A47180034054C /* domain-whitelist.json in Resources */ = {isa = PBXBuildFile; fileRef = 111C4DDF234A47180034054C /* domain-whitelist.json */; };
 		111C4DE2234A47180034054C /* domain-whitelist.json in Resources */ = {isa = PBXBuildFile; fileRef = 111C4DDF234A47180034054C /* domain-whitelist.json */; };
+		1123F68F272513940026E2A7 /* InternetAccessPolicy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1123F68E272513940026E2A7 /* InternetAccessPolicy.plist */; };
+		1123F690272513940026E2A7 /* InternetAccessPolicy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1123F68E272513940026E2A7 /* InternetAccessPolicy.plist */; };
+		1123F691272513940026E2A7 /* InternetAccessPolicy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1123F68E272513940026E2A7 /* InternetAccessPolicy.plist */; };
 		112A8127248C78D20077AA4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A8126248C78D20077AA4B /* AppDelegate.swift */; };
 		112A812B248C78D30077AA4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 112A812A248C78D30077AA4B /* Assets.xcassets */; };
 		112A8135248C79DA0077AA4B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 112A8134248C79DA0077AA4B /* MainMenu.xib */; };
@@ -123,6 +126,7 @@
 		111C4DD6234A2D040034054C /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		111C4DDB234A46C10034054C /* shutup.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = shutup.css; sourceTree = "<group>"; };
 		111C4DDF234A47180034054C /* domain-whitelist.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "domain-whitelist.json"; sourceTree = "<group>"; };
+		1123F68E272513940026E2A7 /* InternetAccessPolicy.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = InternetAccessPolicy.plist; sourceTree = "<group>"; };
 		112A8124248C78D20077AA4B /* Shut Up Debug Tools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shut Up Debug Tools.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		112A8126248C78D20077AA4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		112A812A248C78D30077AA4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -227,6 +231,7 @@
 			children = (
 				111C4DDB234A46C10034054C /* shutup.css */,
 				111C4DDF234A47180034054C /* domain-whitelist.json */,
+				1123F68E272513940026E2A7 /* InternetAccessPolicy.plist */,
 			);
 			path = "Base Files";
 			sourceTree = "<group>";
@@ -555,6 +560,7 @@
 			files = (
 				11E581DA231DB6FD00910010 /* Assets.xcassets in Resources */,
 				111C4DE0234A47180034054C /* domain-whitelist.json in Resources */,
+				1123F68F272513940026E2A7 /* InternetAccessPolicy.plist in Resources */,
 				111C4DDC234A46C10034054C /* shutup.css in Resources */,
 				11E581D6231DB6FC00910010 /* Main.storyboard in Resources */,
 			);
@@ -566,6 +572,7 @@
 			files = (
 				11E58219231DFDA100910010 /* turn-off.pdf in Resources */,
 				11E5821A231DFDA100910010 /* turn-on.pdf in Resources */,
+				1123F690272513940026E2A7 /* InternetAccessPolicy.plist in Resources */,
 				111C4DDD234A46C10034054C /* shutup.css in Resources */,
 				111C4DE1234A47180034054C /* domain-whitelist.json in Resources */,
 			);
@@ -577,6 +584,7 @@
 			files = (
 				111C4DDE234A46C10034054C /* shutup.css in Resources */,
 				111C4DE2234A47180034054C /* domain-whitelist.json in Resources */,
+				1123F691272513940026E2A7 /* InternetAccessPolicy.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
