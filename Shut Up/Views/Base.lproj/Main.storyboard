@@ -1139,7 +1139,7 @@ DQ
                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                             <subviews>
                                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b6h-C7-XOx">
-                                                                                    <rect key="frame" x="12" y="4" width="253" height="17"/>
+                                                                                    <rect key="frame" x="12" y="4" width="253" height="16"/>
                                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Hide comments everywhere, except:" id="gcE-XB-Kmq">
                                                                                         <font key="font" metaFont="system"/>
