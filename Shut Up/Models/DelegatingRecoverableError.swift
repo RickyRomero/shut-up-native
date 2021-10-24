@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ErrorRecoveryDelegate: class {
+protocol ErrorRecoveryDelegate: AnyObject {
     func attemptRecovery(from error: Error, with option: RecoveryOption) -> Bool
 }
 

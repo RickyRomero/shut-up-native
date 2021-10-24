@@ -106,7 +106,10 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         let matched = Whitelist.main.matches(domain: domain)
         let icon = matched ? toolbarImages.disabled : toolbarImages.enabled
         button?.setImage(icon)
-        button?.setLabel(matched ? "Hide Comments" : "Show Comments")
+
+        if #available(macOS 10.13, *) {
+            button?.setLabel(matched ? "Hide Comments" : "Show Comments")
+        }
     }
 
     override func validateContextMenuItem(withCommand command: String, in page: SFSafariPage, userInfo: [String : Any]? = nil, validationHandler: @escaping (Bool, String?) -> Void) {
