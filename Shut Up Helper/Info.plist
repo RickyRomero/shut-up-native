@@ -67,8 +67,8 @@
 		</dict>
 	</dict>
 	<key>NSHumanReadableCopyright</key>
-	<string>© 2010 - 2021 Ricky Romero
-shutup.css © 2010 - 2021 Steven Frank and contributors</string>
+	<string>© 2010 - 2022 Ricky Romero
+shutup.css © 2010 - 2022 Steven Frank and contributors</string>
 	<key>NSHumanReadableDescription</key>
 	<string>Enables Shut Up’s toolbar button and context menu item. Recommended for full functionality.</string>
 	<key>TeamIdentifierPrefix</key>

@@ -3,7 +3,7 @@
 //  Shut Up
 //
 //  Created by Ricky Romero on 11/3/19.
-//  Copyright © 2019 Ricky Romero. All rights reserved.
+//  See LICENSE.md for license information.
 //
 
 import SafariServices

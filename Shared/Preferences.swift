@@ -3,7 +3,7 @@
 //  shutup
 //
 //  Created by Ricky Romero on 5/23/20.
-//  Copyright © 2020 Ricky Romero. All rights reserved.
+//  See LICENSE.md for license information.
 //
 
 import Foundation

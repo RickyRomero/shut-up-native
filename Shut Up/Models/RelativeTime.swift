@@ -3,7 +3,7 @@
 //  Shut Up
 //
 //  Created by Ricky Romero on 6/9/20.
-//  Copyright © 2020 Ricky Romero. All rights reserved.
+//  See LICENSE.md for license information.
 //
 
 // 10.15 adds RelativeDateTimeFormatter, but we don't have the luxury

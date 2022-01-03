@@ -3,7 +3,7 @@
 //  Custom Text Field
 //
 //  Created by Ricky Romero on 6/13/20.
-//  Copyright © 2020 Ricky Romero. All rights reserved.
+//  See LICENSE.md for license information.
 //
 
 import Cocoa

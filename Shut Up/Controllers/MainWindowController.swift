@@ -3,7 +3,7 @@
 //  Shut Up
 //
 //  Created by Ricky Romero on 10/20/19.
-//  Copyright © 2019 Ricky Romero. All rights reserved.
+//  See LICENSE.md for license information.
 //
 
 import Cocoa

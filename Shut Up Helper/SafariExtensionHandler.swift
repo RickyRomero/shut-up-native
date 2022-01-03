@@ -3,7 +3,7 @@
 //  shutup Extension
 //
 //  Created by Ricky Romero on 9/2/19.
-//  Copyright © 2019 Ricky Romero. All rights reserved.
+//  See LICENSE.md for license information.
 //
 
 import SafariServices
