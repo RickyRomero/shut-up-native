@@ -71,10 +71,13 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
                 return
             }
 
-            // This event lies, dispatching the completion handler before it's ready.
-            // It's pretty consistently ready at about 10 milliseconds of delay on my system.
-            // Hopefully 50 milliseconds is long enough of a pause to sort it out on every system.
-            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50)) {
+            // This event lies, dispatching the completion handler sometimes
+            // long before it's ready.
+            // The discrepancy may be dependent upon how many rules from all
+            // content blockers are being recompiled during this step.
+            // I have quite a few blockers installed now, and I had to increase
+            // this artificial delay from 50ms all the way to 550ms.
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(550)) {
                 page?.reload()
             }
 
