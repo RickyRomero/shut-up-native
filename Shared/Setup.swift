@@ -57,7 +57,7 @@ final class Setup {
         let alert = NSAlert()
         alert.alertStyle = .critical
         alert.messageText = "Reset Shut Up?"
-        alert.informativeText = "Resetting Shut Up will delete your preferences and whitelist. This will restore its original configuration. You cannot undo this action."
+        alert.informativeText = "Resetting Shut Up will delete your settings and allowlist. This will restore its original configuration. You cannot undo this action."
         let quitButton = alert.addButton(withTitle: "Quit")
         quitButton.keyEquivalent = ""
         alert.addButton(withTitle: "Reset Shut Up")

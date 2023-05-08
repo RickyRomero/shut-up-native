@@ -114,15 +114,15 @@ class MessagingError: NSError {
                     info = "If the issue persists, try restarting your Mac."
                 case .fetchingKeys:
                     title = "Encryption keys missing or damaged"
-                    info = "Shut Up failed to decrypt some required data. You can fix this by resetting Shut Up, but your whitelist may be lost."
+                    info = "Shut Up failed to decrypt some required data. You can fix this by resetting Shut Up, but your allowlist may be lost."
                     options = [.quit, .reset]
                 case .transformingData:
-                    title = "Stylesheet or whitelist damaged"
-                    info = "Shut Up failed to decrypt some required data. You can fix this by resetting Shut Up, but your whitelist may be lost."
+                    title = "Stylesheet or allowlist damaged"
+                    info = "Shut Up failed to decrypt some required data. You can fix this by resetting Shut Up, but your allowlist may be lost."
                     options = [.quit, .reset]
                 case .migratingPreCatalinaKeys:
                     title = "Key migration failed"
-                    info = "Shut Up tried to migrate encryption keys from an older version of macOS, but it failed. You can fix this by resetting Shut Up, but your whitelist may be lost."
+                    info = "Shut Up tried to migrate encryption keys from an older version of macOS, but it failed. You can fix this by resetting Shut Up, but your allowlist may be lost."
                     options = [.quit, .reset]
             }
         } else if cause is LockError {
@@ -151,8 +151,8 @@ class MessagingError: NSError {
                     title = "Safari failed to read Shut Up’s content-blocking rules"
                     info = "Shut Up sent Safari new content-blocking rules, but it failed. Try restarting Safari. If the issue persists, try restarting your Mac."
                 case .showingSafariPreferences:
-                    title = "Safari failed to open its preferences"
-                    info = "Shut Up asked Safari to open its preferences window, but it failed. Try opening Safari’s preferences manually, then go to the “Extensions” section."
+                    title = "Safari failed to open its settings"
+                    info = "Shut Up asked Safari to open its settings window, but it failed. Try opening Safari’s settings manually, then go to the “Extensions” section."
                 case .requestingExtensionStatus:
                     title = "Safari failed to provide extension info"
                     info = "Shut Up asked Safari if its extensions are enabled, but it failed. Try quitting Shut Up and moving it to your Applications folder.\n\nIf the issue persists, try uninstalling Shut Up, restarting your Mac, and reinstalling Shut Up."
