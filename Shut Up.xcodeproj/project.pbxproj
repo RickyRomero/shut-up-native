@@ -65,12 +65,12 @@
 		11E581D6231DB6FC00910010 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11E581D4231DB6FC00910010 /* Main.storyboard */; };
 		11E581D8231DB6FC00910010 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E581D7231DB6FC00910010 /* MainViewController.swift */; };
 		11E581DA231DB6FD00910010 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11E581D9231DB6FD00910010 /* Assets.xcassets */; };
-		11E581E1231DB6FD00910010 /* Shut Up Helper.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 11E581E0231DB6FD00910010 /* Shut Up Helper.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		11E581E1231DB6FD00910010 /* Shut Up Helper.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 11E581E0231DB6FD00910010 /* Shut Up Helper.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		11E581E6231DB6FD00910010 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11E581E5231DB6FD00910010 /* Cocoa.framework */; };
 		11E581E9231DB6FD00910010 /* SafariExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E581E8231DB6FD00910010 /* SafariExtensionHandler.swift */; };
 		11E58203231DB82E00910010 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11E581E5231DB6FD00910010 /* Cocoa.framework */; };
 		11E58208231DB82E00910010 /* ContentBlockerRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E58207231DB82E00910010 /* ContentBlockerRequestHandler.swift */; };
-		11E5820D231DB82E00910010 /* Shut Up Core.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 11E58202231DB82E00910010 /* Shut Up Core.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		11E5820D231DB82E00910010 /* Shut Up Core.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 11E58202231DB82E00910010 /* Shut Up Core.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		11E58219231DFDA100910010 /* turn-off.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 11E58217231DFDA100910010 /* turn-off.pdf */; };
 		11E5821A231DFDA100910010 /* turn-on.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 11E58218231DFDA100910010 /* turn-on.pdf */; };
 		11EF35712479F12000D5EFD2 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EF35702479F12000D5EFD2 /* Preferences.swift */; };
@@ -101,16 +101,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		11E581FA231DB6FD00910010 /* Embed App Extensions */ = {
+		11E581FA231DB6FD00910010 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				11E581E1231DB6FD00910010 /* Shut Up Helper.appex in Embed App Extensions */,
-				11E5820D231DB82E00910010 /* Shut Up Core.appex in Embed App Extensions */,
+				11E581E1231DB6FD00910010 /* Shut Up Helper.appex in Embed Foundation Extensions */,
+				11E5820D231DB82E00910010 /* Shut Up Core.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -419,7 +419,7 @@
 				11E581C9231DB6FC00910010 /* Sources */,
 				11E581CA231DB6FC00910010 /* Frameworks */,
 				11E581CB231DB6FC00910010 /* Resources */,
-				11E581FA231DB6FD00910010 /* Embed App Extensions */,
+				11E581FA231DB6FD00910010 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -473,7 +473,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1310;
+				LastUpgradeCheck = 1400;
 				ORGANIZATIONNAME = "Ricky Romero";
 				TargetAttributes = {
 					112A8123248C78D20077AA4B = {
@@ -709,6 +709,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = TMM5P68287;
 				ENABLE_HARDENED_RUNTIME = NO;
 				INFOPLIST_FILE = "Debug Tools/Info.plist";
@@ -731,6 +732,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = TMM5P68287;
 				ENABLE_HARDENED_RUNTIME = NO;
 				INFOPLIST_FILE = "Debug Tools/Info.plist";
@@ -781,6 +783,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -798,7 +801,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.13.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -844,6 +847,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -855,7 +859,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.13.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -871,6 +875,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 11;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = TMM5P68287;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Shut Up Helper/Info.plist";
@@ -894,6 +899,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 11;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = TMM5P68287;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Shut Up Helper/Info.plist";
@@ -920,6 +926,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 11;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = TMM5P68287;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Shut Up/Info.plist";
@@ -944,6 +951,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 11;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = TMM5P68287;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Shut Up/Info.plist";
@@ -965,6 +973,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 11;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = TMM5P68287;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Shut Up Core/Info.plist";
@@ -988,6 +997,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 11;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = TMM5P68287;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Shut Up Core/Info.plist";
