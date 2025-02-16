@@ -39,7 +39,6 @@
 		11358189236FCB0F00BF7617 /* Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11358188236FCB0F00BF7617 /* Links.swift */; };
 		113CAF73247B08AD00311C57 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113CAF72247B08AD00311C57 /* WelcomeViewController.swift */; };
 		114F8BDC2498928400FD05C7 /* MobileAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114F8BDB2498928400FD05C7 /* MobileAppViewController.swift */; };
-		1160244624906B2700221428 /* RelativeTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160244524906B2700221428 /* RelativeTime.swift */; };
 		117578622355876000827387 /* SetupModalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117578612355876000827387 /* SetupModalController.swift */; };
 		119742CF2478DC94000AFA2D /* Stylesheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119742CE2478DC94000AFA2D /* Stylesheet.swift */; };
 		119742D02478DC94000AFA2D /* Stylesheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119742CE2478DC94000AFA2D /* Stylesheet.swift */; };
@@ -137,7 +136,6 @@
 		11358188236FCB0F00BF7617 /* Links.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Links.swift; sourceTree = "<group>"; };
 		113CAF72247B08AD00311C57 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		114F8BDB2498928400FD05C7 /* MobileAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MobileAppViewController.swift; path = "Shut Up/Controllers/MobileAppViewController.swift"; sourceTree = SOURCE_ROOT; };
-		1160244524906B2700221428 /* RelativeTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelativeTime.swift; sourceTree = "<group>"; };
 		117578612355876000827387 /* SetupModalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupModalController.swift; sourceTree = "<group>"; };
 		119742CE2478DC94000AFA2D /* Stylesheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stylesheet.swift; sourceTree = "<group>"; };
 		1197B4AE2496A8290072B074 /* PreferencesExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesExtension.swift; sourceTree = "<group>"; };
@@ -279,7 +277,6 @@
 				11B920FD247D51760002C430 /* BrowserBridge.swift */,
 				110F510C247B7C9000D58266 /* DelegatingRecoverableError.swift */,
 				11358188236FCB0F00BF7617 /* Links.swift */,
-				1160244524906B2700221428 /* RelativeTime.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -607,7 +604,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1160244624906B2700221428 /* RelativeTime.swift in Sources */,
 				11358189236FCB0F00BF7617 /* Links.swift in Sources */,
 				11B92100247D6F520002C430 /* DefaultBrowserViewController.swift in Sources */,
 				110C5A94247C41DD00004DFA /* EnableExtensionsViewController.swift in Sources */,

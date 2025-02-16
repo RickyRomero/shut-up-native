@@ -26,14 +26,17 @@ extension MainViewController {
     func updateLastCssUpdateLabel(with timestamp: Date) {
         let cutoff: Double = 60 * 60 * 24 * 7
         let cutoffDate = Date(timeIntervalSinceNow: cutoff * -1.0)
-        let relativeTimeStr: String!
+        let relativeTimeStr: String
 
         if timestamp == Date(timeIntervalSince1970: 0) {
             relativeTimeStr = "--"
         } else if timestamp < cutoffDate {
             relativeTimeStr = "Updated over 1 week ago"
         } else {
-            relativeTimeStr = "Updated \(timestamp.relativeTime)"
+            let formatter = RelativeDateTimeFormatter()
+            formatter.unitsStyle = .full
+            let relative = formatter.localizedString(for: timestamp, relativeTo: Date())
+            relativeTimeStr = "Updated \(relative)"
         }
 
         lastCssUpdateLabel.stringValue = relativeTimeStr
