@@ -103,27 +103,22 @@ extension MainViewController {
     }
 
     func reloadTableData() {
-        if #available(macOS 10.15, *) {
-            whitelistView.beginUpdates()
-            let diff = Whitelist.main.entries.difference(from: whitelistTableEntries)
+        whitelistView.beginUpdates()
+        let diff = Whitelist.main.entries.difference(from: whitelistTableEntries)
 
-            diff.forEach { change in
-                switch change {
-                    case let .remove(offset, _, _):
-                        whitelistTableEntries.remove(at: offset)
-                        let indexSet = IndexSet([offset])
-                        whitelistView.removeRows(at: indexSet, withAnimation: .slideUp)
-                    case let .insert(offset, newElement, _):
-                        whitelistTableEntries.insert(newElement, at: offset)
-                        let indexSet = IndexSet([offset])
-                        whitelistView.insertRows(at: indexSet, withAnimation: .slideDown)
-                }
+        for change in diff {
+            switch change {
+                case let .remove(offset, _, _):
+                    whitelistTableEntries.remove(at: offset)
+                    let indexSet = IndexSet([offset])
+                    whitelistView.removeRows(at: indexSet, withAnimation: .slideUp)
+                case let .insert(offset, newElement, _):
+                    whitelistTableEntries.insert(newElement, at: offset)
+                    let indexSet = IndexSet([offset])
+                    whitelistView.insertRows(at: indexSet, withAnimation: .slideDown)
             }
-            whitelistView.endUpdates()
-        } else {
-            whitelistTableEntries = Whitelist.main.entries
-            whitelistView.reloadData()
         }
+        whitelistView.endUpdates()
     }
 
     func updateContentBlocker() {
@@ -161,8 +156,8 @@ extension MainViewController: NSTableViewDataSource {
 extension MainViewController: NSTableViewDelegate {
     // Swipe actions for the table view
     func tableView(_ tableView: NSTableView, rowActionsForRow row: Int, edge: NSTableView.RowActionEdge) -> [NSTableViewRowAction] {
-        if (edge == .trailing) {
-            let deleteAction = NSTableViewRowAction(style: .destructive, title: "Delete", handler: { rowAction, row in
+        if edge == .trailing {
+            let deleteAction = NSTableViewRowAction(style: .destructive, title: "Delete", handler: { _, row in
                 self.remove(domains: [Whitelist.main.entries[row]])
             })
             deleteAction.backgroundColor = .red

@@ -6,8 +6,8 @@
 //  See LICENSE.md for license information.
 //
 
-import Foundation
 import Cocoa
+import Foundation
 
 enum CryptoOperation {
     case encryption
@@ -21,20 +21,25 @@ enum KeyClass {
 
 final class Crypto {
     private init() {
+        // swiftformat:disable:next all
         queryBase[kSecAttrKeyType]       = constants["type"]!
         queryBase[kSecAttrKeySizeInBits] = constants["bits"]!
     }
+
     static var main = Crypto()
     let lock = LockFile(url: Info.containerUrl.appendingPathComponent("keychain.lock"))
     let queue = DispatchQueue(label: "\(Info.bundleId).keychain")
 
     private let constants: [String: Any] = [
+        // swiftformat:disable all
         "accessGroup":  Info.groupId,
         "type":         kSecAttrKeyTypeRSA,
         "bits":         3072,
         "label":        "Shut Up Encryption Key"
+        // swiftformat:enable all
     ]
     private var queryBase: [CFString: Any] = [
+        // swiftformat:disable:next all
         kSecClass:     kSecClassKey,
         kSecReturnRef: true
     ]
@@ -46,7 +51,7 @@ final class Crypto {
         setupStarted = true
 
         if preCatalinaKeysPresent || !requiredKeysPresent {
-            self.lock.claim()
+            lock.claim()
             do {
                 if Crypto.main.preCatalinaKeysPresent {
                     try Crypto.main.migratePreCatalinaKeys()
@@ -81,17 +86,13 @@ final class Crypto {
         // Invalidate keys by deleting them
         var query: [CFString: Any] = [
             kSecClass: kSecClassKey,
-            kSecMatchLimit: kSecMatchLimitAll,
+            kSecMatchLimit: kSecMatchLimitAll
         ]
 
-        if #available(macOS 10.15, *) {
-            if preCatalinaItems {
-                query[kSecAttrSynchronizable] = true
-            } else {
-                query[kSecUseDataProtectionKeychain] = true
-            }
-        } else {
+        if preCatalinaItems {
             query[kSecAttrSynchronizable] = true
+        } else {
+            query[kSecUseDataProtectionKeychain] = true
         }
 
         let result = SecItemDelete(query as CFDictionary)
@@ -100,10 +101,10 @@ final class Crypto {
             print(SecCopyErrorMessageString(result, nil)!)
             throw CryptoError.removingInvalidKeys
         }
-        if (result == errSecSuccess) {
+        if result == errSecSuccess {
             print("Removed key(s) successfully.")
         }
-        if (result == errSecItemNotFound) {
+        if result == errSecItemNotFound {
             print("No key(s) found to remove.")
         }
     }
@@ -113,6 +114,7 @@ final class Crypto {
 
         let keyId = UUID()
         var attributes = [
+            // swiftformat:disable all
             kSecAttrKeyType:          constants["type"]!,
             kSecAttrKeySizeInBits:    constants["bits"]!,
             kSecAttrLabel:            "\(constants["label"]!)-\(keyId   )",
@@ -123,12 +125,9 @@ final class Crypto {
             kSecPublicKeyAttrs:      [
                 kSecAttrApplicationTag:   (constants["accessGroup"] as! String + ".public").data(using: .utf8)!
             ]
+            // swiftformat:enable all
         ]
-        if #available(macOS 10.15, *) {
-            attributes[kSecUseDataProtectionKeychain] = true
-        } else {
-            attributes[kSecAttrSynchronizable] = true
-        }
+        attributes[kSecUseDataProtectionKeychain] = true
 
         var error: Unmanaged<CFError>?
         guard SecKeyCreateRandomKey(attributes as CFDictionary, &error) != nil else {
@@ -154,16 +153,12 @@ final class Crypto {
             kSecAttrAccessGroup: Info.groupId,
             kSecAttrKeyClass: keyClassConstant,
             kSecReturnAttributes: true,
-            kSecReturnData: true,
+            kSecReturnData: true
         ]
-        if #available(macOS 10.15, *) {
-            if requiringCatalinaMigration {
-                query[kSecAttrSynchronizable] = true
-            } else {
-                query[kSecUseDataProtectionKeychain] = true
-            }
-        } else {
+        if requiringCatalinaMigration {
             query[kSecAttrSynchronizable] = true
+        } else {
+            query[kSecUseDataProtectionKeychain] = true
         }
 
         // Query the keychain
@@ -189,7 +184,7 @@ final class Crypto {
                 kSecClass: kSecClassKey,
                 kSecAttrKeyClass: keyClassConstant,
                 kSecAttrKeyType: constants["type"]!,
-                kSecAttrKeySizeInBits: constants["bits"]!,
+                kSecAttrKeySizeInBits: constants["bits"]!
             ]
 
             var secKeyError: Unmanaged<CFError>? = nil
@@ -242,18 +237,16 @@ final class Crypto {
 
 extension Crypto {
     func migratePreCatalinaKeys() throws {
-        guard #available(macOS 10.15, *) else { return }
-
         // Migration is a two-step process: add the data protection flag,
         // then remove the sync flag. It fails if you try to do both in one step.
         var query: [CFString: Any] = [
             kSecClass: kSecClassKey,
             kSecMatchLimit: kSecMatchLimitAll,
             kSecAttrAccessGroup: Info.groupId,
-            kSecAttrSynchronizable: true,
+            kSecAttrSynchronizable: true
         ]
         var updates: [CFString: Any] = [
-            kSecUseDataProtectionKeychain: true,
+            kSecUseDataProtectionKeychain: true
         ]
 
         // Add the data protection flag to the keys.
