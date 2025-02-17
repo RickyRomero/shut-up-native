@@ -98,13 +98,7 @@ final class Setup {
 
     func queryAvailableSpace() -> Int64 {
         let targetLocation = Info.containerUrl
-        if #available(macOS 10.13, *) {
-            let values = try! targetLocation.resourceValues(forKeys: [.volumeAvailableCapacityForImportantUsageKey])
-            return values.volumeAvailableCapacityForImportantUsage!
-        } else {
-            let attributes = try! FileManager.default.attributesOfFileSystem(forPath: targetLocation.path)
-            let freeSize = attributes[.systemFreeSize] as? NSNumber
-            return freeSize!.int64Value
-        }
+        let values = try! targetLocation.resourceValues(forKeys: [.volumeAvailableCapacityForImportantUsageKey])
+        return values.volumeAvailableCapacityForImportantUsage!
     }
 }

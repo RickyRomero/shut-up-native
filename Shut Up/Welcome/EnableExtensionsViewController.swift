@@ -51,11 +51,7 @@ class EnableExtensionsViewController: NSViewController, PageContentResponder {
             self.update(button: self.helperEnableButton, extEnabled: self.helperEnabled)
 
             var requiredSwatch: NSColor
-            if #available(macOS 10.13, *) {
-                requiredSwatch = NSColor.init(named: "Required Swatch")!
-            } else {
-                requiredSwatch = NSColor.systemOrange
-            }
+            requiredSwatch = NSColor(named: "Required Swatch")!
             let labelColor = self.blockerEnabled ?
                 NSColor.secondaryLabelColor :
                 requiredSwatch
