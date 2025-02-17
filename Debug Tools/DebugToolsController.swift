@@ -9,14 +9,13 @@
 import Cocoa
 
 class DebugToolsController: NSViewController {
+    @IBOutlet var lastBuildRunField: NSTextField!
+    @IBOutlet var setupCompleteForBuildField: NSTextField!
+    @IBOutlet var etagField: NSTextField!
+    @IBOutlet var automaticWhitelistCheckbox: NSButton!
+    @IBOutlet var showInMenuCheckbox: NSButton!
+    @IBOutlet var lastCssUpdateField: NSTextField!
 
-    @IBOutlet weak var lastBuildRunField: NSTextField!
-    @IBOutlet weak var setupCompleteForBuildField: NSTextField!
-    @IBOutlet weak var etagField: NSTextField!
-    @IBOutlet weak var automaticWhitelistCheckbox: NSButton!
-    @IBOutlet weak var showInMenuCheckbox: NSButton!
-    @IBOutlet weak var lastCssUpdateField: NSTextField!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

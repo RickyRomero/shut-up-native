@@ -25,7 +25,7 @@ struct ExtensionState {
 
 class BrowserBridge {
     static var main = BrowserBridge()
-    private init () {}
+    private init() {}
 
     private var extensionStates: [ExtensionState] = []
     private var stateCallbacks: [([ExtensionState]) -> Void] = []
@@ -47,7 +47,7 @@ class BrowserBridge {
         extensionStates.append(ExtensionState(id: id, state: state, error: error))
         guard extensionStates.count == 2 else { return }
 
-        let states = self.extensionStates
+        let states = extensionStates
         while stateCallbacks.count > 0 {
             let callback = stateCallbacks.removeFirst()
             DispatchQueue.main.async {
@@ -80,7 +80,7 @@ class BrowserBridge {
 
         if vendor.count > 2 {
             let domainComponents = vendor.count
-            vendor.removeSubrange(2..<domainComponents)
+            vendor.removeSubrange(2 ..< domainComponents)
         }
 
         switch vendor.joined(separator: ".") {

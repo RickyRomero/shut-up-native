@@ -9,8 +9,8 @@
 import Cocoa
 
 class WelcomePageController: NSPageController {
-    @IBOutlet weak var continueButton: NSButton!
-    @IBOutlet weak var defaultBrowserButton: NSButton!
+    @IBOutlet var continueButton: NSButton!
+    @IBOutlet var defaultBrowserButton: NSButton!
 
     // Store these for later so we don't get unexpected behavior
     // if the user suddenly swaps their defaults on us
@@ -36,7 +36,7 @@ class WelcomePageController: NSPageController {
     }
 
     func updateState() {
-        NSAnimationContext.runAnimationGroup({ context in
+        NSAnimationContext.runAnimationGroup { context in
             context.duration = 0.666
             context.allowsImplicitAnimation = true
             view.layoutSubtreeIfNeeded()
@@ -57,13 +57,13 @@ class WelcomePageController: NSPageController {
                     continueButton.keyEquivalent = "\r"
                 default: break
             }
-        })
+        }
     }
 
     @IBAction func continueButtonClicked(_ sender: NSButton) {
         guard currentLocation != "EnableExtensionsVC" else {
             Preferences.main.setupAssistantCompleteForBuild = Info.buildNum
-            self.view.window?.close()
+            view.window?.close()
             return
         }
 
@@ -90,7 +90,7 @@ class WelcomePageController: NSPageController {
 
 extension WelcomePageController: NSPageControllerDelegate {
     func pageController(_ pageController: NSPageController, viewControllerForIdentifier identifier: String) -> NSViewController {
-        let pcr = NSStoryboard.init(
+        let pcr = NSStoryboard(
             name: "Main", bundle: nil
         ).instantiateController(
             withIdentifier: identifier
@@ -98,11 +98,11 @@ extension WelcomePageController: NSPageControllerDelegate {
         pcr.delegate = self
         return pcr as NSViewController
     }
-    
+
     func pageController(_ pageController: NSPageController, identifierFor object: Any) -> String {
         String(describing: object)
     }
-    
+
     func pageControllerDidEndLiveTransition(_ pageController: NSPageController) {
         completeTransition()
     }

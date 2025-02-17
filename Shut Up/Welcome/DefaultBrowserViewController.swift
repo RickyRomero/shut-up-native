@@ -23,5 +23,4 @@ class DefaultBrowserViewController: NSViewController, PageContentResponder {
         heading.stringValue = prompt
         browserIcon.image = NSImage(named: "Large \(defaultBrowser)")
     }
-    
 }

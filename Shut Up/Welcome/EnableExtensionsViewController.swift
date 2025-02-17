@@ -34,10 +34,10 @@ class EnableExtensionsViewController: NSViewController, PageContentResponder {
     func checkExtensions(_: Notification?) {
         BrowserBridge.main.requestExtensionStates { states in
             var errorOccurred = false
-            states.forEach { state in
+            for state in states {
                 guard state.error == nil else {
                     errorOccurred = true
-                    return
+                    continue
                 }
 
                 switch state.id {

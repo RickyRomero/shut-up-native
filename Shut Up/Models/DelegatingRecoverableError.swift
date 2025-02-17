@@ -13,10 +13,11 @@ protocol ErrorRecoveryDelegate: AnyObject {
 }
 
 struct DelegatingRecoverableError<Delegate, Error>: RecoverableError
-where Delegate: ErrorRecoveryDelegate, Error: Swift.Error {
+    where Delegate: ErrorRecoveryDelegate, Error: Swift.Error
+{
     let error: Error
     weak var delegate: Delegate? = nil
-    
+
     init(recoveringFrom error: Error, with delegate: Delegate?) {
         self.error = error
         self.delegate = delegate
@@ -29,11 +30,11 @@ where Delegate: ErrorRecoveryDelegate, Error: Swift.Error {
         ) ?? [.ok]
     }
 
-    var recoveryOptions: [String] { recoveryActions.map { "\($0)" } }
+    var recoveryOptions: [String] { self.recoveryActions.map { "\($0)" } }
 
     func attemptRecovery(optionIndex recoveryOptionIndex: Int) -> Bool {
-        let action = recoveryActions[recoveryOptionIndex]
-        
+        let action = self.recoveryActions[recoveryOptionIndex]
+
         return self.delegate?.attemptRecovery(from: self.error, with: action) ?? false
     }
 }
@@ -42,12 +43,15 @@ extension DelegatingRecoverableError: LocalizedError {
     var errorDescription: String? {
         return (self.error as NSError).userInfo[NSLocalizedDescriptionKey] as? String
     }
+
     var failureReason: String? {
         return (self.error as NSError).userInfo[NSLocalizedFailureReasonErrorKey] as? String
     }
+
     var helpAnchor: String? {
         return (self.error as NSError).userInfo[NSHelpAnchorErrorKey] as? String
     }
+
     var recoverySuggestion: String? {
         return (self.error as NSError).userInfo[NSLocalizedRecoverySuggestionErrorKey] as? String
     }

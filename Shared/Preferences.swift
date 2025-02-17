@@ -14,9 +14,9 @@ protocol PrefsUpdateDelegate {
 
 final class Preferences {
     static let main = Preferences()
-    private init () {}
+    private init() {}
 
-    let suitePrefs = UserDefaults.init(suiteName: Info.groupId)!
+    let suitePrefs = UserDefaults(suiteName: Info.groupId)!
     var setupStarted = false
     var setupRun = false
     let latestSetupAssistantBuild = 1

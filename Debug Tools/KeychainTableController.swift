@@ -9,8 +9,8 @@
 import Cocoa
 
 class KeychainTableController: NSViewController {
-    @IBOutlet weak var keychainDataView: NSTableView!
-    @IBOutlet weak var deleteMenuItem: NSMenuItem!
+    @IBOutlet var keychainDataView: NSTableView!
+    @IBOutlet var deleteMenuItem: NSMenuItem!
     var keychainData: [[CFString: Any]]?
 
     override func viewDidLoad() {
@@ -95,8 +95,7 @@ class KeychainTableController: NSViewController {
 
 // MARK: NSTableViewDelegate
 
-extension KeychainTableController: NSTableViewDelegate {
-}
+extension KeychainTableController: NSTableViewDelegate {}
 
 // MARK: NSTableViewDataSource
 

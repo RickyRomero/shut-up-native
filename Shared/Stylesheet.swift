@@ -13,24 +13,20 @@ struct Rule {
     let source: String
 
     var selectors: [String] {
-        get {
-            let selectorList = source
-                .split(separator: "{")[0]
-                .components(separatedBy: ", ")
-            
-            return selectorList.map { $0.trim() }
-        }
+        let selectorList = source
+            .split(separator: "{")[0]
+            .components(separatedBy: ", ")
+
+        return selectorList.map { $0.trim() }
     }
 
     var type: RuleType {
-        get {
-            let declarationString = source.split(separator: "{")[1]
+        let declarationString = source.split(separator: "{")[1]
 
-            if declarationString.lowercased().contains("none") {
-                return .blocking
-            } else {
-                return .undoing
-            }
+        if declarationString.lowercased().contains("none") {
+            return .blocking
+        } else {
+            return .undoing
         }
     }
 }
@@ -60,15 +56,13 @@ class Stylesheet {
     }
 
     var rules: [Rule] {
-        get {
-            guard let data = file.read() else { return [] }
-            guard let cssString = String(data: data, encoding: .utf8) else { return [] }
+        guard let data = file.read() else { return [] }
+        guard let cssString = String(data: data, encoding: .utf8) else { return [] }
 
-            var ruleStrings = minify(css: cssString).split(separator: "}")
-            ruleStrings = ruleStrings.filter { $0.trim().count > 0 }
+        var ruleStrings = minify(css: cssString).split(separator: "}")
+        ruleStrings = ruleStrings.filter { $0.trim().count > 0 }
 
-            return ruleStrings.map { Rule(source: String($0)) }
-        }
+        return ruleStrings.map { Rule(source: String($0)) }
     }
 
     func update(force: Bool = false, completionHandler: ((Error?) -> Void)?) {
@@ -81,9 +75,9 @@ class Stylesheet {
 
         let sessionConfig = URLSessionConfiguration.ephemeral
         sessionConfig.httpAdditionalHeaders = [
-            "User-Agent": "\(Info.productName)/\(Info.version) (\(Info.buildNum))"
+            "User-Agent": "\(Info.productName)/\(Info.version) (\(Info.buildNum))",
         ]
-        if !force && Preferences.main.etag != "" {
+        if !force, Preferences.main.etag != "" {
             sessionConfig.httpAdditionalHeaders?["If-None-Match"] = Preferences.main.etag
         }
         sessionConfig.timeoutIntervalForRequest = 5 // seconds
@@ -123,7 +117,7 @@ class Stylesheet {
         }
 
         let contentBlockerGroup = DispatchGroup()
-        if data.count > 0 && response.statusCode == 200 {
+        if data.count > 0, response.statusCode == 200 {
             guard validateCss(css: data) else {
                 outputError = MiscError.unexpectedNetworkResponse
                 return
@@ -147,7 +141,7 @@ class Stylesheet {
                 }
                 return
             }
-        } else if data.count == 0 && response.statusCode == 304 {
+        } else if data.count == 0, response.statusCode == 304 {
             // Stylesheet is unmodified; continue
         } else {
             outputError = MiscError.unexpectedNetworkResponse
@@ -176,16 +170,16 @@ class Stylesheet {
 
         var allPairsValid = true
         var displayNoneFound = false
-        cssString.split(separator: "}").forEach { selectorRulePair in
+        for selectorRulePair in cssString.split(separator: "}") {
             // Special case for ending bracket
-            guard selectorRulePair.trim().count > 0 else { return }
+            guard selectorRulePair.trim().count > 0 else { continue }
 
             let selectorRulePair = selectorRulePair.split(separator: "{")
             let selectorSet = selectorRulePair[0].trim()
             let ruleSet = selectorRulePair[1].trim()
 
             // Check for a list of (fairly short) selectors
-            selectorSet.components(separatedBy: ", ").forEach { selector in
+            for selector in selectorSet.components(separatedBy: ", ") {
                 allPairsValid = allPairsValid && selector.trim().count < 150
             }
 
@@ -209,9 +203,11 @@ class Stylesheet {
 
     private func minify(css: String) -> String {
         let cleanupPatterns = [
-            ["\\s*/\\*.+?\\*/\\s*", " "],    // Comments
+            // swiftformat:disable all
+            ["\\s*/\\*.+?\\*/\\s*", " "],   // Comments
             ["^\\s+",               ""],    // Leading whitespace
             [",\\s+",               ", "],  // Selector whitespace
+            // swiftformat:enable all
         ]
 
         var strippedCSS = css
@@ -233,24 +229,22 @@ class Stylesheet {
     func reset() { file.reset() }
 }
 
-
-
 // MARK: String/regex convenience extensions
 
-fileprivate extension String {
+private extension String {
     func trim() -> String {
-        self.trimmingCharacters(in: .whitespacesAndNewlines)
+        trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }
 
-fileprivate extension Substring {
+private extension Substring {
     func trim() -> String {
-        self.trimmingCharacters(in: .whitespacesAndNewlines)
+        trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }
 
-fileprivate extension NSRegularExpression {
+private extension NSRegularExpression {
     func test(_ string: String) -> Bool {
-        self.firstMatch(in: string, options: [], range: NSMakeRange(0, string.count)) != nil
+        firstMatch(in: string, options: [], range: NSMakeRange(0, string.count)) != nil
     }
 }

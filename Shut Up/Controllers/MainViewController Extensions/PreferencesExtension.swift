@@ -62,7 +62,7 @@ extension MainViewController {
     @IBAction func whitelistSettingUpdated(_ sender: NSButton) {
         Preferences.main.automaticWhitelisting = sender.state == .on
     }
-    
+
     @IBAction func menuSettingUpdated(_ sender: NSButton) {
         Preferences.main.showInMenu = sender.state == .on
     }

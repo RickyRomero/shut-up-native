@@ -27,14 +27,14 @@ class WelcomeViewController: NSViewController, PageContentResponder {
         babyBrowser.alphaValue = 0.0
 
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
-            NSAnimationContext.runAnimationGroup({ context in
+            NSAnimationContext.runAnimationGroup { context in
                 context.duration = 1.333
                 context.allowsImplicitAnimation = true
 
                 self.babyBrowserAtBottom.isActive = true
                 self.babyBrowser.alphaValue = 1.0
                 self.view.window?.layoutIfNeeded()
-            })
+            }
         }
     }
 
