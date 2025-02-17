@@ -72,7 +72,6 @@ final class Setup {
     }
 
     func reset() {
-        try? Crypto.main.clear(preCatalinaItems: true)
         try? Crypto.main.clear()
         Preferences.main.reset()
         Whitelist.main.reset()
