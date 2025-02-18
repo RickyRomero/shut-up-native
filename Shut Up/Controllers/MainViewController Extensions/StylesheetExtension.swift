@@ -24,12 +24,16 @@ extension MainViewController {
     }
 
     func updateLastCssUpdateLabel(with timestamp: Date) {
+        let instantDuration: Double = 15
+        let instantDurationDate = Date(timeIntervalSinceNow: instantDuration * -1.0)
         let cutoff: Double = 60 * 60 * 24 * 7
         let cutoffDate = Date(timeIntervalSinceNow: cutoff * -1.0)
         let relativeTimeStr: String
 
         if timestamp == Date(timeIntervalSince1970: 0) {
             relativeTimeStr = "--"
+        } else if timestamp > instantDurationDate {
+            relativeTimeStr = "Updated just now"
         } else if timestamp < cutoffDate {
             relativeTimeStr = "Updated over 1 week ago"
         } else {
