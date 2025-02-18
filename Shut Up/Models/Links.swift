@@ -159,6 +159,7 @@ enum Links {
             App version: \(Info.version) (\(Info.buildNum))
             macOS version: \(macosVersion)
             SafariServices version: \(highestSafariVersion)
+            Stylesheet last updated: \(Preferences.main.lastStylesheetUpdate)
 
             [If reporting a problem, please be as specific as you can so I can diagnose it. Thank you! -Ricky]
             """)
