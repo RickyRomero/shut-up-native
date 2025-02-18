@@ -54,15 +54,16 @@ extension MainViewController {
         let prefs = Preferences.main
 
         enableHelperGuide.isHidden = helper.enabled
-        whitelistInfoLabel.alphaValue = helper.enabled ? 1.0 : 0.4
+        whitelistInfoLabel.alphaValue = helper.enabled ? (prefs.automaticWhitelisting ? 0.0 : 1.0) : 0.4
         enableWhitelistCheckbox.isEnabled = helper.enabled && prefs.setupRun
         showContextMenuCheckbox.isEnabled = helper.enabled && prefs.setupRun
     }
 
     @IBAction func whitelistSettingUpdated(_ sender: NSButton) {
         Preferences.main.automaticWhitelisting = sender.state == .on
+        whitelistInfoLabel.alphaValue = sender.state == .on ? 0.0 : 1.0
     }
-    
+
     @IBAction func menuSettingUpdated(_ sender: NSButton) {
         Preferences.main.showInMenu = sender.state == .on
     }
