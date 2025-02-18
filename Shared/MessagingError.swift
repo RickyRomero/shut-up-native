@@ -50,13 +50,13 @@ enum RecoveryOption: String, CaseIterable, CustomStringConvertible {
     var description: String {
         var buttonText: String!
         switch self {
-        case .ok: buttonText = "OK"
-        case .quit: buttonText = "Quit"
-        case .reset: buttonText = "Reset Shut Up"
-        case .tryAgain: buttonText = "Try Again…"
+            case .ok: buttonText = "OK"
+            case .quit: buttonText = "Quit"
+            case .reset: buttonText = "Reset Shut Up"
+            case .tryAgain: buttonText = "Try Again…"
         }
 
-        return NSLocalizedString(buttonText, comment: rawValue)
+        return NSLocalizedString(buttonText, comment: self.rawValue)
     }
 }
 
@@ -66,119 +66,108 @@ struct MessageContents {
     let options: [RecoveryOption]?
 }
 
-struct MessagingError: Error, LocalizedError, CustomNSError, Sendable {
-    /// The underlying error that caused this MessagingError.
+class MessagingError: NSError {
     let cause: Error
 
-    /// Computes the title, information, and recovery options based on the underlying error.
-    private var messageContents: MessageContents {
+    init(_ cause: Error) {
+        self.cause = cause
+        super.init(domain: Info.bundleId, code: -1, userInfo: [:])
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    private func genAlertContents(_ contents: MessageContents) -> [String: Any] {
+        var userInfo: [String: Any] = [:]
+
+        if let title = contents.title, let info = contents.info {
+            userInfo[NSLocalizedDescriptionKey] =
+                NSLocalizedString(title, comment: "localizedErrorDescription")
+            userInfo[NSLocalizedRecoverySuggestionErrorKey] =
+                NSLocalizedString(info, comment: "localizedErrorRecoverSuggestion")
+        }
+
+        if let options = contents.options {
+            userInfo[NSLocalizedRecoveryOptionsErrorKey] = options
+        }
+
+        return userInfo
+    }
+
+    override var userInfo: [String: Any] {
         var title: String?
         var info: String?
         var options: [RecoveryOption]?
 
-        if let cryptoError = cause as? CryptoError {
-            switch cryptoError {
-            case .accessingKeychain:
-                title = "Keychain locked or unavailable"
-                info = "Shut Up requires keychain privileges to secure its data. Unlock your keychain to proceed."
-                options = [.quit, .tryAgain]
-            case .removingInvalidKeys:
-                title = "Failed to remove invalid keys"
-                info = "If the issue persists, try restarting your Mac."
-            case .generatingKeys:
-                title = "Failed to generate a required key"
-                info = "If the issue persists, try restarting your Mac."
-            case .fetchingKeys:
-                title = "Encryption keys missing or damaged"
-                info = "Shut Up failed to decrypt some required data. You can fix this by resetting Shut Up, but your allowlist may be lost."
-                options = [.quit, .reset]
-            case .transformingData:
-                title = "Stylesheet or allowlist damaged"
-                info = "Shut Up failed to decrypt some required data. You can fix this by resetting Shut Up, but your allowlist may be lost."
-                options = [.quit, .reset]
-            case .migratingPreCatalinaKeys:
-                title = "Key migration failed"
-                info = "Shut Up tried to migrate encryption keys from an older version of macOS, but it failed. You can fix this by resetting Shut Up, but your allowlist may be lost."
-                options = [.quit, .reset]
+        if cause is CryptoError {
+            switch cause as! CryptoError {
+                case .accessingKeychain:
+                    title = "Keychain locked or unavailable"
+                    info = "Shut Up requires keychain privileges to secure its data. Unlock your keychain to proceed."
+                    options = [.quit, .tryAgain]
+                case .removingInvalidKeys:
+                    title = "Failed to remove invalid keys"
+                    info = "If the issue persists, try restarting your Mac."
+                case .generatingKeys:
+                    title = "Failed to generate a required key"
+                    info = "If the issue persists, try restarting your Mac."
+                case .fetchingKeys:
+                    title = "Encryption keys missing or damaged"
+                    info = "Shut Up failed to decrypt some required data. You can fix this by resetting Shut Up, but your allowlist may be lost."
+                    options = [.quit, .reset]
+                case .transformingData:
+                    title = "Stylesheet or allowlist damaged"
+                    info = "Shut Up failed to decrypt some required data. You can fix this by resetting Shut Up, but your allowlist may be lost."
+                    options = [.quit, .reset]
+                case .migratingPreCatalinaKeys:
+                    title = "Key migration failed"
+                    info = "Shut Up tried to migrate encryption keys from an older version of macOS, but it failed. You can fix this by resetting Shut Up, but your allowlist may be lost."
+                    options = [.quit, .reset]
             }
-        } else if let lockError = cause as? LockError {
-            switch lockError {
-            case .timedOut:
-                title = "Internal error occurred"
-                info = "Shut Up encountered a problem and cannot recover. Please quit and restart Shut Up."
-                options = [.quit]
+        } else if cause is LockError {
+            switch cause as! LockError {
+                case .timedOut:
+                    title = "Internal error occurred"
+                    info = "Shut Up encountered a problem and cannot recover. Please quit and restart Shut Up."
+                    options = [.quit]
             }
-        } else if let fileError = cause as? FileError {
-            switch fileError {
-            case .checkingFreeSpace:
-                title = "Startup disk is too full to continue"
-                info = "Quit Shut Up and delete any files you don’t need."
-                options = [.quit]
-            case .readingFile:
-                title = "Failed to read an internal file"
-                info = "Shut Up failed to read from an internal file. If this issue persists, please quit and restart Shut Up."
-            case .writingFile:
-                title = "Failed to write an internal file"
-                info = "Shut Up failed to write to an internal file. If this issue persists, please quit and restart Shut Up."
+        } else if cause is FileError {
+            switch cause as! FileError {
+                case .checkingFreeSpace:
+                    title = "Startup disk is too full to continue"
+                    info = "Quit Shut Up and delete any files you don’t need."
+                    options = [.quit]
+                case .readingFile:
+                    title = "Failed to read an internal file"
+                    info = "Shut Up failed to read from an internal file. If this issue persists, please quit and restart Shut Up."
+                case .writingFile:
+                    title = "Failed to write an internal file"
+                    info = "Shut Up failed to write to an internal file. If this issue persists, please quit and restart Shut Up."
             }
-        } else if let browserError = cause as? BrowserError {
-            switch browserError {
-            case .providingBlockRules:
-                title = "Safari failed to read Shut Up’s content-blocking rules"
-                info = "Shut Up sent Safari new content-blocking rules, but it failed. Try restarting Safari. If the issue persists, try restarting your Mac."
-            case .showingSafariPreferences:
-                title = "Safari failed to open its settings"
-                info = "Shut Up asked Safari to open its settings window, but it failed. Try opening Safari’s settings manually, then go to the “Extensions” section."
-            case .requestingExtensionStatus:
-                title = "Safari failed to provide extension info"
-                info = """
-                Shut Up asked Safari if its extensions are enabled, but it failed. Try quitting Shut Up and moving it to your Applications folder.
-
-                If the issue persists, try uninstalling Shut Up, restarting your Mac, and reinstalling Shut Up.
-                """
+        } else if cause is BrowserError {
+            switch cause as! BrowserError {
+                case .providingBlockRules:
+                    title = "Safari failed to read Shut Up’s content-blocking rules"
+                    info = "Shut Up sent Safari new content-blocking rules, but it failed. Try restarting Safari. If the issue persists, try restarting your Mac."
+                case .showingSafariPreferences:
+                    title = "Safari failed to open its settings"
+                    info = "Shut Up asked Safari to open its settings window, but it failed. Try opening Safari’s settings manually, then go to the “Extensions” section."
+                case .requestingExtensionStatus:
+                    title = "Safari failed to provide extension info"
+                    info = "Shut Up asked Safari if its extensions are enabled, but it failed. Try quitting Shut Up and moving it to your Applications folder.\n\nIf the issue persists, try uninstalling Shut Up, restarting your Mac, and reinstalling Shut Up."
             }
-        } else if let miscError = cause as? MiscError {
-            switch miscError {
-            case .unexpectedNetworkResponse:
-                title = "Unexpected response from rickyromero.com"
-                info = "Shut Up tried to update the stylesheet, but the response the server sent was invalid. Try again later."
+        } else if cause is MiscError {
+            switch cause as! MiscError {
+                case .unexpectedNetworkResponse:
+                    title = "Unexpected response from rickyromero.com"
+                    info = "Shut Up tried to update the stylesheet, but the response the server sent was invalid. Try again later."
             }
-        } else if let urlError = cause as? URLError {
+        } else if cause is URLError {
             title = "Cannot connect to rickyromero.com"
-            info = urlError.localizedDescription
+            info = cause.localizedDescription
         }
 
-        // Reverse the order of options if needed (preserving your original behavior)
-        return MessageContents(title: title, info: info, options: options?.reversed())
-    }
-
-    // MARK: - LocalizedError Conformance
-
-    var errorDescription: String? {
-        guard let title = messageContents.title else { return nil }
-        return NSLocalizedString(title, comment: "localizedErrorDescription")
-    }
-
-    var recoverySuggestion: String? {
-        guard let info = messageContents.info else { return nil }
-        return NSLocalizedString(info, comment: "localizedErrorRecoverySuggestion")
-    }
-
-    // MARK: - CustomNSError Conformance
-
-    static var errorDomain: String { "com.shutup.MessagingError" }
-
-    var errorCode: Int { -1 }
-
-    var errorUserInfo: [String: Any] {
-        var userInfo: [String: Any] = [:]
-        if let title = messageContents.title, let info = messageContents.info {
-            userInfo[NSLocalizedDescriptionKey] = NSLocalizedString(title, comment: "localizedErrorDescription")
-            userInfo[NSLocalizedRecoverySuggestionErrorKey] = NSLocalizedString(info, comment: "localizedErrorRecoverySuggestion")
-        }
-        if let options = messageContents.options {
-            userInfo[NSLocalizedRecoveryOptionsErrorKey] = options.map { $0.description }
-        }
-        return userInfo
+        return genAlertContents(MessageContents(title: title, info: info, options: options?.reversed()))
     }
 }

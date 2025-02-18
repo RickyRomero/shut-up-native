@@ -61,8 +61,10 @@ extension AppDelegate: ErrorRecoveryDelegate {
 
 func showError(_ error: Error) {
     DispatchQueue.main.async {
-        // If error is already a MessagingError, use it; otherwise wrap it.
-        let errorToPresent: Error = (error is MessagingError) ? error : MessagingError(cause: error)
-        NSApp.presentError(errorToPresent as NSError)
+        if error is MessagingError {
+            NSApp.presentError(error)
+        } else {
+            NSApp.presentError(MessagingError(error))
+        }
     }
 }
