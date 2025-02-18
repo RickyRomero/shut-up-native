@@ -39,7 +39,7 @@ final class Setup {
         Preferences.main.setDefaults()
         Crypto.main.bootstrap()
 
-        self.bootstrapAttempted = true
+        bootstrapAttempted = true
         completionHandler()
     }
 
@@ -82,22 +82,14 @@ final class Setup {
         let resourceUrl = Bundle.main.resourceURL
         let appBundleUrl = resourceUrl?.deletingLastPathComponent().deletingLastPathComponent()
 
-        if #available(macOS 10.15, *) {
-            let config = NSWorkspace.OpenConfiguration()
-            config.activates = true
-            config.createsNewApplicationInstance = true
-            NSWorkspace.shared.openApplication(
-                at: appBundleUrl!,
-                configuration: config,
-                completionHandler: nil
-            )
-        } else {
-            _ = try? NSWorkspace.shared.launchApplication(
-                at: appBundleUrl!,
-                options: .newInstance,
-                configuration: [:]
-            )
-        }
+        let config = NSWorkspace.OpenConfiguration()
+        config.activates = true
+        config.createsNewApplicationInstance = true
+        NSWorkspace.shared.openApplication(
+            at: appBundleUrl!,
+            configuration: config,
+            completionHandler: nil
+        )
 
         DispatchQueue.main.async {
             NSApp.terminate(self)
@@ -106,13 +98,7 @@ final class Setup {
 
     func queryAvailableSpace() -> Int64 {
         let targetLocation = Info.containerUrl
-        if #available(macOS 10.13, *) {
-            let values = try! targetLocation.resourceValues(forKeys: [.volumeAvailableCapacityForImportantUsageKey])
-            return values.volumeAvailableCapacityForImportantUsage!
-        } else {
-            let attributes = try! FileManager.default.attributesOfFileSystem(forPath: targetLocation.path)
-            let freeSize = attributes[.systemFreeSize] as? NSNumber
-            return freeSize!.int64Value
-        }
+        let values = try! targetLocation.resourceValues(forKeys: [.volumeAvailableCapacityForImportantUsageKey])
+        return values.volumeAvailableCapacityForImportantUsage!
     }
 }

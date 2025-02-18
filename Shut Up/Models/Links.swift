@@ -19,7 +19,7 @@ struct BasicLink: Link {
     let destination: URL!
     let menuTitle: String
 
-    init (menuTitle: String, dest: String) {
+    init(menuTitle: String, dest: String) {
         destination = URL(string: dest)
         self.menuTitle = menuTitle
     }
@@ -34,7 +34,7 @@ struct ExtensionLink: Link {
     let preferredBrowser: WebBrowser
     let menuTitle: String
 
-    init (menuTitle: String, dest: String, browser: WebBrowser) {
+    init(menuTitle: String, dest: String, browser: WebBrowser) {
         preferredBrowser = browser
         destination = URL(string: dest)
         self.menuTitle = menuTitle
@@ -54,34 +54,22 @@ struct ExtensionLink: Link {
         }
 
         if let bundleId = bundleId {
-            if #available(macOS 10.15, *) {
-                let appLocation = ws.urlForApplication(withBundleIdentifier: bundleId)
+            let appLocation = ws.urlForApplication(withBundleIdentifier: bundleId)
 
-                if let appLocation = appLocation {
-                    ws.open(
-                        [destination],
-                        withApplicationAt: appLocation,
-                        configuration: NSWorkspace.OpenConfiguration()
-                    ) { (_, error) in
-                        if error != nil {
-                            ws.open(self.destination)
-                        }
+            if let appLocation = appLocation {
+                ws.open(
+                    [destination],
+                    withApplicationAt: appLocation,
+                    configuration: NSWorkspace.OpenConfiguration()
+                ) { _, error in
+                    if error != nil {
+                        ws.open(self.destination)
                     }
-                } else {
-                    ws.open(destination)
                 }
             } else {
-                let linkOpened = ws.open(
-                    [destination],
-                    withAppBundleIdentifier: bundleId,
-                    options: [],
-                    additionalEventParamDescriptor: nil,
-                    launchIdentifiers: nil
-                )
-                if !linkOpened {
-                    ws.open(destination)
-                }
+                ws.open(destination)
             }
+
         } else {
             ws.open(destination)
         }
@@ -92,18 +80,18 @@ struct LinkCollection {
     let items: [Link]
 
     func open(by menuItem: NSMenuItem) {
-        let target = items.filter { $0.menuTitle == menuItem.title } [0]
+        let target = items.filter { $0.menuTitle == menuItem.title }[0]
         target.open()
     }
 
     func open(by browser: WebBrowser) {
         let extensionLinks = items.filter { $0 is ExtensionLink } as! [ExtensionLink]
-        let linkForBrowser = extensionLinks.filter { $0.preferredBrowser == browser } [0]
+        let linkForBrowser = extensionLinks.filter { $0.preferredBrowser == browser }[0]
         linkForBrowser.open()
     }
 }
 
-struct Links {
+enum Links {
     static let collection = LinkCollection(items: [
         ExtensionLink(
             menuTitle: "Shut Up for Chrome",
@@ -136,7 +124,7 @@ struct Links {
         BasicLink(
             menuTitle: "Privacy Policy",
             dest: "https://rickyromero.com/shutup/privacy/"
-        ),
+        )
     ])
 
     static func composeEmail() {
