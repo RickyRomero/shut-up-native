@@ -26,6 +26,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool { true }
 
+    func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
+        return true
+    }
+
     @IBAction func didChooseLinkItem(_ sender: NSMenuItem) {
         Links.collection.open(by: sender)
     }
