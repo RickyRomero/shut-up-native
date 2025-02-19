@@ -14,7 +14,7 @@ class MobileAppViewController: NSViewController {
     static let targetUrl = URL(string: target)!
     var sharingPicker: NSSharingServicePicker!
     override var acceptsFirstResponder: Bool { true }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -52,7 +52,7 @@ class MobileAppViewController: NSViewController {
         view.window?.close()
         NSApp.terminate(sender)
     }
-    
+
     @IBAction func showSharingPicker(_ sender: NSButton) {
         sharingPicker.show(
             relativeTo: .zero,

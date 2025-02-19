@@ -14,7 +14,7 @@ final class EncryptedFile {
 
     var mostRecentlySeenModification: Date?
     var lastModified: Date? {
-        let attributes = try? FileManager.default.attributesOfItem(atPath: fsLocation.path)
+        let attributes = try? FileManager.default.attributesOfItem(atPath: self.fsLocation.path)
         return attributes?[.modificationDate] as? Date
     }
 
@@ -29,10 +29,10 @@ final class EncryptedFile {
         self.fsLocation = fsLocation
         self.bundleOrigin = bundleOrigin
 
-        lock = LockFile(url: fsLocation.appendingPathExtension("lock"))
-        queue = DispatchQueue(label: "\(Info.bundleId).\(fsLocation.lastPathComponent)")
+        self.lock = LockFile(url: fsLocation.appendingPathExtension("lock"))
+        self.queue = DispatchQueue(label: "\(Info.bundleId).\(fsLocation.lastPathComponent)")
 
-        queue.sync { _ = read() }
+        self.queue.sync { _ = self.read() }
     }
 
     func keysVerifiedPresent() -> Bool {
@@ -40,14 +40,14 @@ final class EncryptedFile {
     }
 
     func read(force: Bool = false) -> Data? {
-        if force { cache = nil }
+        if force { self.cache = nil }
 
-        if lastModified != mostRecentlySeenModification || cache == nil {
+        if self.lastModified != self.mostRecentlySeenModification || self.cache == nil {
             defer { self.lock.unlock() }
             var modificationOccurred = false
 
             do {
-                let keysPresent = keysVerifiedPresent()
+                let keysPresent = self.keysVerifiedPresent()
                 if keysPresent {
                     self.lock.claim()
 
@@ -84,17 +84,17 @@ final class EncryptedFile {
             }
         }
 
-        return cache
+        return self.cache
     }
 
     func write(data contents: Data) throws {
-        guard lastModified == mostRecentlySeenModification else {
+        guard self.lastModified == self.mostRecentlySeenModification else {
             throw FileError.writingFile
         }
         defer { self.lock.unlock() }
 
         do {
-            let keysPresent = keysVerifiedPresent()
+            let keysPresent = self.keysVerifiedPresent()
 
             if keysPresent {
                 self.lock.claim()
@@ -111,6 +111,6 @@ final class EncryptedFile {
     }
 
     func reset() {
-        try? FileManager.default.removeItem(at: fsLocation)
+        try? FileManager.default.removeItem(at: self.fsLocation)
     }
 }

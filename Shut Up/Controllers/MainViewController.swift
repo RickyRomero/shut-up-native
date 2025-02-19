@@ -19,7 +19,7 @@ class MainViewController: NSViewController {
     @IBOutlet var lastCssUpdateLabel: NSTextField!
     @IBOutlet var updatingIndicator: NSStackView!
     @IBOutlet var updatingSpinner: NSProgressIndicator!
-    
+
     var minWinHeight: Double!
     var winWidth = 700.0
 
@@ -97,16 +97,16 @@ class MainViewController: NSViewController {
 
         BrowserBridge.main.requestExtensionStates { states in
             var errorOccurred = false
-            states.forEach { state in
+            for state in states {
                 guard state.error == nil else {
                     errorOccurred = true
-                    return
+                    continue
                 }
 
                 switch state.id {
                 case Info.blockerBundleId: self.blocker.enabled = state.state!
-                    case Info.helperBundleId: self.helper.enabled = state.state!
-                    default: break
+                case Info.helperBundleId: self.helper.enabled = state.state!
+                default: break
                 }
             }
 
@@ -128,7 +128,7 @@ class MainViewController: NSViewController {
         presentAsSheet(sheetViewController)
     }
 
-    @IBAction func openQrCodeSheet(_ sender: NSMenuItem) {
+    @IBAction func openQrCodeSheet(_: NSMenuItem) {
         let sheetViewController = storyboard!.instantiateController(withIdentifier: "MobileAppVC") as! NSViewController
         presentAsSheet(sheetViewController)
     }

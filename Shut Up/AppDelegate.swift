@@ -54,10 +54,10 @@ extension AppDelegate: ErrorRecoveryDelegate {
             case .reset:
                 Setup.main.confirmReset()
         }
-        
+
         return true
     }
-    
+
     func application(_ application: NSApplication, willPresentError error: Error) -> Error {
         return DelegatingRecoverableError(recoveringFrom: error, with: self)
     }

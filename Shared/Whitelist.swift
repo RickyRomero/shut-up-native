@@ -16,12 +16,12 @@ class Whitelist {
             bundleOrigin: Bundle.main.url(forResource: "domain-whitelist", withExtension: "json")!
         )
 
-        self.load()
+        load()
         DispatchQueue.main.async {
             self.delegate?.newWhitelistDataAvailable()
         }
 
-        self.file.externalUpdateOccurred = { data in
+        file.externalUpdateOccurred = { _ in
             self.load()
 
             DispatchQueue.main.async {
@@ -38,6 +38,7 @@ class Whitelist {
             _delegate?.newWhitelistDataAvailable()
         }
     }
+
     private var _entries: [String] = []
     var entries: [String] {
         get { _entries }
@@ -75,11 +76,11 @@ class Whitelist {
         // Fallback tests, for weird TLDs
         // First check: Is it the correct length?
         guard item.count <= 253 else { return nil }
-        
+
         // Second check: Does it have the correct number of dots?
         let subdivisions = item.components(separatedBy: ".").count - 1
-        guard (1..<127).contains(subdivisions) else { return nil }
-        
+        guard (1 ..< 127).contains(subdivisions) else { return nil }
+
         // Final check: Does it pass a regex test?
         let domainNameRegex = try! NSRegularExpression(
             pattern: "^(?:[a-z0-9\\-]{1,63}\\.){1,126}[a-z0-9\\-]{1,63}$",
@@ -91,7 +92,7 @@ class Whitelist {
             range: NSMakeRange(0, item.count)
         )
         guard domainNameCount > 0 else { return nil }
-        
+
         return stripWww(from: item)
     }
 
