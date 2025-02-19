@@ -56,7 +56,7 @@ enum RecoveryOption: String, CaseIterable, CustomStringConvertible {
             case .tryAgain: buttonText = "Try Again…"
         }
 
-        return NSLocalizedString(buttonText, comment: self.rawValue)
+        return NSLocalizedString(buttonText, comment: rawValue)
     }
 }
 
@@ -66,14 +66,15 @@ struct MessageContents {
     let options: [RecoveryOption]?
 }
 
-class MessagingError: NSError {
+class MessagingError: NSError, @unchecked Sendable {
     let cause: Error
 
     init(_ cause: Error) {
         self.cause = cause
         super.init(domain: Info.bundleId, code: -1, userInfo: [:])
     }
-    
+
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
