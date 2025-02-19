@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UniformTypeIdentifiers
 
 class ContentBlockerRequestHandler: NSObject, NSExtensionRequestHandling {
     func beginRequest(with context: NSExtensionContext) {
@@ -33,7 +34,7 @@ class ContentBlockerRequestHandler: NSObject, NSExtensionRequestHandling {
 
         let attachment = NSItemProvider(
             item: jsonData as NSData,
-            typeIdentifier: kUTTypeJSON as String
+            typeIdentifier: UTType.json.identifier
         )
 
         let item = NSExtensionItem()
