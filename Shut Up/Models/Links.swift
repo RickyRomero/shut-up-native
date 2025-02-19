@@ -136,17 +136,24 @@ enum Links {
             SafariRelease(services: .version12_1, userFacingVersion: "12.1"),
             SafariRelease(services: .version13_0, userFacingVersion: "13.0 or greater")
         ]
-        var highestSafariVersion = "10.0"
-        for release in knownSafariReleases {
-            if SFSafariServicesAvailable(release.services) {
-                highestSafariVersion = release.userFacingVersion
-            }
-        }
+        let highestSafariVersion = knownSafariReleases
+            .filter { SFSafariServicesAvailable($0.services) }
+            .last?.userFacingVersion ?? "10.0"
 
-        var macosVersion = ProcessInfo.processInfo.operatingSystemVersionString
-        macosVersion = macosVersion.replacingOccurrences(
-            of: "Version ", with: "", options: NSString.CompareOptions.literal, range: nil
-        )
+        let safariAppVersion: String = {
+            if let safariURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.apple.Safari"),
+               let safariBundle = Bundle(url: safariURL),
+               let version = safariBundle.infoDictionary?["CFBundleShortVersionString"] as? String
+            {
+                return version
+            }
+            return "Unknown"
+        }()
+
+        let macosVersion: String = {
+            let version = ProcessInfo.processInfo.operatingSystemVersionString
+            return version.replacingOccurrences(of: "Version ", with: "", options: .literal, range: nil)
+        }()
 
         let urlComps = NSURLComponents(string: "mailto:shutup@fwd.rickyromero.com")!
         let queryItems = [
@@ -158,7 +165,9 @@ enum Links {
 
             App version: \(Info.version) (\(Info.buildNum))
             macOS version: \(macosVersion)
+            Safari app version: \(safariAppVersion)
             SafariServices version: \(highestSafariVersion)
+            Stylesheet last updated: \(Preferences.main.lastStylesheetUpdate)
 
             [If reporting a problem, please be as specific as you can so I can diagnose it. Thank you! -Ricky]
             """)
