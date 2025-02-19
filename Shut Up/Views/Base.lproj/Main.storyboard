@@ -24,7 +24,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="XMd-hF-RVe"/>
-                                        <menuItem title="Force Stylesheet Update" keyEquivalent="r" id="rU7-cH-BIU">
+                                        <menuItem title="Update Stylesheet" keyEquivalent="r" id="rU7-cH-BIU">
                                             <connections>
                                                 <action selector="forceStylesheetUpdate:" target="Ady-hI-5gd" id="Fev-ws-zQD"/>
                                             </connections>
@@ -979,7 +979,7 @@ DQ
                                                 <subviews>
                                                     <button wantsLayer="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0m7-S0-7eM">
                                                         <rect key="frame" x="-7" y="-7" width="184" height="32"/>
-                                                        <buttonCell key="cell" type="push" title="Force Stylesheet Update" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="JEP-vr-uVd">
+                                                        <buttonCell key="cell" type="push" title="Update Stylesheet" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="JEP-vr-uVd">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
