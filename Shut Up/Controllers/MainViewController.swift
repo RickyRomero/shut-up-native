@@ -39,6 +39,7 @@ class MainViewController: NSViewController {
     }
 
     var whitelistTableEntries: [String] = []
+    var whitelistInfoLabelHeight: CGFloat = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +48,7 @@ class MainViewController: NSViewController {
         whitelistView.delegate = self
         whitelistView.dataSource = self
         Whitelist.main.delegate = self
+        whitelistInfoLabelHeight = whitelistInfoLabel.frame.height
 
         enableHelperGuide.isHidden = true
 
@@ -64,17 +66,15 @@ class MainViewController: NSViewController {
     override func viewWillAppear() {
         super.viewWillAppear()
 
-        // Get and store minimum window height for use in animation later
-        // Only calculate this once - otherwise the sheet gets screwed up
-        guard minWinHeight == nil else { return }
-        let savedFrame = view.window!.frame
-        var checkFrame = savedFrame
-        checkFrame.size = NSSize(width: 0, height: 0)
-        view.window!.setFrame(checkFrame, display: true)
-        view.window!.layoutIfNeeded()
-        minWinHeight = Double(view.window!.frame.height)
+        // Only calculate this once
+        guard minWinHeight == nil, let window = view.window else { return }
 
-        view.window!.setFrame(savedFrame, display: true)
+        // Calculate the window’s content area. The part available for views,
+        // excluding the title bar and borders.
+        let contentRect = window.contentRect(forFrameRect: window.frame)
+
+        // Store that height as the minimum content height
+        minWinHeight = Double(contentRect.height)
 
         // Piggyback off of this one-time event to also start listening for
         // when the app receives focus

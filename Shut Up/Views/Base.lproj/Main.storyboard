@@ -974,7 +974,7 @@ DQ
                                                     <constraint firstAttribute="height" id="qiy-FA-WOB"/>
                                                 </constraints>
                                             </customView>
-                                            <stackView distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T02-vC-cYG">
+                                            <stackView distribution="fill" orientation="horizontal" alignment="baseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T02-vC-cYG">
                                                 <rect key="frame" x="0.0" y="0.0" width="191" height="20"/>
                                                 <subviews>
                                                     <button wantsLayer="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0m7-S0-7eM">
