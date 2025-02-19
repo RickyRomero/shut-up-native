@@ -9,7 +9,7 @@
 import SafariServices
 
 class SafariExtensionHandler: SFSafariExtensionHandler {
-    struct toolbarImages {
+    enum toolbarImages {
         private static let enabledUrl = Bundle.main.urlForImageResource("turn-off")!
         private static let disabledUrl = Bundle.main.urlForImageResource("turn-on")!
 
@@ -21,7 +21,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         Setup.main.bootstrap {}
     }
 
-    override func contextMenuItemSelected(withCommand command: String, in page: SFSafariPage, userInfo: [String : Any]? = nil) {
+    override func contextMenuItemSelected(withCommand command: String, in page: SFSafariPage, userInfo: [String: Any]? = nil) {
         page.getContainingTab { tab in
             tab.getContainingWindow { window in
                 page.getPropertiesWithCompletionHandler { props in
@@ -58,7 +58,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     }
 
     func toggleComments(for window: SFSafariWindow?, with page: SFSafariPage?, having props: SFSafariPageProperties?) {
-        guard let domain = self.getDomain(from: props?.url) else { return }
+        guard let domain = getDomain(from: props?.url) else { return }
         _ = Whitelist.main.toggle(domain: domain)
 
         window?.getToolbarItem { button in
@@ -83,7 +83,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
 
             let shouldRemove = (
                 !Preferences.main.automaticWhitelisting ||
-                (props?.usesPrivateBrowsing ?? false)
+                    (props?.usesPrivateBrowsing ?? false)
             )
             if shouldRemove {
                 // Unfortunately this also requires an ugly delay...
@@ -112,8 +112,25 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         button?.setLabel(matched ? "Hide Comments" : "Show Comments")
     }
 
-    override func validateContextMenuItem(withCommand command: String, in page: SFSafariPage, userInfo: [String : Any]? = nil, validationHandler: @escaping (Bool, String?) -> Void) {
-        validationHandler(!Preferences.main.showInMenu, nil)
+    override func validateContextMenuItem(withCommand command: String,
+                                          in page: SFSafariPage,
+                                          userInfo: [String: Any]? = nil,
+                                          validationHandler: @escaping (Bool, String?) -> Void)
+    {
+        page.getPropertiesWithCompletionHandler { props in
+            // Use the existing preference as a gatekeeper
+            let showItem = !Preferences.main.showInMenu
+
+            // Try to extract the URL and domain
+            if let url = props?.url, let domain = self.getDomain(from: url) {
+                let matched = Whitelist.main.matches(domain: domain)
+                let title = matched ? "Hide Comments" : "Show Comments"
+                validationHandler(showItem, title)
+            } else {
+                // Fallback if URL/domain aren't available: show a default title.
+                validationHandler(showItem, "Toggle Comments")
+            }
+        }
     }
 }
 
