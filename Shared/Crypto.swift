@@ -50,12 +50,10 @@ final class Crypto {
         defer { self.lock.unlock() }
         setupStarted = true
 
-        if preCatalinaKeysPresent || !requiredKeysPresent {
+        if !requiredKeysPresent {
             lock.claim()
             do {
-                if Crypto.main.preCatalinaKeysPresent {
-                    try Crypto.main.migratePreCatalinaKeys()
-                } else if !Crypto.main.requiredKeysPresent {
+                if !Crypto.main.requiredKeysPresent {
                     try Crypto.main.generateKeyPair()
                 }
             } catch {
@@ -71,29 +69,14 @@ final class Crypto {
         ].contains(nil)
     }
 
-    var preCatalinaKeysPresent: Bool {
-        ![
-            try? Crypto.main.lookupKey(.private, requiringCatalinaMigration: true),
-            try? Crypto.main.lookupKey(.public, requiringCatalinaMigration: true)
-        ].contains(nil)
-    }
-
     func clear() throws {
-        try clear(preCatalinaItems: false)
-    }
-
-    func clear(preCatalinaItems: Bool) throws {
         // Invalidate keys by deleting them
         var query: [CFString: Any] = [
             kSecClass: kSecClassKey,
             kSecMatchLimit: kSecMatchLimitAll
         ]
 
-        if preCatalinaItems {
-            query[kSecAttrSynchronizable] = true
-        } else {
-            query[kSecUseDataProtectionKeychain] = true
-        }
+        query[kSecUseDataProtectionKeychain] = true
 
         let result = SecItemDelete(query as CFDictionary)
         guard [errSecSuccess, errSecItemNotFound].contains(result) else {
@@ -137,10 +120,6 @@ final class Crypto {
     }
 
     func lookupKey(_ keyClass: KeyClass) throws -> SecKey {
-        return try lookupKey(keyClass, requiringCatalinaMigration: false)
-    }
-
-    func lookupKey(_ keyClass: KeyClass, requiringCatalinaMigration: Bool) throws -> SecKey {
         var keyClassConstant = "" as CFString
         switch keyClass {
             case .private: keyClassConstant = kSecAttrKeyClassPrivate
@@ -155,11 +134,8 @@ final class Crypto {
             kSecReturnAttributes: true,
             kSecReturnData: true
         ]
-        if requiringCatalinaMigration {
-            query[kSecAttrSynchronizable] = true
-        } else {
-            query[kSecUseDataProtectionKeychain] = true
-        }
+
+        query[kSecUseDataProtectionKeychain] = true
 
         // Query the keychain
         var rawCopyResult: CFTypeRef? = nil
@@ -230,41 +206,5 @@ final class Crypto {
         }
 
         return transformed! as Data
-    }
-}
-
-// MARK: Catalina migration
-
-extension Crypto {
-    func migratePreCatalinaKeys() throws {
-        // Migration is a two-step process: add the data protection flag,
-        // then remove the sync flag. It fails if you try to do both in one step.
-        var query: [CFString: Any] = [
-            kSecClass: kSecClassKey,
-            kSecMatchLimit: kSecMatchLimitAll,
-            kSecAttrAccessGroup: Info.groupId,
-            kSecAttrSynchronizable: true
-        ]
-        var updates: [CFString: Any] = [
-            kSecUseDataProtectionKeychain: true
-        ]
-
-        // Add the data protection flag to the keys.
-        let migrationResult = SecItemUpdate(query as CFDictionary, updates as CFDictionary)
-        guard migrationResult == errSecSuccess else {
-            print("Human-readable error:", SecCopyErrorMessageString(migrationResult, nil) ?? "")
-            throw CryptoError.migratingPreCatalinaKeys
-        }
-
-        query[kSecUseDataProtectionKeychain] = true
-        updates[kSecAttrSynchronizable] = false
-        updates.removeValue(forKey: kSecUseDataProtectionKeychain)
-
-        // Remove the sync flag from the keys.
-        let syncRemovalResult = SecItemUpdate(query as CFDictionary, updates as CFDictionary)
-        guard syncRemovalResult == errSecSuccess else {
-            print("Human-readable error:", SecCopyErrorMessageString(syncRemovalResult, nil) ?? "")
-            throw CryptoError.migratingPreCatalinaKeys
-        }
     }
 }
