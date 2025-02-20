@@ -54,13 +54,44 @@ extension MainViewController {
         let prefs = Preferences.main
 
         enableHelperGuide.isHidden = helper.enabled
-        whitelistInfoLabel.alphaValue = helper.enabled ? 1.0 : 0.4
+        if helper.enabled, !prefs.automaticWhitelisting {
+            whitelistInfoLabel.isHidden = true
+        } else if !helper.enabled {
+            whitelistInfoLabel.alphaValue = 0.4
+        }
         enableWhitelistCheckbox.isEnabled = helper.enabled && prefs.setupRun
         showContextMenuCheckbox.isEnabled = helper.enabled && prefs.setupRun
     }
 
     @IBAction func whitelistSettingUpdated(_ sender: NSButton) {
         Preferences.main.automaticWhitelisting = sender.state == .on
+
+        // If we're showing the label, unhide it first so the animation can be visible.
+        if sender.state == .on {
+            whitelistInfoLabel.isHidden = false
+        }
+
+        NSAnimationContext.runAnimationGroup({ context in
+            context.duration = 0.2
+            context.allowsImplicitAnimation = true
+            context.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+
+            // Animate the alpha value
+            self.whitelistInfoLabel.alphaValue = sender.state == .on ? 1.0 : 0.0
+
+            // Animate the height constraint from its stored full height to 0 (or vice versa)
+            if let constraint = self.whitelistInfoLabel.constraints.first(where: { $0.firstAttribute == .height }) {
+                constraint.constant = sender.state == .on ? self.whitelistInfoLabelHeight : 0
+            }
+
+            // Update the layout smoothly
+            self.view.layoutSubtreeIfNeeded()
+        }) {
+            // Only hide the label after the animation completes when hiding
+            if sender.state == .off {
+                self.whitelistInfoLabel.isHidden = true
+            }
+        }
     }
 
     @IBAction func menuSettingUpdated(_ sender: NSButton) {
