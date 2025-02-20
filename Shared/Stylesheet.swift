@@ -41,6 +41,7 @@ class Stylesheet {
     private init() {}
 
     private var waitingForResponse = false
+    private var currentRefreshMethod: String?
     private var completionHandler: ((Error?) -> Void)?
 
     private let file = EncryptedFile(
@@ -70,6 +71,8 @@ class Stylesheet {
         guard updateIsDue || force else { return }
 
         waitingForResponse = true
+        currentRefreshMethod = force ? "manual" : "automatic"
+
         self.completionHandler = completionHandler
         let stylesheetUrl = URL(string: "https://rickyromero.com/shutup/updates/shutup.css")!
 
@@ -80,7 +83,6 @@ class Stylesheet {
         if !force, Preferences.main.etag != "" {
             sessionConfig.httpAdditionalHeaders?["If-None-Match"] = Preferences.main.etag
         }
-        sessionConfig.timeoutIntervalForRequest = 5 // seconds
         sessionConfig.timeoutIntervalForRequest = 10 // seconds
 
         let session = URLSession(configuration: sessionConfig)
@@ -93,6 +95,7 @@ class Stylesheet {
         var outputError: Error?
         defer {
             waitingForResponse = false
+            currentRefreshMethod = nil
             DispatchQueue.main.async {
                 self.completionHandler?(outputError)
                 self.completionHandler = nil
@@ -149,6 +152,7 @@ class Stylesheet {
         }
 
         Preferences.main.lastStylesheetUpdate = Date()
+        Preferences.main.lastUpdateMethod = currentRefreshMethod ?? "automatic"
         let headers = response.allHeaderFields
         if let etag = headers["Etag"] as? String {
             Preferences.main.etag = etag

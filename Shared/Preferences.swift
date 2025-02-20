@@ -32,14 +32,18 @@ final class Preferences {
             "showInMenu": true,
             "etag": "",
             "lastStylesheetUpdate": 0.0,
+            "lastUpdateMethod": "automatic",
         ])
 
         switch lastBuildRun {
-            case 0:
-                showInMenu = true
-                automaticWhitelisting = true
-            default:
-                break
+        case 0:
+            showInMenu = true
+            automaticWhitelisting = true
+            fallthrough
+        case 1 ... 11:
+            lastUpdateMethod = "automatic"
+        default:
+            break
         }
 
         lastBuildRun = Info.buildNum
@@ -96,6 +100,11 @@ final class Preferences {
             let stamp = newValue.timeIntervalSince1970
             suitePrefs.set(stamp, forKey: "lastStylesheetUpdate")
         }
+    }
+
+    var lastUpdateMethod: String {
+        get { suitePrefs.string(forKey: "lastUpdateMethod") ?? "automatic" }
+        set { suitePrefs.set(newValue, forKey: "lastUpdateMethod") }
     }
 
     var needsSetupAssistant: Bool {

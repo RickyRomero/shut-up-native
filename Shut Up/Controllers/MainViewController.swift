@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  shutup
 //
 //  Created by Ricky Romero on 9/2/19.
@@ -42,6 +42,7 @@ class MainViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpSymbols()
 
         Preferences.main.delegate = self
         whitelistView.delegate = self
@@ -54,8 +55,8 @@ class MainViewController: NSViewController {
         let tabularFigures = NSFont.systemFont(ofSize: 0.0).fontDescriptor.addingAttributes([
             .featureSettings: [[
                 NSFontDescriptor.FeatureKey.typeIdentifier: kNumberSpacingType,
-                NSFontDescriptor.FeatureKey.selectorIdentifier: kMonospacedNumbersSelector
-            ]]
+                NSFontDescriptor.FeatureKey.selectorIdentifier: kMonospacedNumbersSelector,
+            ]],
         ])
         lastCssUpdateLabel.font = NSFont(descriptor: tabularFigures, size: 0.0)
         resetCssLabelUpdateTimer()
