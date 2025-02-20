@@ -124,6 +124,10 @@ enum Links {
         BasicLink(
             menuTitle: "Privacy Policy",
             dest: "https://rickyromero.com/shutup/privacy/"
+        ),
+        BasicLink(
+            menuTitle: "View Source on GitHub",
+            dest: "https://github.com/RickyRomero/shut-up-native"
         )
     ])
 

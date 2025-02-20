@@ -202,6 +202,12 @@ CA
                                                 <action selector="didChooseLinkItem:" target="Voe-Tx-rLC" id="IdZ-fH-KsY"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="View Source on GitHub" id="exM-Yy-JKM">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="didChooseLinkItem:" target="Voe-Tx-rLC" id="8z8-jm-smn"/>
+                                            </connections>
+                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>
