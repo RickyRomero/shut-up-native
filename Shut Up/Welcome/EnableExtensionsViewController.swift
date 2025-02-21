@@ -67,11 +67,11 @@ class EnableExtensionsViewController: NSViewController, PageContentResponder {
 
     func update(button: NSButton, extEnabled: Bool) {
         if extEnabled {
-            button.title = "Enabled"
+            button.title = String(localized: "Enabled")
             button.image = NSImage(named: "NSMenuOnStateTemplate")
             button.isEnabled = false
         } else {
-            button.title = "Enable…"
+            button.title = String(localized: "Enable…")
             button.image = nil
             button.isEnabled = true
         }
