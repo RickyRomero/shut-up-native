@@ -2,11 +2,25 @@
   "sourceLanguage" : "en",
   "strings" : {
     "--" : {
-      "comment" : "String for the 'Last CSS update' label"
+      "comment" : "String for the 'Last CSS update' label",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "—"
+          }
+        }
+      }
     },
     "%@ updated on %@." : {
       "comment" : "Tooltip for the 'Last CSS update' label, first argument is 'Automatically' or 'Manually",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ aktualisiert am %2$@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -16,46 +30,137 @@
       }
     },
     "Automatically" : {
-      "comment" : "First argument for the 'Last CSS update' Accesibility label\nFirst argument for the 'Last CSS update' label"
+      "comment" : "First argument for the 'Last CSS update' Accesibility label\nFirst argument for the 'Last CSS update' label",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automatisch"
+          }
+        }
+      }
     },
     "Cannot connect to rickyromero.com" : {
-      "comment" : "URLError – title"
+      "comment" : "URLError – title",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verbindung zu rickyromero.com kann nicht hergestellt werden"
+          }
+        }
+      }
     },
     "Chrome" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chrome"
+          }
+        }
+      }
     },
     "Continue with Safari" : {
       "comment" : "Welcome page continue button"
     },
     "Edge" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edge"
+          }
+        }
+      }
     },
     "Enable…" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktivieren …"
+          }
+        }
+      }
     },
     "Enabled" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktiviert"
+          }
+        }
+      }
     },
     "Encryption keys missing or damaged" : {
-      "comment" : "CryptoError.fetchingKeys – title"
+      "comment" : "CryptoError.fetchingKeys – title",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verschlüsselungsschlüssel fehlen oder sind beschädigt"
+          }
+        }
+      }
     },
     "Failed to generate a required key" : {
-      "comment" : "CryptoError.generatingKeys – title"
+      "comment" : "CryptoError.generatingKeys – title",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der erforderliche Schlüssel konnte nicht generiert werden"
+          }
+        }
+      }
     },
     "Failed to read an internal file" : {
-      "comment" : "FileError.readingFile – title"
+      "comment" : "FileError.readingFile – title",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eine interne Datei konnte nicht gelesen werden"
+          }
+        }
+      }
     },
     "Failed to remove invalid keys" : {
-      "comment" : "CryptoError.removingInvalidKeys – title"
+      "comment" : "CryptoError.removingInvalidKeys – title",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ungültige Schlüssel konnten nicht entfernt werden"
+          }
+        }
+      }
     },
     "Failed to write an internal file" : {
-      "comment" : "FileError.writingFile – title"
+      "comment" : "FileError.writingFile – title",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das Schreiben einer internen Datei ist fehlgeschlagen"
+          }
+        }
+      }
     },
     "Finish" : {
       "comment" : "Welcome page continue button"
     },
     "Firefox" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Firefox"
+          }
+        }
+      }
     },
     "Get for Chrome" : {
 
@@ -64,109 +169,385 @@
       "comment" : "Welcome page continue button"
     },
     "Hide Comments" : {
-      "comment" : "Context menu item title\nToolbar button label"
+      "comment" : "Context menu item title\nToolbar button label",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kommentare ausblenden"
+          }
+        }
+      }
     },
     "If the issue persists, try restarting your Mac." : {
-      "comment" : "CryptoError.generatingKeys – info\nCryptoError.removingInvalidKeys – info"
+      "comment" : "CryptoError.generatingKeys – info\nCryptoError.removingInvalidKeys – info",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wenn das Problem weiterhin besteht, versuchen Sie, Ihren Mac neu zu starten."
+          }
+        }
+      }
     },
     "Internal error occurred" : {
-      "comment" : "LockError.timedOut – title"
+      "comment" : "LockError.timedOut – title",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Es ist ein interner Fehler aufgetreten"
+          }
+        }
+      }
     },
     "Keychain locked or unavailable" : {
-      "comment" : "CryptoError.accessingKeychain – title"
+      "comment" : "CryptoError.accessingKeychain – title",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schlüsselbund gesperrt oder nicht verfügbar"
+          }
+        }
+      }
     },
     "Manually" : {
-      "comment" : "First argument for the 'Last CSS update' Accesibility label\nFirst argument for the 'Last CSS update' label"
+      "comment" : "First argument for the 'Last CSS update' Accesibility label\nFirst argument for the 'Last CSS update' label",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Manuell"
+          }
+        }
+      }
     },
     "OK" : {
-      "comment" : "Default button text – error recovery"
+      "comment" : "Default button text – error recovery",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        }
+      }
     },
     "Opera" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opera"
+          }
+        }
+      }
     },
     "Quit" : {
-      "comment" : "Quitting app button text – error recovery"
+      "comment" : "Quitting app button text – error recovery",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schließen"
+          }
+        }
+      }
     },
     "Quit Shut Up and delete any files you don’t need." : {
-      "comment" : "FileError.checkingFreeSpace – info"
+      "comment" : "FileError.checkingFreeSpace – info",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shut Up beenden und alle nicht benötigten Dateien entfernen."
+          }
+        }
+      }
     },
     "Reset Shut Up" : {
-      "comment" : "Resetting app button text – error recovery"
+      "comment" : "Resetting app button text – error recovery",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shut Up zurücksetzen"
+          }
+        }
+      }
     },
     "Safari" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Safari"
+          }
+        }
+      }
     },
     "Safari failed to open its settings" : {
-      "comment" : "BrowserError.showingSafariPreferences – title"
+      "comment" : "BrowserError.showingSafariPreferences – title",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Safari konnte seine Einstellungen nicht öffnen"
+          }
+        }
+      }
     },
     "Safari failed to provide extension info" : {
-      "comment" : "BrowserError.requestingExtensionStatus – title"
+      "comment" : "BrowserError.requestingExtensionStatus – title",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Safari konnte keine Informationen zu Erweiterung bereitstellen"
+          }
+        }
+      }
     },
     "Safari failed to read Shut Up’s content-blocking rules" : {
-      "comment" : "BrowserError.providingBlockRules – title"
+      "comment" : "BrowserError.providingBlockRules – title",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Safari konnte die Inhaltsblockierungsregeln von Shut Up nicht lesen"
+          }
+        }
+      }
     },
     "Show Comments" : {
-      "comment" : "Context menu item title\nToolbar button label"
+      "comment" : "Context menu item title\nToolbar button label",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kommentare einblenden"
+          }
+        }
+      }
     },
     "Shut Up asked Safari if its extensions are enabled, but it failed. Try quitting Shut Up and moving it to your Applications folder.\n\nIf the issue persists, try uninstalling Shut Up, restarting your Mac, and reinstalling Shut Up." : {
-      "comment" : "BrowserError.requestingExtensionStatus – info"
+      "comment" : "BrowserError.requestingExtensionStatus – info",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shut Up hat Safari gefragt, ob seine Erweiterungen aktiviert sind, aber dies ist fehlgeschlagen. Versuchen Sie, Shut Up zu beenden und in Ihren Anwendungsordner zu verschieben.\n\nWenn das Problem weiterhin besteht, versuchen Sie, Shut Up zu deinstallieren, Ihren Mac neu zu starten und Shut Up erneut zu installieren."
+          }
+        }
+      }
     },
     "Shut Up asked Safari to open its settings window, but it failed. Try opening Safari’s settings manually, then go to the “Extensions” section." : {
-      "comment" : "BrowserError.showingSafariPreferences – info"
+      "comment" : "BrowserError.showingSafariPreferences – info",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shut Up forderte Safari auf, sein Einstellungsfenster zu öffnen, dies schlug jedoch fehl. Versuchen Sie, die Safari-Einstellungen manuell zu öffnen, und gehen Sie dann zum Abschnitt „Erweiterungen“."
+          }
+        }
+      }
     },
     "Shut Up encountered a problem and cannot recover. Please quit and restart Shut Up." : {
-      "comment" : "LockError.timedOut – info"
+      "comment" : "LockError.timedOut – info",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Es ist ein Problem aufgetreten und Shut Up kann diese nicht beheben. Bitte beenden Sie Shut Up und starten Sie es neu."
+          }
+        }
+      }
     },
     "Shut Up failed to decrypt some required data. You can fix this by resetting Shut Up, but your allowlist may be lost." : {
-      "comment" : "CryptoError.fetchingKeys – info\nCryptoError.transformingData – info"
+      "comment" : "CryptoError.fetchingKeys – info\nCryptoError.transformingData – info",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shut Up konnte einige erforderliche Daten nicht entschlüsseln. Sie können dies beheben, indem Sie Shut Up zurücksetzen. Ihre Erlaubnisliste geht dabei jedoch möglicherweise verloren."
+          }
+        }
+      }
     },
     "Shut Up failed to read from an internal file. If this issue persists, please quit and restart Shut Up." : {
-      "comment" : "FileError.readingFile – info"
+      "comment" : "FileError.readingFile – info",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shut Up konnte eine interne Datei nicht lesen. Wenn das Problem weiterhin besteht, beenden Sie Shut Up und starten Sie es erneut."
+          }
+        }
+      }
     },
     "Shut Up failed to write to an internal file. If this issue persists, please quit and restart Shut Up." : {
-      "comment" : "FileError.writingFile – info"
+      "comment" : "FileError.writingFile – info",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shut Up konnte nicht in eine interne Datei schreiben. Wenn das Problem weiterhin besteht, beenden Sie Shut Up und starten Sie es erneut."
+          }
+        }
+      }
     },
     "Shut Up requires keychain privileges to secure its data. Unlock your keychain to proceed." : {
-      "comment" : "CryptoError.accessingKeychain – info"
+      "comment" : "CryptoError.accessingKeychain – info",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shut Up erfordert Schlüsselbundberechtigungen, um seine Daten zu sichern. Entsperren Sie Ihren Schlüsselbund, um fortzufahren."
+          }
+        }
+      }
     },
     "Shut Up sent Safari new content-blocking rules, but it failed. Try restarting Safari. If the issue persists, try restarting your Mac." : {
-      "comment" : "BrowserError.providingBlockRules – info"
+      "comment" : "BrowserError.providingBlockRules – info",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shut Up hat Safari neue Regeln zur Inhaltsblockierung gesendet, aber es ist fehlgeschlagen. Versuchen Sie, Safari neu zu starten. Wenn das Problem weiterhin besteht, versuchen Sie, Ihren Mac neu zu starten."
+          }
+        }
+      }
     },
     "Shut Up tried to update the stylesheet, but the response the server sent was invalid. Try again later." : {
-      "comment" : "MiscError.unexpectedNetworkResponse – info"
+      "comment" : "MiscError.unexpectedNetworkResponse – info",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shut Up hat versucht, das Stylesheet zu aktualisieren, aber die vom Server gesendete Antwort war ungültig. Versuchen Sie es später erneut."
+          }
+        }
+      }
     },
     "Startup disk is too full to continue" : {
-      "comment" : "FileError.checkingFreeSpace – title"
+      "comment" : "FileError.checkingFreeSpace – title",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das Startvolume ist zu voll, um fortzufahren"
+          }
+        }
+      }
     },
     "Stylesheet hasn't been updated." : {
-      "comment" : "Tooltip for the 'Last CSS update' label"
+      "comment" : "Tooltip for the 'Last CSS update' label",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das Stylesheet wurde nicht aktualisiert."
+          }
+        }
+      }
     },
     "Stylesheet or allowlist damaged" : {
-      "comment" : "CryptoError.transformingData – title"
+      "comment" : "CryptoError.transformingData – title",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stylesheet oder Erlaubnisliste beschädigt"
+          }
+        }
+      }
     },
     "Toggle Comments" : {
-      "comment" : "Context menu item title"
+      "comment" : "Context menu item title",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kommentare ein-/ausblenden"
+          }
+        }
+      }
     },
     "Try Again…" : {
-      "comment" : "Retrying button text – error recovery"
+      "comment" : "Retrying button text – error recovery",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erneut versuchen …"
+          }
+        }
+      }
     },
     "Unexpected response from rickyromero.com" : {
-      "comment" : "MiscError.unexpectedNetworkResponse – title"
+      "comment" : "MiscError.unexpectedNetworkResponse – title",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unerwartete Antwort von rickyromero.com"
+          }
+        }
+      }
     },
     "Unknown" : {
-      "comment" : "Unknown browser name"
+      "comment" : "Unknown browser name",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unbekannt"
+          }
+        }
+      }
     },
     "Updated %@" : {
-      "comment" : "String for the 'Last CSS update' label, argument is the relative time"
+      "comment" : "String for the 'Last CSS update' label, argument is the relative time",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktualisiert %@"
+          }
+        }
+      }
     },
     "Updated just now" : {
-      "comment" : "String for the 'Last CSS update' label"
+      "comment" : "String for the 'Last CSS update' label",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gerade aktualisiert"
+          }
+        }
+      }
     },
     "Updated over 1 week ago" : {
-      "comment" : "String for the 'Last CSS update' label"
+      "comment" : "String for the 'Last CSS update' label",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vor über 1 Woche aktualisiert"
+          }
+        }
+      }
     },
     "Your default browser is %@. Do you want to get the %@ version of Shut Up?" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ihr Standardbrowser ist %1$@. Möchten Sie die %2$@-Version von Shut Up herunterladen?"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
