@@ -1,7 +1,168 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "--" : {
+      "comment" : "String for the 'Last CSS update' label"
+    },
+    "%@ updated on %@." : {
+      "comment" : "Tooltip for the 'Last CSS update' label, first argument is 'Automatically' or 'Manually",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ updated on %2$@."
+          }
+        }
+      }
+    },
+    "Automatically" : {
+      "comment" : "First argument for the 'Last CSS update' Accesibility label\nFirst argument for the 'Last CSS update' label"
+    },
+    "Cannot connect to rickyromero.com" : {
+      "comment" : "URLError – title"
+    },
+    "Chrome" : {
 
+    },
+    "Edge" : {
+
+    },
+    "Enable…" : {
+
+    },
+    "Enabled" : {
+
+    },
+    "Encryption keys missing or damaged" : {
+      "comment" : "CryptoError.fetchingKeys – title"
+    },
+    "Failed to generate a required key" : {
+      "comment" : "CryptoError.generatingKeys – title"
+    },
+    "Failed to read an internal file" : {
+      "comment" : "FileError.readingFile – title"
+    },
+    "Failed to remove invalid keys" : {
+      "comment" : "CryptoError.removingInvalidKeys – title"
+    },
+    "Failed to write an internal file" : {
+      "comment" : "FileError.writingFile – title"
+    },
+    "Firefox" : {
+
+    },
+    "Hide Comments" : {
+      "comment" : "Context menu item title\nToolbar button label"
+    },
+    "If the issue persists, try restarting your Mac." : {
+      "comment" : "CryptoError.generatingKeys – info\nCryptoError.removingInvalidKeys – info"
+    },
+    "Internal error occurred" : {
+      "comment" : "LockError.timedOut – title"
+    },
+    "Keychain locked or unavailable" : {
+      "comment" : "CryptoError.accessingKeychain – title"
+    },
+    "Manually" : {
+      "comment" : "First argument for the 'Last CSS update' Accesibility label\nFirst argument for the 'Last CSS update' label"
+    },
+    "OK" : {
+      "comment" : "Default button text – error recovery"
+    },
+    "Opera" : {
+
+    },
+    "Quit" : {
+      "comment" : "Quitting app button text – error recovery"
+    },
+    "Quit Shut Up and delete any files you don’t need." : {
+      "comment" : "FileError.checkingFreeSpace – info"
+    },
+    "Reset Shut Up" : {
+      "comment" : "Resetting app button text – error recovery"
+    },
+    "Safari" : {
+
+    },
+    "Safari failed to open its settings" : {
+      "comment" : "BrowserError.showingSafariPreferences – title"
+    },
+    "Safari failed to provide extension info" : {
+      "comment" : "BrowserError.requestingExtensionStatus – title"
+    },
+    "Safari failed to read Shut Up’s content-blocking rules" : {
+      "comment" : "BrowserError.providingBlockRules – title"
+    },
+    "Show Comments" : {
+      "comment" : "Context menu item title\nToolbar button label"
+    },
+    "Shut Up asked Safari if its extensions are enabled, but it failed. Try quitting Shut Up and moving it to your Applications folder.\n\nIf the issue persists, try uninstalling Shut Up, restarting your Mac, and reinstalling Shut Up." : {
+      "comment" : "BrowserError.requestingExtensionStatus – info"
+    },
+    "Shut Up asked Safari to open its settings window, but it failed. Try opening Safari’s settings manually, then go to the “Extensions” section." : {
+      "comment" : "BrowserError.showingSafariPreferences – info"
+    },
+    "Shut Up encountered a problem and cannot recover. Please quit and restart Shut Up." : {
+      "comment" : "LockError.timedOut – info"
+    },
+    "Shut Up failed to decrypt some required data. You can fix this by resetting Shut Up, but your allowlist may be lost." : {
+      "comment" : "CryptoError.fetchingKeys – info\nCryptoError.transformingData – info"
+    },
+    "Shut Up failed to read from an internal file. If this issue persists, please quit and restart Shut Up." : {
+      "comment" : "FileError.readingFile – info"
+    },
+    "Shut Up failed to write to an internal file. If this issue persists, please quit and restart Shut Up." : {
+      "comment" : "FileError.writingFile – info"
+    },
+    "Shut Up requires keychain privileges to secure its data. Unlock your keychain to proceed." : {
+      "comment" : "CryptoError.accessingKeychain – info"
+    },
+    "Shut Up sent Safari new content-blocking rules, but it failed. Try restarting Safari. If the issue persists, try restarting your Mac." : {
+      "comment" : "BrowserError.providingBlockRules – info"
+    },
+    "Shut Up tried to update the stylesheet, but the response the server sent was invalid. Try again later." : {
+      "comment" : "MiscError.unexpectedNetworkResponse – info"
+    },
+    "Startup disk is too full to continue" : {
+      "comment" : "FileError.checkingFreeSpace – title"
+    },
+    "Stylesheet hasn't been updated." : {
+      "comment" : "Tooltip for the 'Last CSS update' label"
+    },
+    "Stylesheet or allowlist damaged" : {
+      "comment" : "CryptoError.transformingData – title"
+    },
+    "Toggle Comments" : {
+      "comment" : "Context menu item title"
+    },
+    "Try Again…" : {
+      "comment" : "Retrying button text – error recovery"
+    },
+    "Unexpected response from rickyromero.com" : {
+      "comment" : "MiscError.unexpectedNetworkResponse – title"
+    },
+    "Unknown" : {
+      "comment" : "Unknown browser name"
+    },
+    "Updated %@" : {
+      "comment" : "String for the 'Last CSS update' label, argument is the relative time"
+    },
+    "Updated just now" : {
+      "comment" : "String for the 'Last CSS update' label"
+    },
+    "Updated over 1 week ago" : {
+      "comment" : "String for the 'Last CSS update' label"
+    },
+    "Your default browser is %@. Do you want to get the %@ version of Shut Up?" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Your default browser is %1$@. Do you want to get the %2$@ version of Shut Up?"
+          }
+        }
+      }
+    }
   },
   "version" : "1.0"
 }
