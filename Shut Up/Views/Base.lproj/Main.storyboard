@@ -384,7 +384,7 @@ DQ
                                 <rect key="frame" x="94" y="0.0" width="412" height="256"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="Baby Browser Aqua" id="qwa-s2-NSD"/>
                             </imageView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UPv-RE-w1M">
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UPv-RE-w1M">
                                 <rect key="frame" x="161" y="260" width="279" height="19"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Sublime comment blocking for Safari." id="7yz-Sl-Sgd">
                                     <font key="font" metaFont="system" size="16"/>
@@ -395,7 +395,7 @@ DQ
                             <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="CLc-8P-0h5">
                                 <rect key="frame" x="100" y="285" width="400" height="5"/>
                             </box>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WGe-Ig-P5h">
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WGe-Ig-P5h">
                                 <rect key="frame" x="227" y="296" width="147" height="43"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Shut Up" id="qcv-51-sfA">
                                     <font key="font" metaFont="systemHeavy" size="36"/>
@@ -455,7 +455,7 @@ DQ
                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="yhe-fV-vie">
                                                 <rect key="frame" x="285" y="101" width="250" height="88"/>
                                                 <subviews>
-                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="N6f-Sx-6OI">
+                                                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="N6f-Sx-6OI">
                                                         <rect key="frame" x="-2" y="0.0" width="254" height="32"/>
                                                         <textFieldCell key="cell" id="2Xe-4N-oPR">
                                                             <font key="font" metaFont="system"/>
@@ -465,7 +465,7 @@ iOS 12 or later.</string>
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
-                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="KGM-hn-NZE">
+                                                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="KGM-hn-NZE">
                                                         <rect key="frame" x="-2" y="40" width="254" height="48"/>
                                                         <textFieldCell key="cell" title="Open the Camera app on your iPhone or iPad, then point it at this window to get started." id="zM0-gK-USm">
                                                             <font key="font" metaFont="systemBold"/>
@@ -609,7 +609,7 @@ DQ
                                     <rect key="frame" x="4" y="5" width="548" height="128"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="o6G-cn-FlB">
+                                        <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="o6G-cn-FlB">
                                             <rect key="frame" x="97" y="76" width="433" height="32"/>
                                             <textFieldCell key="cell" title="Your default browser is Chrome. Do you want to get the Chrome version of Shut Up?" id="E58-7j-YCi">
                                                 <font key="font" metaFont="systemBold"/>
@@ -625,7 +625,7 @@ DQ
                                             </constraints>
                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="Large Chrome" id="BEV-Y2-hmS"/>
                                         </imageView>
-                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="OJJ-Oo-mi3">
+                                        <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="OJJ-Oo-mi3">
                                             <rect key="frame" x="97" y="20" width="428" height="48"/>
                                             <textFieldCell key="cell" id="5Bf-gR-vZz">
                                                 <font key="font" metaFont="system"/>
@@ -648,7 +648,7 @@ DQ
                                     </constraints>
                                 </view>
                             </box>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vM4-E1-O8C">
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vM4-E1-O8C">
                                 <rect key="frame" x="138" y="260" width="324" height="19"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Let’s make sure we have the right browser…" id="eMv-Zv-3wy">
                                     <font key="font" metaFont="system" size="16"/>
@@ -659,7 +659,7 @@ DQ
                             <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="5gX-SA-UOI">
                                 <rect key="frame" x="100" y="285" width="400" height="5"/>
                             </box>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KM6-yH-FRK">
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KM6-yH-FRK">
                                 <rect key="frame" x="195" y="296" width="210" height="43"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Get Started" id="uNr-X0-6i5">
                                     <font key="font" metaFont="systemHeavy" size="36"/>
@@ -708,7 +708,7 @@ DQ
                                     <rect key="frame" x="4" y="5" width="548" height="196"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="YpP-fY-YwK">
+                                        <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="YpP-fY-YwK">
                                             <rect key="frame" x="23" y="25" width="502" height="32"/>
                                             <textFieldCell key="cell" title="Lets you show and hide comments with the click of a button. Recommended for full functionality." id="mkw-hH-bhF">
                                                 <font key="font" metaFont="system"/>
@@ -716,7 +716,7 @@ DQ
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" verifyAmbiguity="ignoreSizes" translatesAutoresizingMaskIntoConstraints="NO" id="GgI-mz-EF8">
+                                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" verifyAmbiguity="ignoreSizes" translatesAutoresizingMaskIntoConstraints="NO" id="GgI-mz-EF8">
                                             <rect key="frame" x="23" y="154" width="90" height="16"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Shut Up Core" id="ea7-dt-MHi">
                                                 <font key="font" metaFont="systemBold"/>
@@ -740,7 +740,7 @@ DQ
                                         <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="nVo-DR-JRQ">
                                             <rect key="frame" x="25" y="63" width="498" height="5"/>
                                         </box>
-                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="aL5-9A-XWe">
+                                        <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="aL5-9A-XWe">
                                             <rect key="frame" x="23" y="121" width="460" height="16"/>
                                             <textFieldCell key="cell" title="Blocks comment sections on webpages. Shut Up doesn’t work without this." id="gdk-PN-UXq">
                                                 <font key="font" metaFont="system"/>
@@ -758,7 +758,7 @@ DQ
                                                 <action selector="coreButtonClicked:" target="BRk-Bm-QBs" id="6F6-cz-8NU"/>
                                             </connections>
                                         </button>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" verifyAmbiguity="ignoreSizes" translatesAutoresizingMaskIntoConstraints="NO" id="HJX-9n-nlh">
+                                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" verifyAmbiguity="ignoreSizes" translatesAutoresizingMaskIntoConstraints="NO" id="HJX-9n-nlh">
                                             <rect key="frame" x="23" y="74" width="103" height="16"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Shut Up Helper" id="teG-qw-aUj">
                                                 <font key="font" metaFont="systemBold"/>
@@ -766,7 +766,7 @@ DQ
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" verifyAmbiguity="ignoreSizes" translatesAutoresizingMaskIntoConstraints="NO" id="tDr-U4-I7t">
+                                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" verifyAmbiguity="ignoreSizes" translatesAutoresizingMaskIntoConstraints="NO" id="tDr-U4-I7t">
                                             <rect key="frame" x="117" y="154" width="48" height="14"/>
                                             <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" title="required" id="0Ql-qg-slX">
                                                 <font key="font" metaFont="message" size="11"/>
@@ -804,7 +804,7 @@ DQ
                                     </constraints>
                                 </view>
                             </box>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jgZ-vD-VkR">
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jgZ-vD-VkR">
                                 <rect key="frame" x="60" y="260" width="481" height="19"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Enable Shut Up’s extensions to block comment sections in Safari." id="x3C-Xa-7gX">
                                     <font key="font" metaFont="system" size="16"/>
@@ -815,7 +815,7 @@ DQ
                             <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="VhJ-5z-dY6">
                                 <rect key="frame" x="100" y="285" width="400" height="5"/>
                             </box>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tyw-bW-Bx5">
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tyw-bW-Bx5">
                                 <rect key="frame" x="195" y="296" width="210" height="43"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Get Started" id="EyR-6m-lmv">
                                     <font key="font" metaFont="systemHeavy" size="36"/>
@@ -886,7 +886,7 @@ DQ
                                             <stackView hidden="YES" distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" verticalHuggingPriority="251" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Elb-XE-3uY">
                                                 <rect key="frame" x="0.0" y="90" width="339" height="20"/>
                                                 <subviews>
-                                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xW5-fd-wp7">
+                                                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xW5-fd-wp7">
                                                         <rect key="frame" x="-2" y="3" width="263" height="16"/>
                                                         <textFieldCell key="cell" lineBreakMode="clipping" title="These preferences require Shut Up Helper." id="R18-d9-CAr">
                                                             <font key="font" metaFont="system"/>
@@ -930,7 +930,7 @@ DQ
                                                             <action selector="whitelistSettingUpdated:" target="XfG-lQ-9wD" id="XXK-Up-L9I"/>
                                                         </connections>
                                                     </button>
-                                                    <textField wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2nG-k5-jvw">
+                                                    <textField wantsLayer="YES" focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2nG-k5-jvw">
                                                         <rect key="frame" x="16" y="24" width="296" height="14"/>
                                                         <textFieldCell key="cell" lineBreakMode="clipping" title="This preference is ignored in Private Browsing windows." id="1di-cw-apB">
                                                             <font key="font" metaFont="message" size="11"/>
@@ -993,7 +993,7 @@ DQ
                                                             <action selector="forceStylesheetUpdate:" target="XfG-lQ-9wD" id="wzA-Aw-yJ6"/>
                                                         </connections>
                                                     </button>
-                                                    <textField wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eQ6-c3-SwY">
+                                                    <textField wantsLayer="YES" focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eQ6-c3-SwY">
                                                         <rect key="frame" x="138" y="3" width="17" height="16"/>
                                                         <textFieldCell key="cell" lineBreakMode="clipping" title="--" id="KD1-xR-0hV">
                                                             <font key="font" metaFont="system"/>
@@ -1007,7 +1007,7 @@ DQ
                                                             <progressIndicator wantsLayer="YES" maxValue="100" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="kmX-0T-y2Z">
                                                                 <rect key="frame" x="0.0" y="0.0" width="16" height="20"/>
                                                             </progressIndicator>
-                                                            <textField wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YRp-VE-Olt">
+                                                            <textField wantsLayer="YES" focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YRp-VE-Olt">
                                                                 <rect key="frame" x="22" y="1" width="70" height="16"/>
                                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Updating…" id="uz4-1j-Dod">
                                                                     <font key="font" metaFont="system"/>
@@ -1089,7 +1089,7 @@ DQ
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="37"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="B7G-nS-Un0">
+                                                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="B7G-nS-Un0">
                                                     <rect key="frame" x="16" y="11" width="268" height="16"/>
                                                     <textFieldCell key="cell" lineBreakMode="clipping" title="Hide comments everywhere, except:" id="L4f-Kl-bw7">
                                                         <font key="font" metaFont="systemBold"/>
@@ -1144,7 +1144,7 @@ DQ
                                                                             <rect key="frame" x="11" y="1" width="277" height="24"/>
                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                             <subviews>
-                                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="b6h-C7-XOx">
+                                                                                <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="b6h-C7-XOx">
                                                                                     <rect key="frame" x="12" y="4" width="253" height="16"/>
                                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Hide comments everywhere, except:" id="gcE-XB-Kmq">
                                                                                         <font key="font" metaFont="system"/>
@@ -1181,7 +1181,7 @@ DQ
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
                                             </scrollView>
-                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZjL-Rx-1qN">
+                                            <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZjL-Rx-1qN">
                                                 <rect key="frame" x="15" y="15" width="270" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="32" id="6wj-kt-HCp"/>
