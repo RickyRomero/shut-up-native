@@ -20,6 +20,15 @@ If you're simply looking to _install_ Shut Up, these are the links you're lookin
 
 This version of Shut Up requires macOS Monterey or later, and builds in Xcode 16.
 
+## Translations
+
+If you want to help translate Shut Up into your language, you need the latest version of Xcode.
+
+Translations must be added in two places:
+
+- For the main app: `Shut Up -> Shut Up -> Views -> Main (Strings)`
+- For all other strings: `Shut Up -> Shared -> Localizable`
+
 ## License
 
 Shut Up is available under the terms of the [MIT License][license].
