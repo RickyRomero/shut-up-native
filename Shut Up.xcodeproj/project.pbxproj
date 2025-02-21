@@ -80,6 +80,9 @@
 		11F903BA2470F96D0012051C /* LockFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F903B82470F96D0012051C /* LockFile.swift */; };
 		11F903BB2470F96D0012051C /* LockFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F903B82470F96D0012051C /* LockFile.swift */; };
 		11FD0C26235D10FE00FC0587 /* LargeBubbleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FD0C25235D10FE00FC0587 /* LargeBubbleImageView.swift */; };
+		E216EE1D2D68044800F3EA78 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E216EE1C2D68044800F3EA78 /* Localizable.xcstrings */; };
+		E216EE1E2D68044800F3EA78 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E216EE1C2D68044800F3EA78 /* Localizable.xcstrings */; };
+		E216EE1F2D68044800F3EA78 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E216EE1C2D68044800F3EA78 /* Localizable.xcstrings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,6 +175,7 @@
 		11F903B82470F96D0012051C /* LockFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockFile.swift; sourceTree = "<group>"; };
 		11FD0C25235D10FE00FC0587 /* LargeBubbleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeBubbleImageView.swift; sourceTree = "<group>"; };
 		E216EE1B2D6803C800F3EA78 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/Main.xcstrings; sourceTree = "<group>"; };
+		E216EE1C2D68044800F3EA78 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +225,7 @@
 				110FEE0D2476D07100AA0B83 /* MessagingError.swift */,
 				11F903B82470F96D0012051C /* LockFile.swift */,
 				111C4DD6234A2D040034054C /* Info.swift */,
+				E216EE1C2D68044800F3EA78 /* Localizable.xcstrings */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -559,6 +564,7 @@
 			files = (
 				11E581DA231DB6FD00910010 /* Assets.xcassets in Resources */,
 				111C4DE0234A47180034054C /* domain-whitelist.json in Resources */,
+				E216EE1F2D68044800F3EA78 /* Localizable.xcstrings in Resources */,
 				1123F68F272513940026E2A7 /* InternetAccessPolicy.plist in Resources */,
 				111C4DDC234A46C10034054C /* shutup.css in Resources */,
 				11E581D6231DB6FC00910010 /* Main.storyboard in Resources */,
@@ -571,6 +577,7 @@
 			files = (
 				11E58219231DFDA100910010 /* turn-on.pdf in Resources */,
 				11E5821A231DFDA100910010 /* turn-off.pdf in Resources */,
+				E216EE1E2D68044800F3EA78 /* Localizable.xcstrings in Resources */,
 				1123F690272513940026E2A7 /* InternetAccessPolicy.plist in Resources */,
 				111C4DDD234A46C10034054C /* shutup.css in Resources */,
 				111C4DE1234A47180034054C /* domain-whitelist.json in Resources */,
@@ -583,6 +590,7 @@
 			files = (
 				111C4DDE234A46C10034054C /* shutup.css in Resources */,
 				111C4DE2234A47180034054C /* domain-whitelist.json in Resources */,
+				E216EE1D2D68044800F3EA78 /* Localizable.xcstrings in Resources */,
 				1123F691272513940026E2A7 /* InternetAccessPolicy.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -808,6 +816,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -867,6 +876,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
