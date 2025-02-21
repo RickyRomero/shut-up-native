@@ -151,8 +151,7 @@ CA
                                                 <action selector="performClose:" target="Ady-hI-5gd" id="W66-S7-0Na"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Minimize" keyEquivalent="-" id="n1C-tw-55j">
-                                            <modifierMask key="keyEquivalentModifierMask" shift="YES" control="YES" option="YES" command="YES"/>
+                                        <menuItem title="Minimize" keyEquivalent="m" id="n1C-tw-55j">
                                             <connections>
                                                 <action selector="performMiniaturize:" target="Ady-hI-5gd" id="D70-Q5-mjM"/>
                                             </connections>
