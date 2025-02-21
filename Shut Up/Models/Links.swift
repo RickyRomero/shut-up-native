@@ -173,7 +173,7 @@ enum Links {
             SafariServices version: \(highestSafariVersion)
             Stylesheet last updated: \(Preferences.main.lastStylesheetUpdate)
 
-            [If reporting a problem, please be as specific as you can so I can diagnose it. Thank you! -Ricky]
+            [If reporting a problem, please be as specific as you can so I can diagnose it. Thank you! — Ricky]
             """)
         ]
         urlComps.queryItems = queryItems
