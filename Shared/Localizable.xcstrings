@@ -24,6 +24,9 @@
     "Chrome" : {
 
     },
+    "Continue with Safari" : {
+      "comment" : "Welcome page continue button"
+    },
     "Edge" : {
 
     },
@@ -48,8 +51,14 @@
     "Failed to write an internal file" : {
       "comment" : "FileError.writingFile – title"
     },
+    "Finish" : {
+      "comment" : "Welcome page continue button"
+    },
     "Firefox" : {
 
+    },
+    "Get Started" : {
+      "comment" : "Welcome page continue button"
     },
     "Hide Comments" : {
       "comment" : "Context menu item title\nToolbar button label"

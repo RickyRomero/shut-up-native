@@ -44,15 +44,18 @@ class WelcomePageController: NSPageController {
             switch currentLocation {
                 case "WelcomeVC":
                     defaultBrowserButton.isHidden = true
-                    continueButton.title = "Get Started"
+                    continueButton.title = String(localized: "Get Started",
+                                                  comment: "Welcome page continue button")
                     continueButton.keyEquivalent = "\r"
                 case "DefaultBrowserVC":
                     defaultBrowserButton.isHidden = false
-                    continueButton.title = "Continue with Safari"
+                    continueButton.title = String(localized: "Continue with Safari",
+                                                  comment: "Welcome page continue button")
                     continueButton.keyEquivalent = ""
                 case "EnableExtensionsVC":
                     defaultBrowserButton.isHidden = true
-                    continueButton.title = "Finish"
+                    continueButton.title = String(localized: "Finish",
+                                                  comment: "Welcome page continue button")
                     continueButton.isEnabled = false
                     continueButton.keyEquivalent = "\r"
                 default: break
