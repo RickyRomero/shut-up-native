@@ -34,32 +34,32 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <menu key="submenu" title="Other Versions" id="k7i-vQ-3Mw">
                                                 <items>
-                                                    <menuItem title="Shut Up for Chrome" image="Small Chrome" id="dMS-lh-fAI">
+                                                    <menuItem title="Shut Up for Chrome" image="Small Chrome" identifier="shut_up_chrome" id="dMS-lh-fAI">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="didChooseLinkItem:" target="Voe-Tx-rLC" id="RfR-Ff-P76"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="Shut Up for Firefox" image="Small Firefox" id="g0J-wH-HYs">
+                                                    <menuItem title="Shut Up for Firefox" image="Small Firefox" identifier="shut_up_firefox" id="g0J-wH-HYs">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="didChooseLinkItem:" target="Voe-Tx-rLC" id="0WX-D7-mnE"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="Shut Up for Edge" image="Small Edge" id="JKr-eC-ITx">
+                                                    <menuItem title="Shut Up for Edge" image="Small Edge" identifier="shut_up_edge" id="JKr-eC-ITx">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="didChooseLinkItem:" target="Voe-Tx-rLC" id="icd-QA-XZA"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="Shut Up for Opera" image="Small Opera" id="uDL-wo-1md">
+                                                    <menuItem title="Shut Up for Opera" image="Small Opera" identifier="shut_up_opera" id="uDL-wo-1md">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="didChooseLinkItem:" target="Voe-Tx-rLC" id="VtL-Nw-NvL"/>
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="IIe-YR-RrD"/>
-                                                    <menuItem title="Shut Up for iPhone and iPad…" image="Small App Store" id="hIP-cr-ZHq">
+                                                    <menuItem title="Shut Up for iPhone and iPad…" image="Small App Store" identifier="shut_up_ios" id="hIP-cr-ZHq">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="openQrCodeSheet:" target="Ady-hI-5gd" id="Pao-6k-0Df"/>
@@ -190,19 +190,19 @@ CA
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="cee-9O-LlS"/>
-                                        <menuItem title="Release Notes" id="Cs9-nJ-S5g">
+                                        <menuItem title="Release Notes" identifier="release_notes" id="Cs9-nJ-S5g">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="didChooseLinkItem:" target="Voe-Tx-rLC" id="lSm-q5-Jnl"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Privacy Policy" id="Wcg-ZY-Ekt">
+                                        <menuItem title="Privacy Policy" identifier="privacy_policy" id="Wcg-ZY-Ekt">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="didChooseLinkItem:" target="Voe-Tx-rLC" id="IdZ-fH-KsY"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="View Source on GitHub" id="exM-Yy-JKM">
+                                        <menuItem title="View Source on GitHub" identifier="github_source" id="exM-Yy-JKM">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="didChooseLinkItem:" target="Voe-Tx-rLC" id="8z8-jm-smn"/>
