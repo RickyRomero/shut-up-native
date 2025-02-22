@@ -15,7 +15,9 @@ extension MainViewController {
     func makeIconStr(for updateMethod: String) -> NSAttributedString {
         let symbol = NSImage(
             systemSymbolName: updateMethod == "auto" ? "a.circle.fill" : "m.circle.fill",
-            accessibilityDescription: updateMethod == "auto" ? "Automatically" : "Manually"
+            accessibilityDescription: updateMethod == "auto"
+                ? String(localized: "Automatically", comment: "First argument for the 'Last CSS update' Accesibility label")
+                : String(localized: "Manually", comment: "First argument for the 'Last CSS update' Accesibility label")
         )
 
         let attachment = NSTextAttachment()
@@ -52,7 +54,11 @@ extension MainViewController {
         let cutoffDate = Date(timeIntervalSinceNow: cutoff * -1.0)
         let relativeFormatter = RelativeDateTimeFormatter()
         let absoluteFormatter = DateFormatter()
-        let updatedHow = Preferences.main.lastUpdateMethod == "automatic" ? "Automatically" : "Manually"
+        let updatedHow = Preferences.main.lastUpdateMethod == "automatic"
+            ? String(localized: "Automatically",
+                     comment: "First argument for the 'Last CSS update' label")
+            : String(localized: "Manually",
+                     comment: "First argument for the 'Last CSS update' label")
         let iconStr = Preferences.main.lastUpdateMethod == "automatic" ? autoIconStr : manualIconStr
 
         relativeFormatter.unitsStyle = .full
@@ -64,19 +70,25 @@ extension MainViewController {
 
         let summaryStr = {
             if timestamp == Date(timeIntervalSince1970: 0) {
-                return "--"
+                return String(localized: "--",
+                              comment: "String for the 'Last CSS update' label")
             } else if timestamp > instantDurationDate {
-                return "Updated just now"
+                return String(localized: "Updated just now",
+                              comment: "String for the 'Last CSS update' label")
             } else if timestamp < cutoffDate {
-                return "Updated over 1 week ago"
+                return String(localized: "Updated over 1 week ago",
+                              comment: "String for the 'Last CSS update' label")
             } else {
-                return "Updated \(relativeStr)"
+                return String(localized: "Updated \(relativeStr)",
+                              comment: "String for the 'Last CSS update' label, argument is the relative time")
             }
         }()
 
-        let explanationStr = timestamp == Date(timeIntervalSince1970: 0) ?
-            "Stylesheet hasn't been updated." :
-            "\(updatedHow) updated on \(absoluteStr)."
+        let explanationStr = timestamp == Date(timeIntervalSince1970: 0)
+            ? String(localized: "Stylesheet hasn't been updated.",
+                     comment: "Tooltip for the 'Last CSS update' label")
+            : String(localized: "\(updatedHow) updated on \(absoluteStr).",
+                     comment: "Tooltip for the 'Last CSS update' label, first argument is 'Automatically' or 'Manually")
 
         let textStr = NSAttributedString(string: summaryStr)
 

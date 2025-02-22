@@ -109,7 +109,9 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         let matched = Whitelist.main.matches(domain: domain)
         let icon = matched ? toolbarImages.disabled : toolbarImages.enabled
         button?.setImage(icon)
-        button?.setLabel(matched ? "Hide Comments" : "Show Comments")
+        button?.setLabel(matched
+            ? String(localized: "Hide Comments", comment: "Toolbar button label")
+            : String(localized: "Show Comments", comment: "Toolbar button label"))
     }
 
     override func validateContextMenuItem(withCommand command: String,
@@ -124,11 +126,13 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
             // Try to extract the URL and domain
             if let url = props?.url, let domain = self.getDomain(from: url) {
                 let matched = Whitelist.main.matches(domain: domain)
-                let title = matched ? "Hide Comments" : "Show Comments"
+                let title = matched
+                    ? String(localized: "Hide Comments", comment: "Context menu item title")
+                    : String(localized: "Show Comments", comment: "Context menu item title")
                 validationHandler(showItem, title)
             } else {
                 // Fallback if URL/domain aren't available: show a default title.
-                validationHandler(showItem, "Toggle Comments")
+                validationHandler(showItem, String(localized: "Toggle Comments", comment: "Context menu item title"))
             }
         }
     }

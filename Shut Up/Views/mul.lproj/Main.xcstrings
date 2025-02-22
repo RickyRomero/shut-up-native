@@ -1,0 +1,858 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "0Ql-qg-slX.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"required\"; ObjectID = \"0Ql-qg-slX\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "required"
+          }
+        }
+      }
+    },
+    "1di-cw-apB.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"This preference is ignored in Private Browsing windows.\"; ObjectID = \"1di-cw-apB\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "This preference is ignored in Private Browsing windows."
+          }
+        }
+      }
+    },
+    "1Xt-HY-uBw.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Shut Up\"; ObjectID = \"1Xt-HY-uBw\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Shut Up"
+          }
+        }
+      }
+    },
+    "2Xe-4N-oPR.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Shut Up for iPhone and iPad requires\\niOS 12 or later.\"; ObjectID = \"2Xe-4N-oPR\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Shut Up for iPhone and iPad requires\niOS 12 or later."
+          }
+        }
+      }
+    },
+    "3UL-K3-vNI.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Other Versions\"; ObjectID = \"3UL-K3-vNI\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Other Versions"
+          }
+        }
+      }
+    },
+    "4sb-4s-VLi.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Quit Shut Up\"; ObjectID = \"4sb-4s-VLi\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Quit Shut Up"
+          }
+        }
+      }
+    },
+    "5Bf-gR-vZz.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"This version of Shut Up only works in Safari. You can keep both versions of Shut Up installed, and switch between browsers as you wish. Settings in this version don’t affect any other version.\"; ObjectID = \"5Bf-gR-vZz\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "This version of Shut Up only works in Safari. You can keep both versions of Shut Up installed, and switch between browsers as you wish. Settings in this version don’t affect any other version."
+          }
+        }
+      }
+    },
+    "5kV-Vb-QxS.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"About Shut Up\"; ObjectID = \"5kV-Vb-QxS\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "About Shut Up"
+          }
+        }
+      }
+    },
+    "7Tx-k6-Sgh.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Undo\"; ObjectID = \"7Tx-k6-Sgh\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Undo"
+          }
+        }
+      }
+    },
+    "7yz-Sl-Sgd.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Sublime comment blocking for Safari.\"; ObjectID = \"7yz-Sl-Sgd\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Sublime comment blocking for Safari."
+          }
+        }
+      }
+    },
+    "53K-aG-0T2.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Close\"; ObjectID = \"53K-aG-0T2\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Close"
+          }
+        }
+      }
+    },
+    "AYu-sK-qS6.title" : {
+      "comment" : "Class = \"NSMenu\"; title = \"Main Menu\"; ObjectID = \"AYu-sK-qS6\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Main Menu"
+          }
+        }
+      }
+    },
+    "Cs9-nJ-S5g.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Release Notes\"; ObjectID = \"Cs9-nJ-S5g\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Release Notes"
+          }
+        }
+      }
+    },
+    "cw8-eG-1i1.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Bring All to Front\"; ObjectID = \"cw8-eG-1i1\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Bring All to Front"
+          }
+        }
+      }
+    },
+    "dMS-lh-fAI.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Shut Up for Chrome\"; ObjectID = \"dMS-lh-fAI\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Shut Up for Chrome"
+          }
+        }
+      }
+    },
+    "DN7-qv-ll7.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Cut\"; ObjectID = \"DN7-qv-ll7\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Cut"
+          }
+        }
+      }
+    },
+    "E58-7j-YCi.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Your default browser is Chrome. Do you want to get the Chrome version of Shut Up?\"; ObjectID = \"E58-7j-YCi\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Your default browser is Chrome. Do you want to get the Chrome version of Shut Up?"
+          }
+        }
+      }
+    },
+    "ea7-dt-MHi.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Shut Up Core\"; ObjectID = \"ea7-dt-MHi\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Shut Up Core"
+          }
+        }
+      }
+    },
+    "eMv-Zv-3wy.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Let’s make sure we have the right browser…\"; ObjectID = \"eMv-Zv-3wy\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Let’s make sure we have the right browser…"
+          }
+        }
+      }
+    },
+    "erB-De-sye.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Help\"; ObjectID = \"erB-De-sye\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Help"
+          }
+        }
+      }
+    },
+    "exM-Yy-JKM.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"View Source on GitHub\"; ObjectID = \"exM-Yy-JKM\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "View Source on GitHub"
+          }
+        }
+      }
+    },
+    "EyR-6m-lmv.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Get Started\"; ObjectID = \"EyR-6m-lmv\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Get Started"
+          }
+        }
+      }
+    },
+    "f7t-fr-8lK.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Remember where I show comments\"; ObjectID = \"f7t-fr-8lK\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Remember where I show comments"
+          }
+        }
+      }
+    },
+    "FKE-Sm-Kum.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Shut Up Help\"; ObjectID = \"FKE-Sm-Kum\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Shut Up Help"
+          }
+        }
+      }
+    },
+    "FQI-yB-DJR.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Redo\"; ObjectID = \"FQI-yB-DJR\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Redo"
+          }
+        }
+      }
+    },
+    "fuJ-ph-Iwl.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Done\"; ObjectID = \"fuJ-ph-Iwl\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Done"
+          }
+        }
+      }
+    },
+    "g0J-wH-HYs.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Shut Up for Firefox\"; ObjectID = \"g0J-wH-HYs\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Shut Up for Firefox"
+          }
+        }
+      }
+    },
+    "gcE-XB-Kmq.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Hide comments everywhere, except:\"; ObjectID = \"gcE-XB-Kmq\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Hide comments everywhere, except:"
+          }
+        }
+      }
+    },
+    "gdk-PN-UXq.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Blocks comment sections on webpages. Shut Up doesn’t work without this.\"; ObjectID = \"gdk-PN-UXq\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Blocks comment sections on webpages. Shut Up doesn’t work without this."
+          }
+        }
+      }
+    },
+    "gFX-FD-lIv.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Delete\"; ObjectID = \"gFX-FD-lIv\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Delete"
+          }
+        }
+      }
+    },
+    "hIP-cr-ZHq.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Shut Up for iPhone and iPad…\"; ObjectID = \"hIP-cr-ZHq\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Shut Up for iPhone and iPad…"
+          }
+        }
+      }
+    },
+    "IQv-IB-iLA.title" : {
+      "comment" : "Class = \"NSWindow\"; title = \"Shut Up\"; ObjectID = \"IQv-IB-iLA\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Shut Up"
+          }
+        }
+      }
+    },
+    "iYi-Ne-yBt.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Enable…\"; ObjectID = \"iYi-Ne-yBt\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Enable…"
+          }
+        }
+      }
+    },
+    "JEP-vr-uVd.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Update Stylesheet\"; ObjectID = \"JEP-vr-uVd\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Update Stylesheet"
+          }
+        }
+      }
+    },
+    "jgu-zr-M4c.title" : {
+      "comment" : "Class = \"NSMenu\"; title = \"Window\"; ObjectID = \"jgu-zr-M4c\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Window"
+          }
+        }
+      }
+    },
+    "JKr-eC-ITx.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Shut Up for Edge\"; ObjectID = \"JKr-eC-ITx\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Shut Up for Edge"
+          }
+        }
+      }
+    },
+    "jX5-qS-9De.placeholderString" : {
+      "comment" : "Class = \"NSTextFieldCell\"; placeholderString = \"example.com\"; ObjectID = \"jX5-qS-9De\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "example.com"
+          }
+        }
+      }
+    },
+    "k7i-vQ-3Mw.title" : {
+      "comment" : "Class = \"NSMenu\"; title = \"Other Versions\"; ObjectID = \"k7i-vQ-3Mw\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Other Versions"
+          }
+        }
+      }
+    },
+    "KD1-xR-0hV.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"--\"; ObjectID = \"KD1-xR-0hV\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "--"
+          }
+        }
+      }
+    },
+    "Kd2-mp-pUS.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Show All\"; ObjectID = \"Kd2-mp-pUS\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Show All"
+          }
+        }
+      }
+    },
+    "L2x-n1-Hms.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Select All\"; ObjectID = \"L2x-n1-Hms\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Select All"
+          }
+        }
+      }
+    },
+    "L4f-Kl-bw7.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Hide comments everywhere, except:\"; ObjectID = \"L4f-Kl-bw7\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Hide comments everywhere, except:"
+          }
+        }
+      }
+    },
+    "mkw-hH-bhF.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Lets you show and hide comments with the click of a button. Recommended for full functionality.\"; ObjectID = \"mkw-hH-bhF\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Lets you show and hide comments with the click of a button. Recommended for full functionality."
+          }
+        }
+      }
+    },
+    "n1C-tw-55j.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Minimize\"; ObjectID = \"n1C-tw-55j\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Minimize"
+          }
+        }
+      }
+    },
+    "NHO-dj-TxS.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Zoom\"; ObjectID = \"NHO-dj-TxS\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Zoom"
+          }
+        }
+      }
+    },
+    "Olw-nP-bQN.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Hide Shut Up\"; ObjectID = \"Olw-nP-bQN\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Hide Shut Up"
+          }
+        }
+      }
+    },
+    "pfk-Im-BNr.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Enable…\"; ObjectID = \"pfk-Im-BNr\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Enable…"
+          }
+        }
+      }
+    },
+    "qcv-51-sfA.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Shut Up\"; ObjectID = \"qcv-51-sfA\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Shut Up"
+          }
+        }
+      }
+    },
+    "qn3-I3-P6v.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Window\"; ObjectID = \"qn3-I3-P6v\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Window"
+          }
+        }
+      }
+    },
+    "QoX-VS-0T9.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Get Started\"; ObjectID = \"QoX-VS-0T9\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Get Started"
+          }
+        }
+      }
+    },
+    "R18-d9-CAr.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"These preferences require Shut Up Helper.\"; ObjectID = \"R18-d9-CAr\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "These preferences require Shut Up Helper."
+          }
+        }
+      }
+    },
+    "rai-gP-CDR.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Enable…\"; ObjectID = \"rai-gP-CDR\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Enable…"
+          }
+        }
+      }
+    },
+    "rU7-cH-BIU.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Update Stylesheet\"; ObjectID = \"rU7-cH-BIU\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Update Stylesheet"
+          }
+        }
+      }
+    },
+    "s2y-Vf-NBi.title" : {
+      "comment" : "Class = \"NSMenu\"; title = \"Edit\"; ObjectID = \"s2y-Vf-NBi\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Edit"
+          }
+        }
+      }
+    },
+    "SfG-HZ-ArL.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Get for Chrome\"; ObjectID = \"SfG-HZ-ArL\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Get for Chrome"
+          }
+        }
+      }
+    },
+    "teG-qw-aUj.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Shut Up Helper\"; ObjectID = \"teG-qw-aUj\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Shut Up Helper"
+          }
+        }
+      }
+    },
+    "uDL-wo-1md.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Shut Up for Opera\"; ObjectID = \"uDL-wo-1md\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Shut Up for Opera"
+          }
+        }
+      }
+    },
+    "Ufe-7B-iSr.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Edit\"; ObjectID = \"Ufe-7B-iSr\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Edit"
+          }
+        }
+      }
+    },
+    "uNr-X0-6i5.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Get Started\"; ObjectID = \"uNr-X0-6i5\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Get Started"
+          }
+        }
+      }
+    },
+    "uQy-DD-JDr.title" : {
+      "comment" : "Class = \"NSMenu\"; title = \"Shut Up\"; ObjectID = \"uQy-DD-JDr\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Shut Up"
+          }
+        }
+      }
+    },
+    "uz4-1j-Dod.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Updating…\"; ObjectID = \"uz4-1j-Dod\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Updating…"
+          }
+        }
+      }
+    },
+    "Vdr-fp-XzO.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Hide Others\"; ObjectID = \"Vdr-fp-XzO\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Hide Others"
+          }
+        }
+      }
+    },
+    "vue-SG-eLu.title" : {
+      "comment" : "Class = \"NSMenu\"; title = \"Help\"; ObjectID = \"vue-SG-eLu\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Help"
+          }
+        }
+      }
+    },
+    "Wcg-ZY-Ekt.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Privacy Policy\"; ObjectID = \"Wcg-ZY-Ekt\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Privacy Policy"
+          }
+        }
+      }
+    },
+    "Wjv-HG-qMQ.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Copy\"; ObjectID = \"Wjv-HG-qMQ\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Copy"
+          }
+        }
+      }
+    },
+    "x3C-Xa-7gX.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Enable Shut Up’s extensions to block comment sections in Safari.\"; ObjectID = \"x3C-Xa-7gX\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Enable Shut Up’s extensions to block comment sections in Safari."
+          }
+        }
+      }
+    },
+    "X40-W6-4Oc.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Send Link\"; ObjectID = \"X40-W6-4Oc\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Send Link"
+          }
+        }
+      }
+    },
+    "Xf9-yc-blb.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Contact Developer…\"; ObjectID = \"Xf9-yc-blb\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Contact Developer…"
+          }
+        }
+      }
+    },
+    "xLr-w5-Gms.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Show in context menu\"; ObjectID = \"xLr-w5-Gms\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Show in context menu"
+          }
+        }
+      }
+    },
+    "zM0-gK-USm.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Open the Camera app on your iPhone or iPad, then point it at this window to get started.\"; ObjectID = \"zM0-gK-USm\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Open the Camera app on your iPhone or iPad, then point it at this window to get started."
+          }
+        }
+      }
+    },
+    "ZyY-j4-ZSX.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Paste\"; ObjectID = \"ZyY-j4-ZSX\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Paste"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
