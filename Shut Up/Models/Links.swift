@@ -9,19 +9,19 @@
 import SafariServices
 
 protocol Link {
+    var id: String { get }
     var destination: URL! { get }
-    var menuTitle: String { get }
 
     func open()
 }
 
 struct BasicLink: Link {
+    let id: String
     let destination: URL!
-    let menuTitle: String
 
-    init(menuTitle: String, dest: String) {
+    init(id: String, dest: String) {
+        self.id = id
         destination = URL(string: dest)
-        self.menuTitle = menuTitle
     }
 
     func open() {
@@ -30,14 +30,14 @@ struct BasicLink: Link {
 }
 
 struct ExtensionLink: Link {
+    let id: String
     let destination: URL!
     let preferredBrowser: WebBrowser
-    let menuTitle: String
 
-    init(menuTitle: String, dest: String, browser: WebBrowser) {
+    init(id: String, dest: String, browser: WebBrowser) {
+        self.id = id
         preferredBrowser = browser
         destination = URL(string: dest)
-        self.menuTitle = menuTitle
     }
 
     // Try to open the link with its matching browser.
@@ -80,7 +80,7 @@ struct LinkCollection {
     let items: [Link]
 
     func open(by menuItem: NSMenuItem) {
-        let target = items.filter { $0.menuTitle == menuItem.title }[0]
+        let target = items.filter { $0.id == menuItem.identifier?.rawValue }[0]
         target.open()
     }
 
@@ -94,39 +94,39 @@ struct LinkCollection {
 enum Links {
     static let collection = LinkCollection(items: [
         ExtensionLink(
-            menuTitle: "Shut Up for Chrome",
+            id: "shut_up_chrome",
             dest: "https://chrome.google.com/webstore/detail/shut-up-comment-blocker/oklfoejikkmejobodofaimigojomlfim",
             browser: .chrome
         ),
         ExtensionLink(
-            menuTitle: "Shut Up for Firefox",
+            id: "shut_up_firefox",
             dest: "https://addons.mozilla.org/en-US/firefox/addon/shut-up-comment-blocker/",
             browser: .firefox
         ),
         ExtensionLink(
-            menuTitle: "Shut Up for Edge",
+            id: "shut_up_edge",
             dest: "https://microsoftedge.microsoft.com/addons/detail/giifliakcgfijgkejmenachfdncbpalp",
             browser: .edge
         ),
         ExtensionLink(
-            menuTitle: "Shut Up for Opera",
+            id: "shut_up_opera",
             dest: "https://github.com/panicsteve/shutup-css#installation-on-opera",
             browser: .opera
         ),
         BasicLink(
-            menuTitle: "Shut Up for iPhone and iPad",
+            id: "shut_up_ios",
             dest: "https://apps.apple.com/app/id1015043880"
         ),
         BasicLink(
-            menuTitle: "Release Notes",
+            id: "release_notes",
             dest: "https://rickyromero.com/shutup/release-notes/"
         ),
         BasicLink(
-            menuTitle: "Privacy Policy",
+            id: "privacy_policy",
             dest: "https://rickyromero.com/shutup/privacy/"
         ),
         BasicLink(
-            menuTitle: "View Source on GitHub",
+            id: "github_source",
             dest: "https://github.com/RickyRomero/shut-up-native"
         )
     ])
