@@ -62,7 +62,15 @@
       }
     },
     "Continue with Safari" : {
-      "comment" : "Welcome page continue button"
+      "comment" : "Welcome page continue button",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weiter mit Safari"
+          }
+        }
+      }
     },
     "Edge" : {
       "localizations" : {
@@ -150,7 +158,15 @@
       }
     },
     "Finish" : {
-      "comment" : "Welcome page continue button"
+      "comment" : "Welcome page continue button",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abschließen"
+          }
+        }
+      }
     },
     "Firefox" : {
       "localizations" : {
@@ -166,7 +182,15 @@
 
     },
     "Get Started" : {
-      "comment" : "Welcome page continue button"
+      "comment" : "Welcome page continue button",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erste Schritte"
+          }
+        }
+      }
     },
     "Hide Comments" : {
       "comment" : "Context menu item title\nToolbar button label",
