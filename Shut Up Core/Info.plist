@@ -38,8 +38,8 @@
 		</array>
 	</dict>
 	<key>NSHumanReadableCopyright</key>
-	<string>© 2010 - 2023 Ricky Romero
-shutup.css © 2010 - 2023 Steven Frank and contributors</string>
+	<string>Copyright © 2010 - CURRENT_YEAR Ricky Romero
+shutup.css © 2010 - CURRENT_YEAR Steven Frank and contributors</string>
 	<key>NSHumanReadableDescription</key>
 	<string>Blocks comment sections on webpages.</string>
 	<key>TeamIdentifierPrefix</key>
