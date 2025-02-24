@@ -309,10 +309,24 @@
       }
     },
     "Reset Shut Up?" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shut Up zurücksetzen?"
+          }
+        }
+      }
     },
     "Resetting Shut Up will delete your settings and allowlist. This will restore its original configuration. You cannot undo this action." : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Durch das Zurücksetzen von Shut Up werden Ihre Einstellungen und Ihre Zulassungsliste gelöscht. Dadurch wird die ursprüngliche Konfiguration wiederhergestellt. Sie können diese Aktion nicht rückgängig machen."
+          }
+        }
+      }
     },
     "Safari" : {
       "localizations" : {
