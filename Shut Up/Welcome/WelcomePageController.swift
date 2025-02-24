@@ -49,6 +49,7 @@ class WelcomePageController: NSPageController {
                     continueButton.keyEquivalent = "\r"
                 case "DefaultBrowserVC":
                     defaultBrowserButton.isHidden = false
+                    defaultBrowserButton.title = String(localized: "Get for Chrome")
                     continueButton.title = String(localized: "Continue with Safari",
                                                   comment: "Welcome page continue button")
                     continueButton.keyEquivalent = ""
