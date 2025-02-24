@@ -83,6 +83,8 @@
 		E216EE1D2D68044800F3EA78 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E216EE1C2D68044800F3EA78 /* Localizable.xcstrings */; };
 		E216EE1E2D68044800F3EA78 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E216EE1C2D68044800F3EA78 /* Localizable.xcstrings */; };
 		E216EE1F2D68044800F3EA78 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E216EE1C2D68044800F3EA78 /* Localizable.xcstrings */; };
+		E24E2E0C2D6C9369006BADA2 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E24E2E0B2D6C9369006BADA2 /* InfoPlist.xcstrings */; };
+		E24E2E0E2D6C9389006BADA2 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E24E2E0D2D6C9389006BADA2 /* InfoPlist.xcstrings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,6 +178,8 @@
 		11FD0C25235D10FE00FC0587 /* LargeBubbleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeBubbleImageView.swift; sourceTree = "<group>"; };
 		E216EE1B2D6803C800F3EA78 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/Main.xcstrings; sourceTree = "<group>"; };
 		E216EE1C2D68044800F3EA78 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		E24E2E0B2D6C9369006BADA2 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
+		E24E2E0D2D6C9389006BADA2 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -361,6 +365,7 @@
 				11E58211231DFD6300910010 /* images */,
 				11E581E8231DB6FD00910010 /* SafariExtensionHandler.swift */,
 				11E581EF231DB6FD00910010 /* Info.plist */,
+				E24E2E0B2D6C9369006BADA2 /* InfoPlist.xcstrings */,
 				11E581F4231DB6FD00910010 /* Shut Up Helper.entitlements */,
 			);
 			path = "Shut Up Helper";
@@ -373,6 +378,7 @@
 				11161DC624A26EDA00F12B10 /* ContentBlockerRule.swift */,
 				11161DC824A271DA00F12B10 /* ContentBlockerProvider.swift */,
 				11E58209231DB82E00910010 /* Info.plist */,
+				E24E2E0D2D6C9389006BADA2 /* InfoPlist.xcstrings */,
 				11E5820A231DB82E00910010 /* Shut Up Core.entitlements */,
 			);
 			path = "Shut Up Core";
@@ -576,6 +582,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11E58219231DFDA100910010 /* turn-on.pdf in Resources */,
+				E24E2E0C2D6C9369006BADA2 /* InfoPlist.xcstrings in Resources */,
 				11E5821A231DFDA100910010 /* turn-off.pdf in Resources */,
 				E216EE1E2D68044800F3EA78 /* Localizable.xcstrings in Resources */,
 				1123F690272513940026E2A7 /* InternetAccessPolicy.plist in Resources */,
@@ -589,6 +596,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				111C4DDE234A46C10034054C /* shutup.css in Resources */,
+				E24E2E0E2D6C9389006BADA2 /* InfoPlist.xcstrings in Resources */,
 				111C4DE2234A47180034054C /* domain-whitelist.json in Resources */,
 				E216EE1D2D68044800F3EA78 /* Localizable.xcstrings in Resources */,
 				1123F691272513940026E2A7 /* InternetAccessPolicy.plist in Resources */,
