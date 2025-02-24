@@ -93,6 +93,12 @@
     "Reset Shut Up" : {
       "comment" : "Resetting app button text – error recovery"
     },
+    "Reset Shut Up?" : {
+
+    },
+    "Resetting Shut Up will delete your settings and allowlist. This will restore its original configuration. You cannot undo this action." : {
+
+    },
     "Safari" : {
 
     },
