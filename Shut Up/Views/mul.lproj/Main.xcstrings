@@ -98,7 +98,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Shut Up beenden"
+            "value" : "„Shut“ Up beenden"
           }
         },
         "en" : {
@@ -134,7 +134,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Über Shut Up"
+            "value" : "Über „Shut Up“"
           }
         },
         "en" : {
@@ -818,7 +818,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Shut Up ausblenden"
+            "value" : "„Shut Up“ ausblenden"
           }
         },
         "en" : {
