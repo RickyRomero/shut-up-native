@@ -179,7 +179,14 @@
       }
     },
     "Get for Chrome" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Für Chrome herunterladen"
+          }
+        }
+      }
     },
     "Get Started" : {
       "comment" : "Welcome page continue button",
