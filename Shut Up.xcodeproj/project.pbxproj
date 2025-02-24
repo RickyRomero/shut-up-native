@@ -85,6 +85,7 @@
 		E216EE1F2D68044800F3EA78 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E216EE1C2D68044800F3EA78 /* Localizable.xcstrings */; };
 		E24E2E0C2D6C9369006BADA2 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E24E2E0B2D6C9369006BADA2 /* InfoPlist.xcstrings */; };
 		E24E2E0E2D6C9389006BADA2 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E24E2E0D2D6C9389006BADA2 /* InfoPlist.xcstrings */; };
+		E24E2E122D6C9924006BADA2 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E24E2E112D6C9924006BADA2 /* InfoPlist.xcstrings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -180,6 +181,7 @@
 		E216EE1C2D68044800F3EA78 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		E24E2E0B2D6C9369006BADA2 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		E24E2E0D2D6C9389006BADA2 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
+		E24E2E112D6C9924006BADA2 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -346,6 +348,7 @@
 				11E581D0231DB6FC00910010 /* Shut Up.entitlements */,
 				11E581D2231DB6FC00910010 /* AppDelegate.swift */,
 				11E581DB231DB6FD00910010 /* Info.plist */,
+				E24E2E112D6C9924006BADA2 /* InfoPlist.xcstrings */,
 				11E581D9231DB6FD00910010 /* Assets.xcassets */,
 			);
 			path = "Shut Up";
@@ -569,6 +572,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11E581DA231DB6FD00910010 /* Assets.xcassets in Resources */,
+				E24E2E122D6C9924006BADA2 /* InfoPlist.xcstrings in Resources */,
 				111C4DE0234A47180034054C /* domain-whitelist.json in Resources */,
 				E216EE1F2D68044800F3EA78 /* Localizable.xcstrings in Resources */,
 				1123F68F272513940026E2A7 /* InternetAccessPolicy.plist in Resources */,
