@@ -31,6 +31,7 @@ Translations for the main app must be added in two places:
 
 Translations for the Info.plist strings must be added here:
 
+- For Shut Up: `Shut Up -> Shut Up -> InfoPlist`
 - For Shut Up Core: `Shut Up -> Shut Up Core -> InfoPlist`
 - For Shut Up Helper `Shut Up -> Shut Up Helper -> InfoPlist`
 
