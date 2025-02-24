@@ -176,13 +176,6 @@ CA
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Help" systemMenu="help" id="vue-SG-eLu">
                                     <items>
-                                        <menuItem title="Shut Up Help" id="FKE-Sm-Kum">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="hpf-HM-KvJ"/>
                                         <menuItem title="Contact Developer…" id="Xf9-yc-blb">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
