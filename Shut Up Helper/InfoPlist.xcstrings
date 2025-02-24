@@ -5,6 +5,12 @@
       "comment" : "Bundle display name",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shut Up Helper"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -17,6 +23,12 @@
       "comment" : "Bundle name",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shut Up Helper"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -29,6 +41,12 @@
       "comment" : "Copyright (human-readable)",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "© 2010 - 2023 Ricky Romero\nshutup.css © 2010 - 2023 Steven Frank and contributors"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -41,6 +59,12 @@
       "comment" : "Human readable description",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktiviert die Symbolleistenschaltfläche und das Kontextmenüelement von Shut Up. Empfohlen für volle Funktionalität."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
