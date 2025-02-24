@@ -65,10 +65,19 @@ extension AppDelegate: ErrorRecoveryDelegate {
 
 func showError(_ error: Error) {
     DispatchQueue.main.async {
-        if error is MessagingError {
-            NSApp.presentError(error)
-        } else {
-            NSApp.presentError(MessagingError(error))
+        let errorToPresent = (error is MessagingError) ? error : MessagingError(error)
+
+        guard let mainWindow = NSApp.mainWindow else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                showError(errorToPresent)
+            }
+            return
         }
+
+        NSApp.presentError(errorToPresent,
+                           modalFor: mainWindow,
+                           delegate: nil,
+                           didPresent: nil,
+                           contextInfo: nil)
     }
 }

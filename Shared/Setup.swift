@@ -54,6 +54,9 @@ final class Setup {
     }
 
     func confirmReset() {
+        // Force unwrap mainWindow since it should always be available.
+        let mainWindow = NSApp.mainWindow!
+
         let alert = NSAlert()
         alert.alertStyle = .critical
         alert.messageText = String(localized: "Reset Shut Up?")
@@ -62,12 +65,13 @@ final class Setup {
         quitButton.keyEquivalent = ""
         alert.addButton(withTitle: String(localized: "Reset Shut Up"))
 
-        let decision = alert.runModal()
-
-        if decision == .alertFirstButtonReturn {
-            NSApp.terminate(nil)
-        } else {
-            reset()
+        // Present the alert as a modal sheet attached to the main window.
+        alert.beginSheetModal(for: mainWindow) { response in
+            if response == .alertFirstButtonReturn {
+                NSApp.terminate(nil)
+            } else {
+                self.reset()
+            }
         }
     }
 
