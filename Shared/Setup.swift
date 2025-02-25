@@ -58,7 +58,6 @@ final class Setup {
         let mainWindow = NSApp.mainWindow!
 
         let alert = NSAlert()
-        alert.alertStyle = .critical
         alert.messageText = String(localized: "Reset Shut Up?")
         alert.informativeText = String(localized: "Resetting Shut Up will delete your settings and allowlist. This will restore its original configuration. You cannot undo this action.")
         let quitButton = alert.addButton(withTitle: String(localized: "Quit"))
