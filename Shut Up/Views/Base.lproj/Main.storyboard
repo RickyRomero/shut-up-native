@@ -24,9 +24,9 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="XMd-hF-RVe"/>
-                                        <menuItem title="Update Stylesheet" keyEquivalent="r" id="rU7-cH-BIU">
+                                        <menuItem title="Update Stylesheet" keyEquivalent="r" identifier="menu_update_stylesheet" id="rU7-cH-BIU">
                                             <connections>
-                                                <action selector="forceStylesheetUpdate:" target="Ady-hI-5gd" id="Fev-ws-zQD"/>
+                                                <action selector="didChooseUpdateStylesheet:" target="Voe-Tx-rLC" id="zzg-Yg-Kt1"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="fp6-XE-lWz"/>
@@ -980,6 +980,8 @@ DQ
                                                         <buttonCell key="cell" type="push" title="Update Stylesheet" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="JEP-vr-uVd">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
+                                                            <string key="keyEquivalent">r</string>
+                                                            <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                                                         </buttonCell>
                                                         <connections>
                                                             <action selector="forceStylesheetUpdate:" target="XfG-lQ-9wD" id="wzA-Aw-yJ6"/>
@@ -1243,6 +1245,7 @@ DQ
                         <outlet property="enableWhitelistCheckbox" destination="hNL-RI-IFS" id="cyw-Y3-Hzy"/>
                         <outlet property="lastCssUpdateLabel" destination="eQ6-c3-SwY" id="i0H-4e-tH2"/>
                         <outlet property="showContextMenuCheckbox" destination="vSq-3I-fD8" id="4YS-hF-YLo"/>
+                        <outlet property="updateStylesheetButton" destination="0m7-S0-7eM" id="EiJ-5b-Xz3"/>
                         <outlet property="updatingIndicator" destination="VY0-Te-ENx" id="Da6-Oy-opE"/>
                         <outlet property="updatingSpinner" destination="kmX-0T-y2Z" id="RxV-cB-HSG"/>
                         <outlet property="whitelistAddField" destination="ZjL-Rx-1qN" id="TXc-FS-ofi"/>
