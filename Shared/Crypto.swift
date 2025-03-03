@@ -98,15 +98,17 @@ final class Crypto {
         let keyId = UUID()
         var attributes = [
             // swiftformat:disable all
-            kSecAttrKeyType:          constants["type"]!,
-            kSecAttrKeySizeInBits:    constants["bits"]!,
-            kSecAttrLabel:            "\(constants["label"]!)-\(keyId   )",
-            kSecAttrIsPermanent:      true,
-            kSecPrivateKeyAttrs:      [
-                kSecAttrApplicationTag:   (constants["accessGroup"] as! String + ".private").data(using: .utf8)!
+            kSecAttrKeyType:            constants["type"]!,
+            kSecAttrKeySizeInBits:      constants["bits"]!,
+            kSecAttrLabel:              "\(constants["label"]!)-\(keyId)",
+            kSecAttrIsPermanent:        true,
+            kSecPrivateKeyAttrs: [
+                kSecAttrApplicationTag: (constants["accessGroup"] as! String + ".private").data(using: .utf8)!,
+                kSecAttrAccessible:     kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly
             ],
-            kSecPublicKeyAttrs:      [
-                kSecAttrApplicationTag:   (constants["accessGroup"] as! String + ".public").data(using: .utf8)!
+            kSecPublicKeyAttrs: [
+                kSecAttrApplicationTag: (constants["accessGroup"] as! String + ".public").data(using: .utf8)!,
+                kSecAttrAccessible:     kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly
             ]
             // swiftformat:enable all
         ]
@@ -128,7 +130,7 @@ final class Crypto {
 
         var query: [CFString: Any] = [
             kSecClass: kSecClassKey,
-            kSecMatchLimit: kSecMatchLimitAll,
+            kSecMatchLimit: kSecMatchLimitOne,
             kSecAttrAccessGroup: Info.groupId,
             kSecAttrKeyClass: keyClassConstant,
             kSecReturnAttributes: true,
@@ -145,35 +147,34 @@ final class Crypto {
             throw CryptoError.fetchingKeys
         }
 
-        // Iterate through the results
-        let resultList = rawCopyResult! as! [[CFString: Any]]
-        for info in resultList {
-            guard let accessGroup = info[kSecAttrAccessGroup] else { continue }
-            guard accessGroup as! String == Info.groupId else { continue }
-            guard let resultClass = (info[kSecAttrKeyClass] as! CFString?) else { continue }
-            guard String(describing: resultClass) == String(describing: keyClassConstant) else { continue }
-            guard let keyData = (info[kSecValueData] as! CFData?) else { continue }
+        // Cast to a dictionary instead of an array.
+        guard let info = rawCopyResult as? [CFString: Any] else {
+            throw CryptoError.fetchingKeys
+        }
+        guard let accessGroup = info[kSecAttrAccessGroup] as? String, accessGroup == Info.groupId else {
+            throw CryptoError.fetchingKeys
+        }
+        let resultClass = info[kSecAttrKeyClass] as! CFString
+        guard String(describing: resultClass) == String(describing: keyClassConstant) else {
+            throw CryptoError.fetchingKeys
+        }
+        let keyData = info[kSecValueData] as! CFData
 
-            // We have a match. Turn it into a SecKey we can use.
-            // (Irritatingly, "synchronizable" keys don't give you SecKey objects...)
-            let matchedKeyAttributes: [CFString: Any] = [
-                kSecClass: kSecClassKey,
-                kSecAttrKeyClass: keyClassConstant,
-                kSecAttrKeyType: constants["type"]!,
-                kSecAttrKeySizeInBits: constants["bits"]!
-            ]
+        // Create a SecKey from the data.
+        let matchedKeyAttributes: [CFString: Any] = [
+            kSecClass: kSecClassKey,
+            kSecAttrKeyClass: keyClassConstant,
+            kSecAttrKeyType: constants["type"]!,
+            kSecAttrKeySizeInBits: constants["bits"]!
+        ]
 
-            var secKeyError: Unmanaged<CFError>? = nil
-            guard let key = SecKeyCreateWithData(keyData, matchedKeyAttributes as CFDictionary, &secKeyError) else {
-                print(secKeyError!.takeUnretainedValue() as Error)
-                throw CryptoError.fetchingKeys
-            }
-
-            return key
+        var secKeyError: Unmanaged<CFError>? = nil
+        guard let key = SecKeyCreateWithData(keyData, matchedKeyAttributes as CFDictionary, &secKeyError) else {
+            print(secKeyError!.takeUnretainedValue() as Error)
+            throw CryptoError.fetchingKeys
         }
 
-        // If we get to this point, there are no matches.
-        throw CryptoError.fetchingKeys
+        return key
     }
 
     func transform(with operation: CryptoOperation, data: Data) throws -> Data {
