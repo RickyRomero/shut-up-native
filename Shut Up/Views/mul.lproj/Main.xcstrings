@@ -415,24 +415,6 @@
         }
       }
     },
-    "FKE-Sm-Kum.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Shut Up Help\"; ObjectID = \"FKE-Sm-Kum\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Shut Up Hilfe"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Shut Up Help"
-          }
-        }
-      }
-    },
     "FQI-yB-DJR.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Redo\"; ObjectID = \"FQI-yB-DJR\";",
       "extractionState" : "extracted_with_value",
