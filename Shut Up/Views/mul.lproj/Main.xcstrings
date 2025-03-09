@@ -5,6 +5,12 @@
       "comment" : "Class = \"NSTextFieldCell\"; title = \"required\"; ObjectID = \"0Ql-qg-slX\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "erforderlich"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -17,6 +23,12 @@
       "comment" : "Class = \"NSTextFieldCell\"; title = \"This preference is ignored in Private Browsing windows.\"; ObjectID = \"1di-cw-apB\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einstellung wird in Fenstern für das private Surfen ignoriert."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -29,6 +41,12 @@
       "comment" : "Class = \"NSMenuItem\"; title = \"Shut Up\"; ObjectID = \"1Xt-HY-uBw\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shut Up"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -41,6 +59,12 @@
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Shut Up for iPhone and iPad requires\\niOS 12 or later.\"; ObjectID = \"2Xe-4N-oPR\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shut Up für iPhone und iPad erfordert\niOS 12 oder höher."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -53,6 +77,12 @@
       "comment" : "Class = \"NSMenuItem\"; title = \"Other Versions\"; ObjectID = \"3UL-K3-vNI\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Andere Versionen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -65,6 +95,12 @@
       "comment" : "Class = \"NSMenuItem\"; title = \"Quit Shut Up\"; ObjectID = \"4sb-4s-VLi\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "„Shut“ Up beenden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -77,6 +113,12 @@
       "comment" : "Class = \"NSTextFieldCell\"; title = \"This version of Shut Up only works in Safari. You can keep both versions of Shut Up installed, and switch between browsers as you wish. Settings in this version don’t affect any other version.\"; ObjectID = \"5Bf-gR-vZz\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diese Version von Shut Up funktioniert nur in Safari. Sie können beide Versionen von Shut Up installiert lassen und nach Belieben zwischen den Browsern wechseln. Einstellungen in dieser Version wirken sich nicht auf andere Versionen aus."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -89,6 +131,12 @@
       "comment" : "Class = \"NSMenuItem\"; title = \"About Shut Up\"; ObjectID = \"5kV-Vb-QxS\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Über „Shut Up“"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -101,6 +149,12 @@
       "comment" : "Class = \"NSMenuItem\"; title = \"Undo\"; ObjectID = \"7Tx-k6-Sgh\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Widerrufen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -113,6 +167,12 @@
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Sublime comment blocking for Safari.\"; ObjectID = \"7yz-Sl-Sgd\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Überragende Kommentarblockierung für Safari."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -125,6 +185,12 @@
       "comment" : "Class = \"NSMenuItem\"; title = \"Close\"; ObjectID = \"53K-aG-0T2\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schließen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -137,6 +203,12 @@
       "comment" : "Class = \"NSMenu\"; title = \"Main Menu\"; ObjectID = \"AYu-sK-qS6\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hauptmenü"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -149,6 +221,12 @@
       "comment" : "Class = \"NSMenuItem\"; title = \"Release Notes\"; ObjectID = \"Cs9-nJ-S5g\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versionshinweise"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -161,6 +239,12 @@
       "comment" : "Class = \"NSMenuItem\"; title = \"Bring All to Front\"; ObjectID = \"cw8-eG-1i1\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle nach vorne bringen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -173,6 +257,12 @@
       "comment" : "Class = \"NSMenuItem\"; title = \"Shut Up for Chrome\"; ObjectID = \"dMS-lh-fAI\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shut Up für Chrome"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -185,6 +275,12 @@
       "comment" : "Class = \"NSMenuItem\"; title = \"Cut\"; ObjectID = \"DN7-qv-ll7\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ausschneiden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -197,6 +293,12 @@
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Your default browser is Chrome. Do you want to get the Chrome version of Shut Up?\"; ObjectID = \"E58-7j-YCi\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ihr Standardbrowser ist Chrome. Möchten Sie die Chrome-Version von Shut Up herunterladen?"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -209,6 +311,12 @@
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Shut Up Core\"; ObjectID = \"ea7-dt-MHi\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shut Up Core"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -221,6 +329,12 @@
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Let’s make sure we have the right browser…\"; ObjectID = \"eMv-Zv-3wy\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stellen wir sicher, dass wir den richtigen Browser haben …"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -233,6 +347,12 @@
       "comment" : "Class = \"NSMenuItem\"; title = \"Help\"; ObjectID = \"erB-De-sye\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hilfe"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -245,6 +365,12 @@
       "comment" : "Class = \"NSMenuItem\"; title = \"View Source on GitHub\"; ObjectID = \"exM-Yy-JKM\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quellcode auf GitHub anzeigen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -257,6 +383,12 @@
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Get Started\"; ObjectID = \"EyR-6m-lmv\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erste Schritte"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -269,6 +401,12 @@
       "comment" : "Class = \"NSButtonCell\"; title = \"Remember where I show comments\"; ObjectID = \"f7t-fr-8lK\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Merken, wo ich Kommentare einblenden lasse"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -281,6 +419,12 @@
       "comment" : "Class = \"NSMenuItem\"; title = \"Shut Up Help\"; ObjectID = \"FKE-Sm-Kum\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shut Up Hilfe"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -293,6 +437,12 @@
       "comment" : "Class = \"NSMenuItem\"; title = \"Redo\"; ObjectID = \"FQI-yB-DJR\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wiederholen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -305,6 +455,12 @@
       "comment" : "Class = \"NSButtonCell\"; title = \"Done\"; ObjectID = \"fuJ-ph-Iwl\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fertig"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -317,6 +473,12 @@
       "comment" : "Class = \"NSMenuItem\"; title = \"Shut Up for Firefox\"; ObjectID = \"g0J-wH-HYs\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shut Up für Firefox"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -329,6 +491,12 @@
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Hide comments everywhere, except:\"; ObjectID = \"gcE-XB-Kmq\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kommentare überall ausblenden, außer:"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -341,6 +509,12 @@
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Blocks comment sections on webpages. Shut Up doesn’t work without this.\"; ObjectID = \"gdk-PN-UXq\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Blockiert Kommentarbereiche auf Webseiten. Shut Up funktioniert ohne diese Funktion nicht."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -353,6 +527,12 @@
       "comment" : "Class = \"NSMenuItem\"; title = \"Delete\"; ObjectID = \"gFX-FD-lIv\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Löschen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -365,6 +545,12 @@
       "comment" : "Class = \"NSMenuItem\"; title = \"Shut Up for iPhone and iPad…\"; ObjectID = \"hIP-cr-ZHq\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shut Up für iPhone und iPad …"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -377,6 +563,12 @@
       "comment" : "Class = \"NSWindow\"; title = \"Shut Up\"; ObjectID = \"IQv-IB-iLA\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shut Up"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -389,6 +581,12 @@
       "comment" : "Class = \"NSButtonCell\"; title = \"Enable…\"; ObjectID = \"iYi-Ne-yBt\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktivieren …"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -401,6 +599,12 @@
       "comment" : "Class = \"NSButtonCell\"; title = \"Update Stylesheet\"; ObjectID = \"JEP-vr-uVd\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stylesheet aktualisieren"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -413,6 +617,12 @@
       "comment" : "Class = \"NSMenu\"; title = \"Window\"; ObjectID = \"jgu-zr-M4c\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fenster"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -425,6 +635,12 @@
       "comment" : "Class = \"NSMenuItem\"; title = \"Shut Up for Edge\"; ObjectID = \"JKr-eC-ITx\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shut Up für Edge"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -437,6 +653,12 @@
       "comment" : "Class = \"NSTextFieldCell\"; placeholderString = \"example.com\"; ObjectID = \"jX5-qS-9De\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "example.com"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -449,6 +671,12 @@
       "comment" : "Class = \"NSMenu\"; title = \"Other Versions\"; ObjectID = \"k7i-vQ-3Mw\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Andere Versionen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -461,6 +689,12 @@
       "comment" : "Class = \"NSTextFieldCell\"; title = \"--\"; ObjectID = \"KD1-xR-0hV\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "—"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -473,6 +707,12 @@
       "comment" : "Class = \"NSMenuItem\"; title = \"Show All\"; ObjectID = \"Kd2-mp-pUS\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle einblenden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -485,6 +725,12 @@
       "comment" : "Class = \"NSMenuItem\"; title = \"Select All\"; ObjectID = \"L2x-n1-Hms\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle Auswählen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -497,6 +743,12 @@
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Hide comments everywhere, except:\"; ObjectID = \"L4f-Kl-bw7\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kommentare überall ausblenden, außer:"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -509,6 +761,12 @@
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Lets you show and hide comments with the click of a button. Recommended for full functionality.\"; ObjectID = \"mkw-hH-bhF\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ermöglicht das Anzeigen und Ausblenden von Kommentaren per Mausklick. Empfohlen für volle Funktionalität."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -521,6 +779,12 @@
       "comment" : "Class = \"NSMenuItem\"; title = \"Minimize\"; ObjectID = \"n1C-tw-55j\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Im Dock ablegen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -533,6 +797,12 @@
       "comment" : "Class = \"NSMenuItem\"; title = \"Zoom\"; ObjectID = \"NHO-dj-TxS\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zoomen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -545,6 +815,12 @@
       "comment" : "Class = \"NSMenuItem\"; title = \"Hide Shut Up\"; ObjectID = \"Olw-nP-bQN\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "„Shut Up“ ausblenden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -557,6 +833,12 @@
       "comment" : "Class = \"NSButtonCell\"; title = \"Enable…\"; ObjectID = \"pfk-Im-BNr\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktivieren …"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -569,6 +851,12 @@
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Shut Up\"; ObjectID = \"qcv-51-sfA\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shut Up"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -581,6 +869,12 @@
       "comment" : "Class = \"NSMenuItem\"; title = \"Window\"; ObjectID = \"qn3-I3-P6v\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fenster"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -593,6 +887,12 @@
       "comment" : "Class = \"NSButtonCell\"; title = \"Get Started\"; ObjectID = \"QoX-VS-0T9\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erste Schritte"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -605,6 +905,12 @@
       "comment" : "Class = \"NSTextFieldCell\"; title = \"These preferences require Shut Up Helper.\"; ObjectID = \"R18-d9-CAr\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diese Optionen erfordern Shut Up Helper."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -617,6 +923,12 @@
       "comment" : "Class = \"NSButtonCell\"; title = \"Enable…\"; ObjectID = \"rai-gP-CDR\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktivieren …"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -629,6 +941,12 @@
       "comment" : "Class = \"NSMenuItem\"; title = \"Update Stylesheet\"; ObjectID = \"rU7-cH-BIU\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stylesheet aktualisieren"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -641,6 +959,12 @@
       "comment" : "Class = \"NSMenu\"; title = \"Edit\"; ObjectID = \"s2y-Vf-NBi\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bearbeiten"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -653,6 +977,12 @@
       "comment" : "Class = \"NSButtonCell\"; title = \"Get for Chrome\"; ObjectID = \"SfG-HZ-ArL\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Für Chrome herunterladen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -665,6 +995,12 @@
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Shut Up Helper\"; ObjectID = \"teG-qw-aUj\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shut Up Helper"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -677,6 +1013,12 @@
       "comment" : "Class = \"NSMenuItem\"; title = \"Shut Up for Opera\"; ObjectID = \"uDL-wo-1md\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shut Up für Opera"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -689,6 +1031,12 @@
       "comment" : "Class = \"NSMenuItem\"; title = \"Edit\"; ObjectID = \"Ufe-7B-iSr\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bearbeiten"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -701,6 +1049,12 @@
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Get Started\"; ObjectID = \"uNr-X0-6i5\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erste Schritte"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -713,6 +1067,12 @@
       "comment" : "Class = \"NSMenu\"; title = \"Shut Up\"; ObjectID = \"uQy-DD-JDr\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shut Up"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -725,6 +1085,12 @@
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Updating…\"; ObjectID = \"uz4-1j-Dod\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktualisierung ..."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -737,6 +1103,12 @@
       "comment" : "Class = \"NSMenuItem\"; title = \"Hide Others\"; ObjectID = \"Vdr-fp-XzO\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Andere ausblenden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -749,6 +1121,12 @@
       "comment" : "Class = \"NSMenu\"; title = \"Help\"; ObjectID = \"vue-SG-eLu\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hilfe"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -761,6 +1139,12 @@
       "comment" : "Class = \"NSMenuItem\"; title = \"Privacy Policy\"; ObjectID = \"Wcg-ZY-Ekt\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datenschutzrichtlinie"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -773,6 +1157,12 @@
       "comment" : "Class = \"NSMenuItem\"; title = \"Copy\"; ObjectID = \"Wjv-HG-qMQ\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kopieren"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -785,6 +1175,12 @@
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Enable Shut Up’s extensions to block comment sections in Safari.\"; ObjectID = \"x3C-Xa-7gX\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktivieren Sie Shut Up, um Kommentare in Safari zu blockieren."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -797,6 +1193,12 @@
       "comment" : "Class = \"NSButtonCell\"; title = \"Send Link\"; ObjectID = \"X40-W6-4Oc\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Link senden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -809,6 +1211,12 @@
       "comment" : "Class = \"NSMenuItem\"; title = \"Contact Developer…\"; ObjectID = \"Xf9-yc-blb\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entwickler kontaktieren …"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -821,6 +1229,12 @@
       "comment" : "Class = \"NSButtonCell\"; title = \"Show in context menu\"; ObjectID = \"xLr-w5-Gms\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Im Kontextmenü anzeigen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -833,6 +1247,12 @@
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Open the Camera app on your iPhone or iPad, then point it at this window to get started.\"; ObjectID = \"zM0-gK-USm\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Öffnen Sie die Kamera-App auf Ihrem iPhone oder iPad und richten Sie sie dann auf dieses Fenster, um zu beginnen."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -845,6 +1265,12 @@
       "comment" : "Class = \"NSMenuItem\"; title = \"Paste\"; ObjectID = \"ZyY-j4-ZSX\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einfügen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
