@@ -71,7 +71,8 @@ func showError(_ error: Error) {
         let errorToPresent = (error is MessagingError) ? error : MessagingError(error)
 
         guard let mainWindow = NSApp.mainWindow else {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            // Retry after a short delay if mainWindow is not yet available
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                 showError(errorToPresent)
             }
             return
