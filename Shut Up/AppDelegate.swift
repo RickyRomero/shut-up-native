@@ -16,11 +16,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         let optionKeyState = CGEventSource.keyState(.combinedSessionState, key: 0x3A)
         let mainSb = NSStoryboard(name: "Main", bundle: nil)
-        mwc = mainSb.instantiateController(withIdentifier: "MainWC") as? MainWindowController
+        self.mwc = mainSb.instantiateController(withIdentifier: "MainWC") as? MainWindowController
 
+        // Show the main window immediately
+        self.mwc.window?.makeKeyAndOrderFront(self)
+
+        // Then bootstrap the application
         Setup.main.bootstrap(optionKeyState) {
             Stylesheet.main.update(completionHandler: nil)
-            self.mwc.window?.makeKeyAndOrderFront(self)
         }
     }
 
