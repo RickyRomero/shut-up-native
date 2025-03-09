@@ -95,12 +95,12 @@ class BrowserBridge {
 
     var defaultBrowserName: String {
         let browserNameMap: [WebBrowser: String] = [
-            .safari: "Safari",
-            .chrome: "Chrome",
-            .firefox: "Firefox",
-            .edge: "Edge",
-            .opera: "Opera",
-            .unknown: "Unknown"
+            .safari: String(localized: "Safari"),
+            .chrome: String(localized: "Chrome"),
+            .firefox: String(localized: "Firefox"),
+            .edge: String(localized: "Edge"),
+            .opera: String(localized: "Opera"),
+            .unknown: String(localized: "Unknown", comment: "Unknown browser name")
         ]
         return browserNameMap[defaultBrowser]!
     }

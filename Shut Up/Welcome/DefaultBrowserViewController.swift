@@ -18,7 +18,7 @@ class DefaultBrowserViewController: NSViewController, PageContentResponder {
 
         let defaultBrowser = BrowserBridge.main.defaultBrowserName
 
-        let prompt = "Your default browser is \(defaultBrowser). Do you want to get the \(defaultBrowser) version of Shut Up?"
+        let prompt = String(localized: "Your default browser is \(defaultBrowser). Do you want to get the \(defaultBrowser) version of Shut Up?")
 
         heading.stringValue = prompt
         browserIcon.image = NSImage(named: "Large \(defaultBrowser)")
