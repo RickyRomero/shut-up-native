@@ -178,12 +178,12 @@
         }
       }
     },
-    "Get for Chrome" : {
+    "Get for %@" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Für Chrome herunterladen"
+            "value" : "Für %@ herunterladen"
           }
         }
       }

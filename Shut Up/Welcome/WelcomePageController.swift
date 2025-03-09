@@ -30,7 +30,7 @@ class WelcomePageController: NSPageController {
             arrangedObjects.insert("WelcomeVC", at: 0)
         }
 
-        defaultBrowserButton.title = "Get for \(defaultBrowserName)"
+        defaultBrowserButton.title = String(localized: "Get for \(defaultBrowserName)")
 
         updateState()
     }
@@ -49,7 +49,6 @@ class WelcomePageController: NSPageController {
                     continueButton.keyEquivalent = "\r"
                 case "DefaultBrowserVC":
                     defaultBrowserButton.isHidden = false
-                    defaultBrowserButton.title = String(localized: "Get for Chrome")
                     continueButton.title = String(localized: "Continue with Safari",
                                                   comment: "Welcome page continue button")
                     continueButton.keyEquivalent = ""
