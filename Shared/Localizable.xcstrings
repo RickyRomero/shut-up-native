@@ -40,6 +40,16 @@
         }
       }
     },
+    "Brave" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Brave"
+          }
+        }
+      }
+    },
     "Cannot connect to rickyromero.com" : {
       "comment" : "URLError – title",
       "localizations" : {

@@ -14,6 +14,7 @@ enum WebBrowser {
     case firefox
     case edge
     case opera
+    case brave
     case unknown
 }
 
@@ -89,6 +90,7 @@ class BrowserBridge {
             case "org.mozilla": return .firefox
             case "com.microsoft": return .edge
             case "com.operasoftware": return .opera
+            case "com.brave": return .brave
             default: return .unknown
         }
     }
@@ -100,6 +102,7 @@ class BrowserBridge {
             .firefox: String(localized: "Firefox"),
             .edge: String(localized: "Edge"),
             .opera: String(localized: "Opera"),
+            .brave: String(localized: "Brave"),
             .unknown: String(localized: "Unknown", comment: "Unknown browser name")
         ]
         return browserNameMap[defaultBrowser]!
