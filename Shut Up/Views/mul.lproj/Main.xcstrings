@@ -149,6 +149,12 @@
       "comment" : "Class = \"NSMenuItem\"; title = \"Shut Up for Chrome\"; ObjectID = \"7S5-Ko-uhr\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shut Up für Chrome"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -271,8 +277,8 @@
       "localizations" : {
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Shut Up für Chrome"
+            "state" : "translated",
+            "value" : "Shut Up für Brave"
           }
         },
         "en" : {
