@@ -41,9 +41,9 @@ class EnableExtensionsViewController: NSViewController, PageContentResponder {
                 }
 
                 switch state.id {
-                    case Info.blockerBundleId: self.blockerEnabled = state.state!
-                    case Info.helperBundleId: self.helperEnabled = state.state!
-                    default: break
+                case Info.blockerBundleId: self.blockerEnabled = state.state!
+                case Info.helperBundleId: self.helperEnabled = state.state!
+                default: break
                 }
             }
 
@@ -77,7 +77,7 @@ class EnableExtensionsViewController: NSViewController, PageContentResponder {
         }
     }
 
-    @IBAction func coreButtonClicked(_ sender: NSButton) {
+    @IBAction func coreButtonClicked(_: NSButton) {
         BrowserBridge.main.showPrefs(for: Info.blockerBundleId) { error in
             guard error == nil else {
                 showError(BrowserError.showingSafariPreferences)
@@ -86,7 +86,7 @@ class EnableExtensionsViewController: NSViewController, PageContentResponder {
         }
     }
 
-    @IBAction func helperButtonClicked(_ sender: NSButton) {
+    @IBAction func helperButtonClicked(_: NSButton) {
         BrowserBridge.main.showPrefs(for: Info.helperBundleId) { error in
             guard error == nil else {
                 showError(BrowserError.showingSafariPreferences)

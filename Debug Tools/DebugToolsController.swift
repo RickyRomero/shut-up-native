@@ -42,11 +42,11 @@ class DebugToolsController: NSViewController {
         lastCssUpdateField.intValue = Int32(prefs.lastStylesheetUpdate.timeIntervalSince1970)
     }
 
-    @IBAction func resetGroupPrefs(_ sender: NSButton) {
+    @IBAction func resetGroupPrefs(_: NSButton) {
         Preferences.main.reset()
     }
 
-    @IBAction func showGroupContainer(_ sender: NSButton) {
+    @IBAction func showGroupContainer(_: NSButton) {
         NSWorkspace.shared.selectFile(nil, inFileViewerRootedAtPath: Info.containerUrl.path)
     }
 }

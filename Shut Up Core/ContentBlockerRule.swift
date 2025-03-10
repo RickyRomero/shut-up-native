@@ -47,16 +47,16 @@ struct KebabKey: CodingKey {
     init?(stringValue key: String) {
         var kebabString = ""
         for (index, letter) in key.enumerated() {
-            if index > 0 && letter.isUppercase {
+            if index > 0, letter.isUppercase {
                 kebabString.append("-")
             }
             kebabString.append(letter)
         }
-        self.stringValue = kebabString.lowercased()
+        stringValue = kebabString.lowercased()
     }
 
     init?(intValue: Int) {
-        self.stringValue = "\(intValue)"
+        stringValue = "\(intValue)"
         self.intValue = intValue
     }
 }

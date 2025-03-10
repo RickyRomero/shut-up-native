@@ -69,21 +69,19 @@ extension MainViewController {
         let relativeStr = relativeFormatter.localizedString(for: timestamp, relativeTo: Date())
         let absoluteStr = absoluteFormatter.string(from: timestamp)
 
-        let summaryStr = {
-            if timestamp == Date(timeIntervalSince1970: 0) {
-                return String(localized: "--",
-                              comment: "String for the 'Last CSS update' label")
-            } else if isRecentUpdate {
-                return String(localized: "Updated just now",
-                              comment: "String for the 'Last CSS update' label")
-            } else if timestamp < cutoffDate {
-                return String(localized: "Updated over 1 week ago",
-                              comment: "String for the 'Last CSS update' label")
-            } else {
-                return String(localized: "Updated \(relativeStr)",
-                              comment: "String for the 'Last CSS update' label, argument is the relative time")
-            }
-        }()
+        let summaryStr = if timestamp == Date(timeIntervalSince1970: 0) {
+            String(localized: "--",
+                   comment: "String for the 'Last CSS update' label")
+        } else if isRecentUpdate {
+            String(localized: "Updated just now",
+                   comment: "String for the 'Last CSS update' label")
+        } else if timestamp < cutoffDate {
+            String(localized: "Updated over 1 week ago",
+                   comment: "String for the 'Last CSS update' label")
+        } else {
+            String(localized: "Updated \(relativeStr)",
+                   comment: "String for the 'Last CSS update' label, argument is the relative time")
+        }
 
         let explanationStr = timestamp == Date(timeIntervalSince1970: 0)
             ? String(localized: "Stylesheet hasn't been updated.",
@@ -95,7 +93,7 @@ extension MainViewController {
 
         // Combine SF Symbol icon string with summary
         let labelString = NSMutableAttributedString()
-        if let iconStr = iconStr {
+        if let iconStr {
             labelString.append(iconStr)
             labelString.append(NSAttributedString(string: " "))
         }

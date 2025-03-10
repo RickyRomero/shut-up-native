@@ -37,7 +37,7 @@ class KeychainTableController: NSViewController {
             kSecClass: kSecClassKey,
             kSecMatchLimit: kSecMatchLimitAll,
             kSecAttrSynchronizable: kSecAttrSynchronizableAny,
-            kSecReturnAttributes: true
+            kSecReturnAttributes: true,
         ] as NSDictionary, &copyResult)
         let keysInfos: [[CFString: Any]]?
         switch err {
@@ -85,7 +85,7 @@ class KeychainTableController: NSViewController {
                 kSecClass: kSecClassKey,
                 kSecAttrSynchronizable: kSecAttrSynchronizableAny,
                 kSecAttrCreationDate: cdat,
-                kSecAttrModificationDate: mdat
+                kSecAttrModificationDate: mdat,
             ]
         }
 
@@ -100,11 +100,11 @@ extension KeychainTableController: NSTableViewDelegate {}
 // MARK: NSTableViewDataSource
 
 extension KeychainTableController: NSTableViewDataSource {
-    func numberOfRows(in tableView: NSTableView) -> Int {
-        return keychainData?.count ?? 0
+    func numberOfRows(in _: NSTableView) -> Int {
+        keychainData?.count ?? 0
     }
 
-    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
+    func tableView(_: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
         let rowData = keychainData?[row]
 
         guard let columnId = tableColumn?.identifier.rawValue else { return "--" }
@@ -117,7 +117,7 @@ extension KeychainTableController: NSTableViewDataSource {
 // MARK: Edit menu responders
 
 extension KeychainTableController {
-    @IBAction func delete(_ sender: AnyObject) {
+    @IBAction func delete(_: AnyObject) {
         print("Baleeted")
         dump(keychainDataView.selectedRowIndexes)
 

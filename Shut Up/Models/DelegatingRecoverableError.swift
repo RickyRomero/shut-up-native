@@ -25,34 +25,34 @@ struct DelegatingRecoverableError<Delegate, Error>: RecoverableError
 
     private var recoveryActions: [RecoveryOption] {
         (
-            (self.error as NSError)
+            (error as NSError)
                 .userInfo[NSLocalizedRecoveryOptionsErrorKey] as? [RecoveryOption]
         ) ?? [.ok]
     }
 
-    var recoveryOptions: [String] { self.recoveryActions.map { "\($0)" } }
+    var recoveryOptions: [String] { recoveryActions.map { "\($0)" } }
 
     func attemptRecovery(optionIndex recoveryOptionIndex: Int) -> Bool {
-        let action = self.recoveryActions[recoveryOptionIndex]
+        let action = recoveryActions[recoveryOptionIndex]
 
-        return self.delegate?.attemptRecovery(from: self.error, with: action) ?? false
+        return delegate?.attemptRecovery(from: error, with: action) ?? false
     }
 }
 
 extension DelegatingRecoverableError: LocalizedError {
     var errorDescription: String? {
-        return (self.error as NSError).userInfo[NSLocalizedDescriptionKey] as? String
+        (error as NSError).userInfo[NSLocalizedDescriptionKey] as? String
     }
 
     var failureReason: String? {
-        return (self.error as NSError).userInfo[NSLocalizedFailureReasonErrorKey] as? String
+        (error as NSError).userInfo[NSLocalizedFailureReasonErrorKey] as? String
     }
 
     var helpAnchor: String? {
-        return (self.error as NSError).userInfo[NSHelpAnchorErrorKey] as? String
+        (error as NSError).userInfo[NSHelpAnchorErrorKey] as? String
     }
 
     var recoverySuggestion: String? {
-        return (self.error as NSError).userInfo[NSLocalizedRecoverySuggestionErrorKey] as? String
+        (error as NSError).userInfo[NSLocalizedRecoverySuggestionErrorKey] as? String
     }
 }
