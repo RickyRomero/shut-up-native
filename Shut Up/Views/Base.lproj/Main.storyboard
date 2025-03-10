@@ -129,6 +129,7 @@
                                             <string key="keyEquivalent" base64-UTF8="YES">
 CA
 </string>
+                                            <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="delete:" target="Ady-hI-5gd" id="e8q-Ze-Mip"/>
                                             </connections>
