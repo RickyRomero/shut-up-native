@@ -19,6 +19,7 @@ class MainViewController: NSViewController {
     @IBOutlet var lastCssUpdateLabel: NSTextField!
     @IBOutlet var updatingIndicator: NSStackView!
     @IBOutlet var updatingSpinner: NSProgressIndicator!
+    @IBOutlet var updateStylesheetButton: NSButton!
 
     var minWinHeight: Double!
     var winWidth = 700.0

@@ -60,6 +60,7 @@ extension MainViewController {
             : String(localized: "Manually",
                      comment: "First argument for the 'Last CSS update' label")
         let iconStr = Preferences.main.lastUpdateMethod == "automatic" ? autoIconStr : manualIconStr
+        let isRecentUpdate = timestamp > instantDurationDate
 
         relativeFormatter.unitsStyle = .full
         absoluteFormatter.dateStyle = .medium
@@ -72,7 +73,7 @@ extension MainViewController {
             if timestamp == Date(timeIntervalSince1970: 0) {
                 return String(localized: "--",
                               comment: "String for the 'Last CSS update' label")
-            } else if timestamp > instantDurationDate {
+            } else if isRecentUpdate {
                 return String(localized: "Updated just now",
                               comment: "String for the 'Last CSS update' label")
             } else if timestamp < cutoffDate {
@@ -102,6 +103,14 @@ extension MainViewController {
 
         lastCssUpdateLabel.attributedStringValue = labelString
         lastCssUpdateLabel.toolTip = explanationStr
+
+        // Disable the button and menu item during the update and for 15 seconds afterward to prevent rapid consecutive updates.
+        let isEnabled = updatingIndicator.isHidden ? !isRecentUpdate : false
+        updateStylesheetButton.isEnabled = isEnabled
+
+        if let menuItem = NSApp.mainMenu?.items.first(where: { $0.identifier?.rawValue == "menu_update_stylesheet" }) {
+            menuItem.isEnabled = isEnabled
+        }
     }
 
     @IBAction func forceStylesheetUpdate(_ sender: NSButton) {

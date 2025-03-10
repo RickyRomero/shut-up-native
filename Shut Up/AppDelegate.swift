@@ -40,6 +40,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func didChooseContactMenuItem(_ sender: NSMenuItem) {
         Links.composeEmail()
     }
+
+    @IBAction func didChooseUpdateStylesheet(_ sender: NSMenuItem) {
+        guard let mainVC = mwc.window?.contentViewController as? MainViewController else {
+            print("MainViewController not found")
+            return
+        }
+
+        mainVC.updateStylesheetButton.performClick(nil)
+    }
 }
 
 // MARK: ErrorRecoveryDelegate
@@ -83,5 +92,21 @@ func showError(_ error: Error) {
                            delegate: nil,
                            didPresent: nil,
                            contextInfo: nil)
+    }
+}
+
+// MARK: NSMenuItemValidation
+
+/// Validates the "Update Stylesheet" menu item (identifier "menu_update_stylesheet").
+/// It is enabled only when MainViewController's updateStylesheetButton is enabled,
+/// preventing rapid consecutive updates. All other menu items are enabled.
+extension AppDelegate: NSMenuItemValidation {
+    func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
+        if menuItem.identifier?.rawValue == "menu_update_stylesheet",
+           let mainVC = mwc?.window?.contentViewController as? MainViewController
+        {
+            return mainVC.updateStylesheetButton.isEnabled
+        }
+        return true
     }
 }
