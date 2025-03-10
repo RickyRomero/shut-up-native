@@ -14,7 +14,7 @@ final class EncryptedFile {
 
     var mostRecentlySeenModification: Date?
     var lastModified: Date? {
-        let attributes = try? FileManager.default.attributesOfItem(atPath: self.fsLocation.path)
+        let attributes = try? FileManager.default.attributesOfItem(atPath: fsLocation.path)
         return attributes?[.modificationDate] as? Date
     }
 
@@ -29,46 +29,46 @@ final class EncryptedFile {
         self.fsLocation = fsLocation
         self.bundleOrigin = bundleOrigin
 
-        self.lock = LockFile(url: fsLocation.appendingPathExtension("lock"))
-        self.queue = DispatchQueue(label: "\(Info.bundleId).\(fsLocation.lastPathComponent)")
+        lock = LockFile(url: fsLocation.appendingPathExtension("lock"))
+        queue = DispatchQueue(label: "\(Info.bundleId).\(fsLocation.lastPathComponent)")
 
-        self.queue.sync { _ = self.read() }
+        queue.sync { _ = self.read() }
     }
 
     func keysVerifiedPresent() -> Bool {
-        return Crypto.main.requiredKeysPresent
+        Crypto.main.requiredKeysPresent
     }
 
     func read(force: Bool = false) -> Data? {
-        if force { self.cache = nil }
+        if force { cache = nil }
 
-        if self.lastModified != self.mostRecentlySeenModification || self.cache == nil {
+        if lastModified != mostRecentlySeenModification || cache == nil {
             defer { self.lock.unlock() }
             var modificationOccurred = false
 
             do {
-                let keysPresent = self.keysVerifiedPresent()
+                let keysPresent = keysVerifiedPresent()
                 if keysPresent {
-                    self.lock.claim()
+                    lock.claim()
 
                     var fileData: Data!
 
                     do {
-                        let encryptedData = try Data(contentsOf: self.fsLocation)
+                        let encryptedData = try Data(contentsOf: fsLocation)
                         fileData = try Crypto.main.transform(with: .decryption, data: encryptedData)
                     } catch {
                         if error is CryptoError { throw error }
 
                         // Reading failed for some reason. Try to restore from the bundle.
                         // If this fails, that failure will be thrown to the caller.
-                        fileData = try Data(contentsOf: self.bundleOrigin)
-                        try self.write(data: fileData)
+                        fileData = try Data(contentsOf: bundleOrigin)
+                        try write(data: fileData)
                     }
 
-                    modificationOccurred = self.cache != nil && self.cache != fileData
-                    self.cache = fileData
+                    modificationOccurred = cache != nil && cache != fileData
+                    cache = fileData
 
-                    self.mostRecentlySeenModification = self.lastModified
+                    mostRecentlySeenModification = lastModified
                 }
             } catch {
                 DispatchQueue.main.async { showError(error) }
@@ -84,26 +84,26 @@ final class EncryptedFile {
             }
         }
 
-        return self.cache
+        return cache
     }
 
     func write(data contents: Data) throws {
-        guard self.lastModified == self.mostRecentlySeenModification else {
+        guard lastModified == mostRecentlySeenModification else {
             throw FileError.writingFile
         }
         defer { self.lock.unlock() }
 
         do {
-            let keysPresent = self.keysVerifiedPresent()
+            let keysPresent = keysVerifiedPresent()
 
             if keysPresent {
-                self.lock.claim()
+                lock.claim()
 
                 let encryptedData = try Crypto.main.transform(with: .encryption, data: contents)
-                try encryptedData.write(to: self.fsLocation)
-                self.mostRecentlySeenModification = self.lastModified
+                try encryptedData.write(to: fsLocation)
+                mostRecentlySeenModification = lastModified
 
-                self.cache = contents
+                cache = contents
             }
         } catch {
             DispatchQueue.main.async { showError(error) }
@@ -111,6 +111,6 @@ final class EncryptedFile {
     }
 
     func reset() {
-        try? FileManager.default.removeItem(at: self.fsLocation)
+        try? FileManager.default.removeItem(at: fsLocation)
     }
 }

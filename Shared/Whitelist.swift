@@ -63,7 +63,7 @@ class Whitelist {
 
         // Try using NSDataDetector to see if we're dealing with something that looks
         // to the operating system like a link
-        if let match = match {
+        if let match {
             // It's a link if the match covers the whole string
             guard match.range.length == item.utf16.count else { return nil }
 
@@ -98,7 +98,7 @@ class Whitelist {
 
     static func stripWww(from domain: String) -> String {
         var components = domain.split(separator: ".")
-        if components[0] == "www" && components.count > 2 {
+        if components[0] == "www", components.count > 2 {
             components.removeFirst()
         }
         return components.joined(separator: ".").lowercased()
@@ -106,7 +106,7 @@ class Whitelist {
 
     // Subdomain-sensitive matching
     static func domainDoesMatch(domain: String, in collection: [String]) -> Bool {
-        return firstIndex(of: domain, in: collection) != nil
+        firstIndex(of: domain, in: collection) != nil
     }
 
     static func firstIndex(of domain: String, in collection: [String]) -> Int? {
@@ -203,14 +203,14 @@ class Whitelist {
 
     func toggle(domain: String) -> [String] {
         if entries.contains(domain) {
-            return remove(domains: [domain])
+            remove(domains: [domain])
         } else {
-            return add(domains: [domain])
+            add(domains: [domain])
         }
     }
 
     func matches(domain: String) -> Bool {
-        return Whitelist.domainDoesMatch(domain: domain, in: entries)
+        Whitelist.domainDoesMatch(domain: domain, in: entries)
     }
 
     func reset() { file.reset() }

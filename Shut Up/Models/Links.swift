@@ -43,28 +43,26 @@ struct ExtensionLink: Link {
     // Try to open the link with its matching browser.
     func open() {
         let ws = NSWorkspace.shared
-        var bundleId: String?
-
-        switch preferredBrowser {
-            case .chrome: bundleId = "com.google.chrome"
-            case .firefox: bundleId = "org.mozilla.firefox"
-            case .edge: bundleId = "com.microsoft.edgemac"
-            case .opera: bundleId = "com.operasoftware.opera"
-            case .brave: bundleId = "com.brave.browser"
-            default: bundleId = nil
+        let bundleId: String? = switch preferredBrowser {
+        case .chrome: "com.google.chrome"
+        case .firefox: "org.mozilla.firefox"
+        case .edge: "com.microsoft.edgemac"
+        case .opera: "com.operasoftware.opera"
+        case .brave: "com.brave.browser"
+        default: nil
         }
 
-        if let bundleId = bundleId {
+        if let bundleId {
             let appLocation = ws.urlForApplication(withBundleIdentifier: bundleId)
 
-            if let appLocation = appLocation {
+            if let appLocation {
                 ws.open(
                     [destination],
                     withApplicationAt: appLocation,
                     configuration: NSWorkspace.OpenConfiguration()
                 ) { _, error in
                     if error != nil {
-                        ws.open(self.destination)
+                        ws.open(destination)
                     }
                 }
             } else {
@@ -134,7 +132,7 @@ enum Links {
         BasicLink(
             id: "github_source",
             dest: "https://github.com/RickyRomero/shut-up-native"
-        )
+        ),
     ])
 
     static func composeEmail() {
@@ -144,7 +142,7 @@ enum Links {
             SafariRelease(services: .version11_0, userFacingVersion: "11.0"),
             SafariRelease(services: .version12_0, userFacingVersion: "12.0"),
             SafariRelease(services: .version12_1, userFacingVersion: "12.1"),
-            SafariRelease(services: .version13_0, userFacingVersion: "13.0 or greater")
+            SafariRelease(services: .version13_0, userFacingVersion: "13.0 or greater"),
         ]
         let highestSafariVersion = knownSafariReleases
             .filter { SFSafariServicesAvailable($0.services) }
@@ -180,7 +178,7 @@ enum Links {
             Stylesheet last updated: \(Preferences.main.lastStylesheetUpdate)
 
             [If reporting a problem, please be as specific as you can so I can diagnose it. Thank you! — Ricky]
-            """)
+            """),
         ]
         urlComps.queryItems = queryItems
         let url = urlComps.url!

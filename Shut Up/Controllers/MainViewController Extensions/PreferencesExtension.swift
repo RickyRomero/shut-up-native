@@ -1,5 +1,5 @@
 //
-//  Preferences.swift
+//  PreferencesExtension.swift
 //  Shut Up
 //
 //  Created by Ricky Romero on 6/14/20.

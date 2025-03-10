@@ -42,23 +42,23 @@ class WelcomePageController: NSPageController {
             view.layoutSubtreeIfNeeded()
 
             switch currentLocation {
-                case "WelcomeVC":
-                    defaultBrowserButton.isHidden = true
-                    continueButton.title = String(localized: "Get Started",
-                                                  comment: "Welcome page continue button")
-                    continueButton.keyEquivalent = "\r"
-                case "DefaultBrowserVC":
-                    defaultBrowserButton.isHidden = false
-                    continueButton.title = String(localized: "Continue with Safari",
-                                                  comment: "Welcome page continue button")
-                    continueButton.keyEquivalent = ""
-                case "EnableExtensionsVC":
-                    defaultBrowserButton.isHidden = true
-                    continueButton.title = String(localized: "Finish",
-                                                  comment: "Welcome page continue button")
-                    continueButton.isEnabled = false
-                    continueButton.keyEquivalent = "\r"
-                default: break
+            case "WelcomeVC":
+                defaultBrowserButton.isHidden = true
+                continueButton.title = String(localized: "Get Started",
+                                              comment: "Welcome page continue button")
+                continueButton.keyEquivalent = "\r"
+            case "DefaultBrowserVC":
+                defaultBrowserButton.isHidden = false
+                continueButton.title = String(localized: "Continue with Safari",
+                                              comment: "Welcome page continue button")
+                continueButton.keyEquivalent = ""
+            case "EnableExtensionsVC":
+                defaultBrowserButton.isHidden = true
+                continueButton.title = String(localized: "Finish",
+                                              comment: "Welcome page continue button")
+                continueButton.isEnabled = false
+                continueButton.keyEquivalent = "\r"
+            default: break
             }
         }
     }
@@ -72,14 +72,14 @@ class WelcomePageController: NSPageController {
 
         if currentLocation == "WelcomeVC" {
             switch defaultBrowser {
-                case .chrome: fallthrough
-                case .firefox: fallthrough
-                case .edge: fallthrough
-                case .brave: fallthrough
-                case .opera:
-                    arrangedObjects.insert("DefaultBrowserVC", at: 1)
-                default:
-                    break
+            case .chrome: fallthrough
+            case .firefox: fallthrough
+            case .edge: fallthrough
+            case .brave: fallthrough
+            case .opera:
+                arrangedObjects.insert("DefaultBrowserVC", at: 1)
+            default:
+                break
             }
         }
 
@@ -87,13 +87,13 @@ class WelcomePageController: NSPageController {
         updateState()
     }
 
-    @IBAction func defaultBrowserClicked(_ sender: NSButton) {
+    @IBAction func defaultBrowserClicked(_: NSButton) {
         Links.collection.open(by: defaultBrowser)
     }
 }
 
 extension WelcomePageController: NSPageControllerDelegate {
-    func pageController(_ pageController: NSPageController, viewControllerForIdentifier identifier: String) -> NSViewController {
+    func pageController(_: NSPageController, viewControllerForIdentifier identifier: String) -> NSViewController {
         let pcr = NSStoryboard(
             name: "Main", bundle: nil
         ).instantiateController(
@@ -103,11 +103,11 @@ extension WelcomePageController: NSPageControllerDelegate {
         return pcr as NSViewController
     }
 
-    func pageController(_ pageController: NSPageController, identifierFor object: Any) -> String {
+    func pageController(_: NSPageController, identifierFor object: Any) -> String {
         String(describing: object)
     }
 
-    func pageControllerDidEndLiveTransition(_ pageController: NSPageController) {
+    func pageControllerDidEndLiveTransition(_: NSPageController) {
         completeTransition()
     }
 }

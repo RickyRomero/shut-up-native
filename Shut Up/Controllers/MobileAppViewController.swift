@@ -44,7 +44,7 @@ class MobileAppViewController: NSViewController {
         view.window?.makeFirstResponder(view)
     }
 
-    @IBAction func performClose(_ sender: Any) {
+    @IBAction func performClose(_: Any) {
         view.window?.close()
     }
 

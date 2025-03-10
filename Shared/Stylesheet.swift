@@ -109,7 +109,7 @@ class Stylesheet {
             return
         }
 
-        guard let data = data else {
+        guard let data else {
             print("No data received from request.")
             return
         }
