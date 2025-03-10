@@ -35,13 +35,13 @@ final class Crypto {
         "accessGroup":  Info.groupId,
         "type":         kSecAttrKeyTypeRSA,
         "bits":         3072,
-        "label":        "Shut Up Encryption Key"
+        "label":        "Shut Up Encryption Key",
         // swiftformat:enable all
     ]
     private var queryBase: [CFString: Any] = [
         // swiftformat:disable:next all
         kSecClass:     kSecClassKey,
-        kSecReturnRef: true
+        kSecReturnRef: true,
     ]
 
     private var setupStarted = false
@@ -73,7 +73,7 @@ final class Crypto {
         // Invalidate keys by deleting them
         var query: [CFString: Any] = [
             kSecClass: kSecClassKey,
-            kSecMatchLimit: kSecMatchLimitAll
+            kSecMatchLimit: kSecMatchLimitAll,
         ]
 
         query[kSecUseDataProtectionKeychain] = true
@@ -109,7 +109,7 @@ final class Crypto {
             kSecPublicKeyAttrs: [
                 kSecAttrApplicationTag: (constants["accessGroup"] as! String + ".public").data(using: .utf8)!,
                 kSecAttrAccessible:     kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly
-            ]
+            ],
             // swiftformat:enable all
         ]
         attributes[kSecUseDataProtectionKeychain] = true
@@ -124,8 +124,8 @@ final class Crypto {
     func lookupKey(_ keyClass: KeyClass) throws -> SecKey {
         var keyClassConstant = "" as CFString
         switch keyClass {
-            case .private: keyClassConstant = kSecAttrKeyClassPrivate
-            case .public: keyClassConstant = kSecAttrKeyClassPublic
+        case .private: keyClassConstant = kSecAttrKeyClassPrivate
+        case .public: keyClassConstant = kSecAttrKeyClassPublic
         }
 
         var query: [CFString: Any] = [
@@ -134,7 +134,7 @@ final class Crypto {
             kSecAttrAccessGroup: Info.groupId,
             kSecAttrKeyClass: keyClassConstant,
             kSecReturnAttributes: true,
-            kSecReturnData: true
+            kSecReturnData: true,
         ]
 
         query[kSecUseDataProtectionKeychain] = true
@@ -165,7 +165,7 @@ final class Crypto {
             kSecClass: kSecClassKey,
             kSecAttrKeyClass: keyClassConstant,
             kSecAttrKeyType: constants["type"]!,
-            kSecAttrKeySizeInBits: constants["bits"]!
+            kSecAttrKeySizeInBits: constants["bits"]!,
         ]
 
         var secKeyError: Unmanaged<CFError>? = nil
@@ -189,8 +189,8 @@ final class Crypto {
             ) -> CFData?
         )!
         switch operation {
-            case .encryption: keyClass = .public; secTransformFunc = SecKeyCreateEncryptedData
-            case .decryption: keyClass = .private; secTransformFunc = SecKeyCreateDecryptedData
+        case .encryption: keyClass = .public; secTransformFunc = SecKeyCreateEncryptedData
+        case .decryption: keyClass = .private; secTransformFunc = SecKeyCreateDecryptedData
         }
         key = try lookupKey(keyClass)
 
