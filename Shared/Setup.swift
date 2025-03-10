@@ -54,20 +54,30 @@ final class Setup {
     }
 
     func confirmReset() {
-        let alert = NSAlert()
-        alert.alertStyle = .critical
-        alert.messageText = String(localized: "Reset Shut Up?")
-        alert.informativeText = String(localized: "Resetting Shut Up will delete your settings and allowlist. This will restore its original configuration. You cannot undo this action.")
-        let quitButton = alert.addButton(withTitle: String(localized: "Quit"))
-        quitButton.keyEquivalent = ""
-        alert.addButton(withTitle: String(localized: "Reset Shut Up"))
+        DispatchQueue.main.async {
+            guard let mainWindow = NSApp.mainWindow else {
+                // Retry after a short delay if mainWindow is not yet available
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    self.confirmReset()
+                }
+                return
+            }
 
-        let decision = alert.runModal()
+            let alert = NSAlert()
+            alert.messageText = String(localized: "Reset Shut Up?")
+            alert.informativeText = String(localized: "Resetting Shut Up will delete your settings and allowlist. This will restore its original configuration. You cannot undo this action.")
+            let quitButton = alert.addButton(withTitle: String(localized: "Quit"))
+            quitButton.keyEquivalent = ""
+            alert.addButton(withTitle: String(localized: "Reset Shut Up"))
 
-        if decision == .alertFirstButtonReturn {
-            NSApp.terminate(nil)
-        } else {
-            reset()
+            // Present the alert as a modal sheet attached to the main window.
+            alert.beginSheetModal(for: mainWindow) { response in
+                if response == .alertFirstButtonReturn {
+                    NSApp.terminate(nil)
+                } else {
+                    self.reset()
+                }
+            }
         }
     }
 

@@ -16,11 +16,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         let optionKeyState = CGEventSource.keyState(.combinedSessionState, key: 0x3A)
         let mainSb = NSStoryboard(name: "Main", bundle: nil)
-        mwc = mainSb.instantiateController(withIdentifier: "MainWC") as? MainWindowController
+        self.mwc = mainSb.instantiateController(withIdentifier: "MainWC") as? MainWindowController
 
+        // Show the main window immediately
+        self.mwc.window?.makeKeyAndOrderFront(self)
+
+        // Then bootstrap the application
         Setup.main.bootstrap(optionKeyState) {
             Stylesheet.main.update(completionHandler: nil)
-            self.mwc.window?.makeKeyAndOrderFront(self)
         }
     }
 
@@ -65,10 +68,20 @@ extension AppDelegate: ErrorRecoveryDelegate {
 
 func showError(_ error: Error) {
     DispatchQueue.main.async {
-        if error is MessagingError {
-            NSApp.presentError(error)
-        } else {
-            NSApp.presentError(MessagingError(error))
+        let errorToPresent = (error is MessagingError) ? error : MessagingError(error)
+
+        guard let mainWindow = NSApp.mainWindow else {
+            // Retry after a short delay if mainWindow is not yet available
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                showError(errorToPresent)
+            }
+            return
         }
+
+        NSApp.presentError(errorToPresent,
+                           modalFor: mainWindow,
+                           delegate: nil,
+                           didPresent: nil,
+                           contextInfo: nil)
     }
 }
