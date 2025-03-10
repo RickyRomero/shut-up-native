@@ -34,22 +34,28 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <menu key="submenu" title="Other Versions" id="k7i-vQ-3Mw">
                                                 <items>
-                                                    <menuItem title="Shut Up for Chrome" image="Small Chrome" identifier="shut_up_chrome" id="dMS-lh-fAI">
+                                                    <menuItem title="Shut Up for Brave" image="Small Brave" identifier="shut_up_brave" id="dMS-lh-fAI">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="didChooseLinkItem:" target="Voe-Tx-rLC" id="RfR-Ff-P76"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="Shut Up for Firefox" image="Small Firefox" identifier="shut_up_firefox" id="g0J-wH-HYs">
+                                                    <menuItem title="Shut Up for Chrome" image="Small Chrome" identifier="shut_up_chrome" id="7S5-Ko-uhr">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
-                                                            <action selector="didChooseLinkItem:" target="Voe-Tx-rLC" id="0WX-D7-mnE"/>
+                                                            <action selector="didChooseLinkItem:" target="Voe-Tx-rLC" id="jfa-Jm-DPt"/>
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem title="Shut Up for Edge" image="Small Edge" identifier="shut_up_edge" id="JKr-eC-ITx">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="didChooseLinkItem:" target="Voe-Tx-rLC" id="icd-QA-XZA"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Shut Up for Firefox" image="Small Firefox" identifier="shut_up_firefox" id="g0J-wH-HYs">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="didChooseLinkItem:" target="Voe-Tx-rLC" id="0WX-D7-mnE"/>
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem title="Shut Up for Opera" image="Small Opera" identifier="shut_up_opera" id="uDL-wo-1md">
@@ -1264,6 +1270,7 @@ DQ
         <image name="Large Bubble" width="306" height="274"/>
         <image name="Large Chrome" width="64" height="64"/>
         <image name="Small App Store" width="16" height="16"/>
+        <image name="Small Brave" width="16" height="16"/>
         <image name="Small Chrome" width="16" height="16"/>
         <image name="Small Edge" width="16" height="16"/>
         <image name="Small Firefox" width="16" height="16"/>

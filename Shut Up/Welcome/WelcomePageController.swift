@@ -75,6 +75,7 @@ class WelcomePageController: NSPageController {
                 case .chrome: fallthrough
                 case .firefox: fallthrough
                 case .edge: fallthrough
+                case .brave: fallthrough
                 case .opera:
                     arrangedObjects.insert("DefaultBrowserVC", at: 1)
                 default:

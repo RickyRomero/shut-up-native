@@ -50,6 +50,7 @@ struct ExtensionLink: Link {
             case .firefox: bundleId = "org.mozilla.firefox"
             case .edge: bundleId = "com.microsoft.edgemac"
             case .opera: bundleId = "com.operasoftware.opera"
+            case .brave: bundleId = "org.brave.Browser"
             default: bundleId = nil
         }
 
@@ -94,19 +95,24 @@ struct LinkCollection {
 enum Links {
     static let collection = LinkCollection(items: [
         ExtensionLink(
+            id: "shut_up_brave",
+            dest: "https://chrome.google.com/webstore/detail/shut-up-comment-blocker/oklfoejikkmejobodofaimigojomlfim",
+            browser: .brave
+        ),
+        ExtensionLink(
             id: "shut_up_chrome",
             dest: "https://chrome.google.com/webstore/detail/shut-up-comment-blocker/oklfoejikkmejobodofaimigojomlfim",
             browser: .chrome
         ),
         ExtensionLink(
-            id: "shut_up_firefox",
-            dest: "https://addons.mozilla.org/en-US/firefox/addon/shut-up-comment-blocker/",
-            browser: .firefox
-        ),
-        ExtensionLink(
             id: "shut_up_edge",
             dest: "https://microsoftedge.microsoft.com/addons/detail/giifliakcgfijgkejmenachfdncbpalp",
             browser: .edge
+        ),
+        ExtensionLink(
+            id: "shut_up_firefox",
+            dest: "https://addons.mozilla.org/en-US/firefox/addon/shut-up-comment-blocker/",
+            browser: .firefox
         ),
         ExtensionLink(
             id: "shut_up_opera",

@@ -145,6 +145,18 @@
         }
       }
     },
+    "7S5-Ko-uhr.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Shut Up for Chrome\"; ObjectID = \"7S5-Ko-uhr\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Shut Up for Chrome"
+          }
+        }
+      }
+    },
     "7Tx-k6-Sgh.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Undo\"; ObjectID = \"7Tx-k6-Sgh\";",
       "extractionState" : "extracted_with_value",
@@ -254,19 +266,19 @@
       }
     },
     "dMS-lh-fAI.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Shut Up for Chrome\"; ObjectID = \"dMS-lh-fAI\";",
+      "comment" : "Class = \"NSMenuItem\"; title = \"Shut Up for Brave\"; ObjectID = \"dMS-lh-fAI\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Shut Up für Chrome"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Shut Up for Chrome"
+            "value" : "Shut Up for Brave"
           }
         }
       }
