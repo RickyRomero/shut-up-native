@@ -50,7 +50,7 @@ struct ExtensionLink: Link {
             case .firefox: bundleId = "org.mozilla.firefox"
             case .edge: bundleId = "com.microsoft.edgemac"
             case .opera: bundleId = "com.operasoftware.opera"
-            case .brave: bundleId = "org.brave.Browser"
+            case .brave: bundleId = "com.brave.browser"
             default: bundleId = nil
         }
 
