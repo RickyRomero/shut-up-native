@@ -1,0 +1,34 @@
+#!/bin/sh
+# Pre-commit hook to run SwiftFormat on the entire project
+# Auto-installs SwiftFormat using Homebrew if not already installed
+
+echo "Checking for SwiftFormat installation..."
+
+if ! command -v swiftformat >/dev/null 2>&1; then
+  echo "SwiftFormat is not installed."
+  if command -v brew >/dev/null 2>&1; then
+    echo "Homebrew is installed. Installing SwiftFormat..."
+    brew install swiftformat
+    if [ $? -ne 0 ]; then
+      echo "Failed to install SwiftFormat via Homebrew. Aborting commit."
+      exit 1
+    fi
+  else
+    echo "Homebrew is not installed. Please install SwiftFormat manually."
+    exit 1
+  fi
+fi
+
+echo "Running SwiftFormat..."
+swiftformat .
+RESULT=$?
+
+if [ $RESULT -ne 0 ]; then
+  echo "SwiftFormat failed with exit code $RESULT. Aborting commit."
+  exit 1
+fi
+
+# Stage any changes made by SwiftFormat
+git add -u
+
+exit 0
