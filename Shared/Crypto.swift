@@ -21,7 +21,7 @@ enum KeyClass {
 
 final class Crypto {
     private init() {
-        // swiftformat:disable:next all
+        // swiftformat:disable:next consecutiveSpaces
         queryBase[kSecAttrKeyType]       = constants["type"]!
         queryBase[kSecAttrKeySizeInBits] = constants["bits"]!
     }
@@ -31,15 +31,15 @@ final class Crypto {
     let queue = DispatchQueue(label: "\(Info.bundleId).keychain")
 
     private let constants: [String: Any] = [
-        // swiftformat:disable all
+        // swiftformat:disable consecutiveSpaces
         "accessGroup":  Info.groupId,
         "type":         kSecAttrKeyTypeRSA,
         "bits":         3072,
         "label":        "Shut Up Encryption Key",
-        // swiftformat:enable all
+        // swiftformat:enable consecutiveSpaces
     ]
     private var queryBase: [CFString: Any] = [
-        // swiftformat:disable:next all
+        // swiftformat:disable:next consecutiveSpaces
         kSecClass:     kSecClassKey,
         kSecReturnRef: true,
     ]
@@ -97,20 +97,20 @@ final class Crypto {
 
         let keyId = UUID()
         var attributes = [
-            // swiftformat:disable all
+            // swiftformat:disable consecutiveSpaces
             kSecAttrKeyType:            constants["type"]!,
             kSecAttrKeySizeInBits:      constants["bits"]!,
             kSecAttrLabel:              "\(constants["label"]!)-\(keyId)",
             kSecAttrIsPermanent:        true,
             kSecPrivateKeyAttrs: [
                 kSecAttrApplicationTag: (constants["accessGroup"] as! String + ".private").data(using: .utf8)!,
-                kSecAttrAccessible:     kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly
+                kSecAttrAccessible:     kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly,
             ],
             kSecPublicKeyAttrs: [
                 kSecAttrApplicationTag: (constants["accessGroup"] as! String + ".public").data(using: .utf8)!,
-                kSecAttrAccessible:     kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly
+                kSecAttrAccessible:     kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly,
             ],
-            // swiftformat:enable all
+            // swiftformat:enable consecutiveSpaces
         ]
         attributes[kSecUseDataProtectionKeychain] = true
 
