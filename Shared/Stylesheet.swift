@@ -207,11 +207,11 @@ class Stylesheet {
 
     private func minify(css: String) -> String {
         let cleanupPatterns = [
-            // swiftformat:disable all
+            // swiftformat:disable consecutiveSpaces
             ["\\s*/\\*.+?\\*/\\s*", " "],   // Comments
             ["^\\s+",               ""],    // Leading whitespace
             [",\\s+",               ", "],  // Selector whitespace
-            // swiftformat:enable all
+            // swiftformat:enable consecutiveSpaces
         ]
 
         var strippedCSS = css
