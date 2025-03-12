@@ -29,6 +29,26 @@
         }
       }
     },
+    "%lld Domains" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld Domänen"
+          }
+        }
+      }
+    },
+    "Add %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einfügen von %@"
+          }
+        }
+      }
+    },
     "Automatically" : {
       "comment" : "First argument for the 'Last CSS update' Accesibility label\nFirst argument for the 'Last CSS update' label",
       "localizations" : {
@@ -78,6 +98,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Weiter mit Safari"
+          }
+        }
+      }
+    },
+    "Delete" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Löschen"
+          }
+        }
+      }
+    },
+    "Delete %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Löschen von %@"
           }
         }
       }

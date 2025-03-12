@@ -99,7 +99,7 @@ extension MainViewController {
             })
 
             if let actionName = undoManager?.undoActionName, actionName == "" {
-                undoManager?.setActionName("Add \(undoString(from: domainsAdded))")
+                undoManager?.setActionName(String(localized: "Add \(undoString(from: domainsAdded))"))
             }
 
             reloadTableData()
@@ -115,7 +115,7 @@ extension MainViewController {
             })
 
             if let actionName = undoManager?.undoActionName, actionName == "" {
-                undoManager?.setActionName("Delete \(undoString(from: domainsRemoved))")
+                undoManager?.setActionName(String(localized: "Delete \(undoString(from: domainsRemoved))"))
             }
 
             reloadTableData()
@@ -138,7 +138,7 @@ extension MainViewController {
 
     func undoString(from domains: [String]) -> String {
         if domains.count == 1 { return domains[0] }
-        return "\(domains.count) Domains"
+        return String(localized: "\(domains.count) Domains")
     }
 
     func reloadTableData() {
@@ -196,7 +196,7 @@ extension MainViewController: NSTableViewDelegate {
     // Swipe actions for the table view
     func tableView(_: NSTableView, rowActionsForRow row: Int, edge: NSTableView.RowActionEdge) -> [NSTableViewRowAction] {
         if edge == .trailing {
-            let deleteAction = NSTableViewRowAction(style: .destructive, title: "Delete", handler: { _, row in
+            let deleteAction = NSTableViewRowAction(style: .destructive, title: String(localized: "Delete"), handler: { _, row in
                 self.remove(domains: [Whitelist.main.entries[row]])
             })
             deleteAction.backgroundColor = .red
