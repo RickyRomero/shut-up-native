@@ -44,7 +44,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Einfügen von %@"
+            "value" : "Einsetzen von %@"
           }
         }
       }
@@ -98,6 +98,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Weiter mit Safari"
+          }
+        }
+      }
+    },
+    "Cut %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ausschneiden von %@"
           }
         }
       }

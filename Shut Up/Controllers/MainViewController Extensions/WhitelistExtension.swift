@@ -35,8 +35,15 @@ extension MainViewController {
     }
 
     @IBAction func cut(_: AnyObject?) {
+        // Capture the selected domains before deletion
+        let selectedDomains = getSelectedDomains()
+
+        // Perform the copy & delete action
         copy(nil)
         delete(self)
+
+        // Override the undo action name to reflect a 'Cut' operation
+        undoManager?.setActionName(String(localized: "Cut \(undoString(from: selectedDomains))"))
     }
 
     @IBAction func copy(_: AnyObject?) {
