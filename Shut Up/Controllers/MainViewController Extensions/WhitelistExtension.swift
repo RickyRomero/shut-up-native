@@ -63,12 +63,28 @@ extension MainViewController {
             return
         }
 
-        let domains = clipboardContents
-            .split(separator: "\n")
-            .map { String($0) }
-            .map { Whitelist.parseDomain(from: $0) }
-            .filter { $0 != nil }
-            .map { $0! }
+        // Split the clipboard contents using comma, semicolon, space, newline, tab, and pipe as delimiters
+        let delimiters = CharacterSet(charactersIn: ",; \n\t|")
+        let tokens = clipboardContents.components(separatedBy: delimiters)
+            .filter { !$0.isEmpty }
+
+        let domains = tokens.compactMap { token -> String? in
+            let cleanedToken = token.trimmingCharacters(in: .whitespacesAndNewlines)
+                .trimmingCharacters(in: CharacterSet(charactersIn: "/"))
+            guard let domain = Whitelist.parseDomain(from: cleanedToken) else { return nil }
+
+            // Additional regex check to ensure the domain is valid
+            let validDomainRegex = try! NSRegularExpression(
+                pattern: "^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\\.)+(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)$",
+                options: []
+            )
+            let range = NSRange(location: 0, length: domain.utf16.count)
+            let matches = validDomainRegex.numberOfMatches(in: domain, options: [], range: range)
+            guard matches > 0 else { return nil }
+
+            return domain
+        }
+
         let dedupedDomains = Array(Set(domains))
         add(domains: dedupedDomains)
 
