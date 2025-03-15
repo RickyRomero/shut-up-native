@@ -83,11 +83,12 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         // WORKAROUND: Safari sometimes fails to apply content blocker updates on the first reload.
         // Reloading 3 times ensures the changes take effect.
         reloadContentBlocker(times: 3) {
-            // WORKAROUND: Reload the page with a short delay
-            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(250)) {
+            // Reload the page with a short delay
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50)) {
                 page?.reload()
             }
 
+            // TODO: Find a better way to handle this.
             let shouldRemove = (
                 !Preferences.main.automaticWhitelisting ||
                     (props?.usesPrivateBrowsing ?? false)
