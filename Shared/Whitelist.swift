@@ -93,7 +93,7 @@ class Whitelist {
         let domainNameCount = domainNameRegex.numberOfMatches(
             in: item,
             options: [],
-            range: NSMakeRange(0, item.count)
+            range: NSRange(location: 0, length: item.count)
         )
         guard domainNameCount > 0 else { return nil }
 

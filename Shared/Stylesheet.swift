@@ -226,7 +226,7 @@ class Stylesheet {
             strippedCSS = cleanupRegex.stringByReplacingMatches(
                 in: strippedCSS,
                 options: [],
-                range: NSMakeRange(0, strippedCSS.count),
+                range: NSRange(location: 0, length: strippedCSS.count),
                 withTemplate: replacementTemplate
             )
         }
@@ -253,6 +253,6 @@ private extension Substring {
 
 private extension NSRegularExpression {
     func test(_ string: String) -> Bool {
-        firstMatch(in: string, options: [], range: NSMakeRange(0, string.count)) != nil
+        firstMatch(in: string, options: [], range: NSRange(location: 0, length: string.count)) != nil
     }
 }
