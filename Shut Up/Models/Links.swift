@@ -42,7 +42,7 @@ struct ExtensionLink: Link {
 
     // Try to open the link with its matching browser.
     func open() {
-        let ws = NSWorkspace.shared
+        let workspace = NSWorkspace.shared
         let bundleId: String? = switch preferredBrowser {
         case .chrome: "com.google.chrome"
         case .firefox: "org.mozilla.firefox"
@@ -53,24 +53,24 @@ struct ExtensionLink: Link {
         }
 
         if let bundleId {
-            let appLocation = ws.urlForApplication(withBundleIdentifier: bundleId)
+            let appLocation = workspace.urlForApplication(withBundleIdentifier: bundleId)
 
             if let appLocation {
-                ws.open(
+                workspace.open(
                     [destination],
                     withApplicationAt: appLocation,
                     configuration: NSWorkspace.OpenConfiguration()
                 ) { _, error in
                     if error != nil {
-                        ws.open(destination)
+                        workspace.open(destination)
                     }
                 }
             } else {
-                ws.open(destination)
+                workspace.open(destination)
             }
 
         } else {
-            ws.open(destination)
+            workspace.open(destination)
         }
     }
 }

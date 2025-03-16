@@ -41,14 +41,14 @@ enum MiscError: Error {
 }
 
 enum RecoveryOption: String, CaseIterable, CustomStringConvertible {
-    case ok
+    case okay
     case quit
     case reset
     case tryAgain
 
     var description: String {
         let buttonText: String! = switch self {
-        case .ok: String(localized: "OK", comment: "Default button text – error recovery")
+        case .okay: String(localized: "OK", comment: "Default button text – error recovery")
         case .quit: String(localized: "Quit", comment: "Quitting app button text – error recovery")
         case .reset: String(localized: "Reset Shut Up", comment: "Resetting app button text – error recovery")
         case .tryAgain: String(localized: "Try Again…", comment: "Retrying button text – error recovery")

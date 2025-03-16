@@ -27,7 +27,7 @@ struct DelegatingRecoverableError<Delegate, Error>: RecoverableError
         (
             (error as NSError)
                 .userInfo[NSLocalizedRecoveryOptionsErrorKey] as? [RecoveryOption]
-        ) ?? [.ok]
+        ) ?? [.okay]
     }
 
     var recoveryOptions: [String] { recoveryActions.map { "\($0)" } }

@@ -56,7 +56,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 extension AppDelegate: ErrorRecoveryDelegate {
     func attemptRecovery(from _: Error, with option: RecoveryOption) -> Bool {
         switch option {
-        case .ok:
+        case .okay:
             break
         case .quit:
             _ = NSApp.mainWindow?.sheets.map { $0.close() }

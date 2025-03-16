@@ -23,7 +23,7 @@ extension MainViewController {
         if row > -1 {
             if let domain = verifyWhitelistEntry(for: sender.stringValue, on: row) {
                 sender.stringValue = domain
-                change(from: whitelistTableEntries[row], to: domain)
+                change(from: whitelistTableEntries[row], into: domain)
             } else {
                 sender.stringValue = whitelistTableEntries[row]
             }
@@ -148,12 +148,12 @@ extension MainViewController {
         }
     }
 
-    func change(from: String, to: String) {
+    func change(from: String, into: String) {
         _ = Whitelist.main.remove(domains: [from])
-        _ = Whitelist.main.add(domains: [to])
+        _ = Whitelist.main.add(domains: [into])
 
         undoManager?.registerUndo(withTarget: self, handler: { targetType in
-            targetType.change(from: to, to: from)
+            targetType.change(from: into, into: from)
         })
         undoManager?.setActionName("Edit Domain")
 
