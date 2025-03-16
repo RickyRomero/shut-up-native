@@ -7,7 +7,10 @@
 //
 
 import Foundation
+import OSLog
 import SafariServices
+
+private let logger = Logger(subsystem: Info.containingBundleId, category: "Stylesheet")
 
 struct Rule {
     let source: String
@@ -103,19 +106,18 @@ class Stylesheet {
         }
 
         guard error == nil else {
-            print("Encountered an error when updating the stylesheet:")
-            print(error!.localizedDescription)
+            logger.error("Encountered an error when updating the stylesheet: \(String(describing: error))")
             outputError = error
             return
         }
 
         guard let data else {
-            print("No data received from request.")
+            logger.error("No data received from request.")
             return
         }
 
         guard let response = response as? HTTPURLResponse else {
-            print("No response received from request.")
+            logger.error("No response received from request.")
             return
         }
 

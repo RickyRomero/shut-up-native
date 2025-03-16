@@ -7,6 +7,9 @@
 //
 
 import Cocoa
+import OSLog
+
+private let logger = Logger(subsystem: Info.containingBundleId, category: "Setup")
 
 final class Setup {
     static var main = Setup()
@@ -111,7 +114,7 @@ final class Setup {
             let values = try targetLocation.resourceValues(forKeys: [.volumeAvailableCapacityForImportantUsageKey])
             return values.volumeAvailableCapacityForImportantUsage ?? 0
         } catch {
-            NSLog("Error querying available space: \(error)")
+            logger.error("Error querying available space: \(String(describing: error))")
             return 0
         }
     }

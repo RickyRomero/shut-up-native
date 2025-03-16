@@ -6,7 +6,10 @@
 //  See LICENSE.md for license information.
 //
 
+import OSLog
 import SafariServices
+
+private let logger = Logger(subsystem: Info.helperBundleId, category: "Shut Up Helper")
 
 class SafariExtensionHandler: SFSafariExtensionHandler {
     enum ToolbarImages {
@@ -65,7 +68,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
 
         SFContentBlockerManager.reloadContentBlocker(withIdentifier: Info.blockerBundleId) { error in
             guard error == nil else {
-                NSLog("com.rickyromero.shutup.blocker helper error: \(error!.localizedDescription)")
+                logger.error("\(Info.blockerBundleId) reload error: \(String(describing: error))")
                 return
             }
             self.reloadContentBlocker(times: times - 1, completion: completion)

@@ -8,6 +8,9 @@
 
 import Cocoa
 import Foundation
+import OSLog
+
+private let logger = Logger(subsystem: Info.containingBundleId, category: "Crypto")
 
 enum CryptoOperation {
     case encryption
@@ -79,15 +82,14 @@ final class Crypto {
 
         let result = SecItemDelete(query as CFDictionary)
         guard [errSecSuccess, errSecItemNotFound].contains(result) else {
-            print("Failed to remove key(s).")
-            print(SecCopyErrorMessageString(result, nil)!)
+            logger.error("Failed to remove key(s). Error: \(String(describing: SecCopyErrorMessageString(result, nil)))")
             throw CryptoError.removingInvalidKeys
         }
         if result == errSecSuccess {
-            print("Removed key(s) successfully.")
+            logger.info("Removed key(s) successfully.")
         }
         if result == errSecItemNotFound {
-            print("No key(s) found to remove.")
+            logger.info("No key(s) found to remove.")
         }
     }
 
@@ -121,7 +123,7 @@ final class Crypto {
 
         var error: Unmanaged<CFError>?
         guard SecKeyCreateRandomKey(attributes as CFDictionary, &error) != nil else {
-            print("Failed to create key")
+            logger.error("Failed to create key")
             throw CryptoError.generatingKeys
         }
     }
@@ -146,7 +148,7 @@ final class Crypto {
         var rawCopyResult: CFTypeRef?
         let copyStatus = SecItemCopyMatching(query as CFDictionary, &rawCopyResult)
         guard copyStatus == errSecSuccess else {
-            print("Human-readable error:", SecCopyErrorMessageString(copyStatus, nil) ?? "")
+            logger.error("Human-readable error: \(String(describing: SecCopyErrorMessageString(copyStatus, nil) ?? "" as CFString))")
             throw CryptoError.fetchingKeys
         }
 
