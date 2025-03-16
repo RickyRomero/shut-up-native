@@ -19,22 +19,24 @@ if ! command -v swiftformat >/dev/null 2>&1; then
   fi
 fi
 
-# Capture the list of files that are staged before formatting
-STAGED_FILES=$(git diff --cached --name-only)
-echo "Staged files: $STAGED_FILES"
+# Capture the list of staged Swift files before formatting
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep '\.swift$')
+echo "Staged Swift files: $STAGED_FILES"
 
-echo "Running SwiftFormat..."
-swiftformat .
-RESULT=$?
+# Format each staged file individually
+for file in $STAGED_FILES; do
+  swiftformat "$file"
+  if [ $? -ne 0 ]; then
+    echo "SwiftFormat failed for $file. Aborting commit."
+    exit 1
+  fi
+done
 
-if [ $RESULT -ne 0 ]; then
-  echo "SwiftFormat failed with exit code $RESULT. Aborting commit."
+# Check if SwiftFormat made changes to any staged files
+if [ -n "$STAGED_FILES" ] && ! git diff --quiet $STAGED_FILES; then
+  echo "SwiftFormat made changes to staged files. Please review and stage the updated files, then commit again."
   exit 1
 fi
 
-# Re-stage only the files that were originally staged
-if [ -n "$STAGED_FILES" ]; then
-  git add $STAGED_FILES
-fi
-
+# If no changes were made, proceed with commit
 exit 0
