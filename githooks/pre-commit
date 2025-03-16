@@ -23,6 +23,9 @@ fi
 STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep '\.swift$')
 echo "Staged Swift files: $STAGED_FILES"
 
+# Set IFS to newline so that file names with spaces are not split
+IFS=$'\n'
+
 # Format each staged file individually
 for file in $STAGED_FILES; do
   swiftformat "$file"
