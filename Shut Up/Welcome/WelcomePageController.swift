@@ -77,11 +77,7 @@ class WelcomePageController: NSPageController {
 
         if currentLocation == "WelcomeVC" {
             switch defaultBrowser {
-            case .chrome: fallthrough
-            case .firefox: fallthrough
-            case .edge: fallthrough
-            case .brave: fallthrough
-            case .opera:
+            case .chrome, .firefox, .edge, .brave, .opera:
                 arrangedObjects.insert("DefaultBrowserVC", at: 1)
             default:
                 break

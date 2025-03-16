@@ -245,10 +245,9 @@ extension MainViewController: WhitelistDataDelegate {
 extension MainViewController: NSMenuItemValidation {
     func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
         switch menuItem.identifier?.rawValue {
-        case "menu_cut": fallthrough
-        case "menu_copy": fallthrough
-        case "menu_delete": return whitelistView.selectedRowIndexes.count > 0
-        default: return true
+        case "menu_cut", "menu_copy", "menu_delete":
+            whitelistView.selectedRowIndexes.count > 0
+        default: true
         }
     }
 }
