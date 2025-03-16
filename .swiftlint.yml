@@ -1,6 +1,8 @@
 disabled_rules:
+  - comma
   - function_body_length
   - identifier_name
   - inclusive_language
   - line_length
+  - opening_brace
   - trailing_comma
