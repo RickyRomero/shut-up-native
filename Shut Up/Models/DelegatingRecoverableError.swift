@@ -16,7 +16,7 @@ struct DelegatingRecoverableError<Delegate, Error>: RecoverableError
     where Delegate: ErrorRecoveryDelegate, Error: Swift.Error
 {
     let error: Error
-    weak var delegate: Delegate? = nil
+    weak var delegate: Delegate?
 
     init(recoveringFrom error: Error, with delegate: Delegate?) {
         self.error = error

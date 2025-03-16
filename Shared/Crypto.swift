@@ -141,7 +141,7 @@ final class Crypto {
             kSecReturnRef: true,
         ]
 
-        var rawCopyResult: CFTypeRef? = nil
+        var rawCopyResult: CFTypeRef?
         let copyStatus = SecItemCopyMatching(query as CFDictionary, &rawCopyResult)
         guard copyStatus == errSecSuccess else {
             print("Human-readable error:", SecCopyErrorMessageString(copyStatus, nil) ?? "")
@@ -174,7 +174,7 @@ final class Crypto {
         }
         key = try lookupKey(keyClass)
 
-        var transformError: Unmanaged<CFError>? = nil
+        var transformError: Unmanaged<CFError>?
         let transformed = secTransformFunc(key, .rsaEncryptionOAEPSHA512AESGCM, data as CFData, &transformError)
 
         if (transformError?.takeUnretainedValue()) != nil {
