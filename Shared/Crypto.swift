@@ -95,6 +95,9 @@ final class Crypto {
         try clear()
 
         let keyId = UUID()
+        guard let accessGroup = constants["accessGroup"] as? String else {
+            fatalError("Expected constants[\"accessGroup\"] to be a String")
+        }
         let attributes = [
             // swiftformat:disable consecutiveSpaces
             kSecUseDataProtectionKeychain: true,
@@ -104,12 +107,12 @@ final class Crypto {
             kSecAttrIsPermanent:           true,
             kSecAttrSynchronizable:        false,
             kSecPrivateKeyAttrs: [
-                kSecAttrApplicationTag: (constants["accessGroup"] as! String + ".private").data(using: .utf8)!,
-                kSecAttrAccessible:     kSecAttrAccessibleAfterFirstUnlock,
+                kSecAttrApplicationTag: (accessGroup + ".private").data(using: .utf8)!,
+                kSecAttrAccessible:     kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly,
             ],
             kSecPublicKeyAttrs: [
-                kSecAttrApplicationTag: (constants["accessGroup"] as! String + ".public").data(using: .utf8)!,
-                kSecAttrAccessible:     kSecAttrAccessibleAfterFirstUnlock,
+                kSecAttrApplicationTag: (accessGroup + ".public").data(using: .utf8)!,
+                kSecAttrAccessible:     kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly,
             ],
             // swiftformat:enable consecutiveSpaces
         ]
@@ -145,8 +148,13 @@ final class Crypto {
             throw CryptoError.fetchingKeys
         }
 
-        let key = rawCopyResult as! SecKey
-        return key
+        guard let raw = rawCopyResult else {
+            throw CryptoError.fetchingKeys
+        }
+        guard CFGetTypeID(raw) == SecKeyGetTypeID() else {
+            throw CryptoError.fetchingKeys
+        }
+        return unsafeBitCast(raw, to: SecKey.self)
     }
 
     func transform(with operation: CryptoOperation, data: Data) throws -> Data {
@@ -169,15 +177,14 @@ final class Crypto {
         var transformError: Unmanaged<CFError>? = nil
         let transformed = secTransformFunc(key, .rsaEncryptionOAEPSHA512AESGCM, data as CFData, &transformError)
 
-        guard transformError == nil else {
-            print(transformError!.takeUnretainedValue() as Error)
+        if let error = transformError?.takeUnretainedValue() {
             throw CryptoError.transformingData
         }
 
-        guard transformed != nil else {
+        guard let result = transformed else {
             throw CryptoError.transformingData
         }
 
-        return transformed! as Data
+        return result as Data
     }
 }

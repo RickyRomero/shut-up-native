@@ -17,7 +17,12 @@ class WelcomePageController: NSPageController {
     let defaultBrowser = BrowserBridge.main.defaultBrowser
     let defaultBrowserName = BrowserBridge.main.defaultBrowserName
 
-    var currentLocation: String { arrangedObjects[selectedIndex] as! String }
+    var currentLocation: String {
+        guard let location = arrangedObjects[selectedIndex] as? String else {
+            fatalError("Expected arrangedObjects item at index \(selectedIndex) to be a String")
+        }
+        return location
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,13 +99,15 @@ class WelcomePageController: NSPageController {
 
 extension WelcomePageController: NSPageControllerDelegate {
     func pageController(_: NSPageController, viewControllerForIdentifier identifier: String) -> NSViewController {
-        let pcr = NSStoryboard(
+        guard let pcr = NSStoryboard(
             name: "Main", bundle: nil
         ).instantiateController(
             withIdentifier: identifier
-        ) as! PageContentResponder
+        ) as? PageContentResponder else {
+            fatalError("Could not instantiate view controller with identifier \(identifier) as PageContentResponder")
+        }
         pcr.delegate = self
-        return pcr as NSViewController
+        return pcr
     }
 
     func pageController(_: NSPageController, identifierFor object: Any) -> String {

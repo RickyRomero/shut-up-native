@@ -99,8 +99,9 @@ class MessagingError: NSError, @unchecked Sendable {
         var info: String?
         var options: [RecoveryOption]?
 
-        if cause is CryptoError {
-            switch cause as! CryptoError {
+        switch cause {
+        case let crypto as CryptoError:
+            switch crypto {
             case .accessingKeychain:
                 title = String(localized: "Keychain locked or unavailable", comment: "CryptoError.accessingKeychain – title")
                 info = String(localized: "Shut Up requires keychain privileges to secure its data. Unlock your keychain to proceed.", comment: "CryptoError.accessingKeychain – info")
@@ -120,15 +121,15 @@ class MessagingError: NSError, @unchecked Sendable {
                 info = String(localized: "Shut Up failed to decrypt some required data. You can fix this by resetting Shut Up, but your allowlist may be lost.", comment: "CryptoError.transformingData – info")
                 options = [.quit, .reset]
             }
-        } else if cause is LockError {
-            switch cause as! LockError {
+        case let lock as LockError:
+            switch lock {
             case .timedOut:
                 title = String(localized: "Internal error occurred", comment: "LockError.timedOut – title")
                 info = String(localized: "Shut Up encountered a problem and cannot recover. Please quit and restart Shut Up.", comment: "LockError.timedOut – info")
                 options = [.quit]
             }
-        } else if cause is FileError {
-            switch cause as! FileError {
+        case let file as FileError:
+            switch file {
             case .checkingFreeSpace:
                 title = String(localized: "Startup disk is too full to continue", comment: "FileError.checkingFreeSpace – title")
                 info = String(localized: "Quit Shut Up and delete any files you don’t need.", comment: "FileError.checkingFreeSpace – info")
@@ -140,8 +141,8 @@ class MessagingError: NSError, @unchecked Sendable {
                 title = String(localized: "Failed to write an internal file", comment: "FileError.writingFile – title")
                 info = String(localized: "Shut Up failed to write to an internal file. If this issue persists, please quit and restart Shut Up.", comment: "FileError.writingFile – info")
             }
-        } else if cause is BrowserError {
-            switch cause as! BrowserError {
+        case let browser as BrowserError:
+            switch browser {
             case .providingBlockRules:
                 title = String(localized: "Safari failed to read Shut Up’s content-blocking rules", comment: "BrowserError.providingBlockRules – title")
                 info = String(localized: "Shut Up sent Safari new content-blocking rules, but it failed. Try restarting Safari. If the issue persists, try restarting your Mac.", comment: "BrowserError.providingBlockRules – info")
@@ -152,15 +153,17 @@ class MessagingError: NSError, @unchecked Sendable {
                 title = String(localized: "Safari failed to provide extension info", comment: "BrowserError.requestingExtensionStatus – title")
                 info = String(localized: "Shut Up asked Safari if its extensions are enabled, but it failed. Try quitting Shut Up and moving it to your Applications folder.\n\nIf the issue persists, try uninstalling Shut Up, restarting your Mac, and reinstalling Shut Up.", comment: "BrowserError.requestingExtensionStatus – info")
             }
-        } else if cause is MiscError {
-            switch cause as! MiscError {
+        case let misc as MiscError:
+            switch misc {
             case .unexpectedNetworkResponse:
                 title = String(localized: "Unexpected response from rickyromero.com", comment: "MiscError.unexpectedNetworkResponse – title")
                 info = String(localized: "Shut Up tried to update the stylesheet, but the response the server sent was invalid. Try again later.", comment: "MiscError.unexpectedNetworkResponse – info")
             }
-        } else if cause is URLError {
+        case let urlError as URLError:
             title = String(localized: "Cannot connect to rickyromero.com", comment: "URLError – title")
-            info = cause.localizedDescription
+            info = urlError.localizedDescription
+        default:
+            break
         }
 
         return genAlertContents(MessageContents(title: title, info: info, options: options?.reversed()))

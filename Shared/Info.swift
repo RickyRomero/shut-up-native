@@ -29,10 +29,16 @@ enum Info {
     static let localCssUrl = containerUrl.appendingPathComponent("shutup.css.enc")
 
     private static func readBundleKey(_ key: CFString) -> String {
-        Bundle.main.infoDictionary![key as String]! as! String
+        guard let value = Bundle.main.infoDictionary?[key as String] as? String else {
+            fatalError("Expected key \(key) in Info.plist is missing or not a string")
+        }
+        return value
     }
 
     private static func readBundleKey(_ key: String) -> String {
-        Bundle.main.infoDictionary![key]! as! String
+        guard let value = Bundle.main.infoDictionary?[key] as? String else {
+            fatalError("Expected key \(key) in Info.plist is missing or not a string")
+        }
+        return value
     }
 }

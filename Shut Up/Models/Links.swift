@@ -84,8 +84,10 @@ struct LinkCollection {
     }
 
     func open(by browser: WebBrowser) {
-        let extensionLinks = items.filter { $0 is ExtensionLink } as! [ExtensionLink]
-        let linkForBrowser = extensionLinks.filter { $0.preferredBrowser == browser }[0]
+        let extensionLinks = items.compactMap { $0 as? ExtensionLink }
+        guard let linkForBrowser = extensionLinks.first(where: { $0.preferredBrowser == browser }) else {
+            return
+        }
         linkForBrowser.open()
     }
 }
