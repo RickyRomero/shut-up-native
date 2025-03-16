@@ -9,7 +9,7 @@
 import Cocoa
 
 enum Info {
-    static let containingBundleId = "com.rickyromero.shutup" // HACK: Can't determine programmatically
+    static let containingBundleId = "com.rickyromero.shutup" // WORKAROUND: Can't determine programmatically
     static let helperBundleId = "\(containingBundleId).helper"
     static let blockerBundleId = "\(containingBundleId).blocker"
 

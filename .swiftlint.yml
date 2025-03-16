@@ -3,3 +3,13 @@ disabled_rules:
   - inclusive_language
   - line_length
   - opening_brace
+
+custom_rules:
+  workaround:
+    included: ".*\\.swift"
+    name: "Workaround"
+    regex: "(?i)//\\s*WORKAROUND:"
+    message: "Review whether this workaround is still required and remove it if no longer necessary."
+    severity: warning
+    match_kinds:
+      - comment
