@@ -177,7 +177,7 @@ final class Crypto {
         var transformError: Unmanaged<CFError>? = nil
         let transformed = secTransformFunc(key, .rsaEncryptionOAEPSHA512AESGCM, data as CFData, &transformError)
 
-        if let error = transformError?.takeUnretainedValue() {
+        if (transformError?.takeUnretainedValue()) != nil {
             throw CryptoError.transformingData
         }
 
