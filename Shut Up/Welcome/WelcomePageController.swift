@@ -119,7 +119,7 @@ protocol PageContentResponder: NSViewController {
     var delegate: WelcomePageDelegate? { get set }
 }
 
-protocol WelcomePageDelegate {
+protocol WelcomePageDelegate: AnyObject {
     func updateContinueButton(with state: Bool)
 }
 

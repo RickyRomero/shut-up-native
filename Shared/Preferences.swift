@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol PrefsUpdateDelegate {
+protocol PrefsUpdateDelegate: AnyObject {
     func prefsDidUpdate()
 }
 

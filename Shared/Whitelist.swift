@@ -218,6 +218,6 @@ class Whitelist {
     func reset() { file.reset() }
 }
 
-protocol WhitelistDataDelegate {
+protocol WhitelistDataDelegate: AnyObject {
     func newWhitelistDataAvailable()
 }
