@@ -42,11 +42,11 @@ extension MainViewController {
                     frame = frame.offsetBy(dx: 0.0, dy: resizeDelta)
                     view.window!.setFrame(frame, display: true)
                 }
-            }) {
+            }, completionHandler: {
                 if self.helper.enabled {
                     self.enableHelperGuide.isHidden = true
                 }
-            }
+            })
         }
     }
 
@@ -86,12 +86,12 @@ extension MainViewController {
 
             // Update the layout smoothly
             self.view.layoutSubtreeIfNeeded()
-        }) {
+        }, completionHandler: {
             // Only hide the label after the animation completes when hiding
             if sender.state == .off {
                 self.whitelistInfoLabel.isHidden = true
             }
-        }
+        })
     }
 
     @IBAction func menuSettingUpdated(_ sender: NSButton) {
