@@ -177,10 +177,8 @@ class Whitelist {
         guard loadFinished else { return [] }
 
         var domainsAdded: [String] = []
-        for domain in domains {
-            if !matches(domain: domain) {
-                domainsAdded.append(domain)
-            }
+        for domain in domains where !matches(domain: domain) {
+            domainsAdded.append(domain)
         }
 
         entries.append(contentsOf: domainsAdded)
