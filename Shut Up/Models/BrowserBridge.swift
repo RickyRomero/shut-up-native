@@ -103,7 +103,7 @@ class BrowserBridge {
             .edge: String(localized: "Edge"),
             .opera: String(localized: "Opera"),
             .brave: String(localized: "Brave"),
-            .unknown: String(localized: "Unknown", comment: "Unknown browser name"),
+            .unknown: String(localized: "Unknown", comment: "Unknown browser name")
         ]
         return browserNameMap[defaultBrowser]!
     }

@@ -1,8 +1,5 @@
 disabled_rules:
-  - colon
-  - comma
   - function_body_length
   - inclusive_language
   - line_length
   - opening_brace
-  - trailing_comma

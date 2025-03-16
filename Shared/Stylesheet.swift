@@ -78,7 +78,7 @@ class Stylesheet {
 
         let sessionConfig = URLSessionConfiguration.ephemeral
         sessionConfig.httpAdditionalHeaders = [
-            "User-Agent": "\(Info.productName)/\(Info.version) (\(Info.buildNum))",
+            "User-Agent": "\(Info.productName)/\(Info.version) (\(Info.buildNum))"
         ]
         if !force, Preferences.main.etag != "" {
             sessionConfig.httpAdditionalHeaders?["If-None-Match"] = Preferences.main.etag
@@ -209,11 +209,11 @@ class Stylesheet {
 
     private func minify(css: String) -> String {
         let cleanupPatterns = [
-            // swiftformat:disable consecutiveSpaces
+            // swiftformat:disable consecutiveSpaces; swiftlint:disable comma
             ["\\s*/\\*.+?\\*/\\s*", " "],   // Comments
             ["^\\s+",               ""],    // Leading whitespace
-            [",\\s+",               ", "],  // Selector whitespace
-            // swiftformat:enable consecutiveSpaces
+            [",\\s+",               ", "]   // Selector whitespace
+            // swiftformat:enable consecutiveSpaces; swiftlint:enable comma
         ]
 
         var strippedCSS = css

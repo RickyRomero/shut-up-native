@@ -134,7 +134,7 @@ enum Links {
         BasicLink(
             id: "github_source",
             dest: "https://github.com/RickyRomero/shut-up-native"
-        ),
+        )
     ])
 
     static func composeEmail() {
@@ -144,7 +144,7 @@ enum Links {
             SafariRelease(services: .version11_0, userFacingVersion: "11.0"),
             SafariRelease(services: .version12_0, userFacingVersion: "12.0"),
             SafariRelease(services: .version12_1, userFacingVersion: "12.1"),
-            SafariRelease(services: .version13_0, userFacingVersion: "13.0 or greater"),
+            SafariRelease(services: .version13_0, userFacingVersion: "13.0 or greater")
         ]
         let highestSafariVersion = knownSafariReleases
             .filter { SFSafariServicesAvailable($0.services) }
@@ -180,7 +180,7 @@ enum Links {
             Stylesheet last updated: \(Preferences.main.lastStylesheetUpdate)
 
             [If reporting a problem, please be as specific as you can so I can diagnose it. Thank you! — Ricky]
-            """),
+            """)
         ]
         urlComps.queryItems = queryItems
         let url = urlComps.url!

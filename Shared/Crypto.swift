@@ -31,17 +31,17 @@ final class Crypto {
     let queue = DispatchQueue(label: "\(Info.bundleId).keychain")
 
     private let constants: [String: Any] = [
-        // swiftformat:disable consecutiveSpaces
+        // swiftformat:disable consecutiveSpaces; swiftlint:disable colon
         "accessGroup":  Info.groupId,
         "type":         kSecAttrKeyTypeRSA,
         "bits":         3072,
-        "label":        "Shut Up Encryption Key",
-        // swiftformat:enable consecutiveSpaces
+        "label":        "Shut Up Encryption Key"
+        // swiftformat:enable consecutiveSpaces; swiftlint:enable colon
     ]
     private var queryBase: [CFString: Any] = [
         // swiftformat:disable:next consecutiveSpaces
-        kSecClass:     kSecClassKey,
-        kSecReturnRef: true,
+        kSecClass: kSecClassKey,
+        kSecReturnRef: true
     ]
 
     private var setupStarted = false
@@ -74,8 +74,10 @@ final class Crypto {
         let query: [CFString: Any] = [
             kSecUseDataProtectionKeychain: true,
             kSecClass: kSecClassKey,
-            kSecMatchLimit: kSecMatchLimitAll,
+            kSecMatchLimit: kSecMatchLimitAll
         ]
+
+        query[kSecUseDataProtectionKeychain] = true
 
         let result = SecItemDelete(query as CFDictionary)
         guard [errSecSuccess, errSecItemNotFound].contains(result) else {
@@ -98,8 +100,8 @@ final class Crypto {
         guard let accessGroup = constants["accessGroup"] as? String else {
             fatalError("Expected constants[\"accessGroup\"] to be a String")
         }
-        let attributes = [
-            // swiftformat:disable consecutiveSpaces
+        var attributes = [
+            // swiftformat:disable consecutiveSpaces; swiftlint:disable colon
             kSecUseDataProtectionKeychain: true,
             kSecAttrKeyType:               constants["type"]!,
             kSecAttrKeySizeInBits:         constants["bits"]!,
@@ -108,13 +110,13 @@ final class Crypto {
             kSecAttrSynchronizable:        false,
             kSecPrivateKeyAttrs: [
                 kSecAttrApplicationTag: (accessGroup + ".private").data(using: .utf8)!,
-                kSecAttrAccessible:     kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly,
+                kSecAttrAccessible:     kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly
             ],
             kSecPublicKeyAttrs: [
                 kSecAttrApplicationTag: (accessGroup + ".public").data(using: .utf8)!,
-                kSecAttrAccessible:     kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly,
-            ],
-            // swiftformat:enable consecutiveSpaces
+                kSecAttrAccessible:     kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly
+            ]
+            // swiftformat:enable consecutiveSpaces; swiftlint:enable colon
         ]
 
         var error: Unmanaged<CFError>?
@@ -138,7 +140,7 @@ final class Crypto {
             kSecMatchLimit: kSecMatchLimitOne,
             kSecAttrAccessGroup: Info.groupId,
             kSecAttrKeyClass: keyClassConstant,
-            kSecReturnRef: true,
+            kSecReturnRef: true
         ]
 
         var rawCopyResult: CFTypeRef?

@@ -58,8 +58,8 @@ class MainViewController: NSViewController {
         let tabularFigures = NSFont.systemFont(ofSize: 0.0).fontDescriptor.addingAttributes([
             .featureSettings: [[
                 NSFontDescriptor.FeatureKey.typeIdentifier: kNumberSpacingType,
-                NSFontDescriptor.FeatureKey.selectorIdentifier: kMonospacedNumbersSelector,
-            ]],
+                NSFontDescriptor.FeatureKey.selectorIdentifier: kMonospacedNumbersSelector
+            ]]
         ])
         lastCssUpdateLabel.font = NSFont(descriptor: tabularFigures, size: 0.0)
         resetCssLabelUpdateTimer()
