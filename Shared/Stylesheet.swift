@@ -187,18 +187,20 @@ class Stylesheet {
                 allPairsValid = allPairsValid && selector.trim().count < 150
             }
 
-            // Check for a rule containing CSS display properties
-            let displayPropRegex = try! NSRegularExpression(
+            guard let displayPropRegex = try? NSRegularExpression(
                 pattern: "display:\\s*[a-z\\- ]+\\s+!important;?",
                 options: .caseInsensitive
-            )
+            ) else {
+                return false
+            }
             allPairsValid = allPairsValid && displayPropRegex.test(ruleSet)
 
-            // At least one "display: none !important" must be present
-            let displayNoneRegex = try! NSRegularExpression(
+            guard let displayNoneRegex = try? NSRegularExpression(
                 pattern: "display:\\s*none\\s+!important;?",
                 options: .caseInsensitive
-            )
+            ) else {
+                return false
+            }
             displayNoneFound = displayNoneFound || displayNoneRegex.test(ruleSet)
         }
 
@@ -218,7 +220,9 @@ class Stylesheet {
         for replacementPair in cleanupPatterns {
             let cleanupPattern = replacementPair[0]
             let replacementTemplate = replacementPair[1]
-            let cleanupRegex = try! NSRegularExpression(pattern: cleanupPattern, options: .dotMatchesLineSeparators)
+            guard let cleanupRegex = try? NSRegularExpression(pattern: cleanupPattern, options: .dotMatchesLineSeparators) else {
+                continue
+            }
             strippedCSS = cleanupRegex.stringByReplacingMatches(
                 in: strippedCSS,
                 options: [],

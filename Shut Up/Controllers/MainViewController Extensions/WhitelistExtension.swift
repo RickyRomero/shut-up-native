@@ -74,10 +74,12 @@ extension MainViewController {
             guard let domain = Whitelist.parseDomain(from: cleanedToken) else { return nil }
 
             // Additional regex check to ensure the domain is valid
-            let validDomainRegex = try! NSRegularExpression(
+            guard let validDomainRegex = try? NSRegularExpression(
                 pattern: "^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\\.)+(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)$",
                 options: []
-            )
+            ) else {
+                return nil
+            }
             let range = NSRange(location: 0, length: domain.utf16.count)
             let matches = validDomainRegex.numberOfMatches(in: domain, options: [], range: range)
             guard matches > 0 else { return nil }
