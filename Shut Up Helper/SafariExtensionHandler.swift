@@ -84,7 +84,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         // Reloading 3 times ensures the changes take effect.
         reloadContentBlocker(times: 3) {
             // Reload the page with a short delay
-            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50)) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
                 page?.reload()
             }
 
