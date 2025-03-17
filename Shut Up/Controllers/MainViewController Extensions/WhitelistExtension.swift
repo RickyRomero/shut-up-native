@@ -23,7 +23,7 @@ extension MainViewController {
         if row > -1 {
             if let domain = verifyWhitelistEntry(for: sender.stringValue, on: row) {
                 sender.stringValue = domain
-                change(from: whitelistTableEntries[row], to: domain)
+                change(from: whitelistTableEntries[row], into: domain)
             } else {
                 sender.stringValue = whitelistTableEntries[row]
             }
@@ -74,10 +74,12 @@ extension MainViewController {
             guard let domain = Whitelist.parseDomain(from: cleanedToken) else { return nil }
 
             // Additional regex check to ensure the domain is valid
-            let validDomainRegex = try! NSRegularExpression(
+            guard let validDomainRegex = try? NSRegularExpression(
                 pattern: "^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\\.)+(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)$",
                 options: []
-            )
+            ) else {
+                return nil
+            }
             let range = NSRange(location: 0, length: domain.utf16.count)
             let matches = validDomainRegex.numberOfMatches(in: domain, options: [], range: range)
             guard matches > 0 else { return nil }
@@ -146,12 +148,12 @@ extension MainViewController {
         }
     }
 
-    func change(from: String, to: String) {
+    func change(from: String, into: String) {
         _ = Whitelist.main.remove(domains: [from])
-        _ = Whitelist.main.add(domains: [to])
+        _ = Whitelist.main.add(domains: [into])
 
         undoManager?.registerUndo(withTarget: self, handler: { targetType in
-            targetType.change(from: to, to: from)
+            targetType.change(from: into, into: from)
         })
         undoManager?.setActionName("Edit Domain")
 
@@ -243,10 +245,9 @@ extension MainViewController: WhitelistDataDelegate {
 extension MainViewController: NSMenuItemValidation {
     func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
         switch menuItem.identifier?.rawValue {
-        case "menu_cut": fallthrough
-        case "menu_copy": fallthrough
-        case "menu_delete": return whitelistView.selectedRowIndexes.count > 0
-        default: return true
+        case "menu_cut", "menu_copy", "menu_delete":
+            whitelistView.selectedRowIndexes.count > 0
+        default: true
         }
     }
 }

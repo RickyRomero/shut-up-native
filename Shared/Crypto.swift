@@ -31,17 +31,17 @@ final class Crypto {
     let queue = DispatchQueue(label: "\(Info.bundleId).keychain")
 
     private let constants: [String: Any] = [
-        // swiftformat:disable consecutiveSpaces
+        // swiftformat:disable consecutiveSpaces; swiftlint:disable colon
         "accessGroup":  Info.groupId,
         "type":         kSecAttrKeyTypeRSA,
         "bits":         3072,
-        "label":        "Shut Up Encryption Key",
-        // swiftformat:enable consecutiveSpaces
+        "label":        "Shut Up Encryption Key"
+        // swiftformat:enable consecutiveSpaces; swiftlint:enable colon
     ]
     private var queryBase: [CFString: Any] = [
-        // swiftformat:disable:next consecutiveSpaces
+        // swiftformat:disable:next consecutiveSpaces, swiftlint:disable:next colon
         kSecClass:     kSecClassKey,
-        kSecReturnRef: true,
+        kSecReturnRef: true
     ]
 
     private var setupStarted = false
@@ -74,7 +74,7 @@ final class Crypto {
         let query: [CFString: Any] = [
             kSecUseDataProtectionKeychain: true,
             kSecClass: kSecClassKey,
-            kSecMatchLimit: kSecMatchLimitAll,
+            kSecMatchLimit: kSecMatchLimitAll
         ]
 
         let result = SecItemDelete(query as CFDictionary)
@@ -95,8 +95,13 @@ final class Crypto {
         try clear()
 
         let keyId = UUID()
+        guard let accessGroup = constants["accessGroup"] as? String else {
+            // TODO: Instead of crashing, handle the case where accessGroup is missing or invalid.
+            //       For example, throw a CryptoError or show an alert to the user.
+            fatalError("Expected constants[\"accessGroup\"] to be a String")
+        }
         let attributes = [
-            // swiftformat:disable consecutiveSpaces
+            // swiftformat:disable consecutiveSpaces; swiftlint:disable colon
             kSecUseDataProtectionKeychain: true,
             kSecAttrKeyType:               constants["type"]!,
             kSecAttrKeySizeInBits:         constants["bits"]!,
@@ -104,14 +109,14 @@ final class Crypto {
             kSecAttrIsPermanent:           true,
             kSecAttrSynchronizable:        false,
             kSecPrivateKeyAttrs: [
-                kSecAttrApplicationTag: (constants["accessGroup"] as! String + ".private").data(using: .utf8)!,
-                kSecAttrAccessible:     kSecAttrAccessibleAfterFirstUnlock,
+                kSecAttrApplicationTag: (accessGroup + ".private").data(using: .utf8)!,
+                kSecAttrAccessible:     kSecAttrAccessibleAfterFirstUnlock
             ],
             kSecPublicKeyAttrs: [
-                kSecAttrApplicationTag: (constants["accessGroup"] as! String + ".public").data(using: .utf8)!,
-                kSecAttrAccessible:     kSecAttrAccessibleAfterFirstUnlock,
-            ],
-            // swiftformat:enable consecutiveSpaces
+                kSecAttrApplicationTag: (accessGroup + ".public").data(using: .utf8)!,
+                kSecAttrAccessible:     kSecAttrAccessibleAfterFirstUnlock
+            ]
+            // swiftformat:enable consecutiveSpaces; swiftlint:enable colon
         ]
 
         var error: Unmanaged<CFError>?
@@ -135,18 +140,23 @@ final class Crypto {
             kSecMatchLimit: kSecMatchLimitOne,
             kSecAttrAccessGroup: Info.groupId,
             kSecAttrKeyClass: keyClassConstant,
-            kSecReturnRef: true,
+            kSecReturnRef: true
         ]
 
-        var rawCopyResult: CFTypeRef? = nil
+        var rawCopyResult: CFTypeRef?
         let copyStatus = SecItemCopyMatching(query as CFDictionary, &rawCopyResult)
         guard copyStatus == errSecSuccess else {
             print("Human-readable error:", SecCopyErrorMessageString(copyStatus, nil) ?? "")
             throw CryptoError.fetchingKeys
         }
 
-        let key = rawCopyResult as! SecKey
-        return key
+        guard let raw = rawCopyResult else {
+            throw CryptoError.fetchingKeys
+        }
+        guard CFGetTypeID(raw) == SecKeyGetTypeID() else {
+            throw CryptoError.fetchingKeys
+        }
+        return unsafeBitCast(raw, to: SecKey.self)
     }
 
     func transform(with operation: CryptoOperation, data: Data) throws -> Data {
@@ -166,18 +176,17 @@ final class Crypto {
         }
         key = try lookupKey(keyClass)
 
-        var transformError: Unmanaged<CFError>? = nil
+        var transformError: Unmanaged<CFError>?
         let transformed = secTransformFunc(key, .rsaEncryptionOAEPSHA512AESGCM, data as CFData, &transformError)
 
-        guard transformError == nil else {
-            print(transformError!.takeUnretainedValue() as Error)
+        if (transformError?.takeUnretainedValue()) != nil {
             throw CryptoError.transformingData
         }
 
-        guard transformed != nil else {
+        guard let result = transformed else {
             throw CryptoError.transformingData
         }
 
-        return transformed! as Data
+        return result as Data
     }
 }

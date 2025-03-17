@@ -50,7 +50,7 @@ class AddDomainCell: NSTextFieldCell {
 
         controlView.wantsLayer = true
         controlView.layer?.masksToBounds = false
-        controlView.layer?.shadowOffset = NSMakeSize(0, 4)
+        controlView.layer?.shadowOffset = NSSize(width: 0, height: 4)
         controlView.layer?.shadowRadius = 4
         controlView.layer?.shadowOpacity = 0.5
 

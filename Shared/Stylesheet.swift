@@ -78,7 +78,7 @@ class Stylesheet {
 
         let sessionConfig = URLSessionConfiguration.ephemeral
         sessionConfig.httpAdditionalHeaders = [
-            "User-Agent": "\(Info.productName)/\(Info.version) (\(Info.buildNum))",
+            "User-Agent": "\(Info.productName)/\(Info.version) (\(Info.buildNum))"
         ]
         if !force, Preferences.main.etag != "" {
             sessionConfig.httpAdditionalHeaders?["If-None-Match"] = Preferences.main.etag
@@ -187,18 +187,20 @@ class Stylesheet {
                 allPairsValid = allPairsValid && selector.trim().count < 150
             }
 
-            // Check for a rule containing CSS display properties
-            let displayPropRegex = try! NSRegularExpression(
+            guard let displayPropRegex = try? NSRegularExpression(
                 pattern: "display:\\s*[a-z\\- ]+\\s+!important;?",
                 options: .caseInsensitive
-            )
+            ) else {
+                return false
+            }
             allPairsValid = allPairsValid && displayPropRegex.test(ruleSet)
 
-            // At least one "display: none !important" must be present
-            let displayNoneRegex = try! NSRegularExpression(
+            guard let displayNoneRegex = try? NSRegularExpression(
                 pattern: "display:\\s*none\\s+!important;?",
                 options: .caseInsensitive
-            )
+            ) else {
+                return false
+            }
             displayNoneFound = displayNoneFound || displayNoneRegex.test(ruleSet)
         }
 
@@ -207,22 +209,24 @@ class Stylesheet {
 
     private func minify(css: String) -> String {
         let cleanupPatterns = [
-            // swiftformat:disable consecutiveSpaces
+            // swiftformat:disable consecutiveSpaces; swiftlint:disable comma
             ["\\s*/\\*.+?\\*/\\s*", " "],   // Comments
             ["^\\s+",               ""],    // Leading whitespace
-            [",\\s+",               ", "],  // Selector whitespace
-            // swiftformat:enable consecutiveSpaces
+            [",\\s+",               ", "]   // Selector whitespace
+            // swiftformat:enable consecutiveSpaces; swiftlint:enable comma
         ]
 
         var strippedCSS = css
         for replacementPair in cleanupPatterns {
             let cleanupPattern = replacementPair[0]
             let replacementTemplate = replacementPair[1]
-            let cleanupRegex = try! NSRegularExpression(pattern: cleanupPattern, options: .dotMatchesLineSeparators)
+            guard let cleanupRegex = try? NSRegularExpression(pattern: cleanupPattern, options: .dotMatchesLineSeparators) else {
+                continue
+            }
             strippedCSS = cleanupRegex.stringByReplacingMatches(
                 in: strippedCSS,
                 options: [],
-                range: NSMakeRange(0, strippedCSS.count),
+                range: NSRange(location: 0, length: strippedCSS.count),
                 withTemplate: replacementTemplate
             )
         }
@@ -249,6 +253,6 @@ private extension Substring {
 
 private extension NSRegularExpression {
     func test(_ string: String) -> Bool {
-        firstMatch(in: string, options: [], range: NSMakeRange(0, string.count)) != nil
+        firstMatch(in: string, options: [], range: NSRange(location: 0, length: string.count)) != nil
     }
 }

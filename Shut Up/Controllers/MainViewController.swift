@@ -58,8 +58,8 @@ class MainViewController: NSViewController {
         let tabularFigures = NSFont.systemFont(ofSize: 0.0).fontDescriptor.addingAttributes([
             .featureSettings: [[
                 NSFontDescriptor.FeatureKey.typeIdentifier: kNumberSpacingType,
-                NSFontDescriptor.FeatureKey.selectorIdentifier: kMonospacedNumbersSelector,
-            ]],
+                NSFontDescriptor.FeatureKey.selectorIdentifier: kMonospacedNumbersSelector
+            ]]
         ])
         lastCssUpdateLabel.font = NSFont(descriptor: tabularFigures, size: 0.0)
         resetCssLabelUpdateTimer()
@@ -126,12 +126,16 @@ class MainViewController: NSViewController {
         let windowIsVisible = view.window?.isVisible ?? false
         guard windowIsVisible else { return }
 
-        let sheetViewController = storyboard!.instantiateController(withIdentifier: "SetupModalController") as! NSViewController
+        guard let sheetViewController = storyboard?.instantiateController(withIdentifier: "SetupModalController") as? NSViewController else {
+            return
+        }
         presentAsSheet(sheetViewController)
     }
 
     @IBAction func openQrCodeSheet(_: NSMenuItem) {
-        let sheetViewController = storyboard!.instantiateController(withIdentifier: "MobileAppVC") as! NSViewController
+        guard let sheetViewController = storyboard?.instantiateController(withIdentifier: "MobileAppVC") as? NSViewController else {
+            return
+        }
         presentAsSheet(sheetViewController)
     }
 }

@@ -107,7 +107,12 @@ final class Setup {
 
     func queryAvailableSpace() -> Int64 {
         let targetLocation = Info.containerUrl
-        let values = try! targetLocation.resourceValues(forKeys: [.volumeAvailableCapacityForImportantUsageKey])
-        return values.volumeAvailableCapacityForImportantUsage!
+        do {
+            let values = try targetLocation.resourceValues(forKeys: [.volumeAvailableCapacityForImportantUsageKey])
+            return values.volumeAvailableCapacityForImportantUsage ?? 0
+        } catch {
+            NSLog("Error querying available space: \(error)")
+            return 0
+        }
     }
 }

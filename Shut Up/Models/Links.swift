@@ -42,7 +42,7 @@ struct ExtensionLink: Link {
 
     // Try to open the link with its matching browser.
     func open() {
-        let ws = NSWorkspace.shared
+        let workspace = NSWorkspace.shared
         let bundleId: String? = switch preferredBrowser {
         case .chrome: "com.google.chrome"
         case .firefox: "org.mozilla.firefox"
@@ -53,24 +53,24 @@ struct ExtensionLink: Link {
         }
 
         if let bundleId {
-            let appLocation = ws.urlForApplication(withBundleIdentifier: bundleId)
+            let appLocation = workspace.urlForApplication(withBundleIdentifier: bundleId)
 
             if let appLocation {
-                ws.open(
+                workspace.open(
                     [destination],
                     withApplicationAt: appLocation,
                     configuration: NSWorkspace.OpenConfiguration()
                 ) { _, error in
                     if error != nil {
-                        ws.open(destination)
+                        workspace.open(destination)
                     }
                 }
             } else {
-                ws.open(destination)
+                workspace.open(destination)
             }
 
         } else {
-            ws.open(destination)
+            workspace.open(destination)
         }
     }
 }
@@ -84,8 +84,10 @@ struct LinkCollection {
     }
 
     func open(by browser: WebBrowser) {
-        let extensionLinks = items.filter { $0 is ExtensionLink } as! [ExtensionLink]
-        let linkForBrowser = extensionLinks.filter { $0.preferredBrowser == browser }[0]
+        let extensionLinks = items.compactMap { $0 as? ExtensionLink }
+        guard let linkForBrowser = extensionLinks.first(where: { $0.preferredBrowser == browser }) else {
+            return
+        }
         linkForBrowser.open()
     }
 }
@@ -132,7 +134,7 @@ enum Links {
         BasicLink(
             id: "github_source",
             dest: "https://github.com/RickyRomero/shut-up-native"
-        ),
+        )
     ])
 
     static func composeEmail() {
@@ -142,7 +144,7 @@ enum Links {
             SafariRelease(services: .version11_0, userFacingVersion: "11.0"),
             SafariRelease(services: .version12_0, userFacingVersion: "12.0"),
             SafariRelease(services: .version12_1, userFacingVersion: "12.1"),
-            SafariRelease(services: .version13_0, userFacingVersion: "13.0 or greater"),
+            SafariRelease(services: .version13_0, userFacingVersion: "13.0 or greater")
         ]
         let highestSafariVersion = knownSafariReleases
             .filter { SFSafariServicesAvailable($0.services) }
@@ -178,7 +180,7 @@ enum Links {
             Stylesheet last updated: \(Preferences.main.lastStylesheetUpdate)
 
             [If reporting a problem, please be as specific as you can so I can diagnose it. Thank you! — Ricky]
-            """),
+            """)
         ]
         urlComps.queryItems = queryItems
         let url = urlComps.url!

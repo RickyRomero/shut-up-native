@@ -9,7 +9,7 @@
 import SafariServices
 
 class SafariExtensionHandler: SFSafariExtensionHandler {
-    enum toolbarImages {
+    enum ToolbarImages {
         private static let enabledUrl = Bundle.main.urlForImageResource("turn-off")!
         private static let disabledUrl = Bundle.main.urlForImageResource("turn-on")!
 
@@ -115,7 +115,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         guard let domain = getDomain(from: url) else { return }
 
         let matched = Whitelist.main.matches(domain: domain)
-        let icon = matched ? toolbarImages.disabled : toolbarImages.enabled
+        let icon = matched ? ToolbarImages.disabled : ToolbarImages.enabled
         button?.setImage(icon)
         button?.setLabel(matched
             ? String(localized: "Hide Comments", comment: "Toolbar button label")

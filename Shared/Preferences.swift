@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol PrefsUpdateDelegate {
+protocol PrefsUpdateDelegate: AnyObject {
     func prefsDidUpdate()
 }
 
@@ -32,7 +32,7 @@ final class Preferences {
             "showInMenu": true,
             "etag": "",
             "lastStylesheetUpdate": 0.0,
-            "lastUpdateMethod": "automatic",
+            "lastUpdateMethod": "automatic"
         ])
 
         switch lastBuildRun {

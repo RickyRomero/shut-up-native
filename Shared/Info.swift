@@ -9,7 +9,7 @@
 import Cocoa
 
 enum Info {
-    static let containingBundleId = "com.rickyromero.shutup" // HACK: Can't determine programmatically
+    static let containingBundleId = "com.rickyromero.shutup" // WORKAROUND: Can't determine programmatically
     static let helperBundleId = "\(containingBundleId).helper"
     static let blockerBundleId = "\(containingBundleId).blocker"
 
@@ -29,10 +29,18 @@ enum Info {
     static let localCssUrl = containerUrl.appendingPathComponent("shutup.css.enc")
 
     private static func readBundleKey(_ key: CFString) -> String {
-        Bundle.main.infoDictionary![key as String]! as! String
+        guard let value = Bundle.main.infoDictionary?[key as String] as? String else {
+            // TODO: Instead of calling fatalError when the Info.plist key is missing, provide a fallback or throw an error
+            fatalError("Expected key \(key) in Info.plist is missing or not a string")
+        }
+        return value
     }
 
     private static func readBundleKey(_ key: String) -> String {
-        Bundle.main.infoDictionary![key]! as! String
+        guard let value = Bundle.main.infoDictionary?[key] as? String else {
+            // TODO: Rather than fatalError, handle the missing or invalid key scenario gracefully
+            fatalError("Expected key \(key) in Info.plist is missing or not a string")
+        }
+        return value
     }
 }

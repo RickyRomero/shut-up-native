@@ -52,9 +52,11 @@ class Whitelist {
         guard item.count > 0 else { return nil }
 
         let item = item.lowercased()
-        let detector = try! NSDataDetector(
+        guard let detector = try? NSDataDetector(
             types: NSTextCheckingResult.CheckingType.link.rawValue
-        )
+        ) else {
+            return nil
+        }
         let match = detector.firstMatch(
             in: item,
             options: [],
@@ -82,14 +84,16 @@ class Whitelist {
         guard (1 ..< 127).contains(subdivisions) else { return nil }
 
         // Final check: Does it pass a regex test?
-        let domainNameRegex = try! NSRegularExpression(
+        guard let domainNameRegex = try? NSRegularExpression(
             pattern: "^(?:[a-z0-9\\-]{1,63}\\.){1,126}[a-z0-9\\-]{1,63}$",
             options: NSRegularExpression.Options()
-        )
+        ) else {
+            return nil
+        }
         let domainNameCount = domainNameRegex.numberOfMatches(
             in: item,
             options: [],
-            range: NSMakeRange(0, item.count)
+            range: NSRange(location: 0, length: item.count)
         )
         guard domainNameCount > 0 else { return nil }
 
@@ -173,10 +177,8 @@ class Whitelist {
         guard loadFinished else { return [] }
 
         var domainsAdded: [String] = []
-        for domain in domains {
-            if !matches(domain: domain) {
-                domainsAdded.append(domain)
-            }
+        for domain in domains where !matches(domain: domain) {
+            domainsAdded.append(domain)
         }
 
         entries.append(contentsOf: domainsAdded)
@@ -216,6 +218,6 @@ class Whitelist {
     func reset() { file.reset() }
 }
 
-protocol WhitelistDataDelegate {
+protocol WhitelistDataDelegate: AnyObject {
     func newWhitelistDataAvailable()
 }

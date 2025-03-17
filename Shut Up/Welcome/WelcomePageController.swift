@@ -17,7 +17,13 @@ class WelcomePageController: NSPageController {
     let defaultBrowser = BrowserBridge.main.defaultBrowser
     let defaultBrowserName = BrowserBridge.main.defaultBrowserName
 
-    var currentLocation: String { arrangedObjects[selectedIndex] as! String }
+    var currentLocation: String {
+        guard let location = arrangedObjects[selectedIndex] as? String else {
+            // TODO: Instead of crashing with fatalError, consider handling the case where the arrangedObjects item is not a String
+            fatalError("Expected arrangedObjects item at index \(selectedIndex) to be a String")
+        }
+        return location
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,11 +78,7 @@ class WelcomePageController: NSPageController {
 
         if currentLocation == "WelcomeVC" {
             switch defaultBrowser {
-            case .chrome: fallthrough
-            case .firefox: fallthrough
-            case .edge: fallthrough
-            case .brave: fallthrough
-            case .opera:
+            case .chrome, .firefox, .edge, .brave, .opera:
                 arrangedObjects.insert("DefaultBrowserVC", at: 1)
             default:
                 break
@@ -94,13 +96,16 @@ class WelcomePageController: NSPageController {
 
 extension WelcomePageController: NSPageControllerDelegate {
     func pageController(_: NSPageController, viewControllerForIdentifier identifier: String) -> NSViewController {
-        let pcr = NSStoryboard(
+        guard let pcr = NSStoryboard(
             name: "Main", bundle: nil
         ).instantiateController(
             withIdentifier: identifier
-        ) as! PageContentResponder
+        ) as? PageContentResponder else {
+            // TODO: Instead of crashing with fatalError, handle the scenario where the view controller can't be found more gracefully
+            fatalError("Could not instantiate view controller with identifier \(identifier) as PageContentResponder")
+        }
         pcr.delegate = self
-        return pcr as NSViewController
+        return pcr
     }
 
     func pageController(_: NSPageController, identifierFor object: Any) -> String {
@@ -116,7 +121,7 @@ protocol PageContentResponder: NSViewController {
     var delegate: WelcomePageDelegate? { get set }
 }
 
-protocol WelcomePageDelegate {
+protocol WelcomePageDelegate: AnyObject {
     func updateContinueButton(with state: Bool)
 }
 
