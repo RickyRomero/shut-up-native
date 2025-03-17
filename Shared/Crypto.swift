@@ -71,12 +71,11 @@ final class Crypto {
 
     func clear() throws {
         // Invalidate keys by deleting them
-        var query: [CFString: Any] = [
+        let query: [CFString: Any] = [
+            kSecUseDataProtectionKeychain: true,
             kSecClass: kSecClassKey,
             kSecMatchLimit: kSecMatchLimitAll,
         ]
-
-        query[kSecUseDataProtectionKeychain] = true
 
         let result = SecItemDelete(query as CFDictionary)
         guard [errSecSuccess, errSecItemNotFound].contains(result) else {
@@ -96,12 +95,14 @@ final class Crypto {
         try clear()
 
         let keyId = UUID()
-        var attributes = [
+        let attributes = [
             // swiftformat:disable consecutiveSpaces
-            kSecAttrKeyType:            constants["type"]!,
-            kSecAttrKeySizeInBits:      constants["bits"]!,
-            kSecAttrLabel:              "\(constants["label"]!)-\(keyId)",
-            kSecAttrIsPermanent:        true,
+            kSecUseDataProtectionKeychain: true,
+            kSecAttrKeyType:               constants["type"]!,
+            kSecAttrKeySizeInBits:         constants["bits"]!,
+            kSecAttrLabel:                 "\(constants["label"]!)-\(keyId)",
+            kSecAttrIsPermanent:           true,
+            kSecAttrSynchronizable:        false,
             kSecPrivateKeyAttrs: [
                 kSecAttrApplicationTag: (constants["accessGroup"] as! String + ".private").data(using: .utf8)!,
                 kSecAttrAccessible:     kSecAttrAccessibleAfterFirstUnlock,
@@ -112,7 +113,6 @@ final class Crypto {
             ],
             // swiftformat:enable consecutiveSpaces
         ]
-        attributes[kSecUseDataProtectionKeychain] = true
 
         var error: Unmanaged<CFError>?
         guard SecKeyCreateRandomKey(attributes as CFDictionary, &error) != nil else {
@@ -129,14 +129,14 @@ final class Crypto {
             kSecAttrKeyClassPublic
         }
 
-        var query: [CFString: Any] = [
+        let query: [CFString: Any] = [
+            kSecUseDataProtectionKeychain: true,
             kSecClass: kSecClassKey,
             kSecMatchLimit: kSecMatchLimitOne,
             kSecAttrAccessGroup: Info.groupId,
             kSecAttrKeyClass: keyClassConstant,
             kSecReturnRef: true,
         ]
-        query[kSecUseDataProtectionKeychain] = true
 
         var rawCopyResult: CFTypeRef? = nil
         let copyStatus = SecItemCopyMatching(query as CFDictionary, &rawCopyResult)
