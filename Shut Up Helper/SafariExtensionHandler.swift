@@ -83,8 +83,15 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         // WORKAROUND: Safari sometimes fails to apply content blocker updates on the first reload.
         // Reloading 3 times ensures the changes take effect.
         reloadContentBlocker(times: 3) {
-            // Reload the page with a short delay
-            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
+            let delay: Int
+            #if arch(arm64)
+                delay = 75
+            #else
+                delay = 300
+            #endif
+
+            // Reload the page with a short delay (75ms on ARM and 300ms on Intel)
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(delay)) {
                 page?.reload()
             }
 
