@@ -18,11 +18,21 @@ If you're simply looking to _install_ Shut Up, these are the links you're lookin
 
 ## Minimum Requirements
 
-This version of Shut Up requires macOS Monterey or later, and builds in Xcode 16.
+Shut Up requires macOS Monterey or newer.
+
+## Development
+
+If you want to help develop or translate Shut Up into your language, you need at least Xcode 16.
+
+## Setting Up Git Hooks
+
+This project uses Git hooks to automatically format Swift code before commits. To configure Git to use the shared hooks provided in this repository, run the following command in the root of your project after cloning:
+
+```sh
+git config core.hooksPath githooks
+```
 
 ## Translations
-
-If you want to help translate Shut Up into your language, you need the latest version of Xcode.
 
 Translations for the main app must be added in two places:
 
