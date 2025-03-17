@@ -30,6 +30,7 @@ enum Info {
 
     private static func readBundleKey(_ key: CFString) -> String {
         guard let value = Bundle.main.infoDictionary?[key as String] as? String else {
+            // TODO: Instead of calling fatalError when the Info.plist key is missing, provide a fallback or throw an error
             fatalError("Expected key \(key) in Info.plist is missing or not a string")
         }
         return value
@@ -37,6 +38,7 @@ enum Info {
 
     private static func readBundleKey(_ key: String) -> String {
         guard let value = Bundle.main.infoDictionary?[key] as? String else {
+            // TODO: Rather than fatalError, handle the missing or invalid key scenario gracefully
             fatalError("Expected key \(key) in Info.plist is missing or not a string")
         }
         return value

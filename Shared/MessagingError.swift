@@ -74,6 +74,7 @@ class MessagingError: NSError, @unchecked Sendable {
 
     @available(*, unavailable)
     required init?(coder _: NSCoder) {
+        // TODO: Provide a proper implementation of init(coder:) if this class is ever loaded from a storyboard.
         fatalError("init(coder:) has not been implemented")
     }
 

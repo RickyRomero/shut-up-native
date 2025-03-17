@@ -19,6 +19,7 @@ class WelcomePageController: NSPageController {
 
     var currentLocation: String {
         guard let location = arrangedObjects[selectedIndex] as? String else {
+            // TODO: Instead of crashing with fatalError, consider handling the case where the arrangedObjects item is not a String
             fatalError("Expected arrangedObjects item at index \(selectedIndex) to be a String")
         }
         return location
@@ -100,6 +101,7 @@ extension WelcomePageController: NSPageControllerDelegate {
         ).instantiateController(
             withIdentifier: identifier
         ) as? PageContentResponder else {
+            // TODO: Instead of crashing with fatalError, handle the scenario where the view controller can't be found more gracefully
             fatalError("Could not instantiate view controller with identifier \(identifier) as PageContentResponder")
         }
         pcr.delegate = self
