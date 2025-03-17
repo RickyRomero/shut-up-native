@@ -98,9 +98,8 @@ final class Crypto {
 
         let keyId = UUID()
         guard let accessGroup = constants["accessGroup"] as? String else {
-            // TODO: Instead of crashing, handle the case where accessGroup is missing or invalid.
-            //       For example, throw a CryptoError or show an alert to the user.
-            fatalError("Expected constants[\"accessGroup\"] to be a String")
+            logger.error("Missing or invalid accessGroup. Shutting down.")
+            throw CryptoError.generatingKeys
         }
         let attributes = [
             // swiftformat:disable consecutiveSpaces; swiftlint:disable colon
