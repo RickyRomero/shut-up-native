@@ -104,11 +104,11 @@ final class Crypto {
             kSecAttrIsPermanent:        true,
             kSecPrivateKeyAttrs: [
                 kSecAttrApplicationTag: (constants["accessGroup"] as! String + ".private").data(using: .utf8)!,
-                kSecAttrAccessible:     kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly,
+                kSecAttrAccessible:     kSecAttrAccessibleAfterFirstUnlock,
             ],
             kSecPublicKeyAttrs: [
                 kSecAttrApplicationTag: (constants["accessGroup"] as! String + ".public").data(using: .utf8)!,
-                kSecAttrAccessible:     kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly,
+                kSecAttrAccessible:     kSecAttrAccessibleAfterFirstUnlock,
             ],
             // swiftformat:enable consecutiveSpaces
         ]
