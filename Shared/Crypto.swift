@@ -40,7 +40,7 @@ final class Crypto {
     ]
     private var queryBase: [CFString: Any] = [
         // swiftformat:disable:next consecutiveSpaces
-        kSecClass: kSecClassKey,
+        kSecClass:     kSecClassKey,
         kSecReturnRef: true
     ]
 
@@ -77,8 +77,6 @@ final class Crypto {
             kSecMatchLimit: kSecMatchLimitAll
         ]
 
-        query[kSecUseDataProtectionKeychain] = true
-
         let result = SecItemDelete(query as CFDictionary)
         guard [errSecSuccess, errSecItemNotFound].contains(result) else {
             print("Failed to remove key(s).")
@@ -100,7 +98,7 @@ final class Crypto {
         guard let accessGroup = constants["accessGroup"] as? String else {
             fatalError("Expected constants[\"accessGroup\"] to be a String")
         }
-        var attributes = [
+        let attributes = [
             // swiftformat:disable consecutiveSpaces; swiftlint:disable colon
             kSecUseDataProtectionKeychain: true,
             kSecAttrKeyType:               constants["type"]!,
@@ -110,11 +108,11 @@ final class Crypto {
             kSecAttrSynchronizable:        false,
             kSecPrivateKeyAttrs: [
                 kSecAttrApplicationTag: (accessGroup + ".private").data(using: .utf8)!,
-                kSecAttrAccessible:     kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly
+                kSecAttrAccessible:     kSecAttrAccessibleAfterFirstUnlock
             ],
             kSecPublicKeyAttrs: [
                 kSecAttrApplicationTag: (accessGroup + ".public").data(using: .utf8)!,
-                kSecAttrAccessible:     kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly
+                kSecAttrAccessible:     kSecAttrAccessibleAfterFirstUnlock
             ]
             // swiftformat:enable consecutiveSpaces; swiftlint:enable colon
         ]
