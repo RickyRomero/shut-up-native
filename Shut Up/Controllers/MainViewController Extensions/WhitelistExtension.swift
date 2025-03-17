@@ -31,10 +31,72 @@ extension MainViewController {
     }
 
     @IBAction func delete(_: AnyObject) {
-        let domainsToRemove = whitelistView.selectedRowIndexes.map { row in
+        remove(domains: getSelectedDomains())
+    }
+
+    @IBAction func cut(_: AnyObject?) {
+        // Capture the selected domains before deletion
+        let selectedDomains = getSelectedDomains()
+
+        // Perform the copy & delete action
+        copy(nil)
+        delete(self)
+
+        // Override the undo action name to reflect a 'Cut' operation
+        undoManager?.setActionName(String(localized: "Cut \(undoString(from: selectedDomains))"))
+    }
+
+    @IBAction func copy(_: AnyObject?) {
+        let pasteboard = NSPasteboard.general
+        pasteboard.declareTypes([.string], owner: nil)
+        pasteboard.setString(
+            getSelectedDomains().joined(separator: "\n").appending("\n"),
+            forType: .string
+        )
+    }
+
+    @IBAction func pasteAsPlainText(_: AnyObject?) {
+        let pasteboard = NSPasteboard.general
+        let startingCount = Whitelist.main.entries.count
+        guard let clipboardContents = pasteboard.string(forType: .string) else {
+            NSSound.beep()
+            return
+        }
+
+        // Split the clipboard contents using comma, semicolon, space, newline, tab, and pipe as delimiters
+        let delimiters = CharacterSet(charactersIn: ",; \n\t|")
+        let tokens = clipboardContents.components(separatedBy: delimiters)
+            .filter { !$0.isEmpty }
+
+        let domains = tokens.compactMap { token -> String? in
+            let cleanedToken = token.trimmingCharacters(in: .whitespacesAndNewlines)
+                .trimmingCharacters(in: CharacterSet(charactersIn: "/"))
+            guard let domain = Whitelist.parseDomain(from: cleanedToken) else { return nil }
+
+            // Additional regex check to ensure the domain is valid
+            let validDomainRegex = try! NSRegularExpression(
+                pattern: "^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\\.)+(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)$",
+                options: []
+            )
+            let range = NSRange(location: 0, length: domain.utf16.count)
+            let matches = validDomainRegex.numberOfMatches(in: domain, options: [], range: range)
+            guard matches > 0 else { return nil }
+
+            return domain
+        }
+
+        let dedupedDomains = Array(Set(domains))
+        add(domains: dedupedDomains)
+
+        if startingCount == Whitelist.main.entries.count {
+            NSSound.beep()
+        }
+    }
+
+    func getSelectedDomains() -> [String] {
+        whitelistView.selectedRowIndexes.map { row in
             Whitelist.main.entries[row]
         }
-        remove(domains: domainsToRemove)
     }
 
     func verifyWhitelistEntry(for string: String, on row: Int?) -> String? {
@@ -60,7 +122,7 @@ extension MainViewController {
             })
 
             if let actionName = undoManager?.undoActionName, actionName == "" {
-                undoManager?.setActionName("Add \(undoString(from: domainsAdded))")
+                undoManager?.setActionName(String(localized: "Add \(undoString(from: domainsAdded))"))
             }
 
             reloadTableData()
@@ -76,7 +138,7 @@ extension MainViewController {
             })
 
             if let actionName = undoManager?.undoActionName, actionName == "" {
-                undoManager?.setActionName("Delete \(undoString(from: domainsRemoved))")
+                undoManager?.setActionName(String(localized: "Delete \(undoString(from: domainsRemoved))"))
             }
 
             reloadTableData()
@@ -99,7 +161,7 @@ extension MainViewController {
 
     func undoString(from domains: [String]) -> String {
         if domains.count == 1 { return domains[0] }
-        return "\(domains.count) Domains"
+        return String(localized: "\(domains.count) Domains")
     }
 
     func reloadTableData() {
@@ -157,7 +219,7 @@ extension MainViewController: NSTableViewDelegate {
     // Swipe actions for the table view
     func tableView(_: NSTableView, rowActionsForRow row: Int, edge: NSTableView.RowActionEdge) -> [NSTableViewRowAction] {
         if edge == .trailing {
-            let deleteAction = NSTableViewRowAction(style: .destructive, title: "Delete", handler: { _, row in
+            let deleteAction = NSTableViewRowAction(style: .destructive, title: String(localized: "Delete"), handler: { _, row in
                 self.remove(domains: [Whitelist.main.entries[row]])
             })
             deleteAction.backgroundColor = .red
@@ -180,9 +242,11 @@ extension MainViewController: WhitelistDataDelegate {
 
 extension MainViewController: NSMenuItemValidation {
     func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
-        if menuItem.title == "Delete" {
-            return whitelistView.selectedRowIndexes.count > 0
+        switch menuItem.identifier?.rawValue {
+        case "menu_cut": fallthrough
+        case "menu_copy": fallthrough
+        case "menu_delete": return whitelistView.selectedRowIndexes.count > 0
+        default: return true
         }
-        return true
     }
 }
