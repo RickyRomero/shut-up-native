@@ -8,6 +8,9 @@
 
 import Cocoa
 import CoreGraphics
+import OSLog
+
+private let logger = Logger(subsystem: Info.containingBundleId, category: "AppDelegate")
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -43,7 +46,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBAction func didChooseUpdateStylesheet(_: NSMenuItem) {
         guard let mainVC = mwc.window?.contentViewController as? MainViewController else {
-            print("MainViewController not found")
+            logger.error("MainViewController not found")
             return
         }
 
