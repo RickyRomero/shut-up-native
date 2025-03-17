@@ -26,7 +26,7 @@ class MainWindowController: NSWindowController {
 
 extension MainWindowController: NSWindowDelegate {
     // Callback for when a sheet is being presented on the main window
-    func window(_ window: NSWindow, willPositionSheet sheet: NSWindow, using rect: NSRect) -> NSRect {
+    func window(_ window: NSWindow, willPositionSheet _: NSWindow, using rect: NSRect) -> NSRect {
         // Offset input rectangle so it sits on the top of the window
         let destRect = NSOffsetRect(rect, 0.0, window.frame.height - rect.origin.y)
         return destRect

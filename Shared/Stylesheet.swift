@@ -109,7 +109,7 @@ class Stylesheet {
             return
         }
 
-        guard let data = data else {
+        guard let data else {
             print("No data received from request.")
             return
         }
@@ -207,11 +207,11 @@ class Stylesheet {
 
     private func minify(css: String) -> String {
         let cleanupPatterns = [
-            // swiftformat:disable all
+            // swiftformat:disable consecutiveSpaces
             ["\\s*/\\*.+?\\*/\\s*", " "],   // Comments
             ["^\\s+",               ""],    // Leading whitespace
             [",\\s+",               ", "],  // Selector whitespace
-            // swiftformat:enable all
+            // swiftformat:enable consecutiveSpaces
         ]
 
         var strippedCSS = css

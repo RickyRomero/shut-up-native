@@ -85,13 +85,13 @@ class BrowserBridge {
         }
 
         switch vendor.joined(separator: ".") {
-            case "com.apple": return .safari
-            case "com.google": return .chrome
-            case "org.mozilla": return .firefox
-            case "com.microsoft": return .edge
-            case "com.operasoftware": return .opera
-            case "com.brave": return .brave
-            default: return .unknown
+        case "com.apple": return .safari
+        case "com.google": return .chrome
+        case "org.mozilla": return .firefox
+        case "com.microsoft": return .edge
+        case "com.operasoftware": return .opera
+        case "com.brave": return .brave
+        default: return .unknown
         }
     }
 
@@ -103,7 +103,7 @@ class BrowserBridge {
             .edge: String(localized: "Edge"),
             .opera: String(localized: "Opera"),
             .brave: String(localized: "Brave"),
-            .unknown: String(localized: "Unknown", comment: "Unknown browser name")
+            .unknown: String(localized: "Unknown", comment: "Unknown browser name"),
         ]
         return browserNameMap[defaultBrowser]!
     }

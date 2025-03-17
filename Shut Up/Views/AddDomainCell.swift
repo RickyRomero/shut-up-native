@@ -77,7 +77,7 @@ class AddDomainCell: NSTextFieldCell {
         super.draw(withFrame: cellFrame, in: controlView)
     }
 
-    override func drawFocusRingMask(withFrame cellFrame: NSRect, in controlView: NSView) {
+    override func drawFocusRingMask(withFrame cellFrame: NSRect, in _: NSView) {
         let ringPath = NSBezierPath(roundedRect: cellFrame, xRadius: cornerRadius, yRadius: cornerRadius)
         let maskColor = NSColor.black
         maskColor.setFill()

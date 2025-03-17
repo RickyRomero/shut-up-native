@@ -1,5 +1,5 @@
 //
-//  Browser.swift
+//  BrowserExtension.swift
 //  Shut Up
 //
 //  Created by Ricky Romero on 6/14/20.
@@ -28,7 +28,7 @@ struct Extension {
 }
 
 extension MainViewController {
-    @IBAction func openSafariExtensionPreferences(_ sender: NSButton?) {
+    @IBAction func openSafariExtensionPreferences(_: NSButton?) {
         BrowserBridge.main.showPrefs(for: Info.helperBundleId) { error in
             guard error == nil else {
                 showError(BrowserError.showingSafariPreferences)

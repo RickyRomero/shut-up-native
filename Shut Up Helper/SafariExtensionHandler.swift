@@ -17,11 +17,11 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         static let disabled = NSImage(contentsOfFile: disabledUrl.path)
     }
 
-    override func beginRequest(with context: NSExtensionContext) {
+    override func beginRequest(with _: NSExtensionContext) {
         Setup.main.bootstrap {}
     }
 
-    override func contextMenuItemSelected(withCommand command: String, in page: SFSafariPage, userInfo: [String: Any]? = nil) {
+    override func contextMenuItemSelected(withCommand _: String, in page: SFSafariPage, userInfo _: [String: Any]? = nil) {
         page.getContainingTab { tab in
             tab.getContainingWindow { window in
                 page.getPropertiesWithCompletionHandler { props in
@@ -114,9 +114,9 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
             : String(localized: "Show Comments", comment: "Toolbar button label"))
     }
 
-    override func validateContextMenuItem(withCommand command: String,
+    override func validateContextMenuItem(withCommand _: String,
                                           in page: SFSafariPage,
-                                          userInfo: [String: Any]? = nil,
+                                          userInfo _: [String: Any]? = nil,
                                           validationHandler: @escaping (Bool, String?) -> Void)
     {
         page.getPropertiesWithCompletionHandler { props in

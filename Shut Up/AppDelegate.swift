@@ -9,17 +9,17 @@
 import Cocoa
 import CoreGraphics
 
-@NSApplicationMain
+@main
 class AppDelegate: NSObject, NSApplicationDelegate {
     var mwc: MainWindowController!
 
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
+    func applicationDidFinishLaunching(_: Notification) {
         let optionKeyState = CGEventSource.keyState(.combinedSessionState, key: 0x3A)
         let mainSb = NSStoryboard(name: "Main", bundle: nil)
-        self.mwc = mainSb.instantiateController(withIdentifier: "MainWC") as? MainWindowController
+        mwc = mainSb.instantiateController(withIdentifier: "MainWC") as? MainWindowController
 
         // Show the main window immediately
-        self.mwc.window?.makeKeyAndOrderFront(self)
+        mwc.window?.makeKeyAndOrderFront(self)
 
         // Then bootstrap the application
         Setup.main.bootstrap(optionKeyState) {
@@ -27,21 +27,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
-    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool { true }
+    func applicationShouldTerminateAfterLastWindowClosed(_: NSApplication) -> Bool { true }
 
-    func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
-        return true
+    func applicationSupportsSecureRestorableState(_: NSApplication) -> Bool {
+        true
     }
 
     @IBAction func didChooseLinkItem(_ sender: NSMenuItem) {
         Links.collection.open(by: sender)
     }
 
-    @IBAction func didChooseContactMenuItem(_ sender: NSMenuItem) {
+    @IBAction func didChooseContactMenuItem(_: NSMenuItem) {
         Links.composeEmail()
     }
 
-    @IBAction func didChooseUpdateStylesheet(_ sender: NSMenuItem) {
+    @IBAction func didChooseUpdateStylesheet(_: NSMenuItem) {
         guard let mainVC = mwc.window?.contentViewController as? MainViewController else {
             print("MainViewController not found")
             return
@@ -54,24 +54,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 // MARK: ErrorRecoveryDelegate
 
 extension AppDelegate: ErrorRecoveryDelegate {
-    func attemptRecovery(from error: Error, with option: RecoveryOption) -> Bool {
+    func attemptRecovery(from _: Error, with option: RecoveryOption) -> Bool {
         switch option {
-            case .ok:
-                break
-            case .quit:
-                _ = NSApp.mainWindow?.sheets.map { $0.close() }
-                NSApp.terminate(nil)
-            case .tryAgain:
-                Setup.main.restart()
-            case .reset:
-                Setup.main.confirmReset()
+        case .ok:
+            break
+        case .quit:
+            _ = NSApp.mainWindow?.sheets.map { $0.close() }
+            NSApp.terminate(nil)
+        case .tryAgain:
+            Setup.main.restart()
+        case .reset:
+            Setup.main.confirmReset()
         }
 
         return true
     }
 
-    func application(_ application: NSApplication, willPresentError error: Error) -> Error {
-        return DelegatingRecoverableError(recoveringFrom: error, with: self)
+    func application(_: NSApplication, willPresentError error: Error) -> Error {
+        DelegatingRecoverableError(recoveringFrom: error, with: self)
     }
 }
 
