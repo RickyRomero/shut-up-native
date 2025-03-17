@@ -57,6 +57,21 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         }
     }
 
+    private func reloadContentBlocker(times: Int, completion: @escaping () -> Void) {
+        guard times > 0 else {
+            completion()
+            return
+        }
+
+        SFContentBlockerManager.reloadContentBlocker(withIdentifier: Info.blockerBundleId) { error in
+            guard error == nil else {
+                NSLog("com.rickyromero.shutup.blocker helper error: \(error!.localizedDescription)")
+                return
+            }
+            self.reloadContentBlocker(times: times - 1, completion: completion)
+        }
+    }
+
     func toggleComments(for window: SFSafariWindow?, with page: SFSafariPage?, having props: SFSafariPageProperties?) {
         guard let domain = getDomain(from: props?.url) else { return }
         _ = Whitelist.main.toggle(domain: domain)
@@ -65,29 +80,22 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
             self.updateIcon(in: button, for: props?.url)
         }
 
-        SFContentBlockerManager.reloadContentBlocker(withIdentifier: Info.blockerBundleId) { error in
-            guard error == nil else {
-                NSLog("com.rickyromero.shutup.blocker helper error: \(error!.localizedDescription)")
-                return
-            }
-
-            // This event lies, dispatching the completion handler sometimes
-            // long before it's ready.
-            // The discrepancy may be dependent upon how many rules from all
-            // content blockers are being recompiled during this step.
-            // I have quite a few blockers installed now, and I had to increase
-            // this artificial delay from 50ms all the way to 550ms.
-            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(550)) {
+        // WORKAROUND: Safari sometimes fails to apply content blocker updates on the first reload.
+        // Reloading 3 times ensures the changes take effect.
+        reloadContentBlocker(times: 3) {
+            // Reload the page with a short delay
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50)) {
                 page?.reload()
             }
 
+            // TODO: Find a better way to handle this.
             let shouldRemove = (
                 !Preferences.main.automaticWhitelisting ||
                     (props?.usesPrivateBrowsing ?? false)
             )
             if shouldRemove {
-                // Unfortunately this also requires an ugly delay...
-                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
+                // WORKAROUND: Unfortunately this also requires an ugly delay...
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1250)) {
                     _ = Whitelist.main.remove(domains: [domain])
                     SFContentBlockerManager.reloadContentBlocker(
                         withIdentifier: Info.blockerBundleId,
