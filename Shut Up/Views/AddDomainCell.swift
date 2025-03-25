@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class AddDomainCell: NSTextFieldCell {
+class AddDomainCell: NSTextFieldCell, NSTextViewDelegate {
     let endPadding: CGFloat = 10
     let iconSize: CGFloat = 16
     let iconSpacer: CGFloat = 8
@@ -34,6 +34,9 @@ class AddDomainCell: NSTextFieldCell {
 
     override func edit(withFrame rect: NSRect, in controlView: NSView, editor textObj: NSText, delegate: Any?, event: NSEvent?) {
         super.edit(withFrame: adjustedFrame(toVerticallyCenterText: rect), in: controlView, editor: textObj, delegate: delegate, event: event)
+        if let textView = textObj as? NSTextView {
+            textView.delegate = self
+        }
     }
 
     override func select(withFrame rect: NSRect, in controlView: NSView, editor textObj: NSText, delegate: Any?, start selStart: Int, length selLength: Int) {
@@ -82,5 +85,21 @@ class AddDomainCell: NSTextFieldCell {
         let maskColor = NSColor.black
         maskColor.setFill()
         ringPath.fill()
+    }
+
+    func textView(_ textView: NSTextView, shouldChangeTextIn affectedCharRange: NSRange, replacementString: String?) -> Bool {
+        guard let replacementString else { return true }
+
+        // More robust approach using a regex to remove various newline characters
+        let pattern = "[\n\r]+" // Matches \n, \r, and \r\n
+        let cleaned = replacementString.replacingOccurrences(of: pattern, with: "", options: .regularExpression)
+
+        if cleaned != replacementString {
+            // Manually replace the text with the cleaned version
+            textView.replaceCharacters(in: affectedCharRange, with: cleaned)
+            return false
+        }
+
+        return true
     }
 }
