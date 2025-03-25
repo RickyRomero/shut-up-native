@@ -6,7 +6,7 @@
 //  See LICENSE.md for license information.
 //
 
-import Cocoa
+import Foundation
 
 enum Info {
     static let containingBundleId = "com.rickyromero.shutup" // WORKAROUND: Can't determine programmatically
