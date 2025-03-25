@@ -6,7 +6,6 @@
 //  See LICENSE.md for license information.
 //
 
-import Cocoa
 import Foundation
 import OSLog
 
