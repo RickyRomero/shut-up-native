@@ -217,7 +217,7 @@ extension MainViewController: NSTableViewDataSource {
 
 // MARK: NSTableViewDelegate
 
-extension MainViewController: NSTabViewDelegate {
+extension MainViewController: NSTableViewDelegate {
     @objc func editSelectedRow() {
         let selectedRow = whitelistView.selectedRow
         guard selectedRow >= 0,
@@ -243,20 +243,9 @@ extension MainViewController: NSTabViewDelegate {
         }
         return []
     }
-}
 
-// MARK: WhitelistDataDelegate
+    // MARK: - Context Menu
 
-extension MainViewController: WhitelistDataDelegate {
-    func newWhitelistDataAvailable() {
-        undoManager?.removeAllActions()
-        reloadTableData()
-    }
-}
-
-// MARK: - Context Menu
-
-extension MainViewController: NSTableViewDelegate {
     func tableView(_: NSTableView, menuFor _: NSEvent) -> NSMenu? {
         let menu = NSMenu(title: "Context Menu")
 
@@ -291,6 +280,15 @@ extension MainViewController: NSTableViewDelegate {
         menu.addItem(deleteItem)
 
         return menu
+    }
+}
+
+// MARK: WhitelistDataDelegate
+
+extension MainViewController: WhitelistDataDelegate {
+    func newWhitelistDataAvailable() {
+        undoManager?.removeAllActions()
+        reloadTableData()
     }
 }
 
