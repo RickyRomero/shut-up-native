@@ -471,6 +471,16 @@
         }
       }
     },
+    "Select All" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle auswählen"
+          }
+        }
+      }
+    },
     "Show Comments" : {
       "comment" : "Context menu item title\nToolbar button label",
       "localizations" : {

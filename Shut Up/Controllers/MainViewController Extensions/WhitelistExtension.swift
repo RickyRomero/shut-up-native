@@ -271,13 +271,18 @@ extension MainViewController: NSTableViewDelegate {
                                    keyEquivalent: "v")
         menu.addItem(pasteItem)
 
-        menu.addItem(NSMenuItem.separator())
-
         let deleteItem = NSMenuItem(title: String(localized: "Delete"),
                                     action: #selector(delete(_:)),
                                     keyEquivalent: "\u{8}")
         deleteItem.keyEquivalentModifierMask = []
         menu.addItem(deleteItem)
+
+        menu.addItem(NSMenuItem.separator())
+
+        let selectAllItem = NSMenuItem(title: String(localized: "Select All"),
+                                       action: #selector(selectAll(_:)),
+                                       keyEquivalent: "a")
+        menu.addItem(selectAllItem)
 
         return menu
     }
