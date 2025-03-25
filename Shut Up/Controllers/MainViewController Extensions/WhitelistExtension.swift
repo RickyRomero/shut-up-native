@@ -251,7 +251,7 @@ extension MainViewController: NSTableViewDelegate {
 
         let editItem = NSMenuItem(title: String(localized: "Edit"),
                                   action: #selector(editSelectedRow),
-                                  keyEquivalent: "e")
+                                  keyEquivalent: "\r")
         menu.addItem(editItem)
 
         menu.addItem(NSMenuItem.separator())
