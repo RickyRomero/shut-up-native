@@ -102,6 +102,26 @@
         }
       }
     },
+    "Copy" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kopieren"
+          }
+        }
+      }
+    },
+    "Cut" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ausschneiden"
+          }
+        }
+      }
+    },
     "Cut %@" : {
       "localizations" : {
         "de" : {
@@ -138,6 +158,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Edge"
+          }
+        }
+      }
+    },
+    "Edit" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bearbeiten"
           }
         }
       }
@@ -335,6 +365,16 @@
         }
       }
     },
+    "Paste" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einsetzen"
+          }
+        }
+      }
+    },
     "Quit" : {
       "comment" : "Quitting app button text – error recovery",
       "localizations" : {
@@ -427,6 +467,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Safari konnte die Inhaltsblockierungsregeln von Shut Up nicht lesen"
+          }
+        }
+      }
+    },
+    "Select All" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle auswählen"
           }
         }
       }
