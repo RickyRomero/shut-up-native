@@ -715,7 +715,7 @@ DQ
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" verifyAmbiguity="ignoreSizes" translatesAutoresizingMaskIntoConstraints="NO" id="GgI-mz-EF8">
+                                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" verifyAmbiguity="ignoreSizes" translatesAutoresizingMaskIntoConstraints="NO" id="GgI-mz-EF8">
                                             <rect key="frame" x="23" y="154" width="90" height="16"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Shut Up Core" id="ea7-dt-MHi">
                                                 <font key="font" metaFont="systemBold"/>
@@ -723,8 +723,8 @@ DQ
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <button verifyAmbiguity="ignoreSizes" horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V5i-0F-zAh">
-                                            <rect key="frame" x="435" y="64" width="96" height="32"/>
+                                        <button verifyAmbiguity="ignoreSizes" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="V5i-0F-zAh">
+                                            <rect key="frame" x="434" y="64" width="96" height="32"/>
                                             <buttonCell key="cell" type="push" title="Enable…" bezelStyle="rounded" imagePosition="leading" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="pfk-Im-BNr">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -747,8 +747,8 @@ DQ
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <button verifyAmbiguity="ignoreSizes" horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zkd-T1-Gxk">
-                                            <rect key="frame" x="435" y="144" width="96" height="32"/>
+                                        <button verifyAmbiguity="ignoreSizes" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="Zkd-T1-Gxk">
+                                            <rect key="frame" x="434" y="144" width="96" height="32"/>
                                             <buttonCell key="cell" type="push" title="Enable…" bezelStyle="rounded" imagePosition="leading" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rai-gP-CDR">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -757,7 +757,7 @@ DQ
                                                 <action selector="coreButtonClicked:" target="BRk-Bm-QBs" id="6F6-cz-8NU"/>
                                             </connections>
                                         </button>
-                                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" verifyAmbiguity="ignoreSizes" translatesAutoresizingMaskIntoConstraints="NO" id="HJX-9n-nlh">
+                                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" verifyAmbiguity="ignoreSizes" translatesAutoresizingMaskIntoConstraints="NO" id="HJX-9n-nlh">
                                             <rect key="frame" x="23" y="74" width="103" height="16"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Shut Up Helper" id="teG-qw-aUj">
                                                 <font key="font" metaFont="systemBold"/>
@@ -765,7 +765,7 @@ DQ
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" verifyAmbiguity="ignoreSizes" translatesAutoresizingMaskIntoConstraints="NO" id="tDr-U4-I7t">
+                                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" verifyAmbiguity="ignoreSizes" translatesAutoresizingMaskIntoConstraints="NO" id="tDr-U4-I7t">
                                             <rect key="frame" x="117" y="154" width="48" height="14"/>
                                             <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" title="required" id="0Ql-qg-slX">
                                                 <font key="font" metaFont="message" size="11"/>
@@ -779,6 +779,7 @@ DQ
                                         <constraint firstItem="Zkd-T1-Gxk" firstAttribute="top" secondItem="Kiu-l1-u8i" secondAttribute="top" constant="25" id="4pa-FX-orY"/>
                                         <constraint firstItem="V5i-0F-zAh" firstAttribute="leading" relation="lessThanOrEqual" secondItem="HJX-9n-nlh" secondAttribute="trailing" constant="317" id="6qo-9e-PYN"/>
                                         <constraint firstItem="aL5-9A-XWe" firstAttribute="top" secondItem="UoL-la-tbh" secondAttribute="bottom" constant="8" symbolic="YES" id="7jM-MS-DRK"/>
+                                        <constraint firstItem="GgI-mz-EF8" firstAttribute="baseline" secondItem="tDr-U4-I7t" secondAttribute="baseline" id="ARx-52-ofW"/>
                                         <constraint firstItem="tDr-U4-I7t" firstAttribute="firstBaseline" secondItem="Zkd-T1-Gxk" secondAttribute="firstBaseline" id="Hgy-jU-Oit"/>
                                         <constraint firstItem="GgI-mz-EF8" firstAttribute="leading" secondItem="Kiu-l1-u8i" secondAttribute="leading" constant="25" id="Iai-CO-quY"/>
                                         <constraint firstItem="nVo-DR-JRQ" firstAttribute="top" secondItem="V5i-0F-zAh" secondAttribute="bottom" constant="5" id="PZw-iR-Kqm"/>
@@ -796,7 +797,6 @@ DQ
                                         <constraint firstItem="tDr-U4-I7t" firstAttribute="leading" secondItem="GgI-mz-EF8" secondAttribute="trailing" constant="8" id="raL-vM-1Ik"/>
                                         <constraint firstAttribute="trailing" secondItem="V5i-0F-zAh" secondAttribute="trailing" constant="25" id="teQ-l3-9yL"/>
                                         <constraint firstItem="aL5-9A-XWe" firstAttribute="leading" secondItem="Kiu-l1-u8i" secondAttribute="leading" constant="25" id="ux4-ao-iKZ"/>
-                                        <constraint firstItem="GgI-mz-EF8" firstAttribute="firstBaseline" secondItem="Zkd-T1-Gxk" secondAttribute="firstBaseline" id="vcZ-JU-tZp"/>
                                         <constraint firstAttribute="trailing" secondItem="UoL-la-tbh" secondAttribute="trailing" constant="25" id="xHx-L7-UvF"/>
                                         <constraint firstItem="Zkd-T1-Gxk" firstAttribute="leading" relation="lessThanOrEqual" secondItem="tDr-U4-I7t" secondAttribute="trailing" constant="278" id="y5t-a9-Pdd"/>
                                         <constraint firstAttribute="trailing" secondItem="nVo-DR-JRQ" secondAttribute="trailing" constant="25" id="zYG-p9-TYz"/>
