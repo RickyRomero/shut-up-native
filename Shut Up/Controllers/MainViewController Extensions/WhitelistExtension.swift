@@ -218,6 +218,20 @@ extension MainViewController: NSTableViewDataSource {
 // MARK: NSTableViewDelegate
 
 extension MainViewController: NSTableViewDelegate {
+    @objc func editSelectedRow() {
+        let selectedRow = whitelistView.selectedRow
+        guard selectedRow >= 0,
+              let rowView = whitelistView.rowView(atRow: selectedRow, makeIfNecessary: false),
+              let cellView = rowView.view(atColumn: 0) as? NSTableCellView,
+              let textField = cellView.textField
+        else {
+            return
+        }
+
+        whitelistView.editColumn(0, row: selectedRow, with: nil, select: true)
+        textField.becomeFirstResponder()
+    }
+
     // Swipe actions for the table view
     func tableView(_: NSTableView, rowActionsForRow row: Int, edge: NSTableView.RowActionEdge) -> [NSTableViewRowAction] {
         if edge == .trailing {
@@ -228,6 +242,49 @@ extension MainViewController: NSTableViewDelegate {
             return [deleteAction]
         }
         return []
+    }
+
+    // MARK: - Context Menu
+
+    func tableView(_: NSTableView, menuFor _: NSEvent) -> NSMenu? {
+        let menu = NSMenu(title: "Context Menu")
+
+        let editItem = NSMenuItem(title: String(localized: "Edit"),
+                                  action: #selector(editSelectedRow),
+                                  keyEquivalent: "\r")
+        menu.addItem(editItem)
+
+        menu.addItem(NSMenuItem.separator())
+
+        let cutItem = NSMenuItem(title: String(localized: "Cut"),
+                                 action: #selector(cut(_:)),
+                                 keyEquivalent: "x")
+        menu.addItem(cutItem)
+
+        let copyItem = NSMenuItem(title: String(localized: "Copy"),
+                                  action: #selector(copy(_:)),
+                                  keyEquivalent: "c")
+        menu.addItem(copyItem)
+
+        let pasteItem = NSMenuItem(title: String(localized: "Paste"),
+                                   action: #selector(pasteAsPlainText(_:)),
+                                   keyEquivalent: "v")
+        menu.addItem(pasteItem)
+
+        let deleteItem = NSMenuItem(title: String(localized: "Delete"),
+                                    action: #selector(delete(_:)),
+                                    keyEquivalent: "\u{8}")
+        deleteItem.keyEquivalentModifierMask = []
+        menu.addItem(deleteItem)
+
+        menu.addItem(NSMenuItem.separator())
+
+        let selectAllItem = NSMenuItem(title: String(localized: "Select All"),
+                                       action: #selector(selectAll(_:)),
+                                       keyEquivalent: "a")
+        menu.addItem(selectAllItem)
+
+        return menu
     }
 }
 
@@ -240,14 +297,57 @@ extension MainViewController: WhitelistDataDelegate {
     }
 }
 
+// MARK: - Custom TableView for Context Menu
+
+class ContextMenuTableView: NSTableView {
+    override func menu(for event: NSEvent) -> NSMenu? {
+        if let delegate = delegate as? MainViewController {
+            return delegate.tableView(self, menuFor: event)
+        }
+        return super.menu(for: event)
+    }
+}
+
 // MARK: WhitelistDataDelegate
 
 extension MainViewController: NSMenuItemValidation {
     func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
-        switch menuItem.identifier?.rawValue {
-        case "menu_cut", "menu_copy", "menu_delete":
-            whitelistView.selectedRowIndexes.count > 0
-        default: true
+        var actionValid = true
+        var identifierValid = true
+
+        // Validate based on the menu item's action.
+        if let action = menuItem.action {
+            switch action {
+            case #selector(editSelectedRow):
+                actionValid = whitelistView.selectedRowIndexes.count == 1
+            case #selector(cut(_:)), #selector(copy(_:)), #selector(delete(_:)):
+                actionValid = whitelistView.selectedRowIndexes.count > 0
+            default:
+                actionValid = true
+            }
         }
+
+        // Validate based on the menu item's identifier.
+        if let identifier = menuItem.identifier?.rawValue {
+            switch identifier {
+            case "menu_cut", "menu_copy", "menu_delete":
+                identifierValid = whitelistView.selectedRowIndexes.count > 0
+            default:
+                identifierValid = true
+            }
+        }
+
+        // If both an action and an identifier are provided, require both conditions to pass.
+        if menuItem.action != nil, menuItem.identifier != nil {
+            return actionValid && identifierValid
+        }
+        // Otherwise, use whichever is applicable.
+        if menuItem.action != nil {
+            return actionValid
+        }
+        if menuItem.identifier != nil {
+            return identifierValid
+        }
+        return true
     }
 }
