@@ -6,7 +6,7 @@
 //  See LICENSE.md for license information.
 //
 
-import Cocoa
+import Foundation
 
 final class EncryptedFile {
     let fsLocation: URL
